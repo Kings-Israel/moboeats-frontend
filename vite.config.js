@@ -7,6 +7,7 @@ export default defineConfig({
   define: {
     'process.env': process.env
   },
+  base: process.env.NODE_ENV == 'production' ? 'http://194.163.129.200/moboeats-frontend/' : '',
   plugins: [vue()],
   resolve: {
     alias: [
@@ -22,7 +23,7 @@ export default defineConfig({
   build: {
     commonjsOptions: {
       transformMixedEsModules: true,
-    }
+    },
   },
   server: {
     host: 'admin.moboeats.test',
