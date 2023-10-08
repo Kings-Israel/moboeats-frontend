@@ -78,27 +78,42 @@ const router = createRouter({
     {
       path: '/',
       component: Dashboard,
-      name: 'dashboard'
+      name: 'dashboard',
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/users',
       component: Users,
-      name: 'users'
+      name: 'users',
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/restaurant-admins',
       component: RestaurantAdmins,
-      name: 'restaurant-admins'
+      name: 'restaurant-admins',
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/riders',
       component: Riders,
       name: 'riders',
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/restaurants',
       component: Restaurants,
-      name: 'restaurants'
+      name: 'restaurants',
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/dashboard/analytics',
@@ -278,11 +293,19 @@ const router = createRouter({
     },
     {
       path: '/signin',
-      component: Signin
+      component: Signin,
+      name: 'auth-login',
+      meta: {
+        requiresGuest: true,
+      },
     },
     {
       path: '/signup',
-      component: Signup
+      component: Signup,
+      name: 'auth-signup',
+      meta: {
+        requiresGuest: true,
+      },
     },
     {
       path: '/reset-password',
@@ -358,9 +381,37 @@ const router = createRouter({
     },
     {
       path: '/:pathMatch(.*)*',
-      component: PageNotFound
+      component: PageNotFound,
+      name: 'misc-not-authorized'
     }
   ]
+})
+
+const isUserLoggedIn = () => {
+  return localStorage.getItem('user') && localStorage.getItem('token')
+}
+
+router.beforeEach((to, _, next) => {
+  const isLoggedIn = isUserLoggedIn()
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!isLoggedIn) {
+      next({
+        name: 'auth-login',
+      })
+    } else {
+      next()
+    }
+  } else if (to.matched.some(record => record.meta.requiresGuest)) {
+    if (isLoggedIn) {
+      next({
+        name: 'dashboard',
+      })
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
 })
 
 export default router

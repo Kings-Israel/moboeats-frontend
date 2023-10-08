@@ -196,7 +196,6 @@ export default {
     onMounted(() => {
       $http.get('/admin/users/rider')
         .then(response => {
-          console.log(response.data.data)
           nextPageUrl.value = response.data.data.next_page_url
           lastPageUrl.value = response.data.data.last_page_url
           prevPageUrl.value = response.data.data.prev_page_url
