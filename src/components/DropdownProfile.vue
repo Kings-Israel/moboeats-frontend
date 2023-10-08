@@ -86,8 +86,9 @@ export default {
 
     const logout = () => {
       http.post('/logout')
-        .then(response => {
-          console.log(response)
+        .then(() => {
+          localStorage.removeItem('user')
+          localStorage.removeItem('token')
           router.push({ name: 'auth-login' })
         })
         .catch(error => {

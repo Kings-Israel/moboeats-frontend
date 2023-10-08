@@ -91,7 +91,6 @@ export default {
         password: password.value
       })
         .then(response => {
-          console.log(response)
           localStorage.setItem('user', JSON.stringify(response.data.data.user))
           localStorage.setItem('token', response.data.data.token)
           router.push({ name: 'dashboard' })
