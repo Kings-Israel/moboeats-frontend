@@ -1,0 +1,70 @@
+<template>
+  <div class="flex justify-center">
+    <nav class="flex" role="navigation" aria-label="Navigation">
+      <!-- <div class="mr-2" v-if="prev_page" @click="changePage(prev_page)">
+        <span class="inline-flex items-center justify-center rounded leading-5 px-2.5 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-300 dark:text-slate-600">
+          <span class="sr-only">Previous</span><wbr />
+          <svg class="h-4 w-4 fill-current" viewBox="0 0 16 16">
+            <path d="M9.4 13.4l1.4-1.4-4-4 4-4-1.4-1.4L4 8z" />
+          </svg>
+        </span>
+      </div> -->
+      <ul class="inline-flex text-sm font-medium -space-x-px shadow-sm">
+        <li v-for="link in links" :key="link.label">
+          <span v-if="link.url != null" @click="changePage(link.url)" class="inline-flex items-center justify-center rounded-l leading-5 px-3.5 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-indigo-500 hover:cursor-pointer" v-html="link.label"></span>
+        </li>
+        <!-- <li>
+          <a class="inline-flex items-center justify-center leading-5 px-3.5 py-2 bg-white dark:bg-slate-800 hover:bg-indigo-500 dark:hover:bg-indigo-500 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-white" href="#0">2</a>
+        </li>
+        <li>
+          <a class="inline-flex items-center justify-center leading-5 px-3.5 py-2 bg-white dark:bg-slate-800 hover:bg-indigo-500 dark:hover:bg-indigo-500 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-white" href="#0">3</a>
+        </li>
+        <li>
+          <span class="inline-flex items-center justify-center leading-5 px-3.5 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-500">…</span>
+        </li>
+        <li>
+          <a class="inline-flex items-center justify-center rounded-r leading-5 px-3.5 py-2 bg-white dark:bg-slate-800 hover:bg-indigo-500 dark:hover:bg-indigo-500 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-white" href="#0">9</a>
+        </li> -->
+      </ul>
+      <!-- <div class="ml-2" v-if="next_page" @click="changePage(next_page)">
+        <a href="#0" class="inline-flex items-center justify-center rounded leading-5 px-2.5 py-2 bg-white dark:bg-slate-800 hover:bg-indigo-500 dark:hover:bg-indigo-500 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-white shadow-sm">
+          <span class="sr-only">Next</span><wbr />
+          <svg class="h-4 w-4 fill-current" viewBox="0 0 16 16">
+            <path d="M6.6 13.4L5.2 12l4-4-4-4 1.4-1.4L12 8z" />
+          </svg>
+        </a>
+      </div> -->
+    </nav>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'PaginationNumeric',
+  props: {
+    next_page: {
+      type: String,
+    },
+    prev_page: {
+      type: String,
+    },
+    from: {
+      type: Number
+    },
+    to: {
+      type: Number
+    },
+    total_items: {
+      type: Number,
+    },
+    links: {
+      type: Array
+    }
+  },
+  methods: {
+    changePage(page) {
+      this.$emit('change-page', page)
+    }
+  }
+}
+</script>
