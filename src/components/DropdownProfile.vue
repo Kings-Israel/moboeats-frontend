@@ -30,7 +30,7 @@
           @focusout="dropdownOpen = false"
         >
           <li>
-            <span class="font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center py-1 px-3" @click="logout">Sign Out</span>
+            <span class="font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center py-1 px-3 cursor-pointer" @click="logout">Sign Out</span>
           </li>
         </ul>
       </div> 
