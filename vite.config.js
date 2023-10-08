@@ -11,12 +11,6 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: [
-      {
-        find: /^~.+/,
-        replacement: (val) => {
-          return val.replace(/^~/, "");
-        },
-      },
       {find: '@axios', replacement: () => resolve(__dirname, 'src/api/axios')},
     ],
   },
