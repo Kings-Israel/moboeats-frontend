@@ -305,22 +305,22 @@ const router = createRouter({
     //   path: '/utility/knowledge-base',
     //   component: KnowledgeBase
     // },
-    // {
-    //   path: '/signin',
-    //   component: Signin,
-    //   name: 'auth-login',
-    //   meta: {
-    //     requiresGuest: true,
-    //   },
-    // },
-    // {
-    //   path: '/signup',
-    //   component: Signup,
-    //   name: 'auth-signup',
-    //   meta: {
-    //     requiresGuest: true,
-    //   },
-    // },
+    {
+      path: '/signin',
+      component: Signin,
+      name: 'auth-login',
+      meta: {
+        requiresGuest: true,
+      },
+    },
+    {
+      path: '/signup',
+      component: Signup,
+      name: 'auth-signup',
+      meta: {
+        requiresGuest: true,
+      },
+    },
     // {
     //   path: '/reset-password',
     //   component: ResetPassword
