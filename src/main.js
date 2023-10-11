@@ -11,8 +11,11 @@ import "vue-toastification/dist/index.css";
 // import '@axios'
 import axiosIns from './api/axios'
 
+import moment from 'moment'
+
 const app = createApp(App)
 app.use(router)
 app.use(Toast)
+app.use('moment', moment)
 app.provide('$http', axiosIns)
 app.mount('#app')

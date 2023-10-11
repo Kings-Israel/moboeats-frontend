@@ -163,7 +163,7 @@
               </a>
             </router-link>
             <!-- Orders -->
-            <router-link class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" to="/">
+            <router-link class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" to="/orders">
               <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                 <path class="fill-current" :class="currentRoute.fullPath.includes('orders') ? 'text-indigo-300' : 'text-slate-400'" d="M13 15l11-7L11.504.136a1 1 0 00-1.019.007L0 7l13 8z" />
                 <path class="fill-current" :class="currentRoute.fullPath.includes('orders') ? 'text-indigo-600' : 'text-slate-700'" d="M13 15L0 7v9c0 .355.189.685.496.864L13 24v-9z" />
@@ -174,7 +174,7 @@
               </a>
             </router-link>
             <!-- Payments -->
-            <router-link class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" to="/">
+            <router-link class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" to="/payments">
               <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                 <path class="fill-current" :class="currentRoute.fullPath.includes('payments') ? 'text-indigo-600' : 'text-slate-700'" d="M4.418 19.612A9.092 9.092 0 0 1 2.59 17.03L.475 19.14c-.848.85-.536 2.395.743 3.673a4.413 4.413 0 0 0 1.677 1.082c.253.086.519.131.787.135.45.011.886-.16 1.208-.474L7 21.44a8.962 8.962 0 0 1-2.582-1.828Z" />
                 <path class="fill-current" :class="currentRoute.fullPath.includes('payments') ? 'text-indigo-500' : 'text-slate-600'" d="M10.034 13.997a11.011 11.011 0 0 1-2.551-3.862L4.595 13.02a2.513 2.513 0 0 0-.4 2.645 6.668 6.668 0 0 0 1.64 2.532 5.525 5.525 0 0 0 3.643 1.824 2.1 2.1 0 0 0 1.534-.587l2.883-2.882a11.156 11.156 0 0 1-3.861-2.556Z" />

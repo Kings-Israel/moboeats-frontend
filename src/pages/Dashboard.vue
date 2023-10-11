@@ -17,7 +17,7 @@
                 <div class="grow p-5">
                   <header>
                     <div class="flex justify-center mb-2">
-                      <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/">
+                      <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
                         <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
                           <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
                         </svg>
@@ -30,7 +30,7 @@
                   </header>
                 </div>
                 <div class="border-t border-slate-200 dark:border-slate-700">
-                  <router-link class="block text-center text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium px-3 py-4" to="/">
+                  <router-link class="block text-center text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium px-3 py-4" to="/users">
                     <div class="flex items-center justify-center">
                       <span>View Users</span>
                     </div>
@@ -45,7 +45,7 @@
                 <div class="grow p-5">
                   <header>
                     <div class="flex justify-center mb-2">
-                      <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/">
+                      <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/restaurants">
                         <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
                           <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
                         </svg>
@@ -58,7 +58,7 @@
                   </header>
                 </div>
                 <div class="border-t border-slate-200 dark:border-slate-700">
-                  <router-link class="block text-center text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium px-3 py-4" to="/">
+                  <router-link class="block text-center text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium px-3 py-4" to="/restaurants">
                     <div class="flex items-center justify-center">
                       <span>View Restaurants</span>
                     </div>
@@ -73,7 +73,7 @@
                 <div class="grow p-5">
                   <header>
                     <div class="flex justify-center mb-2">
-                      <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/">
+                      <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/riders">
                         <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
                           <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
                         </svg>
@@ -86,7 +86,7 @@
                   </header>
                 </div>
                 <div class="border-t border-slate-200 dark:border-slate-700">
-                  <router-link class="block text-center text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium px-3 py-4" to="/">
+                  <router-link class="block text-center text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium px-3 py-4" to="/riders">
                     <div class="flex items-center justify-center">
                       <span>View Riders</span>
                     </div>
@@ -148,7 +148,7 @@
             <!-- Doughnut chart (Top Countries) -->
             <DashboardCard06 />
             <!-- Table (Top Channels) -->
-            <DashboardCard07 />
+            <TopRestaurants v-if="top_restaurants.length > 0" :restaurants="top_restaurants" />
             <!-- Line chart (Sales Over Time) -->
             <DashboardCard08 />
             <!-- Stacked bar chart (Sales VS Refunds) -->
@@ -165,15 +165,13 @@
 </template>
 
 <script>
-import { ref, inject, onMounted, reactive } from 'vue'
+import { ref, inject, onMounted } from 'vue'
 import Sidebar from '../partials/Sidebar.vue'
 import Header from '../partials/Header.vue'
 import WelcomeBanner from '../partials/dashboard/WelcomeBanner.vue'
 import DashboardAvatars from '../partials/dashboard/DashboardAvatars.vue'
 import FilterButton from '../components/DropdownFilter.vue'
 import Datepicker from '../components/Datepicker.vue'
-// import DashboardCard01 from '../partials/dashboard/DashboardCard01.vue'
-// import DashboardCard02 from '../partials/dashboard/DashboardCard02.vue'
 import DashboardCard03 from '../partials/dashboard/DashboardCard03.vue'
 import DashboardCard04 from '../partials/dashboard/DashboardCard04.vue'
 import DashboardCard05 from '../partials/dashboard/DashboardCard05.vue'
@@ -185,6 +183,7 @@ import DashboardCard10 from '../partials/dashboard/DashboardCard10.vue'
 import DashboardCard11 from '../partials/dashboard/DashboardCard11.vue'
 import Sales from '../partials/dashboard/Sales.vue'
 import Payments from '../partials/dashboard/Payments.vue'
+import TopRestaurants from '../partials/dashboard/TopRestaurants.vue'
 
 export default {
   name: 'Dashboard',
@@ -195,8 +194,6 @@ export default {
     DashboardAvatars,
     FilterButton,
     Datepicker,
-    // DashboardCard01,
-    // DashboardCard02,
     DashboardCard03,
     DashboardCard04,
     DashboardCard05,
@@ -208,6 +205,7 @@ export default {
     DashboardCard11,
     Sales,
     Payments,
+    TopRestaurants,
   },
   setup() {
     const $http = inject("$http")
@@ -216,6 +214,7 @@ export default {
     const restaurants = ref(0)
     const riders = ref(0)
     const orders = ref(0)
+    const top_restaurants = ref([])
     let ordersData = { labels: [], data: [], total_orders: 0, orders_difference: 0, orders_difference: ""}
     let paymentsData = { labels: [], data: [], total_orders: 0, orders_difference: 0, orders_difference: ""}
 
@@ -234,6 +233,7 @@ export default {
           paymentsData.total_payments = response.data.data.payments_series.total_payments
           paymentsData.payments_direction = response.data.data.payments_series.payments_direction
           paymentsData.payments_difference = response.data.data.payments_series.payments_difference
+          top_restaurants.value = response.data.data.top_restaurants
           users.value = response.data.data.users
           restaurants.value = response.data.data.restaurants
           riders.value = response.data.data.riders
@@ -247,7 +247,8 @@ export default {
       users,
       restaurants,
       riders,
-      orders
+      orders,
+      top_restaurants
     }  
   }
 }

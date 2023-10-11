@@ -34,7 +34,7 @@ import LineChart from '../../charts/LineChart03.vue'
 import { tailwindConfig, hexToRGB } from '../../utils/Utils'
 
 export default {
-  name: 'Sales',
+  name: 'Payments',
   components: {
     LineChart,
   },
