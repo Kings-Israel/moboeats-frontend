@@ -114,7 +114,7 @@
                   </header>
                 </div>
                 <div class="border-t border-slate-200 dark:border-slate-700">
-                  <router-link class="block text-center text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium px-3 py-4" to="/">
+                  <router-link class="block text-center text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium px-3 py-4" :to="{ name: 'orders' }">
                     <div class="flex items-center justify-center">
                       <span>View Orders</span>
                     </div>

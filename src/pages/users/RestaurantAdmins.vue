@@ -126,14 +126,7 @@
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                         <!-- Menu button -->
-                        <button class="text-slate-400 hover:text-slate-500 dark:text-slate-500 dark:hover:text-slate-400 rounded-full">
-                          <span class="sr-only">Menu</span>
-                          <svg class="w-8 h-8 fill-current" viewBox="0 0 32 32">
-                            <circle cx="16" cy="16" r="2" />
-                            <circle cx="10" cy="16" r="2" />
-                            <circle cx="22" cy="16" r="2" />
-                          </svg>
-                        </button>
+                        <router-link class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm" :to="{ name: 'user-details', 'params': { id: customer.id }}">View</router-link>
                       </td>
                     </tr>
                   </tbody>
