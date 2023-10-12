@@ -68,6 +68,7 @@ import IconsPage from './pages/component/IconsPage.vue'
 import Users from './pages/users/Users.vue'
 import RestaurantAdmins from './pages/users/RestaurantAdmins.vue'
 import Riders from './pages/users/Riders.vue'
+import User from './pages/users/Details.vue'
 import Restaurants from './pages/restautants/Index.vue'
 import Orders from './pages/orders/Orders.vue'
 import Payments from './pages/payments/Payments.vue'
@@ -89,6 +90,14 @@ const router = createRouter({
       path: '/users',
       component: Users,
       name: 'users',
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/users/:id',
+      component: User,
+      name: 'user-details',
       meta: {
         requiresAuth: true,
       },
