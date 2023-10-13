@@ -105,7 +105,7 @@
                         <div class="text-center">{{customer.refunds}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
-                        <router-link class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm" :to="{ name: 'user-details', 'params': { id: customer.id }}">View</router-link>
+                        <router-link class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm" :to="{ name: 'user-details', 'params': { id: customer.id, type: 'user' }}">View</router-link>
                       </td>
                     </tr>
                   </tbody>

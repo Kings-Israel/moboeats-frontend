@@ -136,6 +136,8 @@
             <Sales v-if="ordersData.labels.length > 0" :data="ordersData" />
             <!-- Payments -->
             <Payments v-if="paymentsData.labels.length > 0" :data="paymentsData" />
+            <!-- Categories -->
+            <Categories /> 
             <!-- <DashboardCard01 /> -->
             <!-- Users Registration Rate -->
             <!-- <DashboardCard02 /> -->
@@ -184,6 +186,7 @@ import DashboardCard11 from '../partials/dashboard/DashboardCard11.vue'
 import Sales from '../partials/dashboard/Sales.vue'
 import Payments from '../partials/dashboard/Payments.vue'
 import TopRestaurants from '../partials/dashboard/TopRestaurants.vue'
+import Categories from '../partials/dashboard/Categories.vue'
 
 export default {
   name: 'Dashboard',
@@ -206,6 +209,7 @@ export default {
     Sales,
     Payments,
     TopRestaurants,
+    Categories,
   },
   setup() {
     const $http = inject("$http")
@@ -248,7 +252,7 @@ export default {
       restaurants,
       riders,
       orders,
-      top_restaurants
+      top_restaurants,
     }  
   }
 }

@@ -126,7 +126,7 @@
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                         <!-- Menu button -->
-                        <router-link class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm" :to="{ name: 'user-details', 'params': { id: customer.id }}">View</router-link>
+                        <router-link class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm" :to="{ name: 'restaurant-admin-details', 'params': { id: customer.id, type: 'restaurant-admin' }}">View</router-link>
                       </td>
                     </tr>
                   </tbody>

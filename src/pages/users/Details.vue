@@ -26,16 +26,36 @@
             </div>
           </div>  
           <div class="grid grid-cols-12 gap-6">
-            <div class="col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
-              <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700">
-                <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Info</h2>
-              </header>
-              <div class="flex flex-col space-y-2 p-3">
-                <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Email:</span><strong>{{ user.email }}</strong></h1>
-                <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong>{{ user.phone_number }}</strong></h1>
-                <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Registered On:</span><strong>{{ moment(user.created_at).format('Do MMMM Y') }}</strong></h1>
-                <h1 v-if="user_roles.includes('orderer')" class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Total Orders:</span><strong>{{ user.orders_count }}</strong></h1>
-                <h1 v-if="user_roles.includes('restaurant')" class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Total Restaurants:</span><strong>{{ user.restaurants_count }}</strong></h1>
+            <div class="col-span-full xl:col-span-4">
+              <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
+                <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700">
+                  <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Info</h2>
+                </header>
+                <div class="flex flex-col space-y-2 p-3">
+                  <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Email:</span><strong>{{ user.email }}</strong></h1>
+                  <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong>{{ user.phone_number }}</strong></h1>
+                  <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Registered On:</span><strong>{{ moment(user.created_at).format('Do MMMM Y') }}</strong></h1>
+                  <h1 v-if="user_roles.includes('orderer')" class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Total Orders:</span><strong>{{ user.orders_count }}</strong></h1>
+                  <h1 v-if="user_roles.includes('restaurant')" class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Total Restaurants:</span><strong>{{ user.restaurants_count }}</strong></h1>
+                </div>
+              </div>
+              <div v-if="user_roles.includes('rider') && rider_profile" class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
+                <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700">
+                  <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Rider Profile</h2>
+                </header>
+                <div class="grid grid-cols-3">
+                  <div class="col-span-2 flex flex-col space-y-2 p-3">
+                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Vehicle Type:</span><strong>{{ rider_profile.vehicle_type }}</strong></h1>
+                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>License Plate:</span><strong>{{ rider_profile.vehicle_license_plate }}</strong></h1>
+                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Registered On:</span><strong>{{ moment(rider_profile.created_at).format('Do MMMM Y') }}</strong></h1>
+                  </div>
+                  <img :src="rider_profile.profile_picture" alt="" class="w-28 h-28 rounded-full object-cover">
+                </div>
+              </div>
+              <div v-if="user_roles.includes('rider') && !rider_profile" class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
+                <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700">
+                  <h2 class="font-semibold text-red-800 dark:text-red-500 text-center">Rider Profile Not Created</h2>
+                </header>
               </div>
             </div>
             <div v-if="user_roles.includes('orderer')" class="col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
@@ -144,6 +164,59 @@
                 </div>
               </div>
             </div>
+            <div v-if="user_roles.includes('rider')" class="col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+              <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700">
+                <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Deliveries</h2>
+              </header>
+              <div class="p-3">
+                <!-- Table -->
+                <div class="overflow-x-auto">
+                  <table class="table-auto w-full dark:text-slate-300">
+                    <!-- Table header -->
+                    <thead class="text-xs uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm">
+                      <tr>
+                        <th class="p-2">
+                          <div class="font-semibold text-left">Order ID</div>
+                        </th>
+                        <th class="p-2">
+                          <div class="font-semibold text-center">Status</div>
+                        </th>
+                        <th class="p-2">
+                          <div class="font-semibold text-center">Created On</div>
+                        </th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <!-- Table body -->
+                    <tbody class="text-sm font-medium divide-y divide-slate-100 dark:divide-slate-700">
+                      <!-- Row -->
+                      <tr v-for="delivery in deliveries" :key="delivery.id">
+                        <td class="p-2">
+                          <div class="">
+                            <!-- TODO:Add Link to View Order -->
+                            <div class="text-slate-800 dark:text-slate-100">{{ getOrderId(delivery) }}</div>
+                          </div>
+                        </td>
+                        <td class="p-2">
+                          <div :class="'text-center '+resolveOrderStatus(delivery.status)">{{ delivery.status }}</div>
+                        </td>
+                        <td class="p-2">
+                          <div class="text-center">{{ moment(delivery.created_at).format('Do MMM Y') }}</div>
+                        </td>
+                        <td class="p-2 flex justify-center">
+                          <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm">View</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- Pagination -->
+                  <div class="mt-8">
+                    <PaginationClassic @change-page="changeDeliveriesPage" :next_page="nextDeliveriesPageUrl" :prev_page="prevDeliveriesPageUrl" :from="deliveriesFrom" :to="deliveriesTo" :total_items="deliveriesTotalItems" />
+                    <!-- <PaginationNumeric @change-page="changePage" :next_page="nextOrdersPageUrl" :prev_page="prevOrdersPageUrl" :from="from" :to="to" :total_items="totalItems" :links="ordersPagesLinks" /> -->
+                  </div> 
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </main>
@@ -163,16 +236,6 @@ import PaginationClassic from '../../components/PaginationClassic.vue'
 import PaginationNumeric from '../../components/PaginationNumeric.vue'
 import { useRoute } from 'vue-router'
 import moment from 'moment';
-import Image01 from '../../images/user-40-01.jpg'
-import Image02 from '../../images/user-40-02.jpg'
-import Image03 from '../../images/user-40-03.jpg'
-import Image04 from '../../images/user-40-04.jpg'
-import Image05 from '../../images/user-40-05.jpg'
-import Image06 from '../../images/user-40-06.jpg'
-import Image07 from '../../images/user-40-07.jpg'
-import Image08 from '../../images/user-40-08.jpg'
-import Image09 from '../../images/user-40-09.jpg'
-import Image10 from '../../images/user-40-10.jpg'
 
 export default {
   name: 'User',
@@ -209,9 +272,20 @@ export default {
     const restaurantsTo = ref(0)
     const restaurantsTotalItems = ref(0)
 
+    // Deliveries Pagination
+    const nextDeliveriesPageUrl = ref('')
+    const lastDeliveriesPageUrl = ref('')
+    const prevDeliveriesPageUrl = ref('')
+    const deliveriesPagesLinks = ref([])
+    const deliveriesFrom = ref(0)
+    const deliveriesTo = ref(0)
+    const deliveriesTotalItems = ref(0)
+
     const user = ref({})
+    const rider_profile = ref({})
     const orders = ref([])
     const restaurants = ref([])
+    const deliveries = ref([])
     const user_roles = ref([])
 
     const getOrderId = (order) => {
@@ -244,8 +318,18 @@ export default {
       }
     }
 
+    const riderStatus = (status) => {
+      switch (status) {
+        case value:
+          
+          break;
+      
+        default:
+          break;
+      }
+    }
+
     function changeRestaurantsPage(page) {
-      console.log(page+'&user=restaurants')
       $http.get(page+'&user=restaurants')
         .then(response => {
           nextRestaurantsPageUrl.value = response.data.data.restaurants.next_page_url
@@ -273,8 +357,38 @@ export default {
         })
     }
 
+    function changeDeliveriesPage(page) {
+      $http.get(page)
+        .then(response => {
+          nextDeliveriesPageUrl.value = response.data.data.deliveries.next_page_url
+          lastDeliveriesPageUrl.value = response.data.data.deliveries.last_page_url
+          prevDeliveriesPageUrl.value = response.data.data.deliveries.prev_page_url
+          deliveriesTotalItems.value = response.data.data.deliveries.total
+          deliveriesFrom.value = response.data.data.deliveries.from
+          deliveriesTo.value = response.data.data.deliveries.to
+          deliveries.value = []
+          deliveries.value = response.data.data.deliveries.data
+        })
+    }
+
     onMounted(() => {
-      $http.get('/admin/users/'+router.params.id+'/details')
+      let url = ''
+      switch (router.params.type) {
+        case 'user':
+          url = '/admin/users/customer/'+router.params.id+'/details'
+          break;
+        case 'restaurant-admin':
+          url = '/admin/users/restaurant-admin/'+router.params.id+'/details'
+          break;
+        case 'rider':
+          url = '/admin/users/rider/'+router.params.id+'/details'
+          break;
+        default:
+          url = '/admin/users/customer/'+router.params.id+'/details'
+          break;
+      }
+
+      $http.get(url)
         .then(response => {
           console.log(response.data.data)
           user.value = response.data.data.user
@@ -307,7 +421,21 @@ export default {
             ordersTo.value = response.data.data.orders.to
             response.data.data.orders.links.forEach(link => {
               ordersPagesLinks.value.push(link)
-            })            
+            })
+          }
+
+          if (user_roles.value.includes('rider')) {
+            rider_profile.value = response.data.data.rider_profile
+            deliveries.value = response.data.data.deliveries.data
+            nextDeliveriesPageUrl.value = response.data.data.deliveries.next_page_url
+            lastDeliveriesPageUrl.value = response.data.data.deliveries.last_page_url
+            prevDeliveriesPageUrl.value = response.data.data.deliveries.prev_page_url
+            deliveriesTotalItems.value = response.data.data.deliveries.total
+            deliveriesFrom.value = response.data.data.deliveries.from
+            deliveriesTo.value = response.data.data.deliveries.to
+            response.data.data.deliveries.links.forEach(link => {
+              deliveriesPagesLinks.value.push(link)
+            })
           }
         })
     })
@@ -316,6 +444,7 @@ export default {
       moment,
       sidebarOpen,
       user,
+      rider_profile,
       user_roles,
 
       // Orders
@@ -339,6 +468,17 @@ export default {
       restaurantsPagesLinks,
       restaurants,
       changeRestaurantsPage,
+
+      // Deliveries
+      nextDeliveriesPageUrl,
+      lastDeliveriesPageUrl,
+      prevDeliveriesPageUrl,
+      deliveriesTotalItems,
+      deliveriesFrom,
+      deliveriesTo,
+      deliveriesPagesLinks,
+      deliveries,
+      changeDeliveriesPage,
       
       getOrderId,
       resolveOrderStatus,
