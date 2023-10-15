@@ -78,7 +78,7 @@
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                         <div class="flex items-center">
                           <div class="w-10 h-10 shrink-0 mr-2 sm:mr-3">
-                            <img class="rounded-full" :src="restaurant.image" width="40" height="40" :alt="restaurant.name" />
+                            <img class="rounded-full" :src="restaurant.logo" width="40" height="40" :alt="restaurant.name" />
                           </div>
                           <div class="font-medium text-slate-800 dark:text-slate-100">{{restaurant.name}}</div>
                         </div>
@@ -97,13 +97,8 @@
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                         <!-- Menu button -->
-                        <button class="text-slate-400 hover:text-slate-500 dark:text-slate-500 dark:hover:text-slate-400 rounded-full">
-                          <span class="sr-only">Menu</span>
-                          <svg class="w-8 h-8 fill-current" viewBox="0 0 32 32">
-                            <circle cx="16" cy="16" r="2" />
-                            <circle cx="10" cy="16" r="2" />
-                            <circle cx="22" cy="16" r="2" />
-                          </svg>
+                        <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm">
+                          View
                         </button>
                       </td>
                     </tr>
@@ -184,18 +179,23 @@ export default {
           from.value = response.data.data.from
           to.value = response.data.data.to
           response.data.data.data.forEach(restaurant => {
+            console.log(restaurant)
             restaurants.value.push({
               id: restaurant.id,
-              image: Image01,
+              logo: restaurant.logo,
               name: restaurant.name,
               user: restaurant.user,
-              location: '🇬🇧 London, UK',
+              location: restaurant.address,
               orders: restaurant.orders.length,
-              lastOrder: '#123567',
+              lastOrder: restaurant.orders.length > 0 ? getOrderId(restaurant.orders[restaurant.orders.length - 1].uuid) : '-',
             })
           })
         })
     })
+
+    const getOrderId = (uuid) => {
+      return uuid.split("-")[0].toUpperCase()
+    }
 
     function changePage(page) {
       $http.get(page)
@@ -213,9 +213,9 @@ export default {
               image: Image01,
               name: restaurant.name,
               user: restaurant.user,
-              location: '🇬🇧 London, UK',
+              location: restaurant.address,
               orders: restaurant.orders.length,
-              lastOrder: '#123567',
+              lastOrder: restaurant.orders.length > 0 ? getOrderId(restaurant.orders[restaurant.orders.length - 1].uuid) : '-',
             })
           })
         })
@@ -237,9 +237,9 @@ export default {
               image: Image01,
               name: restaurant.name,
               user: restaurant.user,
-              location: '🇬🇧 London, UK',
+              location: restaurant.address,
               orders: restaurant.orders.length,
-              lastOrder: '#123567',
+              lastOrder: restaurant.orders.length > 0 ? getOrderId(restaurant.orders[restaurant.orders.length - 1].uuid) : '-',
             })
           })
         })

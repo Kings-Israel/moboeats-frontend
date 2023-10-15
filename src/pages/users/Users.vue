@@ -133,32 +133,15 @@
 import { ref, onMounted, inject, watch } from 'vue'
 import Sidebar from '../../partials/Sidebar.vue'
 import Header from '../../partials/Header.vue'
-import DeleteButton from '../../partials/actions/DeleteButton.vue'
-import DateSelect from '../../components/DateSelect.vue'
-import FilterButton from '../../components/DropdownFilter.vue'
-import CustomersTable from '../../partials/customers/CustomersTable.vue'
 import PaginationClassic from '../../components/PaginationClassic.vue'
 import PaginationNumeric from '../../components/PaginationNumeric.vue'
 import Image01 from '../../images/user-40-01.jpg'
-import Image02 from '../../images/user-40-02.jpg'
-import Image03 from '../../images/user-40-03.jpg'
-import Image04 from '../../images/user-40-04.jpg'
-import Image05 from '../../images/user-40-05.jpg'
-import Image06 from '../../images/user-40-06.jpg'
-import Image07 from '../../images/user-40-07.jpg'
-import Image08 from '../../images/user-40-08.jpg'
-import Image09 from '../../images/user-40-09.jpg'
-import Image10 from '../../images/user-40-10.jpg'
 
 export default {
   name: 'Users',
   components: {
     Sidebar,
     Header,
-    DeleteButton,
-    DateSelect,
-    FilterButton,
-    CustomersTable,
     PaginationClassic,
     PaginationNumeric,
   },

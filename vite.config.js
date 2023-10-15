@@ -7,7 +7,7 @@ export default defineConfig({
   define: {
     'process.env': process.env
   },
-  base: process.env.NODE_ENV == 'production' ? 'https://admin.moboeats.com' : '',
+  base: process.env.NODE_ENV == 'production' ? 'https://moboeats.com' : '',
   plugins: [vue()],
   resolve: {
     alias: [
