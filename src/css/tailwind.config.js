@@ -56,6 +56,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('flowbite/plugin'),
     // eslint-disable-next-line global-require
     require('@tailwindcss/forms'),
     // add custom variant for expanding sidebar
