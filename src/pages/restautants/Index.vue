@@ -97,9 +97,9 @@
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                         <!-- Menu button -->
-                        <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm">
+                        <router-link class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm" :to="{ name: 'restaurant-details', params: { id: restaurant.uuid } }">
                           View
-                        </button>
+                        </router-link>
                       </td>
                     </tr>
                   </tbody>
@@ -181,6 +181,7 @@ export default {
           response.data.data.data.forEach(restaurant => {
             restaurants.value.push({
               id: restaurant.id,
+              uuid: restaurant.uuid,
               logo: restaurant.logo,
               name: restaurant.name,
               user: restaurant.user,
@@ -209,6 +210,7 @@ export default {
           response.data.data.data.forEach(restaurant => {
             restaurants.value.push({
               id: restaurant.id,
+              uuid: restaurant.uuid,
               image: Image01,
               name: restaurant.name,
               user: restaurant.user,
@@ -233,6 +235,7 @@ export default {
           response.data.data.data.forEach(restaurant => {
             restaurants.value.push({
               id: restaurant.id,
+              uuid: restaurant.uuid,
               image: Image01,
               name: restaurant.name,
               user: restaurant.user,

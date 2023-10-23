@@ -72,6 +72,8 @@ import User from './pages/users/Details.vue'
 import Restaurants from './pages/restautants/Index.vue'
 import Orders from './pages/orders/Orders.vue'
 import Payments from './pages/payments/Payments.vue'
+import RestaurantDetails from './pages/restautants/Details.vue'
+import OrderDetails from './pages/orders/Details.vue'
 
 const routerHistory = createWebHistory()
 
@@ -143,12 +145,28 @@ const router = createRouter({
       },
     },
     {
+      path: '/restaurant/:id',
+      component: RestaurantDetails,
+      name: 'restaurant-details',
+      meta: {
+        requiresAuth: true,
+      }
+    },
+    {
       path: '/orders',
       component: Orders,
       name: 'orders',
       meta: {
         requiresAuth: true,
       },
+    },
+    {
+      path: '/orders/:id',
+      component: OrderDetails,
+      name: 'order-details',
+      meta: {
+        requiresAuth: true,
+      }
     },
     {
       path: '/payments',

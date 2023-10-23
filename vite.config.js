@@ -14,6 +14,12 @@ export default defineConfig({
       {find: '@axios', replacement: () => resolve(__dirname, 'src/api/axios')},
     ],
   },
+  optimizeDeps: {
+    include: [
+        "@fawmi/vue-google-maps",
+        "fast-deep-equal"
+    ]
+  },
   build: {
     commonjsOptions: {
       transformMixedEsModules: true,
