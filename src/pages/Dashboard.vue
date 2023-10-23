@@ -131,7 +131,6 @@
 
           <!-- Cards -->
           <div class="grid grid-cols-12 gap-6">
-
             <!-- Sales -->
             <Sales v-if="ordersData.labels.length > 0" :data="ordersData" />
             <!-- Payments -->
@@ -144,21 +143,21 @@
             <!-- Restaurant Registration -->
             <!-- <DashboardCard03 /> -->
             <!-- Bar chart (Direct vs Indirect) -->
-            <DashboardCard04 />
+            <!-- <DashboardCard04 /> -->
             <!-- Line chart (Real Time Value) -->
-            <DashboardCard05 />
-            <!-- Doughnut chart (Top Countries) -->
-            <DashboardCard06 />
-            <!-- Table (Top Channels) -->
+            <!-- <DashboardCard05 /> -->
+            <!-- Doughnut chart (Top Menu Items) -->
+            <TopMenuItems v-if="topMenuData.data.length > 0" :labels="topMenuData.labels" :data="topMenuData.data" />
+            <!-- Table (Top Restaurants) -->
             <TopRestaurants v-if="top_restaurants.length > 0" :restaurants="top_restaurants" />
             <!-- Line chart (Sales Over Time) -->
-            <DashboardCard08 />
+            <!-- <DashboardCard08 /> -->
             <!-- Stacked bar chart (Sales VS Refunds) -->
-            <DashboardCard09 />
+            <!-- <DashboardCard09 /> -->
             <!-- Card (Recent Activity) -->
-            <DashboardCard10 />
+            <!-- <DashboardCard10 /> -->
             <!-- Card (Income/Expenses) -->
-            <DashboardCard11 />
+            <!-- <DashboardCard11 /> -->
           </div>
         </div>
       </main>
@@ -187,6 +186,7 @@ import Sales from '../partials/dashboard/Sales.vue'
 import Payments from '../partials/dashboard/Payments.vue'
 import TopRestaurants from '../partials/dashboard/TopRestaurants.vue'
 import Categories from '../partials/dashboard/Categories.vue'
+import TopMenuItems from '../partials/dashboard/TopMenuItems.vue'
 
 export default {
   name: 'Dashboard',
@@ -210,6 +210,7 @@ export default {
     Payments,
     TopRestaurants,
     Categories,
+    TopMenuItems,
   },
   setup() {
     const $http = inject("$http")
@@ -221,6 +222,7 @@ export default {
     const top_restaurants = ref([])
     let ordersData = { labels: [], data: [], total_orders: 0, orders_difference: 0, orders_difference: ""}
     let paymentsData = { labels: [], data: [], total_orders: 0, orders_difference: 0, orders_difference: ""}
+    let topMenuData = { labels: [], data: []}
 
     onMounted(() => {
       $http.get('/admin/dashboard')
@@ -237,6 +239,8 @@ export default {
           paymentsData.total_payments = response.data.data.payments_series.total_payments
           paymentsData.payments_direction = response.data.data.payments_series.payments_direction
           paymentsData.payments_difference = response.data.data.payments_series.payments_difference
+          topMenuData.labels = response.data.data.top_menu_series.top_menu_items_names,
+          topMenuData.data = response.data.data.top_menu_series.top_menu_items_series
           top_restaurants.value = response.data.data.top_restaurants
           users.value = response.data.data.users
           restaurants.value = response.data.data.restaurants
@@ -253,6 +257,7 @@ export default {
       riders,
       orders,
       top_restaurants,
+      topMenuData,
     }  
   }
 }
