@@ -211,7 +211,7 @@ export default {
             restaurants.value.push({
               id: restaurant.id,
               uuid: restaurant.uuid,
-              image: Image01,
+              logo: restaurant.logo,
               name: restaurant.name,
               user: restaurant.user,
               location: restaurant.address,
@@ -236,7 +236,7 @@ export default {
             restaurants.value.push({
               id: restaurant.id,
               uuid: restaurant.uuid,
-              image: Image01,
+              logo: restaurant.logo,
               name: restaurant.name,
               user: restaurant.user,
               location: restaurant.address,
