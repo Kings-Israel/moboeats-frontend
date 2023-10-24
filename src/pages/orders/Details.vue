@@ -25,52 +25,43 @@
           </div>  
           <div class="grid grid-cols-12 gap-6">
             <div class="col-span-full xl:col-span-4">
-              <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
+              <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit hover:shadow-2xl transition duration-150 ease-in-out">
                 <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700">
                   <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">User Info</h2>
                 </header>
-                <div class="flex flex-col space-y-2 p-3">
+                <router-link :to="{ name: 'user-details', 'params': { id: order.user.id, type: 'user' }}" class="flex flex-col space-y-2 p-3">
                   <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Name:</span><strong>{{ order.user.name }}</strong></h1>
                   <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Email:</span><strong>{{ order.user.email }}</strong></h1>
                   <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong>{{ order.user.phone_number }}</strong></h1>
-                </div>
+                </router-link>
               </div>
               
             </div>
             <div class="col-span-full xl:col-span-4">
-              <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
+              <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit hover:shadow-2xl transition duration-150 ease-in-out">
                 <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700">
                   <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Restaurant Info</h2>
                 </header>
-                <div class="flex flex-col space-y-2 p-3">
+                <router-link :to="{ name: 'restaurant-details', params: { id: order.restaurant.uuid } }" class="flex flex-col space-y-2 p-3">
                   <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Name:</span><strong>{{ order.restaurant.name }}</strong></h1>
                   <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Email:</span><strong>{{ order.restaurant.email }}</strong></h1>
-                  <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong>{{ order.restaurant.phone_number }}</strong></h1>
-                </div>
+                  <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong>{{ order.restaurant.phone_no }}</strong></h1>
+                </router-link>
               </div>
             </div>
             <div class="col-span-full xl:col-span-4">
-              <div v-if="order.rider" class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
+              <div v-if="order.rider" class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit hover:shadow-2xl transition duration-150 ease-in-out">
                 <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700">
                   <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Rider Info</h2>
                 </header>
-                <div class="flex flex-col space-y-2 p-3">
+                <router-link :to="{ name: 'user-details', 'params': { id: order.rider.id, type: 'rider' }}" class="flex flex-col space-y-2 p-3">
                   <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Name:</span><strong>{{ order.rider.name }}</strong></h1>
                   <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Email:</span><strong>{{ order.rider.email }}</strong></h1>
                   <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong>{{ order.rider.phone_number }}</strong></h1>
-                </div>
+                </router-link>
               </div>
               <div v-else class="flex flex-col justify-center">
                 <button v-if="order.status == 'Pending' || order.status == 'In Progress'" class="btn w-full bg-red-800 text-white">Rider not assigned</button>
-                <form @submit.prevent="assignRider" v-if="order.status == 'Pending' || order.status == 'In Progress'">
-                  <label for="riders">Select Rider</label>
-                  <select name="assign_rider" id="" v-model="assign_rider_id" class="w-full rounded-lg form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option v-for="rider in riders" :key="rider.id" :value="rider.id">{{ rider.name }}</option>
-                  </select>
-                  <div class="flex justify-end mt-3">
-                    <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">Submit</button>
-                  </div>
-                </form>
                 <button v-if="order.status == 'Denied'" class="btn btn-lg w-full bg-red-600 text-white font-bold text-lg">Order Rejected</button>
               </div>
             </div>
@@ -140,8 +131,6 @@ export default {
     const toast = useToast()
 
     const order = ref(null)
-    const riders = ref([])
-    const assign_rider_id = ref('')
 
     const restaurant_lat = ref(0)
     const restaurant_lng = ref(0)
@@ -156,10 +145,10 @@ export default {
 
     const getOrderDetails = () => {
       order.value = null
-      $http.get('/restaurant/orders/'+router.params.id)
+      $http.get('/admin/orders/'+router.params.id+'/details')
         .then(response => {
-          // console.log(response.data.data.order)
-          order.value = response.data.data.order
+          console.log(response.data.data)
+          order.value = response.data.data
           restaurant_lat.value = order.value.restaurant.latitude
           restaurant_lng.value = order.value.restaurant.longitude
           orderer_lat.value = order.value.user.latitude
@@ -169,7 +158,6 @@ export default {
             {lat: Number(orderer_lat.value), lng: Number(orderer_lng.value)},
           ]
           // console.log(path.value)
-          riders.value = response.data.data.riders
           nextTick().then(() => {
             mapRef.value.$gmapApiPromiseLazy().then(() => {
               directionsService.value = new google.maps.DirectionsService()
@@ -185,21 +173,6 @@ export default {
     onMounted(() => {
       getOrderDetails()
     })
-
-    const assignRider = () => {
-      $http.post('restaurant/orders/assign', {
-        order_id: router.params.id,
-        rider_id: assign_rider_id.value
-      })
-        .then(() => {
-          getOrderDetails()
-          toast.success('Rider assigned successfully')
-        })
-        .catch(err => {
-          console.error(err)
-          toast.error(err.response.data.message)
-        })
-    }
 
     const getOrderId = (order) => {
       return order.uuid.split('-')[0].toUpperCase()
@@ -231,16 +204,6 @@ export default {
       }
     }
 
-    const updateOrder = (order, status) => {
-      $http.post('/restaurant/orders/' + order.uuid + '/update', {
-        status: status
-      })
-      .then(() => {
-        getOrderDetails()
-        toast.success('Order status updated successfully')
-      })
-    }
-
     const getDirection = (orderer, restaurant) => {
       mapRef.value.$gmapApiPromiseLazy().then(() => {
         directionsDisplay.value.set('directions', null)
@@ -263,7 +226,6 @@ export default {
       moment,
       sidebarOpen,
       order,
-      riders,
 
       center,
 
@@ -274,11 +236,8 @@ export default {
       getOrderId,
       resolveOrderStatus,
       formatValue,
-      assignRider,
-      assign_rider_id,
 
       path,
-      updateOrder,
     }  
   }
 }

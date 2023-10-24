@@ -103,7 +103,7 @@
                         <div class="text-left">{{moment(order.created_at).format('Do MMMM Y')}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
-                        <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm">View</button>
+                        <router-link :to="{ name: 'order-details', params: { id: order.uuid } }" class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm">View</router-link>
                       </td>
                     </tr>
                   </tbody>
@@ -180,6 +180,7 @@ export default {
           response.data.data.data.forEach(order => {
             orders.value.push({
               id: order.id,
+              uuid: order.uuid,
               name: order.user.name,
               email: order.user.email,
               restaurant: order.restaurant,
@@ -206,6 +207,7 @@ export default {
           response.data.data.data.forEach(order => {
             orders.value.push({
               id: order.id,
+              uuid: order.uuid,
               name: order.user.name,
               email: order.user.email,
               restaurant: order.restaurant,
@@ -232,6 +234,7 @@ export default {
           response.data.data.data.forEach(order => {
             orders.value.push({
               id: order.id,
+              uuid: order.uuid,
               name: order.user.name,
               email: order.user.email,
               restaurant: order.restaurant,

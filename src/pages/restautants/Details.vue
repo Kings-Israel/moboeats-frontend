@@ -53,6 +53,16 @@
               </g>
             </svg>
           </div>
+
+          <!-- Content -->
+          <div class="relative">
+            <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold mb-1">Restaurant Profile is Incomplete</h1>
+            <p class="dark:text-indigo-200 flex gap-1">
+              <span v-if="restaurant.operating_hours.length == 0"><p>Operating Hours not entered </p></span>
+              <span v-if="restaurant.operating_hours.length == 0 && restaurant.documents.length == 0"><p> and</p></span>
+              <span v-if="restaurant.documents.length == 0"> Business Documents Not Uploaded </span>
+            </p>
+          </div>
         </div>
         <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
           <!-- Page header -->
@@ -73,15 +83,31 @@
                   <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Restaurant Info</h2>
                 </header>
                 <div class="flex gap-2 p-3">
-                  <img :src="restaurant.logo ? restaurant.logo : '../../src/images/icon-01.svg'" width="60" height="60" :alt="restaurant.name" class="rounded-full" />
+                  <img :src="restaurant.logo ? restaurant.logo : '../../src/images/icon-01.svg'" width="60" height="60" :alt="restaurant.name" class="rounded-full h-fit" />
                   <div class="flex flex-col space-y-2">
                     <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Email:</span><strong class="text-wrap">{{ restaurant.email }}</strong></h1>
-                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong>{{ restaurant.phoneNo }}</strong></h1>
+                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong>{{ restaurant.phone_no }}</strong></h1>
+                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Created On:</span><strong>{{ moment(restaurant.created_at).format('Do MMM Y') }}</strong></h1>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-span-full xl:col-span-4">
+              <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
+                <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700">
+                  <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Restaurant Admin Info</h2>
+                </header>
+                <div class="flex gap-3 p-3">
+                  <img :src="restaurant.user.image ? restaurant.user.image : '../../src/images/icon-01.svg'" width="60" height="60" :alt="restaurant.user.name" class="rounded-full h-fit" />
+                  <div class="flex flex-col space-y-2">
+                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Name:</span><strong class="text-wrap">{{ restaurant.user.name }}</strong></h1>
+                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Email:</span><strong class="text-wrap">{{ restaurant.user.email }}</strong></h1>
+                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong>{{ restaurant.user.phone_number }}</strong></h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-full xl:col-span-2">
               <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
                 <div class="flex flex-col h-full">
                   <div class="grow p-5">
@@ -89,13 +115,13 @@
                       <div class="text-center">
                         <h2 class="text-xl leading-snug justify-center font-semibold">Orders</h2>
                       </div>
-                      <div class="flex justify-center items-center"><span class="text-2xl font-medium text-slate-400 -mt-0.5 mr-1">{{ restaurant.orders_count.orders_count }}</span></div>
+                      <div class="flex justify-center items-center"><span class="text-2xl font-medium text-slate-400 -mt-0.5 mr-1">{{ restaurant.orders_count }}</span></div>
                     </header>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-span-full xl:col-span-4">
+            <div class="col-span-full xl:col-span-2">
               <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
                 <div class="flex flex-col h-full">
                   <div class="grow p-5">
@@ -103,7 +129,7 @@
                       <div class="text-center">
                         <h2 class="text-xl leading-snug justify-center font-semibold">Menu</h2>
                       </div>
-                      <div class="flex justify-center items-center"><span class="text-2xl font-medium text-slate-400 -mt-0.5 mr-1">{{ restaurant.menus_count.menus_count }}</span></div>
+                      <div class="flex justify-center items-center"><span class="text-2xl font-medium text-slate-400 -mt-0.5 mr-1">{{ restaurant.menus_count }}</span></div>
                     </header>
                   </div>
                 </div>

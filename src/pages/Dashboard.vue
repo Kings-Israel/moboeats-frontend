@@ -135,8 +135,6 @@
             <Sales v-if="ordersData.labels.length > 0" :data="ordersData" />
             <!-- Payments -->
             <Payments v-if="paymentsData.labels.length > 0" :data="paymentsData" />
-            <!-- Categories -->
-            <Categories /> 
             <!-- <DashboardCard01 /> -->
             <!-- Users Registration Rate -->
             <!-- <DashboardCard02 /> -->
@@ -158,6 +156,8 @@
             <!-- <DashboardCard10 /> -->
             <!-- Card (Income/Expenses) -->
             <!-- <DashboardCard11 /> -->
+            <!-- Categories -->
+            <Categories /> 
           </div>
         </div>
       </main>
