@@ -72,8 +72,22 @@
               <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold">{{ restaurant.name }} ✨</h1>
             </div>
             <div class="flex gap-2">
-              <button class="btn bg-yellow-300 text-slate-900">Approve</button>
-              <button class="btn bg-red-300 text-slate-900">Disapprove</button>
+              <span v-if="restaurant.status == 'Pending'" class="text-sm rounded-xl p-2 bg-slate-500 text-slate-200 mr-4">Pending Approval</span>
+              <button class="btn bg-yellow-300 text-slate-900" v-if="restaurant.status != 'Approved'" @click="updateStatus(2)">Approve</button>
+              <button
+                class="btn bg-red-300 text-slate-900" 
+                v-if="restaurant.status != 'Denied'" 
+                @click="modalOpen = true"
+              >
+                Disapprove
+              </button>
+              <modal-action :id="'addStatusReason'" :modal-open="modalOpen" @close-modal="modalOpen = false">
+                <h1 class="text-lg text-slate-800 dark:text-slate-200">Enter Rejection Reason</h1>
+                <textarea name="statusReason" id="" cols="30" rows="10" v-model="statusReason" class="form-control border-2 rounded-lg w-full"></textarea>
+                <div class="flex justify-end">
+                  <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" @click="updateStatus(3)">Submit</button>
+                </div>
+              </modal-action>
             </div>
           </div>  
           <div class="grid grid-cols-12 gap-6">
@@ -447,7 +461,7 @@
 </template>
 
 <script>
-import { ref, onMounted, inject, watch } from 'vue'
+import { ref, onMounted, inject, watch, onUnmounted } from 'vue'
 import Sidebar from '../../partials/Sidebar.vue'
 import Header from '../../partials/Header.vue'
 import PaginationClassic from '../../components/PaginationClassic.vue'
@@ -456,6 +470,7 @@ import { useRoute } from 'vue-router'
 import moment from 'moment';
 import { formatValue } from '../../utils/Utils'
 import { useToast } from 'vue-toastification'
+import ModalAction from '../../components/ModalAction.vue'
 
 export default {
   name: 'RestaurantDetails',
@@ -464,6 +479,7 @@ export default {
     Header,
     PaginationClassic,
     PaginationNumeric,
+    ModalAction,
   },
   setup() {
     const $http = inject("$http")
@@ -521,6 +537,10 @@ export default {
     const menu = ref([])
 
     const categories = ref([])
+
+    const modalOpen = ref(false)
+
+    const statusReason = ref('')
 
     const baseURL = process.env.NODE_ENV === 'development' ? 'http://moboeats.test/' : 'https://moboeats.com/'
 
@@ -626,6 +646,13 @@ export default {
       getMenu()
       getRestaurantCategories()
     })
+    
+    onUnmounted(() => {
+    })
+
+    const onCloseModal = () => {
+      modalOpen.value = false
+    }
 
     const getOrderId = (order) => {
       return order.uuid.split('-')[0].toUpperCase()
@@ -793,6 +820,26 @@ export default {
         .catch(console.error)
     }
 
+    const updateStatus = (status) => {
+      $http.post(`/admin/restaurants/${router.params.id}/status/update`, {
+        status: status,
+        reason: statusReason.value
+      })
+      .then((res) => {
+        getRestaurant()
+        toast.success('Restaurant updated successfully')
+        if (modalOpen.value) {
+          modalOpen.value = false
+          statusReason.value = ''
+        }
+      })
+      .catch(err => {
+        if (err.response.status == 422) {
+          toast.error('Please enter rejection reason')
+        }
+      })
+    }
+
     return {
       moment,
       sidebarOpen,
@@ -862,6 +909,12 @@ export default {
 
       downloadFile,
       getMenuImage,
+
+      updateStatus,
+
+      modalOpen,
+      onCloseModal,
+      statusReason,
     }  
   }
 }

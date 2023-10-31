@@ -56,6 +56,9 @@
                         <div class="font-semibold text-left">Name</div>
                       </th>
                       <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="font-semibold text-left">Status</div>
+                      </th>
+                      <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                         <div class="font-semibold text-left">Admin</div>
                       </th>
                       <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
@@ -82,6 +85,9 @@
                           </div>
                           <div class="font-medium text-slate-800 dark:text-slate-100">{{restaurant.name}}</div>
                         </div>
+                      </td>
+                      <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div :class="'text-center rounded-xl '+resolveRestaurantStatus(restaurant.status)">{{ restaurant.status }}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                         <div class="text-left">{{ restaurant.user.name }} {{restaurant.user.email}}</div>
@@ -179,8 +185,10 @@ export default {
           from.value = response.data.data.from
           to.value = response.data.data.to
           response.data.data.data.forEach(restaurant => {
+            console.log(restaurant)
             restaurants.value.push({
               id: restaurant.id,
+              status: restaurant.status,
               uuid: restaurant.uuid,
               logo: restaurant.logo,
               name: restaurant.name,
@@ -222,6 +230,23 @@ export default {
         })
     }
 
+    const resolveRestaurantStatus = (status) => {
+      switch (status) {
+        case 'Pending':
+          return 'text-gray-100 bg-gray-500'
+          break;
+        case 'Denied':
+          return 'text-gray-100 bg-red-500'
+          break;
+        case 'Approved':
+          return 'text-green-100 bg-green-500'
+          break;
+        default:
+          return 'text-gray-100 bg-gray-500'
+          break;
+      }
+    }
+
     watch(search, async (newSearch, oldQuestion) => {
       $http.get('/admin/restaurants?search='+newSearch)
         .then(response => {
@@ -260,6 +285,7 @@ export default {
       to,
       changePage,
       search,
+      resolveRestaurantStatus,
     }  
   }
 }

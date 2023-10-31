@@ -52,7 +52,7 @@ export default {
     // close on click outside
     const clickHandler = ({ target }) => {
       if (!props.modalOpen || modalContent.value.contains(target)) return
-      emit('close-modal')
+      // emit('close-modal')
     }
 
     // close if the esc key is pressed
