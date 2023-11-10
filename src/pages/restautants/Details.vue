@@ -68,10 +68,23 @@
           <!-- Page header -->
           <div class="sm:flex sm:justify-between sm:items-center mb-8">
             <!-- Left: Title -->
-            <div class="mb-4 sm:mb-0">
+            <div class="mb-4 sm:mb-0 flex gap-2">
+              <img :src="restaurant.logo ? restaurant.logo : '../../src/images/icon-01.svg'" width="60" height="60" :alt="restaurant.name" class="rounded-full h-fit" />
               <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold">{{ restaurant.name }} ✨</h1>
             </div>
             <div class="flex gap-2">
+              <button
+                class="btn bg-emerald-300 text-slate-900" 
+                @click="serviceChargeGroceriesAgreementModal = true"
+              >
+                Groceries Service Charge Agreement ({{ restaurant.groceries_service_charge_agreement ? restaurant.groceries_service_charge_agreement : 0 }}%)
+              </button>
+              <button
+                class="btn bg-emerald-300 text-slate-900" 
+                @click="serviceChargeAgreementModal = true"
+              >
+                Service Charge Agreement ({{ restaurant.service_charge_agreement ? restaurant.service_charge_agreement : 0 }}%)
+              </button>
               <span v-if="restaurant.status == 'Pending'" class="text-sm rounded-xl p-2 bg-slate-500 text-slate-200 mr-4">Pending Approval</span>
               <button class="btn bg-yellow-300 text-slate-900" v-if="restaurant.status != 'Approved'" @click="updateStatus(2)">Approve</button>
               <button
@@ -83,9 +96,23 @@
               </button>
               <modal-action :id="'addStatusReason'" :modal-open="modalOpen" @close-modal="modalOpen = false">
                 <h1 class="text-lg text-slate-800 dark:text-slate-200">Enter Rejection Reason</h1>
-                <textarea name="statusReason" id="" cols="30" rows="10" v-model="statusReason" class="form-control border-2 rounded-lg w-full"></textarea>
+                <textarea name="statusReason" id="" cols="30" rows="10" v-model="statusReason" class="form-input bg-white dark:bg-slate-800 w-full"></textarea>
                 <div class="flex justify-end">
                   <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" @click="updateStatus(3)">Submit</button>
+                </div>
+              </modal-action>
+              <modal-action :id="'addServiceChargeAgreement'" :modal-open="serviceChargeAgreementModal" @close-modal="serviceChargeAgreementModal = false">
+                <h1 class="text-lg text-slate-800 dark:text-slate-200">Enter Service Charge Agreement</h1>
+                <input name="statusReason" type="number" id="" v-model="serviceChargeAgreement" class="form-input bg-white dark:bg-slate-800 w-full mb-2" />
+                <div class="flex justify-end">
+                  <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" @click="updateServiceChargeAgreement">Submit</button>
+                </div>
+              </modal-action>
+              <modal-action :id="'addServiceChargeGroceriesAgreement'" :modal-open="serviceChargeGroceriesAgreementModal" @close-modal="serviceChargeGroceriesAgreementModal = false">
+                <h1 class="text-lg text-slate-800 dark:text-slate-200">Enter Service Charge Agreement</h1>
+                <input name="statusReason" type="number" id="" v-model="serviceChargeGroceriesAgreement" class="form-input bg-white dark:bg-slate-800 w-full mb-2" />
+                <div class="flex justify-end">
+                  <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" @click="updateGroceriesServiceChargeAgreement">Submit</button>
                 </div>
               </modal-action>
             </div>
@@ -97,11 +124,10 @@
                   <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Restaurant Info</h2>
                 </header>
                 <div class="flex gap-2 p-3">
-                  <img :src="restaurant.logo ? restaurant.logo : '../../src/images/icon-01.svg'" width="60" height="60" :alt="restaurant.name" class="rounded-full h-fit" />
-                  <div class="flex flex-col space-y-2">
-                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Email:</span><strong class="text-wrap">{{ restaurant.email }}</strong></h1>
-                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong>{{ restaurant.phone_no }}</strong></h1>
-                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Created On:</span><strong>{{ moment(restaurant.created_at).format('Do MMM Y') }}</strong></h1>
+                  <div class="flex flex-col space-y-2 w-[98%]">
+                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Email:</span><strong class="text-ellipsis overflow-hidden">{{ restaurant.email }}</strong></h1>
+                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong class="text-ellipsis overflow-hidden">{{ restaurant.phone_no }}</strong></h1>
+                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Created On:</span><strong class="text-ellipsis overflow-hidden">{{ moment(restaurant.created_at).format('Do MMM Y') }}</strong></h1>
                   </div>
                 </div>
               </div>
@@ -113,10 +139,10 @@
                 </header>
                 <div class="flex gap-3 p-3">
                   <img :src="restaurant.user.image ? restaurant.user.image : '../../src/images/icon-01.svg'" width="60" height="60" :alt="restaurant.user.name" class="rounded-full h-fit" />
-                  <div class="flex flex-col space-y-2">
-                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Name:</span><strong class="text-wrap">{{ restaurant.user.name }}</strong></h1>
-                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Email:</span><strong class="text-wrap">{{ restaurant.user.email }}</strong></h1>
-                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong>{{ restaurant.user.phone_number }}</strong></h1>
+                  <div class="flex flex-col space-y-2 w-[98%]">
+                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Name:</span><strong class="text-ellipsis overflow-hidden">{{ restaurant.user.name }}</strong></h1>
+                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Email:</span><strong class="text-ellipsis overflow-hidden">{{ restaurant.user.email }}</strong></h1>
+                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong class="text-ellipsis overflow-hidden">{{ restaurant.user.phone_number }}</strong></h1>
                   </div>
                 </div>
               </div>
@@ -542,6 +568,12 @@ export default {
 
     const statusReason = ref('')
 
+    const serviceChargeAgreement = ref(0)
+    const serviceChargeGroceriesAgreement = ref(0)
+
+    const serviceChargeAgreementModal = ref(false)
+    const serviceChargeGroceriesAgreementModal = ref(false)
+
     const baseURL = process.env.NODE_ENV === 'development' ? 'http://moboeats.test/' : 'https://moboeats.com/'
 
     const getMenu = () => {
@@ -569,11 +601,41 @@ export default {
     const getRestaurant = () => {
       $http.get('/admin/restaurant/'+router.params.id)
         .then(response => {
-          console.log(response.data)
           restaurant.value = response.data.data
+          serviceChargeAgreement.value = restaurant.value.service_charge_agreement
+          serviceChargeGroceriesAgreement.value = restaurant.value.groceries_service_charge_agreement
           center.value = {lat: Number(restaurant.value.latitude), lng: Number(restaurant.value.longitude)}
           marker.value.push({ position: { lat: Number(restaurant.value.latitude), lng: Number(restaurant.value.longitude) } })
         })
+    }
+
+    const updateServiceChargeAgreement = () => {
+      $http.post(`/admin/restaurant/${restaurant.value.uuid}/update/service-charge-agreement`, {
+        service_charge_agreement: serviceChargeAgreement.value
+      })
+      .then(() => {
+        getRestaurant()
+        serviceChargeAgreementModal.value = false
+        toast.success('Charge agreement updated successfully')
+      })
+      .catch(() => {
+        toast.error('An error occurred')
+      })
+    }
+
+    const updateGroceriesServiceChargeAgreement = () => {
+      $http.post(`/admin/restaurant/${restaurant.value.uuid}/update/service-charge-agreement`, {
+        service_charge_agreement: serviceChargeGroceriesAgreement.value,
+        groceries: 'groceries'
+      })
+      .then(() => {
+        getRestaurant()
+        serviceChargeGroceriesAgreementModal.value = false
+        toast.success('Charge agreement updated successfully')
+      })
+      .catch(() => {
+        toast.error('An error occurred')
+      })
     }
 
     const getPayments = () => {
@@ -645,9 +707,6 @@ export default {
       getOrders()
       getMenu()
       getRestaurantCategories()
-    })
-    
-    onUnmounted(() => {
     })
 
     const onCloseModal = () => {
@@ -915,6 +974,15 @@ export default {
       modalOpen,
       onCloseModal,
       statusReason,
+
+      serviceChargeAgreement,
+      serviceChargeGroceriesAgreement,
+
+      serviceChargeAgreementModal,
+      serviceChargeGroceriesAgreementModal,
+
+      updateServiceChargeAgreement,
+      updateGroceriesServiceChargeAgreement,
     }  
   }
 }
