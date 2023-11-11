@@ -185,7 +185,6 @@ export default {
           from.value = response.data.data.from
           to.value = response.data.data.to
           response.data.data.data.forEach(restaurant => {
-            console.log(restaurant)
             restaurants.value.push({
               id: restaurant.id,
               status: restaurant.status,
