@@ -137,8 +137,8 @@ export default {
       selectedItems.value = selected
     }
 
-    const getOrderId = (order) => {
-      return order.uuid.split('-')[0]
+    const getOrderId = (uuid) => {
+      return uuid.split('-')[0]
     }
 
     const logs = ref([])
