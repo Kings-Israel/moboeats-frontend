@@ -217,6 +217,7 @@ export default {
           response.data.data.data.forEach(restaurant => {
             restaurants.value.push({
               id: restaurant.id,
+              status: restaurant.status,
               uuid: restaurant.uuid,
               logo: restaurant.logo,
               name: restaurant.name,
@@ -259,6 +260,7 @@ export default {
           response.data.data.data.forEach(restaurant => {
             restaurants.value.push({
               id: restaurant.id,
+              status: restaurant.status,
               uuid: restaurant.uuid,
               logo: restaurant.logo,
               name: restaurant.name,
