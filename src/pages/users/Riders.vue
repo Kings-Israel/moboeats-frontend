@@ -200,7 +200,7 @@ export default {
           response.data.data.data.forEach(user => {
             customers.value.push({
               id: user.id,
-              image: Image01,
+              image: user.image,
               name: user.name,
               email: user.email,
               location: '🇬🇧 London, UK',

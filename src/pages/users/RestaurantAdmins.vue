@@ -52,14 +52,6 @@
                   <!-- Table header -->
                   <thead class="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-900/20 border-t border-b border-slate-200 dark:border-slate-700">
                     <tr>
-                      <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
-                        <div class="flex items-center">
-                          <label class="inline-flex">
-                            <span class="sr-only">Select all</span>
-                            <input class="form-checkbox" type="checkbox" v-model="selectAll" @click="checkAll" />
-                          </label>
-                        </div>
-                      </th>
                       <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                         <div class="font-semibold text-left">User Name</div>
                       </th>
@@ -89,15 +81,6 @@
                   <!-- Table body -->
                   <tbody class="text-sm divide-y divide-slate-200 dark:divide-slate-700">
                     <tr v-for="customer in customers" :key="customer.id">
-                      <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
-                        <div class="flex items-center relative">
-                          <button>
-                            <svg class="w-4 h-4 shrink-0 fill-current" :class="customer.fav ? 'text-amber-500' : 'text-slate-300 dark:text-slate-600'" viewBox="0 0 16 16">
-                              <path d="M8 0L6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934h-6L8 0z" />
-                            </svg>
-                          </button>
-                        </div>
-                      </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                         <div class="flex items-center">
                           <div class="w-10 h-10 shrink-0 mr-2 sm:mr-3">
@@ -212,7 +195,7 @@ export default {
           response.data.data.data.forEach(user => {
             customers.value.push({
               id: user.id,
-              image: Image01,
+              image: user.image,
               name: user.name,
               email: user.email,
               location: '🇬🇧 London, UK',
