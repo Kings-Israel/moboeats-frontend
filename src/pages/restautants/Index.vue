@@ -261,7 +261,7 @@ export default {
     }
 
     const exportRestaurants = () => {
-      $http.get('/restaurant/restaurants/export/data?search='+search.value+'/&status='+status.value,
+      $http.get('/restaurant/restaurants/export/data?search='+search.value+'&status='+status.value,
           {
             responseType: 'arraybuffer',
             method: 'GET'
