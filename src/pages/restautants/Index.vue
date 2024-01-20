@@ -22,9 +22,7 @@
             </div>
 
             <!-- Right: Actions  -->
-            <button class="bg-emerald-600 px-4 py-1 col-span-1 text-slate-50 font-semibold rounded-full justify-end" @click="exportRestaurants()">Export Restaurants</button>
-
-            <!-- Right: Actions  -->
+            <button class="bg-emerald-600 px-3 py-1 col-span-1 text-slate-50 font-semibold rounded-full justify-end" @click="exportRestaurants()">Export Restaurants</button>
           </div>
 
           <div class="grid grid-cols-3 mb-2 gap-4">
