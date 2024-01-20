@@ -22,12 +22,12 @@
             </div>
 
             <!-- Right: Actions  -->
-            <button class="bg-emerald-600 px-2 py-1  col-span-1 text-slate-50 font-semibold rounded-full justify-end" @click="exportRestaurants()">Export Restaurants</button>
+            <button class="bg-emerald-600 px-4 py-1 col-span-1 text-slate-50 font-semibold rounded-full justify-end" @click="exportRestaurants()">Export Restaurants</button>
 
             <!-- Right: Actions  -->
           </div>
 
-          <div class="grid grid-cols-3 mb-2">
+          <div class="grid grid-cols-3 mb-2 gap-4">
             <form class="relative">
               <label for="action-search" class="sr-only">Search</label>
               <input id="action-search" class="form-input w-full pl-9 bg-white border border-slate-500 dark:bg-slate-800" type="search" v-model="search" placeholder="Search Restaurants" />
@@ -47,7 +47,7 @@
                 <option value="3">Denied</option>
               </select>
             </form>
-            <button class="bg-red-500 text-white rounded-full col-span-1 h-fit py-1 my-auto justify-self-end w-72" @click="search = '', status = ''">Clear Field</button>
+            <button class="bg-red-500 text-white rounded-full col-span-1 h-fit py-1 my-auto justify-self-end w-52" @click="search = '', status = ''">Clear Search Fields</button>
           </div>
 
           <!-- Table -->
