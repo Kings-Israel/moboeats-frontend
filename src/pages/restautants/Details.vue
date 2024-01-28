@@ -72,7 +72,7 @@
               <img :src="restaurant.logo ? restaurant.logo : '../../src/images/icon-01.svg'" width="60" height="60" :alt="restaurant.name" class="rounded-full h-fit" />
               <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold">{{ restaurant.name }} ✨</h1>
             </div>
-            <div class="flex gap-2">
+            <div class="flex gap-2 flex-wrap">
               <button
                 class="btn bg-emerald-300 text-slate-900" 
                 @click="serviceChargeGroceriesAgreementModal = true"
@@ -448,12 +448,8 @@
                 <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700 flex justify-between">
                   <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Business Documents</h2>
                 </header>
-                <div class="flex flex-col space-y-2 p-3">
-                  <div v-for="doc in restaurant.documents" :key="doc.id">
-                    <div class="grid grid-cols-1">
-                      <span class="hover:cursor-pointer" @click="downloadFile(doc)">{{ doc.document_name }}</span>
-                    </div>
-                  </div>
+                <div class="grid grid-cols-2 p-4 gap-2">
+                  <button v-for="doc in restaurant.documents" :key="doc.id" class="col-span-1 bg-green-700 hover:bg-green-500 transition duration-150 ease-in-out text-slate-100 py-2 rounded-lg hover:cursor-pointer" @click="downloadFile(doc)" title="Click to Download">{{ doc.document_name }}</button>
                 </div>
               </div>
             </div>
