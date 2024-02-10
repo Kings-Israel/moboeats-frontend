@@ -147,30 +147,80 @@
                 </div>
               </div>
             </div>
-            <div class="col-span-full xl:col-span-2">
-              <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
-                <div class="flex flex-col h-full">
-                  <div class="grow p-5">
-                    <header class="space-y-6">
-                      <div class="text-center">
-                        <h2 class="text-xl leading-snug justify-center font-semibold">Orders</h2>
+            <div class="col-span-full xl:col-span-4">
+              <div class="grid grid-cols-2 gap-2">
+                <div class="col-span-full xl:col-span-1">
+                  <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                    <div class="flex flex-col h-full">
+                      <div class="grow p-5">
+                        <header class="space-y-2">
+                          <div class="text-center">
+                            <h2 class="text-xl leading-snug justify-center font-semibold">Orders</h2>
+                          </div>
+                          <div class="flex justify-center items-center"><span class="text-2xl font-medium text-slate-400 -mt-0.5 mr-1">{{ restaurant.orders_count }}</span></div>
+                        </header>
                       </div>
-                      <div class="flex justify-center items-center"><span class="text-2xl font-medium text-slate-400 -mt-0.5 mr-1">{{ restaurant.orders_count }}</span></div>
-                    </header>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-span-full xl:col-span-2">
-              <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
-                <div class="flex flex-col h-full">
-                  <div class="grow p-5">
-                    <header class="space-y-6">
-                      <div class="text-center">
-                        <h2 class="text-xl leading-snug justify-center font-semibold">Menu</h2>
+                <div class="col-span-full xl:col-span-1">
+                  <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                    <div class="flex flex-col h-full">
+                      <div class="grow p-5">
+                        <header class="space-y-2">
+                          <div class="text-center">
+                            <h2 class="text-xl leading-snug justify-center font-semibold">Menu</h2>
+                          </div>
+                          <div class="flex justify-center items-center"><span class="text-2xl font-medium text-slate-400 -mt-0.5 mr-1">{{ restaurant.menus_count }}</span></div>
+                        </header>
                       </div>
-                      <div class="flex justify-center items-center"><span class="text-2xl font-medium text-slate-400 -mt-0.5 mr-1">{{ restaurant.menus_count }}</span></div>
-                    </header>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-span-full xl:col-span-2">
+                  <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                    <div class="flex justify-between h-full mx-6 my-2">
+                      <div class="text-center">
+                        <h2 class="text-xl leading-snug justify-center font-semibold">Rating</h2>
+                      </div>
+                      <div class="flex items-center space-x-2">
+                        <!-- Stars -->
+                        <div class="flex space-x-1">
+                          <button>
+                            <span class="sr-only">1 star</span>
+                            <svg class="w-5 h-5 fill-current" :class="Math.round(averageRating) >= 1 ? 'text-amber-500' : 'text-slate-300 dark:text-slate-600'" viewBox="0 0 16 16">
+                              <path d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z" />
+                            </svg>
+                          </button>
+                          <button>
+                            <span class="sr-only">2 stars</span>
+                            <svg class="w-5 h-5 fill-current" :class="Math.round(averageRating) >= 2 ? 'text-amber-500' : 'text-slate-300 dark:text-slate-600'" viewBox="0 0 16 16">
+                              <path d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z" />
+                            </svg>
+                          </button>
+                          <button>
+                            <span class="sr-only">3 stars</span>
+                            <svg class="w-5 h-5 fill-current" :class="Math.round(averageRating) >= 3 ? 'text-amber-500' : 'text-slate-300 dark:text-slate-600'" viewBox="0 0 16 16">
+                              <path d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z" />
+                            </svg>
+                          </button>
+                          <button>
+                            <span class="sr-only">4 stars</span>
+                            <svg class="w-5 h-5 fill-current" :class="Math.round(averageRating) >= 4 ? 'text-amber-500' : 'text-slate-300 dark:text-slate-600'" viewBox="0 0 16 16">
+                              <path d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z" />
+                            </svg>
+                          </button>
+                          <button>
+                            <span class="sr-only">5 stars</span>
+                            <svg class="w-5 h-5 fill-current" :class="Math.round(averageRating) == 5 ? 'text-amber-500' : 'text-slate-300 dark:text-slate-600'" viewBox="0 0 16 16">
+                              <path d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z" />
+                            </svg>
+                          </button>
+                        </div>
+                        <!-- Rate -->
+                        <div class="inline-flex font-medium text-amber-600">{{ averageRating }}</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -455,6 +505,30 @@
             </div>
           </div>
           <br>
+          <div class="grid grid-cols-2 gap-6">
+            <!-- Operating Hours -->
+            <div class="col-span-full xl:col-span-1">
+              <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
+                <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700 flex justify-between">
+                  <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Latest Reviews</h2>
+                </header>
+                <div class="flex flex-col space-y-2 p-3">
+                  <div class="grid grid-cols-3">
+                      <span class="font-bold col-span-2">Review</span>
+                      <span class="font-bold">Created On</span>
+                    </div>
+                  <div v-for="review in restaurant.reviews" :key="review.id">
+                    <div class="grid grid-cols-3">
+                      <span class="col-span-2">{{ review.review }}</span>
+                      <span>{{ moment(review.created_at).format('Do MMM YYYY') }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <br>
           <div class="w-full" v-if="restaurant.latitude && restaurant.longitude">
             <header class="py-2 border-b border-slate-100 dark:border-slate-700 flex justify-between">
               <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Location</h2>
@@ -559,8 +633,11 @@ export default {
     const menu = ref([])
 
     const categories = ref([])
+    const reviews = ref([])
 
     const modalOpen = ref(false)
+
+    const averageRating = ref(0)
 
     const statusReason = ref('')
 
@@ -597,7 +674,8 @@ export default {
     const getRestaurant = () => {
       $http.get('/admin/restaurant/'+router.params.id)
         .then(response => {
-          restaurant.value = response.data.data
+          restaurant.value = response.data.data.restaurant
+          averageRating.value = response.data.data.average_rating
           serviceChargeAgreement.value = restaurant.value.service_charge_agreement
           serviceChargeGroceriesAgreement.value = restaurant.value.groceries_service_charge_agreement
           center.value = {lat: Number(restaurant.value.latitude), lng: Number(restaurant.value.longitude)}
@@ -676,6 +754,13 @@ export default {
         })
     }
 
+    const getReviews = () => {
+      $http.get('/admin/restaurants/'+router.params.id +'/reviews')
+        .then(response => {
+          reviews.value = response.data.data.reverse().splice(0, 5)
+        })
+    }
+
     const getRestaurantCategories = () => {
       $http.get('/admin/restaurant/'+router.params.id+'/categories')
         .then(response => {
@@ -702,6 +787,7 @@ export default {
       getPayments()
       getOrders()
       getMenu()
+      getReviews()
       getRestaurantCategories()
     })
 
@@ -901,6 +987,9 @@ export default {
       restaurant,
 
       center,
+
+      reviews,
+      averageRating,
 
       mapRef,
       zoom,
