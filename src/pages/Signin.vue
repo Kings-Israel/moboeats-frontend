@@ -5,9 +5,9 @@
 
       <!-- Content -->
       <div class="w-full md:w-1/2">
-        <div class="min-h-[100dvh] h-full flex flex-col after:flex-1 bg-[#001510]">      
+        <div class="min-h-[100dvh] h-full flex flex-col after:flex-1 bg-[#2E5945]">      
           <div class="max-w-sm mx-auto w-full px-4 py-8 rounded-md bg-gray-200 lg:mt-44">
-            <h1 class="text-3xl text-slate-800 dark:text-slate-100 font-bold mb-6">Welcome back! ✨</h1>
+            <h1 class="text-3xl text-slate-800 font-bold mb-6">Welcome back! ✨</h1>
             <!-- Form -->
             <form @submit.prevent="login()">
               <div class="space-y-4">
@@ -24,7 +24,7 @@
                 <div class="mr-1">
                   <router-link class="text-sm underline hover:no-underline hidden" to="/reset-password">Forgot Password?</router-link>
                 </div>
-                <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3">Sign In</button>
+                <button class="btn bg-[#F3C411] hover:bg-indigo-600 text-white ml-3">Sign In</button>
               </div>
             </form>
           </div>
@@ -33,11 +33,11 @@
 
       <!-- Image -->
       <div
-        class="hidden md:block absolute top-0 bottom-0 right-0 md:w-1/2 bg-[#001510]"
+        class="hidden md:block absolute top-0 bottom-0 right-0 md:w-1/2 bg-[#2E5945]"
         aria-hidden="true"
       >
         <img
-          src="../images/mobo-logo.jpeg"
+          src="../images/1024.png"
           class="my-auto mx-auto object-contain w-96 mt-44"
           alt=""
         />
