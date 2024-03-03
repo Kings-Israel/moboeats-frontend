@@ -89,8 +89,8 @@
                     <tr v-for="restaurant in restaurants" :key="restaurant.id">
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                         <div class="flex items-center">
-                          <div class="w-10 h-10 shrink-0 mr-2 sm:mr-3">
-                            <img class="rounded-full" :src="restaurant.logo" width="40" height="40" :alt="restaurant.name" />
+                          <div class="shrink-0 mr-2 sm:mr-3">
+                            <img class="w-16 h-16 object-contain rounded-full" :src="restaurant.logo" :alt="restaurant.name" />
                           </div>
                           <div class="font-medium text-slate-800 dark:text-slate-100">{{restaurant.name}}</div>
                         </div>
@@ -142,16 +142,6 @@ import DateSelect from '../../components/DateSelect.vue'
 import FilterButton from '../../components/DropdownFilter.vue'
 import CustomersTable from '../../partials/customers/CustomersTable.vue'
 import PaginationClassic from '../../components/PaginationClassic.vue'
-import Image01 from '../../images/user-40-01.jpg'
-import Image02 from '../../images/user-40-02.jpg'
-import Image03 from '../../images/user-40-03.jpg'
-import Image04 from '../../images/user-40-04.jpg'
-import Image05 from '../../images/user-40-05.jpg'
-import Image06 from '../../images/user-40-06.jpg'
-import Image07 from '../../images/user-40-07.jpg'
-import Image08 from '../../images/user-40-08.jpg'
-import Image09 from '../../images/user-40-09.jpg'
-import Image10 from '../../images/user-40-10.jpg'
 
 export default {
   name: 'Users',
