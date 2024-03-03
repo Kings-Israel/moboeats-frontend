@@ -45,7 +45,7 @@
                   <path class="fill-current" :class="(currentRoute.fullPath === '/' || currentRoute.fullPath.includes('dashboard')) ? 'text-yellow-200' : 'text-yellow-400'" d="M12 15c-1.654 0-3-1.346-3-3 0-.462.113-.894.3-1.285L6 6l4.714 3.301A2.973 2.973 0 0112 9c1.654 0 3 1.346 3 3s-1.346 3-3 3z" />                      
                 </svg>
                 <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-white hover:text-slate-200'" :href="href" @click="navigate">
-                  <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Dashboard</span>
+                  <span class="text-sm font-medium duration-200">Dashboard</span>
                 </a>
               </div>
             </router-link>
@@ -57,7 +57,7 @@
                   <path class="fill-current" :class="currentRoute.fullPath.includes('users') ? 'text-yellow-300' : 'text-yellow-400'" d="M12 6a3 3 0 110-6 3 3 0 010 6zm2 18h-4a1 1 0 01-1-1v-6H6v-6a3 3 0 013-3h6a3 3 0 013 3v6h-3v6a1 1 0 01-1 1z" />
                 </svg>
                 <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-white hover:text-slate-200'" :href="href" @click="navigate">
-                  <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Customers</span>
+                  <span class="text-sm font-medium">Customers</span>
                 </a>
               </div>
             </router-link>
@@ -70,7 +70,7 @@
                   </g>
                 </svg>
                 <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-white hover:text-slate-200'" :href="href" @click="navigate">
-                  <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Restaurant Admins</span>
+                  <span class="text-sm font-medium">Restaurant Admins</span>
                 </a>
               </div>
             </router-link>
@@ -86,7 +86,7 @@
                   </g>
                 </svg>
                 <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-white hover:text-slate-200'" :href="href" @click="navigate">
-                  <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Riders</span>
+                  <span class="text-sm font-medium">Riders</span>
                 </a>
               </div>
             </router-link>
@@ -102,7 +102,7 @@
                   </g>
                 </svg>
                 <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-white hover:text-slate-200'" :href="href" @click="navigate">
-                  <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Restaurants</span>
+                  <span class="text-sm font-medium">Restaurants</span>
                 </a>
               </div>
             </router-link>
@@ -115,7 +115,7 @@
                   <path class="fill-current" :class="currentRoute.fullPath.includes('orders') ? 'text-yellow-500' : 'text-yellow-600'" d="M13 15.047V24l10.573-7.181A.999.999 0 0024 16V8l-11 7.047z" />                    
                 </svg>
                 <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-white hover:text-slate-200'" :href="href" @click="navigate">
-                  <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Orders</span>
+                  <span class="text-sm font-medium">Orders</span>
                 </a>
               </div>
             </router-link>
@@ -128,7 +128,7 @@
                   <path class="fill-current" :class="currentRoute.fullPath.includes('payments') ? 'text-yellow-300' : 'text-yellow-400'" d="M21.554 2.471A8.958 8.958 0 0 0 18.167.276a3.105 3.105 0 0 0-3.295.467L9.715 5.888c-1.41 1.408-.665 4.275 1.733 6.668a8.958 8.958 0 0 0 3.387 2.196c.459.157.94.24 1.425.246a2.559 2.559 0 0 0 1.87-.715l5.156-5.146c1.415-1.406.666-4.273-1.732-6.666Zm.318 5.257c-.148.147-.594.2-1.256-.018A7.037 7.037 0 0 1 18.016 6c-1.73-1.728-2.104-3.475-1.73-3.845a.671.671 0 0 1 .465-.129c.27.008.536.057.79.146a7.07 7.07 0 0 1 2.6 1.711c1.73 1.73 2.105 3.472 1.73 3.846Z" />                      
                 </svg>
                 <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-white hover:text-slate-200'" :href="href" @click="navigate">
-                  <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Payments</span>
+                  <span class="text-sm font-medium">Payments</span>
                 </a>
               </div>
             </router-link>
@@ -141,7 +141,7 @@
                   <path class="fill-current" :class="currentRoute.fullPath.includes('discounts') ? 'text-yellow-300' : 'text-yellow-400'" d="M21.554 2.471A8.958 8.958 0 0 0 18.167.276a3.105 3.105 0 0 0-3.295.467L9.715 5.888c-1.41 1.408-.665 4.275 1.733 6.668a8.958 8.958 0 0 0 3.387 2.196c.459.157.94.24 1.425.246a2.559 2.559 0 0 0 1.87-.715l5.156-5.146c1.415-1.406.666-4.273-1.732-6.666Zm.318 5.257c-.148.147-.594.2-1.256-.018A7.037 7.037 0 0 1 18.016 6c-1.73-1.728-2.104-3.475-1.73-3.845a.671.671 0 0 1 .465-.129c.27.008.536.057.79.146a7.07 7.07 0 0 1 2.6 1.711c1.73 1.73 2.105 3.472 1.73 3.846Z" />                      
                 </svg>
                 <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-white hover:text-slate-200'" :href="href" @click="navigate">
-                  <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Discounts</span>
+                  <span class="text-sm font-medium">Discounts</span>
                 </a>
               </div>
             </router-link>
@@ -155,7 +155,7 @@
                   <path class="fill-current" :class="currentRoute.fullPath.includes('logs') ? 'text-yellow-300' : 'text-yellow-400'" d="M19.707 9.292a3.012 3.012 0 00-1.415 1.415L13.286 5.7c-.4.195-.84.298-1.286.3a3 3 0 113-3 2.969 2.969 0 01-.3 1.286l5.007 5.006z" />                      
                 </svg>
                 <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-white hover:text-slate-200'" :href="href" @click="navigate">
-                  <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Logs</span>
+                  <span class="text-sm font-medium">Logs</span>
                 </a>
               </div>
             </router-link>         
