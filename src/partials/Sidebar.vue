@@ -7,7 +7,7 @@
     <div
       id="sidebar"
       ref="sidebar"
-      class="flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-[100dvh] overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 lg:w-20 lg:sidebar-expanded:!w-64 2xl:!w-64 shrink-0 bg-[#2E5945] p-4 transition-all duration-200 ease-in-out"
+      class="flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-[100dvh] overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 shrink-0 bg-[#2E5945] p-4 transition-all duration-200 ease-in-out"
       :class="sidebarOpen ? 'translate-x-0' : '-translate-x-64'"
     >
       <!-- Sidebar header -->
@@ -27,7 +27,7 @@
         </button>
         <!-- Logo -->
         <router-link class="flex gap-4" to="/">
-          <img src="../images/1024.png" class="w-24 h-28 mx-auto object-contain" alt="">
+          <img src="../images/1024.png" class="w-16 md:w-24 md:h-28 mx-auto object-contain" alt="">
         </router-link>
       </div>
 
@@ -37,7 +37,7 @@
         <div>
           <ul class="mt-3">
             <!-- Dashboard -->
-            <router-link :to="{ name: 'dashboard' }" custom v-slot="{ href, navigate, isExactActive }" :class="(currentRoute.fullPath === '/' || currentRoute.fullPath.includes('dashboard')) ? 'hover:text-slate-200' : 'hover:text-white'" href="#0" @click.prevent="parentLink.handleClick(); sidebarExpanded = true">
+            <router-link :to="{ name: 'dashboard' }" custom v-slot="{ href, navigate, isExactActive }" :class="(currentRoute.fullPath === '/' || currentRoute.fullPath.includes('dashboard')) ? 'hover:text-slate-200' : 'hover:text-white'">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                   <path class="fill-current" :class="(currentRoute.fullPath === '/' || currentRoute.fullPath.includes('dashboard')) ? 'text-yellow-500' : 'text-yellow-400'" d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0z" />
