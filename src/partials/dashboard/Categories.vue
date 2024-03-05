@@ -62,7 +62,7 @@
           </div>
           <div>
             <label for="Image">Image</label>
-            <input type="file" name="addCategoryImage" class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" v-on:change="onFileChange" id="">
+            <input type="file" name="addCategoryImage" accept=".png,.jpg" class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" v-on:change="onFileChange" id="">
           </div>
         </div>
         <div class="flex justify-end mt-6">
@@ -97,6 +97,7 @@
             <tr v-for="category in sub_categories" :key="category.id">
               <td class="p-2">
                 <div class="flex items-center">
+                  <img :src="category.image" alt="" class="w-8 h-8 object-cover mx-2">
                   <div class="text-slate-800 dark:text-slate-100">{{ category.title }}</div>
                 </div>
               </td>
@@ -126,6 +127,10 @@
           <div>
             <label class="block text-sm font-medium mb-1" for="title">Description</label>
             <textarea name="addCategoryDescription" id="" class="form-input w-full min-h-full rounded-lg" rows="8" v-model="addSubCategoryDescription"></textarea>
+          </div>
+          <div>
+            <label for="Image">Image</label>
+            <input type="file" name="addSubCategoryImage" accept=".png,.jpg" class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" v-on:change="onSubcategoryFileChange" id="">
           </div>
           <div class="flex-none flex my-auto">
           <div class="m-3">
@@ -202,6 +207,7 @@ export default {
     const addSubCategoryTitle = ref('')
     const addSubCategoryDescription = ref('')
     const addSubCategoryStatus = ref('2')
+    const addSubCategoryImage = ref(null)
 
     const sub_category_search = ref('Groceries')
 
@@ -236,6 +242,7 @@ export default {
       formData.append('title', addSubCategoryTitle.value)
       formData.append('description', addSubCategoryDescription.value)
       formData.append('status', addSubCategoryStatus.value)
+      formData.append('image', addSubCategoryImage.value)
       if (sub_category_action.value == 'create') {
         formData.append('category_id', sub_category_category_id.value)
         $http.post('/admin/sub-categories/add', formData)
@@ -243,6 +250,7 @@ export default {
             getCategories()
             addSubCategoryTitle.value = ''
             addSubCategoryDescription.value = ''
+            addSubCategoryImage.value = null
             sub_category_action.value = 'create'
             toast.success('Sub Category added')
           })
@@ -377,6 +385,14 @@ export default {
       addCategoryImage.value = files[0];
     }
 
+    const onSubcategoryFileChange = (e) => {
+      let files = e.target.files || e.dataTransfer.files;
+      if (!files.length) {
+        return
+      }
+      addSubCategoryImage.value = files[0];
+    }
+
     return {
       moment,
       categories,
@@ -396,6 +412,7 @@ export default {
       changePage,
       action,
       onFileChange,
+      onSubcategoryFileChange,
 
       nextSubPageUrl,
       lastSubPageUrl,
