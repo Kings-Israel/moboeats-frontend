@@ -66,7 +66,7 @@
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24">
                   <g fill="#212121" class="nc-icon-wrapper">
-                    <path class="fill-current" :class="currentRoute.fullPath.includes('restaurant-admins') ? 'text-yellow-500' : 'text-yellow-600'" d="M12,0A12,12,0,1,0,24,12,12,12,0,0,0,12,0Zm3.772,17.333a4,4,0,0,1-7.544,0,1,1,0,1,1,1.886-.666,2,2,0,0,0,3.772,0,1,1,0,0,1,1.886.666Zm2.582-4.187h0a3.294,3.294,0,0,1-4.5-1.206h0L12.707,9.954a.745.745,0,0,0-1.412,0l-1.147,1.987A3.294,3.294,0,1,1,7.376,7L12,7.021,16.626,7a3.294,3.294,0,0,1,1.728,6.146Z"></path>
+                    <path class="fill-current" :class="currentRoute.fullPath.includes('restaurant-admins') ? 'text-yellow-500' : 'text-yellow-400'" d="M12,0A12,12,0,1,0,24,12,12,12,0,0,0,12,0Zm3.772,17.333a4,4,0,0,1-7.544,0,1,1,0,1,1,1.886-.666,2,2,0,0,0,3.772,0,1,1,0,0,1,1.886.666Zm2.582-4.187h0a3.294,3.294,0,0,1-4.5-1.206h0L12.707,9.954a.745.745,0,0,0-1.412,0l-1.147,1.987A3.294,3.294,0,1,1,7.376,7L12,7.021,16.626,7a3.294,3.294,0,0,1,1.728,6.146Z"></path>
                   </g>
                 </svg>
                 <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-white hover:text-slate-200'" :href="href" @click="navigate">
@@ -79,9 +79,9 @@
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24">
                   <g fill="#212121" class="nc-icon-wrapper">
-                    <path class="fill-current" :class="currentRoute.fullPath.includes('riders') ? 'text-yellow-500' : 'text-yellow-600'" d="M9,17H7A5,5,0,0,1,7,7V9.5a.5.5,0,0,0,.807.395l4.5-3.5a.5.5,0,0,0,0-.79l-4.5-3.5A.5.5,0,0,0,7,2.5V5A7,7,0,0,0,7,19H9a1,1,0,0,0,0-2Z" fill="#212121">
+                    <path class="fill-current" :class="currentRoute.fullPath.includes('riders') ? 'text-yellow-500' : 'text-yellow-400'" d="M9,17H7A5,5,0,0,1,7,7V9.5a.5.5,0,0,0,.807.395l4.5-3.5a.5.5,0,0,0,0-.79l-4.5-3.5A.5.5,0,0,0,7,2.5V5A7,7,0,0,0,7,19H9a1,1,0,0,0,0-2Z" fill="#212121">
                     </path>
-                    <path class="fill-current" :class="currentRoute.fullPath.includes('riders') ? 'text-yellow-500' : 'text-yellow-600'" data-color="color-2" d="M17,5H15a1,1,0,0,0,0,2h2a5,5,0,0,1,0,10V14.5a.5.5,0,0,0-.807-.395l-4.5,3.5a.5.5,0,0,0,0,.79l4.5,3.5A.5.5,0,0,0,17,21.5V19A7,7,0,0,0,17,5Z">
+                    <path class="fill-current" :class="currentRoute.fullPath.includes('riders') ? 'text-yellow-500' : 'text-yellow-400'" data-color="color-2" d="M17,5H15a1,1,0,0,0,0,2h2a5,5,0,0,1,0,10V14.5a.5.5,0,0,0-.807-.395l-4.5,3.5a.5.5,0,0,0,0,.79l4.5,3.5A.5.5,0,0,0,17,21.5V19A7,7,0,0,0,17,5Z">
                     </path>
                   </g>
                 </svg>

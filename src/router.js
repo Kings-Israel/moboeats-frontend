@@ -72,6 +72,7 @@ import User from './pages/users/Details.vue'
 import Restaurants from './pages/restautants/Index.vue'
 import Orders from './pages/orders/Orders.vue'
 import Payments from './pages/payments/Payments.vue'
+import PaymentDetails from './pages/payments/Details.vue'
 import RestaurantDetails from './pages/restautants/Details.vue'
 import OrderDetails from './pages/orders/Details.vue'
 import Logs from './pages/logs/Index.vue'
@@ -174,6 +175,14 @@ const router = createRouter({
       path: '/payments',
       component: Payments,
       name: 'payments',
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/payments/:id',
+      component: PaymentDetails,
+      name: 'payment-details',
       meta: {
         requiresAuth: true,
       },

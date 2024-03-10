@@ -12,6 +12,134 @@
 
       <main class="grow">
         <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
+          <div class="grid grid-cols-4 gap-4">
+            <div>
+              <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                <div class="flex flex-col h-full">
+                  <div class="grow p-5">
+                    <header>
+                      <div class="flex justify-center mb-2">
+                        <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                          <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                            <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="text-center">
+                        <h2 class="text-xl leading-snug justify-center font-semibold">Total Amount</h2>
+                      </div>
+                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(total_amount) }}</span></div>
+                    </header>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                <div class="flex flex-col h-full">
+                  <div class="grow p-5">
+                    <header>
+                      <div class="flex justify-center mb-2">
+                        <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                          <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                            <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="text-center">
+                        <h2 class="text-xl leading-snug justify-center font-semibold">Paid Out Amount</h2>
+                      </div>
+                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(total_paid_out) }}</span></div>
+                    </header>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                <div class="flex flex-col h-full">
+                  <div class="grow p-5">
+                    <header>
+                      <div class="flex justify-center mb-2">
+                        <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                          <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                            <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="text-center">
+                        <h2 class="text-xl leading-snug justify-center font-semibold">Unpaid Amount</h2>
+                      </div>
+                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(total_unpaid_out) }}</span></div>
+                    </header>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                <div class="flex flex-col h-full">
+                  <div class="grow p-5">
+                    <header>
+                      <div class="flex justify-center mb-2">
+                        <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                          <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                            <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="text-center">
+                        <h2 class="text-xl leading-snug justify-center font-semibold">Restaurants Earnings</h2>
+                      </div>
+                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(restaurant_earnings) }} ({{ formatValue(restaurant_earnings_paid_out) + 'Paid Out' }})</span></div>
+                    </header>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                <div class="flex flex-col h-full">
+                  <div class="grow p-5">
+                    <header>
+                      <div class="flex justify-center mb-2">
+                        <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                          <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                            <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="text-center">
+                        <h2 class="text-xl leading-snug justify-center font-semibold">Rider Earnings</h2>
+                      </div>
+                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(rider_earnings) }} ({{ formatValue(rider_earnings_paid_out) + 'Paid Out' }})</span></div>
+                    </header>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                <div class="flex flex-col h-full">
+                  <div class="grow p-5">
+                    <header>
+                      <div class="flex justify-center mb-2">
+                        <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                          <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                            <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="text-center">
+                        <h2 class="text-xl leading-snug justify-center font-semibold">Total Service Charges</h2>
+                      </div>
+                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(total_service_charges) }}</span></div>
+                    </header>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <!-- Page header -->
           <div class="sm:flex sm:justify-between sm:items-center mb-8">
@@ -65,6 +193,9 @@
                         <div class="font-semibold text-left">Transaction ID</div>
                       </th>
                       <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="font-semibold text-left">Paid Date</div>
+                      </th>
+                      <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                         <div class="font-semibold text-left">Actions</div>
                       </th>
                     </tr>
@@ -88,7 +219,7 @@
                         <div class="text-left">{{moment(payment.created_at).format('Do MMMM Y')}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
-                        <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm">View</button>
+                        <router-link :to="{ name: 'payment-details', params: { id: payment.uuid }}" class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm">View</router-link>
                       </td>
                     </tr>
                   </tbody>
@@ -117,6 +248,7 @@ import DateSelect from '../../components/DateSelect.vue'
 import FilterButton from '../../components/DropdownFilter.vue'
 import CustomersTable from '../../partials/customers/CustomersTable.vue'
 import PaginationClassic from '../../components/PaginationClassic.vue'
+import { formatValue } from '../../utils/Utils'
 
 export default {
   name: 'Orders',
@@ -140,6 +272,14 @@ export default {
     const from = ref(0)
     const to = ref(0)
     const totalItems = ref(0)
+    const total_amount = ref(0)
+    const total_paid_out = ref(0)
+    const total_unpaid_out = ref(0)
+    const restaurant_earnings = ref(0)
+    const restaurant_earnings_paid_out = ref(0)
+    const rider_earnings = ref(0)
+    const rider_earnings_paid_out = ref(0)
+    const total_service_charges = ref(0)
 
     let search = ref('')
 
@@ -156,15 +296,24 @@ export default {
     onMounted(() => {
       $http.get('/admin/payments')
         .then(response => {
-          nextPageUrl.value = response.data.data.next_page_url
-          lastPageUrl.value = response.data.data.last_page_url
-          prevPageUrl.value = response.data.data.prev_page_url
-          totalItems.value = response.data.data.total
-          from.value = response.data.data.from
-          to.value = response.data.data.to
-          response.data.data.data.forEach(payment => {
+          total_amount.value = response.data.data.total_amount
+          total_paid_out.value = response.data.data.paid_out_amount
+          total_unpaid_out.value = response.data.data.unpaid_amount
+          restaurant_earnings.value = response.data.data.restaurant_earnings,
+          restaurant_earnings_paid_out.value = response.data.data.restaurant_amount_paid_out
+          rider_earnings.value = response.data.data.rider_earnings
+          rider_earnings_paid_out.value = response.data.data.rider_amount_paid_out
+          total_service_charges.value = response.data.data.total_service_charges
+          nextPageUrl.value = response.data.data.payments.next_page_url
+          lastPageUrl.value = response.data.data.payments.last_page_url
+          prevPageUrl.value = response.data.data.payments.prev_page_url
+          totalItems.value = response.data.data.payments.total
+          from.value = response.data.data.payments.from
+          to.value = response.data.data.payments.to
+          response.data.data.payments.data.forEach(payment => {
             payments.value.push({
               id: payment.id,
+              uuid: payment.uuid,
               name: payment.order.user.name,
               restaurant: payment.order.restaurant.name,
               total_amount: payment.amount,
@@ -178,16 +327,17 @@ export default {
     function changePage(page) {
       $http.get(page)
         .then(response => {
-          nextPageUrl.value = response.data.data.next_page_url
-          lastPageUrl.value = response.data.data.last_page_url
-          prevPageUrl.value = response.data.data.prev_page_url
-          totalItems.value = response.data.data.total
-          from.value = response.data.data.from
-          to.value = response.data.data.to
+          nextPageUrl.value = response.data.data.payments.next_page_url
+          lastPageUrl.value = response.data.data.payments.last_page_url
+          prevPageUrl.value = response.data.data.payments.prev_page_url
+          totalItems.value = response.data.data.payments.total
+          from.value = response.data.data.payments.from
+          to.value = response.data.data.payments.to
           payments.value = []
-          response.data.data.data.forEach(payment => {
+          response.data.data.payments.data.forEach(payment => {
             payments.value.push({
               id: payment.id,
+              uuid: payment.uuid,
               name: payment.order.user.name,
               restaurant: payment.order.restaurant.name,
               total_amount: payment.amount,
@@ -201,16 +351,17 @@ export default {
     watch(search, async (newSearch, oldQuestion) => {
       $http.get('/admin/payments?search='+newSearch)
         .then(response => {
-          nextPageUrl.value = response.data.data.next_page_url
-          lastPageUrl.value = response.data.data.last_page_url
-          prevPageUrl.value = response.data.data.prev_page_url
-          totalItems.value = response.data.data.total
-          from.value = response.data.data.from
-          to.value = response.data.data.to
+          nextPageUrl.value = response.data.data.payments.next_page_url
+          lastPageUrl.value = response.data.data.payments.last_page_url
+          prevPageUrl.value = response.data.data.payments.prev_page_url
+          totalItems.value = response.data.data.payments.total
+          from.value = response.data.data.payments.from
+          to.value = response.data.data.payments.to
           payments.value = []
-          response.data.data.data.forEach(payment => {
+          response.data.data.payments.data.forEach(payment => {
             payments.value.push({
               id: payment.id,
+              uuid: payment.uuid,
               name: payment.order.user.name,
               restaurant: payment.order.restaurant.name,
               total_amount: payment.amount,
@@ -235,6 +386,15 @@ export default {
       to,
       changePage,
       search,
+      total_amount,
+      total_paid_out,
+      total_unpaid_out,
+      restaurant_earnings,
+      restaurant_earnings_paid_out,
+      rider_earnings,
+      rider_earnings_paid_out,
+      total_service_charges,
+      formatValue
     }  
   }
 }
