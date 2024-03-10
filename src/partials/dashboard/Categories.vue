@@ -116,7 +116,7 @@
   </div>
   <div class="col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-md border border-slate-200 dark:border-slate-700">
     <div class="p-3">
-      <h1 class="text-3xl text-slate-800 dark:text-slate-100 font-bold mb-6">{{ sub_category_action == 'create' ? 'Add' : 'Edit' }} Sub Category</h1>
+      <h1 class="text-3xl text-slate-800 dark:text-slate-100 font-bold mb-6">{{ sub_category_action == 'create' ? 'Add' : 'Edit' }} Grocery Category</h1>
       <!-- Form -->
       <form @submit.prevent="addSubCategory()" class="flex flex-col justify-evenly">
         <div class="space-y-4">
