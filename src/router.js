@@ -77,6 +77,7 @@ import RestaurantDetails from './pages/restautants/Details.vue'
 import OrderDetails from './pages/orders/Details.vue'
 import Logs from './pages/logs/Index.vue'
 import Discount from './pages/discounts/Index.vue'
+import MarketingPosters from './pages/marketing/posters/Index.vue'
 
 const routerHistory = createWebHistory()
 
@@ -191,6 +192,14 @@ const router = createRouter({
       path: '/discounts',
       component: Discount,
       name: 'discounts',
+      meta: {
+        requiresAuth: true,
+      }
+    },
+    {
+      path: '/marketing/posters',
+      component: MarketingPosters,
+      name: 'marketing.posters',
       meta: {
         requiresAuth: true,
       }
