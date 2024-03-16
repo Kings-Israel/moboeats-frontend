@@ -57,8 +57,8 @@ export default {
     const $http = inject("$http")
     const router = useRouter()
     const toast = useToast()
-    const email = ref("admin@moboeats.com")
-    const password = ref("password")
+    const email = ref("")
+    const password = ref("")
 
     const login = () => {
       $http.post('/admin/login', {

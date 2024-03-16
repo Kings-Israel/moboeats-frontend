@@ -59,22 +59,19 @@
                         <div class="font-semibold text-left">Email</div>
                       </th>
                       <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="font-semibold text-left">Location</div>
+                        <div class="font-semibold text-left">Deliveries</div>
                       </th>
                       <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="font-semibold">Orders</div>
+                        <div class="font-semibold text-left">Last Delivery</div>
                       </th>
                       <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="font-semibold text-left">Last order</div>
+                        <div class="font-semibold text-left">Total Comission</div>
                       </th>
                       <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="font-semibold text-left">Total spent</div>
+                        <div class="font-semibold text-left">Approval Status</div>
                       </th>
                       <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="font-semibold">Refunds</div>
-                      </th>
-                      <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <span class="sr-only">Menu</span>
+                        <div class="font-semibold text-left">Actions</div>
                       </th>
                     </tr>
                   </thead>
@@ -93,27 +90,41 @@
                         <div class="text-left">{{customer.email}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-left">{{customer.location}}</div>
+                        <div class="text-left">{{customer.deliveries.length}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-center">{{customer.orders}}</div>
+                        <div class="text-left">{{getRiderLastDeliveries(customer)}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-left font-medium text-sky-500">{{customer.lastOrder}}</div>
+                        <div class="text-left font-medium text-sky-500" v-if="customer.rider">{{getRiderTotalTips(customer.rider)}}</div>
+                        <div class="text-left font-medium text-sky-500" v-else>0</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-left font-medium text-emerald-500">{{customer.spent}}</div>
+                        <div class="text-left font-medium flex w-fit px-2 py-1 rounded-md" :class="resolveRiderStatus(customer.rider.status)" v-if="customer.rider">{{riderStatus(customer.rider.status)}}</div>
+                        <div class="text-left font-medium text-red-500" v-else>Rider Profile not created</div>
                       </td>
-                      <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-center">{{customer.refunds}}</div>
-                      </td>
-                      <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
+                      <td class="px-2 py-3 whitespace-nowrap w-px flex gap-1">
                         <router-link class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm" :to="{ name: 'rider-details', 'params': { id: customer.id, type: 'rider' }}">View</router-link>
+                        <form @submit.prevent="updateRiderStatus(customer.rider.uuid, 'approved')" v-if="customer.rider && (customer.rider.status == '1' || customer.rider.status == '3')">
+                          <button class="bg-green-500 text-white rounded-md px-2 py-1" type="submit">Approve</button>
+                        </form>
+                        <button v-if="customer.rider && customer.rider.status == '1'" class="bg-red-500 text-white rounded-md px-2" @click="updateRiderStatusModal = true">Reject</button>
+                        <modal-action v-if="customer.rider && customer.rider.status == '1'" :id="'udpateRiderStatus'" :modal-open="updateRiderStatusModal" @close-modal="updateRiderStatusModal = false" :add-class="'max-w-4xl'">
+                          <!-- Add/Edit Menu -->
+                          <form class="flex flex-col justify-around" @submit.prevent="updateRiderStatus(customer.rider.uuid, 'denied')">
+                            <div>
+                              <label class="block text-sm font-medium mb-1" for="title">Rejection Reason</label>
+                              <textarea id="" class="form-input w-full min-h-full rounded-lg border-2 border-slate-400" rows="4" v-model="rejection_reason" placeholder="Enter Rejection Reason"></textarea>
+                            </div>
+                            <div class="flex justify-end bottom-2 ">
+                              <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">Submit</button>
+                            </div>
+                          </form>
+                        </modal-action>
                       </td>
                     </tr>
                   </tbody>
                 </table>
-
               </div>
             </div>
           </div>
@@ -123,7 +134,6 @@
             <PaginationClassic @change-page="changePage" :next_page="nextPageUrl" :prev_page="prevPageUrl" :from="from" :to="to" :total_items="totalItems" />
             <!-- <PaginationNumeric @change-page="changePage" :next_page="nextPageUrl" :prev_page="prevPageUrl" :from="from" :to="to" :total_items="totalItems" :links="pagesLinks" /> -->
           </div>          
-
         </div>
       </main>
 
@@ -142,16 +152,8 @@ import FilterButton from '../../components/DropdownFilter.vue'
 import CustomersTable from '../../partials/customers/CustomersTable.vue'
 import PaginationClassic from '../../components/PaginationClassic.vue'
 import PaginationNumeric from '../../components/PaginationNumeric.vue'
-import Image01 from '../../images/user-40-01.jpg'
-import Image02 from '../../images/user-40-02.jpg'
-import Image03 from '../../images/user-40-03.jpg'
-import Image04 from '../../images/user-40-04.jpg'
-import Image05 from '../../images/user-40-05.jpg'
-import Image06 from '../../images/user-40-06.jpg'
-import Image07 from '../../images/user-40-07.jpg'
-import Image08 from '../../images/user-40-08.jpg'
-import Image09 from '../../images/user-40-09.jpg'
-import Image10 from '../../images/user-40-10.jpg'
+import ModalAction from '../../components/ModalAction.vue'
+import { useToast } from 'vue-toastification'
 
 export default {
   name: 'Users',
@@ -164,8 +166,10 @@ export default {
     CustomersTable,
     PaginationClassic,
     PaginationNumeric,
+    ModalAction,
   },
   setup() {
+    const toast = useToast()
     const $http = inject("$http")
     const sidebarOpen = ref(false)
     const selectedItems = ref([])
@@ -176,6 +180,9 @@ export default {
     const from = ref(0)
     const to = ref(0)
     const totalItems = ref(0)
+
+    const rejection_reason = ref('')
+    const updateRiderStatusModal = ref(false)
 
     let search = ref('')
 
@@ -197,22 +204,89 @@ export default {
           response.data.data.links.forEach(link => {
             pagesLinks.value.push(link)
           })
-          response.data.data.data.forEach(user => {
-            customers.value.push({
-              id: user.id,
-              image: user.image,
-              name: user.name,
-              email: user.email,
-              location: '🇬🇧 London, UK',
-              orders: user.orders.length,
-              lastOrder: '#123567',
-              spent: '$2,890.66',
-              refunds: '-',
-              fav: true
-            })
-          })
+          customers.value = response.data.data.data
         })
     })
+
+    const resolveRiderStatus = (status) => {
+      switch (status) {
+        case 1:
+          return 'bg-slate-600 text-white'
+          break;
+        case 2:
+          return 'bg-green-600 text-slate-100'
+          break;
+        case 3:
+          return 'bg-red-500 text-white'
+          break;
+        default:
+          return 'text-gray-500'
+          break;
+      }
+    }
+
+    const riderStatus = (status) => {
+      switch (status) {
+        case 1:
+          return 'Pending'
+          break;
+        case 2:
+          return 'Approved'
+          break;
+        case 3:
+          return 'Denied'
+          break;
+        default:
+          return 'Pending'
+          break;
+      }
+    }
+
+    const updateRiderStatus = (id, status) => {
+      $http.post('admin/users/rider/'+id+'/status/update', {
+        status: status,
+        rejection_reason: rejection_reason.value
+      })
+      .then(res => {
+        updateRiderStatusModal.value = false
+        toast.success('Rider Updated successfully');
+        $http.get('/admin/users/rider')
+        .then(response => {
+          customers.value = []
+          nextPageUrl.value = response.data.data.next_page_url
+          lastPageUrl.value = response.data.data.last_page_url
+          prevPageUrl.value = response.data.data.prev_page_url
+          totalItems.value = response.data.data.total
+          from.value = response.data.data.from
+          to.value = response.data.data.to
+          response.data.data.links.forEach(link => {
+            pagesLinks.value.push(link)
+          })
+          customers.value = response.data.data.data
+        })
+      })
+      .catch(err => {
+        console.log(err)
+        toast.error('An error occurred');
+      })
+    }
+
+    const getRiderTotalTips = (rider) => {
+      let total = 0;
+      rider.tips.forEach(tip => total += tip.amount);
+      return total;
+    }
+
+    const getOrderId = (order) => {
+      return order.uuid.split('-')[0].toUpperCase()
+    }
+
+    const getRiderLastDeliveries = (rider) => {
+      if (rider.deliveries.length > 0) {
+        return getOrderId(rider.deliveries.reverse()[0])
+      }
+      return '-'
+    }
 
     function changePage(page) {
       $http.get(page)
@@ -228,20 +302,7 @@ export default {
           response.data.data.links.forEach(link => {
             pagesLinks.value.push(link)
           })
-          response.data.data.data.forEach(user => {
-            customers.value.push({
-              id: user.id,
-              image: Image01,
-              name: user.name,
-              email: user.email,
-              location: '🇬🇧 London, UK',
-              orders: user.orders.length,
-              lastOrder: '#123567',
-              spent: '$2,890.66',
-              refunds: '-',
-              fav: true
-            })
-          })
+          customers.value = response.data.data.data
         })
     }
 
@@ -259,20 +320,7 @@ export default {
           response.data.data.links.forEach(link => {
             pagesLinks.value.push(link)
           })
-          response.data.data.data.forEach(user => {
-            customers.value.push({
-              id: user.id,
-              image: Image01,
-              name: user.name,
-              email: user.email,
-              location: '🇬🇧 London, UK',
-              orders: user.orders.length,
-              lastOrder: '#123567',
-              spent: '$2,890.66',
-              refunds: '-',
-              fav: true
-            })
-          })
+          customers.value = response.data.data.data
         })
     })
 
@@ -290,6 +338,13 @@ export default {
       pagesLinks,
       changePage,
       search,
+      rejection_reason,
+      updateRiderStatusModal,
+      getRiderLastDeliveries,
+      getRiderTotalTips,
+      resolveRiderStatus,
+      updateRiderStatus,
+      riderStatus,
     }  
   }
 }

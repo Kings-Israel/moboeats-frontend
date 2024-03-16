@@ -32,25 +32,47 @@
                   <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Info</h2>
                 </header>
                 <div class="flex flex-col space-y-2 p-3">
-                  <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Email:</span><strong>{{ user.email }}</strong></h1>
-                  <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong>{{ user.phone_number }}</strong></h1>
-                  <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Registered On:</span><strong>{{ moment(user.created_at).format('Do MMMM Y') }}</strong></h1>
-                  <h1 v-if="user_roles.includes('orderer')" class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Total Orders:</span><strong>{{ user.orders_count }}</strong></h1>
-                  <h1 v-if="user_roles.includes('restaurant')" class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Total Restaurants:</span><strong>{{ user.restaurants_count }}</strong></h1>
+                  <h1 class="flex gap-2 font-semibold text-slate-800 dark:text-slate-100"><span>Email:</span><strong>{{ user.email }}</strong></h1>
+                  <h1 class="flex gap-2 font-semibold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong>{{ user.phone_number }}</strong></h1>
+                  <h1 class="flex gap-2 font-semibold text-slate-800 dark:text-slate-100"><span>Registered On:</span><strong>{{ moment(user.created_at).format('Do MMMM Y') }}</strong></h1>
+                  <h1 v-if="user_roles.includes('orderer')" class="flex gap-2 font-semibold text-slate-800 dark:text-slate-100"><span>Total Orders:</span><strong>{{ user.orders_count }}</strong></h1>
+                  <h1 v-if="user_roles.includes('restaurant')" class="flex gap-2 font-semibold text-slate-800 dark:text-slate-100"><span>Total Restaurants:</span><strong>{{ user.restaurants_count }}</strong></h1>
                 </div>
               </div>
               <div v-if="user_roles.includes('rider') && rider_profile" class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
                 <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700">
                   <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Rider Profile</h2>
                 </header>
-                <div class="grid grid-cols-3">
-                  <div class="col-span-2 flex flex-col space-y-2 p-3">
-                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Vehicle Type:</span><strong>{{ rider_profile.vehicle_type }}</strong></h1>
-                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>License Plate:</span><strong>{{ rider_profile.vehicle_license_plate }}</strong></h1>
-                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Registered On:</span><strong>{{ moment(rider_profile.created_at).format('Do MMMM Y') }}</strong></h1>
+                <div class="flex justify-between gap-1">
+                  <div class="flex flex-col space-y-2 p-2">
+                    <h1 class="flex gap-1 font-semibold text-slate-800 dark:text-slate-100"><span>Vehicle Type:</span><strong>{{ rider_profile.vehicle_type }}</strong></h1>
+                    <h1 class="flex gap-1 font-semibold text-slate-800 dark:text-slate-100"><span>License Plate:</span><strong>{{ rider_profile.vehicle_license_plate }}</strong></h1>
+                    <h1 class="flex gap-1 font-semibold text-slate-800 dark:text-slate-100"><span>Registered On:</span><strong>{{ moment(rider_profile.created_at).format('Do MMMM Y') }}</strong></h1>
                   </div>
-                  <img :src="rider_profile.profile_picture" alt="" class="w-28 h-28 rounded-full object-cover">
+                  <img :src="rider_profile.profile_picture" alt="" class="w-20 h-20 rounded-full object-cover mx-1">
                 </div>
+                <div class="p-2 flex justify-between">
+                  <h1 class="flex gap-1 font-semibold text-slate-800 dark:text-slate-100"><span>Status: </span><strong :class="'p-1 px-2 rounded-md '+resolveRiderStatus(rider_profile.status)">{{ rider_profile.status }}</strong></h1>
+                  <div class="flex gap-1">
+                    <form @submit.prevent="updateRiderStatus(rider_profile.uuid, 'approved')" v-if="rider_profile.status == 'Pending' || rider_profile.status == 'Denied'">
+                      <button class="bg-green-500 text-white rounded-md px-2 py-1" type="submit">Approve</button>
+                    </form>
+                    <button v-if="rider_profile.status == 'Pending'" class="bg-red-500 text-white rounded-md px-2" @click="updateRiderStatusModal = true">Reject</button>
+                    <modal-action v-if="rider_profile.status == 'Pending'" :id="'udpateRiderStatus'" :modal-open="updateRiderStatusModal" @close-modal="updateRiderStatusModal = false" :add-class="'max-w-4xl'">
+                      <!-- Add/Edit Menu -->
+                      <form class="flex flex-col justify-around" @submit.prevent="updateRiderStatus(rider_profile.uuid, 'denied')">
+                        <div>
+                          <label class="block text-sm font-medium mb-1" for="title">Rejection Reason</label>
+                          <textarea id="" class="form-input w-full min-h-full rounded-lg border-2 border-slate-400" rows="4" v-model="rejection_reason" placeholder="Enter Rejection Reason"></textarea>
+                        </div>
+                        <div class="flex justify-end bottom-2 ">
+                          <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">Submit</button>
+                        </div>
+                      </form>
+                    </modal-action>
+                  </div>
+                </div>
+                <h1 class="flex gap-1 font-semibold text-slate-800 dark:text-slate-100 p-2" v-if="rider_profile.status == 'Denied'"><span>Rejection Reason: </span><strong>{{ rider_profile.rejection_reason }}</strong></h1>
               </div>
               <div v-if="user_roles.includes('rider') && !rider_profile" class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
                 <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700">
@@ -236,6 +258,8 @@ import PaginationClassic from '../../components/PaginationClassic.vue'
 import PaginationNumeric from '../../components/PaginationNumeric.vue'
 import { useRoute } from 'vue-router'
 import moment from 'moment';
+import ModalAction from '../../components/ModalAction.vue'
+import { useToast } from 'vue-toastification'
 
 export default {
   name: 'User',
@@ -248,8 +272,10 @@ export default {
     CustomersTable,
     PaginationClassic,
     PaginationNumeric,
+    ModalAction,
   },
   setup() {
+    const toast = useToast()
     const $http = inject("$http")
     const router = useRoute()
     const sidebarOpen = ref(false)
@@ -288,6 +314,9 @@ export default {
     const deliveries = ref([])
     const user_roles = ref([])
 
+    const rejection_reason = ref('')
+    const updateRiderStatusModal = ref(false)
+
     const getOrderId = (order) => {
       return order.uuid.split('-')[0]
     }
@@ -318,15 +347,64 @@ export default {
       }
     }
 
-    const riderStatus = (status) => {
+    const resolveRiderStatus = (status) => {
       switch (status) {
-        case value:
-          
+        case 'Pending':
+          return 'bg-slate-600 text-white'
           break;
-      
+        case 'Approved':
+          return 'bg-green-600 text-slate-100'
+          break;
+        case 'Denied':
+          return 'text-red-500 text-white'
+          break;
         default:
+          return 'text-gray-500'
           break;
       }
+    }
+
+    const getRider = () => {
+        let url = '/admin/users/rider/'+router.params.id+'/details'
+        $http.get(url)
+          .then(response => {
+            user.value = response.data.data.user
+            if (user.value) {
+              user.value.roles.forEach(role => {
+                user_roles.value.push(role.name)
+              })
+
+              if (user_roles.value.includes('rider')) {
+                rider_profile.value = response.data.data.rider_profile
+                deliveries.value = response.data.data.deliveries.data
+                nextDeliveriesPageUrl.value = response.data.data.deliveries.next_page_url
+                lastDeliveriesPageUrl.value = response.data.data.deliveries.last_page_url
+                prevDeliveriesPageUrl.value = response.data.data.deliveries.prev_page_url
+                deliveriesTotalItems.value = response.data.data.deliveries.total
+                deliveriesFrom.value = response.data.data.deliveries.from
+                deliveriesTo.value = response.data.data.deliveries.to
+                response.data.data.deliveries.links.forEach(link => {
+                  deliveriesPagesLinks.value.push(link)
+                })
+              }
+            }
+          })
+      }
+
+    const updateRiderStatus = (id, status) => {
+      $http.post('admin/users/rider/'+id+'/status/update', {
+        status: status,
+        rejection_reason: rejection_reason.value
+      })
+      .then(res => {
+        getRider()
+        updateRiderStatusModal.value = false
+        toast.success('Rider Updated successfully');
+      })
+      .catch(err => {
+        console.log(err)
+        toast.error('An error occurred');
+      })
     }
 
     function changeRestaurantsPage(page) {
@@ -390,7 +468,6 @@ export default {
 
       $http.get(url)
         .then(response => {
-          console.log(response.data.data)
           user.value = response.data.data.user
           if (user.value) {
             user.value.roles.forEach(role => {
@@ -447,6 +524,9 @@ export default {
       rider_profile,
       user_roles,
 
+      rejection_reason,
+      updateRiderStatusModal,
+
       // Orders
       orders,
       nextOrdersPageUrl,
@@ -482,6 +562,8 @@ export default {
       
       getOrderId,
       resolveOrderStatus,
+      resolveRiderStatus,
+      updateRiderStatus,
     }  
   }
 }
