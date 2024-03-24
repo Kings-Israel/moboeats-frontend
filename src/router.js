@@ -40,7 +40,6 @@ import Billing from './pages/settings/Billing.vue'
 import Feedback from './pages/settings/Feedback.vue'
 import Changelog from './pages/utility/Changelog.vue'
 import Roadmap from './pages/utility/Roadmap.vue'
-import Faqs from './pages/utility/Faqs.vue'
 import EmptyState from './pages/utility/EmptyState.vue'
 import PageNotFound from './pages/utility/PageNotFound.vue'
 import KnowledgeBase from './pages/utility/KnowledgeBase.vue'
@@ -78,6 +77,7 @@ import OrderDetails from './pages/orders/Details.vue'
 import Logs from './pages/logs/Index.vue'
 import Discount from './pages/discounts/Index.vue'
 import MarketingPosters from './pages/marketing/posters/Index.vue'
+import Faqs from './pages/faqs/Index.vue'
 
 const routerHistory = createWebHistory()
 
@@ -200,6 +200,14 @@ const router = createRouter({
       path: '/marketing/posters',
       component: MarketingPosters,
       name: 'marketing.posters',
+      meta: {
+        requiresAuth: true,
+      }
+    },
+    {
+      path: '/faqs',
+      component: Faqs,
+      name: 'faqs',
       meta: {
         requiresAuth: true,
       }
