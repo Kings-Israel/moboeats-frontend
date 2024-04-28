@@ -90,7 +90,7 @@
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                         <div class="flex items-center">
                           <div class="shrink-0 mr-2 sm:mr-3">
-                            <img class="w-16 h-16 object-contain rounded-full" :src="restaurant.logo" :alt="restaurant.name" />
+                            <img class="w-10 h-10 object-cover rounded-full" :src="restaurant.logo" :alt="restaurant.name" />
                           </div>
                           <div class="font-medium text-slate-800 dark:text-slate-100">{{restaurant.name}}</div>
                         </div>
@@ -112,7 +112,7 @@
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                         <!-- Menu button -->
-                        <router-link class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm" :to="{ name: 'restaurant-details', params: { id: restaurant.uuid } }">
+                        <router-link class="btn bg-[#2E5945] hover:bg-[#16251d] transition duration-200 ease-in-out text-white btn-sm" :to="{ name: 'restaurant-details', params: { id: restaurant.uuid } }">
                           View
                         </router-link>
                       </td>

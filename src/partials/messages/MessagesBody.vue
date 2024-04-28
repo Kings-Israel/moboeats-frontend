@@ -42,8 +42,7 @@ export default {
       if (conversationLog.length > 0) {
         nextTick(() => {
           var container = refChatLogPS.value
-          container.scrollTop = container.scrollHeight;
-          console.log(container.scrollTop)
+          container.scrollIntoView({ block: 'end' });
         })
       }
     })

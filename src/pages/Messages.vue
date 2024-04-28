@@ -19,7 +19,7 @@
           <!-- Messages body -->
           <div class="grow flex flex-col md:translate-x-0 transition-transform duration-300 ease-in-out" :class="msgSidebarOpen ? 'translate-x-1/3' : 'translate-x-0'">
             <MessagesHeader :msgSidebarOpen="msgSidebarOpen" @toggle-msgsidebar="msgSidebarOpen = !msgSidebarOpen" :receiverData="receiver" />
-            <MessagesBody :conversationLog="conversation_log" :receiverData="receiver" />
+            <MessagesBody :conversationLog="conversation_log" :receiverData="receiver" :key="current_instance" />
             <MessagesFooter @sendMessage="sendMessage" :receiverData="receiver" />
           </div>
           
@@ -33,7 +33,7 @@
 
 <script>
 import moment from 'moment'
-import { ref, onMounted, watch, inject } from 'vue'
+import { ref, onMounted, watch, inject, nextTick } from 'vue'
 import Sidebar from '../partials/Sidebar.vue'
 import Header from '../partials/Header.vue'
 import MessagesSidebar from '../partials/messages/MessagesSidebar.vue'
@@ -72,6 +72,7 @@ export default {
     const messagesBox = ref('')
     const docsInput = ref('')
     const conversation_ids = ref([])
+    const current_instance = ref(0)
 
     const handleScroll = (top = true) => {
       contentArea.value.scrollTop = top ? 0 : 99999999
@@ -83,18 +84,6 @@ export default {
       receiver.value = receiver_data
       if (response.data.data.data.length > 0) {
         conversation_log.value = response.data.data.data
-        // nextTick(() => {
-        //   var container = refChatLogPS.value
-        //   container.scrollTop = container.scrollHeight;
-        //   if (window.innerWidth < 1536) {
-        //     messagesSidebar.value.classList.add('hidden')
-        //     messagesBox.value.classList.remove('hidden')
-        //   }
-        //   refMessageTextInput.value.focus()
-        //   if (conversation_ids.value[id]) {
-        //     conversation_ids.value[id].classList.add('hidden');
-        //   }
-        // })
       }
     }
 
@@ -140,17 +129,13 @@ export default {
       //   formData.append('files['+index+']', file)
       // })
       const response = await $http.post('/conversation/'+active_conversation.value+'/reply', formData)
-      console.log(response.data.data)
+
       conversation_log.value.push(response.data.data.data)
+
       files.value = []
-      // nextTick(() => {
-      //   var container = refChatLogPS.value
-      //   container.scrollTop = container.scrollHeight;
-      //   if (window.innerWidth < 1536) {
-      //     messagesSidebar.value.classList.add('hidden')
-      //     messagesBox.value.classList.remove('hidden')
-      //   }
-      // })
+      nextTick(() => {
+        current_instance.value += 1
+      })
     }
 
     onMounted(() => {
@@ -220,6 +205,8 @@ export default {
       receiver,
       files,
       searchContacts,
+
+      current_instance,
 
       getConversation,
       sendMessage,
