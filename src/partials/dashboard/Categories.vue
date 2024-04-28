@@ -360,7 +360,7 @@ export default {
     }
 
     function changeSubPage(page) {
-      $http.get(page)
+      $http.get(page+'&search='+sub_category_search.value)
         .then(response => {
           sub_categories.value = []
           subPagesLinks.value = []
