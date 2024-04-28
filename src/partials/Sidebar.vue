@@ -70,7 +70,7 @@
                   </g>
                 </svg>
                 <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-white hover:text-slate-200'" :href="href" @click="navigate">
-                  <span class="text-sm font-medium">Restaurant Admins</span>
+                  <span class="text-sm font-medium">Partner Admins</span>
                 </a>
               </div>
             </router-link>
@@ -102,7 +102,7 @@
                   </g>
                 </svg>
                 <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-white hover:text-slate-200'" :href="href" @click="navigate">
-                  <span class="text-sm font-medium">Restaurants</span>
+                  <span class="text-sm font-medium">Partners</span>
                 </a>
               </div>
             </router-link>
@@ -220,7 +220,7 @@
                     </div>
                     <!-- Badge -->
                     <div class="flex flex-shrink-0 ml-2">
-                      <span class="inline-flex items-center justify-center h-5 text-xs font-medium text-white bg-yellow-500 px-2 rounded">4</span>
+                      <span class="inline-flex items-center justify-center h-5 text-xs font-medium text-white bg-yellow-500 px-2 rounded">{{ unread_messages_count }}</span>
                     </div>
                   </div>
                 </a>
@@ -858,7 +858,7 @@
 </template>
 
 <script>
-import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { ref, onMounted, onUnmounted, watch, inject } from 'vue'
 import { useRouter } from 'vue-router'
 
 import SidebarLinkGroup from './SidebarLinkGroup.vue'
@@ -870,7 +870,7 @@ export default {
     SidebarLinkGroup,
   },  
   setup(props, { emit }) {
-
+    const $http = inject('$http')
     const trigger = ref(null)
     const sidebar = ref(null)
 
@@ -878,6 +878,8 @@ export default {
     const sidebarExpanded = ref(storedSidebarExpanded === null ? false : storedSidebarExpanded === 'true')
 
     const currentRoute = useRouter().currentRoute.value
+
+    const unread_messages_count = ref(0)
 
     // close on click outside
     const clickHandler = ({ target }) => {
@@ -896,9 +898,20 @@ export default {
       emit('close-sidebar')
     } 
 
+    const getUnreadMessagesCount = () => {
+      $http.get('/messages/unread/count')
+        .then(response => {
+          unread_messages_count.value = response.data.data.data
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
+
     onMounted(() => {
       document.addEventListener('click', clickHandler)
       document.addEventListener('keydown', keyHandler)
+      getUnreadMessagesCount()
     })
 
     onUnmounted(() => {
@@ -920,6 +933,7 @@ export default {
       sidebar,
       sidebarExpanded,
       currentRoute,
+      unread_messages_count,
     }
   },
 }

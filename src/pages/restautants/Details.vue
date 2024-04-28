@@ -59,8 +59,8 @@
             <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold mb-1">Restaurant Profile is Incomplete</h1>
             <p class="dark:text-indigo-200 flex gap-1">
               <span v-if="restaurant.operating_hours.length == 0"><p>Operating Hours not entered </p></span>
-              <span v-if="restaurant.operating_hours.length == 0 && restaurant.documents.length == 0"><p> and</p></span>
-              <span v-if="restaurant.documents.length == 0"> Business Documents Not Uploaded </span>
+              <!-- <span v-if="restaurant.operating_hours.length == 0 && restaurant.documents.length == 0"><p> and</p></span> -->
+              <!-- <span v-if="restaurant.documents.length == 0"> Business Documents Not Uploaded </span> -->
             </p>
           </div>
         </div>
@@ -86,13 +86,13 @@
                 Service Charge Agreement ({{ restaurant.service_charge_agreement ? restaurant.service_charge_agreement : 0 }}%)
               </button>
               <span v-if="restaurant.status == 'Pending'" class="text-sm rounded-xl p-2 bg-slate-500 text-slate-200 mr-4">Pending Approval</span>
-              <button class="btn bg-yellow-300 text-slate-900" v-if="restaurant.status != 'Approved'" @click="updateStatus(2)">Approve</button>
+              <button class="btn bg-yellow-400 text-white hover:bg-yellow-600 transition duration-200 ease-in-out" v-if="restaurant.status != 'Approved'" @click="updateStatus(2)">Approve</button>
               <button
-                class="btn bg-red-300 text-slate-900" 
+                class="btn bg-red-400 text-white hover:bg-red-600 transition duration-200 ease-in-out" 
                 v-if="restaurant.status != 'Denied'" 
                 @click="modalOpen = true"
               >
-                Disapprove
+                Reject
               </button>
               <modal-action :id="'addStatusReason'" :modal-open="modalOpen" @close-modal="modalOpen = false">
                 <h1 class="text-lg text-slate-800 dark:text-slate-200">Enter Rejection Reason</h1>
@@ -138,7 +138,7 @@
                   <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Restaurant Admin Info</h2>
                 </header>
                 <div class="flex gap-3 p-3">
-                  <img :src="restaurant.user.image ? restaurant.user.image : '../../src/images/icon-01.svg'" width="60" height="60" :alt="restaurant.user.name" class="rounded-full h-fit" />
+                  <img :src="restaurant.user.image ? restaurant.user.image : '../../src/images/icon-01.svg'" :alt="restaurant.user.name" class="w-16 h-16 rounded-full object-cover" />
                   <div class="flex flex-col space-y-2 w-[98%]">
                     <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Name:</span><strong class="text-ellipsis overflow-hidden">{{ restaurant.user.name }}</strong></h1>
                     <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Email:</span><strong class="text-ellipsis overflow-hidden">{{ restaurant.user.email }}</strong></h1>
@@ -388,7 +388,7 @@
                             <!-- <img :src="menu_item.image" alt="" class="w-8 h-8 object-cover mx-2"> -->
                             <ul class="flex flex-wrap justify-center sm:justify-start mb-8 sm:mb-0 -space-x-3 -ml-px">
                               <li v-for="image in menu_item.images" :key="image.id">
-                                <img class="w-9 h-9 rounded-full" :src="getMenuImage(image.image_url)" width="36" height="36" alt="menu" />
+                                <img class="w-9 h-9 rounded-full object-cover" :src="image.image_url" width="36" height="36" alt="menu" />
                               </li>
                             </ul>
                             <div class="text-slate-800 dark:text-slate-100 ml-2">{{ menu_item.title }}</div>
@@ -479,6 +479,29 @@
             <div class="col-span-full xl:col-span-1">
               <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
                 <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700 flex justify-between">
+                  <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Latest Reviews</h2>
+                </header>
+                <div class="flex flex-col space-y-2 p-3">
+                  <div class="grid grid-cols-3">
+                      <span class="font-bold col-span-2">Review</span>
+                      <span class="font-bold">Reviewed On</span>
+                    </div>
+                  <div v-for="review in restaurant.reviews" :key="review.id">
+                    <div class="grid grid-cols-3">
+                      <span class="col-span-2">{{ review.review }}</span>
+                      <span>{{ moment(review.created_at).format('Do MMM YYYY') }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="grid grid-cols-2 gap-6">
+            <!-- Operating Hours -->
+            <div class="col-span-full xl:col-span-1">
+              <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
+                <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700 flex justify-between">
                   <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Operating Hours</h2>
                 </header>
                 <div class="flex flex-col space-y-2 p-3">
@@ -493,7 +516,7 @@
               </div>
             </div>
             <!-- Documents -->
-            <div class="col-span-full xl:col-span-1">
+            <!-- <div class="col-span-full xl:col-span-1">
               <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
                 <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700 flex justify-between">
                   <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Business Documents</h2>
@@ -502,33 +525,9 @@
                   <button v-for="doc in restaurant.documents" :key="doc.id" class="col-span-1 bg-green-700 hover:bg-green-500 transition duration-150 ease-in-out text-slate-100 py-2 rounded-lg hover:cursor-pointer" @click="downloadFile(doc)" title="Click to Download">{{ doc.document_name }}</button>
                 </div>
               </div>
-            </div>
-          </div>
-          <br>
-          <div class="grid grid-cols-2 gap-6">
-            <!-- Operating Hours -->
-            <div class="col-span-full xl:col-span-1">
-              <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
-                <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700 flex justify-between">
-                  <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Latest Reviews</h2>
-                </header>
-                <div class="flex flex-col space-y-2 p-3">
-                  <div class="grid grid-cols-3">
-                      <span class="font-bold col-span-2">Review</span>
-                      <span class="font-bold">Created On</span>
-                    </div>
-                  <div v-for="review in restaurant.reviews" :key="review.id">
-                    <div class="grid grid-cols-3">
-                      <span class="col-span-2">{{ review.review }}</span>
-                      <span>{{ moment(review.created_at).format('Do MMM YYYY') }}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </div> -->
           </div>
           <br />
-          <br>
           <div class="w-full" v-if="restaurant.latitude && restaurant.longitude">
             <header class="py-2 border-b border-slate-100 dark:border-slate-700 flex justify-between">
               <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Location</h2>

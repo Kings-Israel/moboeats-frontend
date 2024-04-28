@@ -52,7 +52,7 @@
                       </div>
                     </div>
                     <div class="text-center">
-                      <h2 class="text-xl leading-snug justify-center font-semibold">Restaurants</h2>
+                      <h2 class="text-xl leading-snug justify-center font-semibold">Partners</h2>
                     </div>
                     <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ restaurants }}</span></div>
                   </header>
@@ -161,6 +161,44 @@
           </div>
         </div>
       </main>
+      <div class="grid grid-cols-3 gap-2 mx-auto mb-4 mt-2">
+        <div v-for="setting in settings" :key="setting.id" class="w-full bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+          <div class="flex flex-col h-full">
+            <div class="grow p-5">
+              <header>
+                <div class="flex justify-center mb-2">
+                  <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true">
+                    <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                      <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <h2 class="text-xl leading-snug justify-center font-semibold">{{ setting.name }}</h2>
+                </div>
+                <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ setting.type == 'amount' ? 'GBP' : '' }} {{ setting.variable }} {{ setting.type == 'percentage' ? '%' : '' }}</span></div>
+              </header>
+            </div>
+            <div class="border-t border-slate-200 dark:border-slate-700">
+              <div class="flex items-center justify-center my-2">
+                <form @submit.prevent="updateSetting(setting.name)" method="post" v-if="setting.name == 'Delivery Rate'">
+                  <input type="number" v-model="delivery_rate" min="1" class="form-input rounded-lg border-2 mx-4" id="" placeholder="Enter Value to update">
+                  <button type="submit" class="bg-[#223f19] hover:bg-[#1c2e2a] transition duration-200 ease-in-out text-white px-2 rounded-md">Update</button>
+                </form>
+                <form @submit.prevent="updateSetting(setting.name)" method="post" v-if="setting.name == 'Base Service Charge Rate'">
+                  <input type="number" v-model="service_charge" min="1" class="form-input rounded-lg border-2 mx-4" id="" placeholder="Enter Value to update">
+                  <button type="submit" class="bg-[#223f19] hover:bg-[#1c2e2a] transition duration-200 ease-in-out text-white px-2 rounded-md">Update</button>
+                </form>
+                <form @submit.prevent="updateSetting(setting.name)" method="post" v-if="setting.name == 'Base Groceries Service Charge Rate'">
+                  <input type="number" v-model="groceries_service_charge" min="1" class="form-input rounded-lg border-2 mx-4" id="" placeholder="Enter Value to update">
+                  <button type="submit" class="bg-[#223f19] hover:bg-[#1c2e2a] transition duration-200 ease-in-out text-white px-2 rounded-md">Update</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
@@ -187,6 +225,7 @@ import Payments from '../partials/dashboard/Payments.vue'
 import TopRestaurants from '../partials/dashboard/TopRestaurants.vue'
 import Categories from '../partials/dashboard/Categories.vue'
 import TopMenuItems from '../partials/dashboard/TopMenuItems.vue'
+import { useToast } from 'vue-toastification'
 
 export default {
   name: 'Dashboard',
@@ -214,17 +253,23 @@ export default {
   },
   setup() {
     const $http = inject("$http")
+    const toast = useToast()
     const sidebarOpen = ref(false)
     const users = ref(0)
     const restaurants = ref(0)
     const riders = ref(0)
     const orders = ref(0)
     const top_restaurants = ref([])
+    const settings = ref([])
+    const delivery_rate = ref('')
+    const service_charge = ref('')
+    const groceries_service_charge = ref('')
+
     let ordersData = { labels: [], data: [], total_orders: 0, orders_difference: 0, orders_difference: ""}
     let paymentsData = { labels: [], data: [], total_orders: 0, orders_difference: 0, orders_difference: ""}
     let topMenuData = { labels: [], data: []}
 
-    onMounted(() => {
+    const getData = () => {
       $http.get('/admin/dashboard')
         .then(response => {
           ordersData.name = response.data.data.orders_series.name
@@ -245,8 +290,50 @@ export default {
           users.value = response.data.data.users
           restaurants.value = response.data.data.restaurants
           riders.value = response.data.data.riders
+          settings.value = response.data.data.settings
         })
+    }
+
+    onMounted(() => {
+      getData()
     })
+
+    const updateSetting = async (name) => {
+      switch (name) {
+        case 'Delivery Rate':
+          await $http.post('/admin/delivery-rate/update', {
+            rate: delivery_rate.value
+          })
+            .then(() => {
+              getData()
+              delivery_rate.value = ''
+              toast.success('Delivery Rate updated successfully')
+            })
+          break;
+        case 'Base Service Charge Rate':
+          await $http.post('/admin/base-rate/update', {
+            rate: service_charge.value
+          })
+            .then(() => {
+              getData()
+              service_charge.value = ''
+              toast.success('Base Rate updated successfully')
+            })
+          break;
+        case 'Base Groceries Service Charge Rate':
+          await $http.post('/admin/base-rate/grocery/update', {
+            rate: groceries_service_charge.value
+          })
+            .then(() => {
+              getData()
+              groceries_service_charge.value = ''
+              toast.success('Base Rate updated successfully')
+            })
+          break;
+        default:
+          break;
+      }
+    }
 
     return {
       sidebarOpen,
@@ -258,6 +345,11 @@ export default {
       orders,
       top_restaurants,
       topMenuData,
+      settings,
+      delivery_rate,
+      service_charge,
+      groceries_service_charge,
+      updateSetting,
     }  
   }
 }
