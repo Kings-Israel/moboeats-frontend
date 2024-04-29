@@ -324,7 +324,7 @@ export default {
           sub_categories.value = response.data.data.data
           nextSubPageUrl.value = response.data.data.next_page_url
           lastSubPageUrl.value = response.data.data.last_page_url
-          prevSubPageUrl.value = response.data.data.next_page_url
+          prevSubPageUrl.value = response.data.data.prev_page_url
           subFrom.value = response.data.data.from
           subTo.value = response.data.data.to
           subTotalItems.value = response.data.data.total
@@ -367,7 +367,7 @@ export default {
           sub_categories.value = response.data.data.data
           nextSubPageUrl.value = response.data.data.next_page_url
           lastSubPageUrl.value = response.data.data.last_page_url
-          prevSubPageUrl.value = response.data.data.next_page_url
+          prevSubPageUrl.value = response.data.data.prev_page_url
           subFrom.value = response.data.data.from
           subTo.value = response.data.data.to
           subTotalItems.value = response.data.data.total
