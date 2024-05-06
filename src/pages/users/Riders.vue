@@ -90,13 +90,13 @@
                         <div class="text-left">{{customer.email}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-left">{{customer.deliveries.length}}</div>
+                        <div class="text-left">{{customer.total_rider_deliveries}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-left">{{getRiderLastDeliveries(customer)}}</div>
+                        <div class="text-left">{{customer.rider_last_delivery}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-left font-medium text-sky-500" v-if="customer.rider">{{getRiderTotalTips(customer.rider)}}</div>
+                        <div class="text-left font-medium text-sky-500" v-if="customer.rider">{{ customer.total_rider_tips }}</div>
                         <div class="text-left font-medium text-sky-500" v-else>0</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
