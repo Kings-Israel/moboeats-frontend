@@ -77,7 +77,7 @@
                   </thead>
                   <!-- Table body -->
                   <tbody class="text-sm divide-y divide-slate-200 dark:divide-slate-700">
-                    <tr v-for="customer in customers" :key="customer.id">
+                    <tr v-for="customer in customers.data" :key="customer.id">
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                         <div class="flex items-center">
                           <div class="w-10 h-10 shrink-0 mr-2 sm:mr-3">
@@ -131,7 +131,7 @@
 
           <!-- Pagination -->
           <div class="mt-8">
-            <PaginationClassic @change-page="changePage" :next_page="nextPageUrl" :prev_page="prevPageUrl" :from="from" :to="to" :total_items="totalItems" />
+            <PaginationClassic @change-page="changePage" :next_page="customers.next_page_url" :prev_page="customers.prev_page_url" :from="customers.from" :to="customers.to" :total_items="customers.total" />
             <!-- <PaginationNumeric @change-page="changePage" :next_page="nextPageUrl" :prev_page="prevPageUrl" :from="from" :to="to" :total_items="totalItems" :links="pagesLinks" /> -->
           </div>          
         </div>
@@ -195,16 +195,16 @@ export default {
     onMounted(() => {
       $http.get('/admin/users/rider')
         .then(response => {
-          nextPageUrl.value = response.data.data.next_page_url
-          lastPageUrl.value = response.data.data.last_page_url
-          prevPageUrl.value = response.data.data.prev_page_url
-          totalItems.value = response.data.data.total
-          from.value = response.data.data.from
-          to.value = response.data.data.to
-          response.data.data.links.forEach(link => {
-            pagesLinks.value.push(link)
-          })
-          customers.value = response.data.data.data
+          // nextPageUrl.value = response.data.data.next_page_url
+          // lastPageUrl.value = response.data.data.last_page_url
+          // prevPageUrl.value = response.data.data.prev_page_url
+          // totalItems.value = response.data.data.total
+          // from.value = response.data.data.from
+          // to.value = response.data.data.to
+          // response.data.data.links.forEach(link => {
+          //   pagesLinks.value.push(link)
+          // })
+          customers.value = response.data.data
         })
     })
 
@@ -253,16 +253,16 @@ export default {
         $http.get('/admin/users/rider')
         .then(response => {
           customers.value = []
-          nextPageUrl.value = response.data.data.next_page_url
-          lastPageUrl.value = response.data.data.last_page_url
-          prevPageUrl.value = response.data.data.prev_page_url
-          totalItems.value = response.data.data.total
-          from.value = response.data.data.from
-          to.value = response.data.data.to
-          response.data.data.links.forEach(link => {
-            pagesLinks.value.push(link)
-          })
-          customers.value = response.data.data.data
+          // nextPageUrl.value = response.data.data.next_page_url
+          // lastPageUrl.value = response.data.data.last_page_url
+          // prevPageUrl.value = response.data.data.prev_page_url
+          // totalItems.value = response.data.data.total
+          // from.value = response.data.data.from
+          // to.value = response.data.data.to
+          // response.data.data.links.forEach(link => {
+          //   pagesLinks.value.push(link)
+          // })
+          customers.value = response.data.data
         })
       })
       .catch(err => {
@@ -291,36 +291,36 @@ export default {
     function changePage(page) {
       $http.get(page)
         .then(response => {
-          nextPageUrl.value = response.data.data.next_page_url
-          lastPageUrl.value = response.data.data.last_page_url
-          prevPageUrl.value = response.data.data.prev_page_url
-          totalItems.value = response.data.data.total
-          from.value = response.data.data.from
-          to.value = response.data.data.to
+          // nextPageUrl.value = response.data.data.next_page_url
+          // lastPageUrl.value = response.data.data.last_page_url
+          // prevPageUrl.value = response.data.data.prev_page_url
+          // totalItems.value = response.data.data.total
+          // from.value = response.data.data.from
+          // to.value = response.data.data.to
+          // pagesLinks.value = []
+          // response.data.data.links.forEach(link => {
+          //   pagesLinks.value.push(link)
+          // })
           customers.value = []
-          pagesLinks.value = []
-          response.data.data.links.forEach(link => {
-            pagesLinks.value.push(link)
-          })
-          customers.value = response.data.data.data
+          customers.value = response.data.data
         })
     }
 
     watch(search, async (newSearch, oldQuestion) => {
       $http.get('/admin/users/rider?search='+newSearch)
         .then(response => {
-          nextPageUrl.value = response.data.data.next_page_url
-          lastPageUrl.value = response.data.data.last_page_url
-          prevPageUrl.value = response.data.data.prev_page_url
-          totalItems.value = response.data.data.total
-          from.value = response.data.data.from
-          to.value = response.data.data.to
+          // nextPageUrl.value = response.data.data.next_page_url
+          // lastPageUrl.value = response.data.data.last_page_url
+          // prevPageUrl.value = response.data.data.prev_page_url
+          // totalItems.value = response.data.data.total
+          // from.value = response.data.data.from
+          // to.value = response.data.data.to
+          // pagesLinks.value = []
+          // response.data.data.links.forEach(link => {
+          //   pagesLinks.value.push(link)
+          // })
           customers.value = []
-          pagesLinks.value = []
-          response.data.data.links.forEach(link => {
-            pagesLinks.value.push(link)
-          })
-          customers.value = response.data.data.data
+          customers.value = response.data.data
         })
     })
 
