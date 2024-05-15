@@ -198,7 +198,13 @@
           </div>
         </div>
       </div>
-
+      <div class="mx-8 mb-4 w-1/4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+        <form class="w-full p-8 flex flex-col" @submit.prevent="getQrCode">
+          <label class="mb-2 text-slate-700 font-bold">Generate QR Code</label>
+          <input type="text" v-model="qr_string" class="form-input rounded-lg border-2 w-full mb-2" id="" placeholder="Enter String to generate qr code">
+          <button type="submit" class="bg-[#223f19] hover:bg-[#1c2e2a] transition duration-200 ease-in-out text-white px-2 rounded-md">Get</button>
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -264,6 +270,8 @@ export default {
     const delivery_rate = ref('')
     const service_charge = ref('')
     const groceries_service_charge = ref('')
+
+    const qr_string = ref('')
 
     let ordersData = { labels: [], data: [], total_orders: 0, orders_difference: 0, orders_difference: ""}
     let paymentsData = { labels: [], data: [], total_orders: 0, orders_difference: 0, orders_difference: ""}
@@ -335,6 +343,27 @@ export default {
       }
     }
 
+    const getQrCode = () => {
+      $http.post('/admin/qr-code', {
+        string: qr_string.value
+      },
+      { responseType: 'arraybuffer' })
+        .then(response => {
+            const fileURL = window.URL.createObjectURL(new Blob([response.data]))
+            const fileLink = document.createElement('a')
+
+            fileLink.href = fileURL
+            fileLink.setAttribute(
+              'download',
+              `QRCode.png`,
+            )
+            document.body.appendChild(fileLink)
+
+            fileLink.click()
+        })
+        .catch(console.error)
+    }
+
     return {
       sidebarOpen,
       ordersData,
@@ -349,7 +378,9 @@ export default {
       delivery_rate,
       service_charge,
       groceries_service_charge,
+      qr_string,
       updateSetting,
+      getQrCode,
     }  
   }
 }
