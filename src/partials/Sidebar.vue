@@ -132,6 +132,52 @@
                 </a>
               </div>
             </router-link>
+            <!-- Supplements and Suppliers  -->
+            <SidebarLinkGroup v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('supplements')">
+              <a class="block text-slate-200 truncate transition duration-150" :class="currentRoute.fullPath.includes('supplements') ? 'hover:text-slate-200' : 'hover:text-white'" href="#0" @click.prevent="parentLink.handleClick(); sidebarExpanded = true">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+                    <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
+                      <path class="fill-current" :class="currentRoute.fullPath.includes('supplements') ? 'text-yellow-300' : 'text-yellow-400'" d="M13 15l11-7L11.504.136a1 1 0 00-1.019.007L0 7l13 8z" />
+                      <path class="fill-current" :class="currentRoute.fullPath.includes('supplements') ? 'text-yellow-600' : 'text-yellow-700'" d="M13 15L0 7v9c0 .355.189.685.496.864L13 24v-9z" />
+                      <path class="fill-current" :class="currentRoute.fullPath.includes('supplements') ? 'text-yellow-500' : 'text-yellow-600'" d="M13 15.047V24l10.573-7.181A.999.999 0 0024 16V8l-11 7.047z" />                    
+                    </svg>
+                    <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Supplements </span>
+                  </div>
+                  <!-- Icon -->
+                  <div class="flex shrink-0 ml-2">
+                    <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-yellow-400" :class="parentLink.expanded && 'rotate-180'" viewBox="0 0 12 12">
+                      <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+              <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
+                <ul class="pl-9 mt-1" :class="!parentLink.expanded && 'hidden'">
+                  <router-link to="/supplements" custom v-slot="{ href, navigate, isExactActive }">
+                    <li class="mb-1 last:mb-0">
+                      <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-yellow-400 hover:text-slate-200'" :href="href" @click="navigate">
+                        <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Supplements</span>
+                      </a>
+                    </li>
+                  </router-link>
+                  <router-link to="/supplements/suppliers" custom v-slot="{ href, navigate, isExactActive }">
+                    <li class="mb-1 last:mb-0">
+                      <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-yellow-400 hover:text-slate-200'" :href="href" @click="navigate">
+                        <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Suppliers</span>
+                      </a>
+                    </li>
+                  </router-link>
+                  <router-link to="/supplements/orders" custom v-slot="{ href, navigate, isExactActive }">
+                    <li class="mb-1 last:mb-0">
+                      <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-yellow-400 hover:text-slate-200'" :href="href" @click="navigate">
+                        <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Orders</span>
+                      </a>
+                    </li>
+                  </router-link>
+                </ul>
+              </div>
+            </SidebarLinkGroup>
             <!-- Discounts -->
             <router-link custom v-slot="{ href, navigate, isExactActive }" to="/discounts">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">

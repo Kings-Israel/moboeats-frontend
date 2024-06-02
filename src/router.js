@@ -78,6 +78,9 @@ import Logs from './pages/logs/Index.vue'
 import Discount from './pages/discounts/Index.vue'
 import MarketingPosters from './pages/marketing/posters/Index.vue'
 import Faqs from './pages/faqs/Index.vue'
+import Suppliers from './pages/supplements/Suppliers.vue'
+import Supplements from './pages/supplements/Index.vue'
+import SupplementOrders from './pages/supplements/Orders.vue'
 
 const routerHistory = createWebHistory()
 
@@ -187,6 +190,30 @@ const router = createRouter({
       meta: {
         requiresAuth: true,
       },
+    },
+    {
+      path: '/supplements/suppliers',
+      component: Suppliers,
+      name: 'suppliers',
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/supplements',
+      component: Supplements,
+      name: 'supplements',
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/supplements/orders',
+      component: SupplementOrders,
+      name: 'supplements-orders',
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/discounts',

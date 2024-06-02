@@ -9,8 +9,8 @@
       <!-- Site header -->
       <Header :sidebarOpen="sidebarOpen" @toggle-sidebar="sidebarOpen = !sidebarOpen" />
 
-      <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div class="px-4 sm:px-6 lg:px-8 py-2 w-full max-w-9xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
           <div>
             <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
               <div class="flex flex-col h-full">
@@ -124,13 +124,99 @@
             </div>
           </div>
         </div>
+        <div class="grid grid-cols-3 gap-2 mt-2">
+          <div>
+            <div class="col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+              <div class="flex flex-col h-full">
+                <div class="grow p-5">
+                  <header>
+                    <div class="flex justify-center mb-2">
+                      <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/">
+                        <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                          <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <h2 class="text-xl leading-snug justify-center font-semibold">Supplement Suppliers</h2>
+                    </div>
+                    <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ supplement_suppliers }}</span></div>
+                  </header>
+                </div>
+                <div class="border-t border-slate-200 dark:border-slate-700">
+                  <router-link class="block text-center text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium px-3 py-4" :to="{ name: 'orders' }">
+                    <div class="flex items-center justify-center">
+                      <span>View Suppliers</span>
+                    </div>
+                  </router-link>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+              <div class="flex flex-col h-full">
+                <div class="grow p-5">
+                  <header>
+                    <div class="flex justify-center mb-2">
+                      <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/">
+                        <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                          <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <h2 class="text-xl leading-snug justify-center font-semibold">Supplements</h2>
+                    </div>
+                    <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ supplements }}</span></div>
+                  </header>
+                </div>
+                <div class="border-t border-slate-200 dark:border-slate-700">
+                  <router-link class="block text-center text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium px-3 py-4" :to="{ name: 'orders' }">
+                    <div class="flex items-center justify-center">
+                      <span>View Supplements</span>
+                    </div>
+                  </router-link>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+              <div class="flex flex-col h-full">
+                <div class="grow p-5">
+                  <header>
+                    <div class="flex justify-center mb-2">
+                      <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/">
+                        <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                          <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <h2 class="text-xl leading-snug justify-center font-semibold">Supplements Orders</h2>
+                    </div>
+                    <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ supplement_orders }}</span></div>
+                  </header>
+                </div>
+                <div class="border-t border-slate-200 dark:border-slate-700">
+                  <router-link class="block text-center text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium px-3 py-4" :to="{ name: 'orders' }">
+                    <div class="flex items-center justify-center">
+                      <span>View Supplements Orders</span>
+                    </div>
+                  </router-link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <main class="grow">
         <div class="px-4 sm:px-6 lg:px-8 py-2 w-full max-w-9xl mx-auto">
 
           <!-- Cards -->
-          <div class="grid grid-cols-12 gap-6">
+          <div class="grid grid-cols-12 gap-2">
             <!-- Sales -->
             <Sales v-if="ordersData.labels.length > 0" :data="ordersData" />
             <!-- Payments -->
@@ -161,7 +247,8 @@
           </div>
         </div>
       </main>
-      <div class="grid grid-cols-3 gap-2 mx-auto mb-4 mt-2">
+
+      <div class="grid grid-cols-3 gap-2 mx-8 mb-2">
         <div v-for="setting in settings" :key="setting.id" class="w-full bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
           <div class="flex flex-col h-full">
             <div class="grow p-5">
@@ -270,6 +357,9 @@ export default {
     const delivery_rate = ref('')
     const service_charge = ref('')
     const groceries_service_charge = ref('')
+    const supplement_orders = ref(0)
+    const supplements = ref(0)
+    const supplement_suppliers = ref(0)
 
     const qr_string = ref('')
 
@@ -299,6 +389,9 @@ export default {
           restaurants.value = response.data.data.restaurants
           riders.value = response.data.data.riders
           settings.value = response.data.data.settings
+          supplements.value = response.data.data.supplements.supplements_count
+          supplement_suppliers.value = response.data.data.supplements.suppliers_count
+          supplement_orders.value = response.data.data.supplements.supplement_orders_count
         })
     }
 
@@ -379,6 +472,9 @@ export default {
       service_charge,
       groceries_service_charge,
       qr_string,
+      supplements,
+      supplement_suppliers,
+      supplement_orders,
       updateSetting,
       getQrCode,
     }  
