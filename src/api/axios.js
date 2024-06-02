@@ -2,11 +2,7 @@
 import axios from 'axios'
 import router from '../router'
 
-<<<<<<< HEAD
 const baseURL = process.env.NODE_ENV === 'development' ? 'http://moboeats.test/api/v1/' : 'https://api.moboeats.co.uk/api/v1'
-=======
-const baseURL = process.env.NODE_ENV === 'development' ? 'http://moboeats.test/api/v1/' : 'https://api.moboeats.com/api/v1'
->>>>>>> main
 
 const axiosIns = axios.create({
   // You can add your headers here
