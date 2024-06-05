@@ -68,7 +68,12 @@ export default {
         .then(response => {
           localStorage.setItem('user', JSON.stringify(response.data.data.user))
           localStorage.setItem('token', response.data.data.token)
-          router.push({ name: 'dashboard' })
+          localStorage.setItem('role', response.data.data.role)
+          if (response.data.data.role == 'supplements-admin') {
+            router.push('/supplements')
+          } else {
+            router.push({ name: 'dashboard' })
+          }
         })
         .catch(error => {
           toast.error(error.response.data.message)
