@@ -69,6 +69,7 @@ import RestaurantAdmins from './pages/users/RestaurantAdmins.vue'
 import Riders from './pages/users/Riders.vue'
 import User from './pages/users/Details.vue'
 import Restaurants from './pages/restautants/Index.vue'
+import SupplementsAdmins from './pages/users/Admins.vue'
 import Orders from './pages/orders/Orders.vue'
 import Payments from './pages/payments/Payments.vue'
 import PaymentDetails from './pages/payments/Details.vue'
@@ -131,6 +132,14 @@ const router = createRouter({
       path: '/riders',
       component: Riders,
       name: 'riders',
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/supplements-admin',
+      component: SupplementsAdmins,
+      name: 'supplements-admin',
       meta: {
         requiresAuth: true,
       },

@@ -50,7 +50,7 @@
               </div>
             </router-link>
             <!-- Users -->
-            <router-link custom v-slot="{ href, navigate, isExactActive }" :to="{ name: 'users' }">
+            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" :to="{ name: 'users' }">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                   <path class="fill-current" :class="currentRoute.fullPath.includes('users') ? 'text-yellow-500' : 'text-yellow-600'" d="M18.974 8H22a2 2 0 012 2v6h-2v5a1 1 0 01-1 1h-2a1 1 0 01-1-1v-5h-2v-6a2 2 0 012-2h.974zM20 7a2 2 0 11-.001-3.999A2 2 0 0120 7zM2.974 8H6a2 2 0 012 2v6H6v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5H0v-6a2 2 0 012-2h.974zM4 7a2 2 0 11-.001-3.999A2 2 0 014 7z" />
@@ -62,7 +62,7 @@
               </div>
             </router-link>
             <!-- Restaurant Admins -->
-            <router-link custom v-slot="{ href, navigate, isExactActive }" :to="{ name: 'restaurant-admins' }">
+            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" :to="{ name: 'restaurant-admins' }">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24">
                   <g fill="#212121" class="nc-icon-wrapper">
@@ -75,7 +75,7 @@
               </div>
             </router-link>
             <!-- Riders -->
-            <router-link custom v-slot="{ href, navigate, isExactActive }" to="/riders">
+            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/riders">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24">
                   <g fill="#212121" class="nc-icon-wrapper">
@@ -90,8 +90,24 @@
                 </a>
               </div>
             </router-link>
+            <!-- Riders -->
+            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/supplements-admin">
+              <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24">
+                  <g fill="#212121" class="nc-icon-wrapper">
+                    <path class="fill-current" :class="currentRoute.fullPath.includes('supplements-admin') ? 'text-yellow-500' : 'text-yellow-400'" d="M9,17H7A5,5,0,0,1,7,7V9.5a.5.5,0,0,0,.807.395l4.5-3.5a.5.5,0,0,0,0-.79l-4.5-3.5A.5.5,0,0,0,7,2.5V5A7,7,0,0,0,7,19H9a1,1,0,0,0,0-2Z" fill="#212121">
+                    </path>
+                    <path class="fill-current" :class="currentRoute.fullPath.includes('supplements-admin') ? 'text-yellow-500' : 'text-yellow-400'" data-color="color-2" d="M17,5H15a1,1,0,0,0,0,2h2a5,5,0,0,1,0,10V14.5a.5.5,0,0,0-.807-.395l-4.5,3.5a.5.5,0,0,0,0,.79l4.5,3.5A.5.5,0,0,0,17,21.5V19A7,7,0,0,0,17,5Z">
+                    </path>
+                  </g>
+                </svg>
+                <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-white hover:text-slate-200'" :href="href" @click="navigate">
+                  <span class="text-sm font-medium">Supplements Admins</span>
+                </a>
+              </div>
+            </router-link>
             <!-- Restaurants -->
-            <router-link custom v-slot="{ href, navigate, isExactActive }" to="/restaurants">
+            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/restaurants">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24">
                   <g fill="#212121" class="nc-icon-wrapper">
@@ -107,7 +123,7 @@
               </div>
             </router-link>
             <!-- Orders -->
-            <router-link custom v-slot="{ href, navigate, isExactActive }" to="/orders">
+            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/orders">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                   <path class="fill-current" :class="currentRoute.fullPath.includes('orders') ? 'text-yellow-300' : 'text-yellow-400'" d="M13 15l11-7L11.504.136a1 1 0 00-1.019.007L0 7l13 8z" />
@@ -120,7 +136,7 @@
               </div>
             </router-link>
             <!-- Payments -->
-            <router-link custom v-slot="{ href, navigate, isExactActive }" to="/payments">
+            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/payments">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                   <path class="fill-current" :class="currentRoute.fullPath.includes('payments') ? 'text-yellow-600' : 'text-yellow-700'" d="M4.418 19.612A9.092 9.092 0 0 1 2.59 17.03L.475 19.14c-.848.85-.536 2.395.743 3.673a4.413 4.413 0 0 0 1.677 1.082c.253.086.519.131.787.135.45.011.886-.16 1.208-.474L7 21.44a8.962 8.962 0 0 1-2.582-1.828Z" />
@@ -133,7 +149,7 @@
               </div>
             </router-link>
             <!-- Supplements and Suppliers  -->
-            <SidebarLinkGroup v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('supplements')">
+            <SidebarLinkGroup v-if="role == 'admin' || role == 'supplements-admin'" v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('supplements')">
               <a class="block text-slate-200 truncate transition duration-150" :class="currentRoute.fullPath.includes('supplements') ? 'hover:text-slate-200' : 'hover:text-white'" href="#0" @click.prevent="parentLink.handleClick(); sidebarExpanded = true">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center">
@@ -179,7 +195,7 @@
               </div>
             </SidebarLinkGroup>
             <!-- Discounts -->
-            <router-link custom v-slot="{ href, navigate, isExactActive }" to="/discounts">
+            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/discounts">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                   <path class="fill-current" :class="currentRoute.fullPath.includes('discounts') ? 'text-yellow-600' : 'text-yellow-700'" d="M4.418 19.612A9.092 9.092 0 0 1 2.59 17.03L.475 19.14c-.848.85-.536 2.395.743 3.673a4.413 4.413 0 0 0 1.677 1.082c.253.086.519.131.787.135.45.011.886-.16 1.208-.474L7 21.44a8.962 8.962 0 0 1-2.582-1.828Z" />
@@ -192,7 +208,7 @@
               </div>
             </router-link>
             <!-- Logs -->
-            <router-link custom v-slot="{ href, navigate, isExactActive }" to="/logs">
+            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/logs">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                   <path class="fill-current" :class="currentRoute.fullPath.includes('logs') ? 'text-yellow-500' : 'text-yellow-600'" d="M19.714 14.7l-7.007 7.007-1.414-1.414 7.007-7.007c-.195-.4-.298-.84-.3-1.286a3 3 0 113 3 2.969 2.969 0 01-1.286-.3z" />
@@ -206,7 +222,7 @@
               </div>
             </router-link>         
             <!-- Marketing  -->
-            <SidebarLinkGroup v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('marketing')">
+            <SidebarLinkGroup v-if="role == 'admin'" v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('marketing')">
               <a class="block text-slate-200 truncate transition duration-150" :class="currentRoute.fullPath.includes('marketing') ? 'hover:text-slate-200' : 'hover:text-white'" href="#0" @click.prevent="parentLink.handleClick(); sidebarExpanded = true">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center">
@@ -239,7 +255,7 @@
             </SidebarLinkGroup>
             <!-- FAQs -->
             <!-- Logs -->
-            <router-link custom v-slot="{ href, navigate, isExactActive }" to="/faqs">
+            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/faqs">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                   <path class="fill-current" :class="currentRoute.fullPath.includes('faqs') ? 'text-yellow-500' : 'text-yellow-600'" d="M19.714 14.7l-7.007 7.007-1.414-1.414 7.007-7.007c-.195-.4-.298-.84-.3-1.286a3 3 0 113 3 2.969 2.969 0 01-1.286-.3z" />
@@ -253,7 +269,7 @@
               </div>
             </router-link> 
             <!-- Messages -->
-            <router-link to="/messages" custom v-slot="{ href, navigate, isExactActive }">
+            <router-link v-if="role == 'admin'" to="/messages" custom v-slot="{ href, navigate, isExactActive }">
               <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0" :class="isExactActive && 'bg-slate-900 rounded-xl'">
                 <a class="block text-slate-200 truncate transition duration-150" :class="isExactActive ? 'hover:text-slate-200' : 'hover:text-white'" :href="href" @click="navigate">
                   <div class="flex items-center justify-between">
@@ -919,6 +935,7 @@ export default {
     const $http = inject('$http')
     const trigger = ref(null)
     const sidebar = ref(null)
+    const role = ref('')
 
     const storedSidebarExpanded = localStorage.getItem('sidebar-expanded')
     const sidebarExpanded = ref(storedSidebarExpanded === null ? false : storedSidebarExpanded === 'true')
@@ -958,6 +975,7 @@ export default {
       document.addEventListener('click', clickHandler)
       document.addEventListener('keydown', keyHandler)
       getUnreadMessagesCount()
+      role.value = localStorage.getItem('role')
     })
 
     onUnmounted(() => {
@@ -975,6 +993,7 @@ export default {
     })
 
     return {
+      role,
       trigger,
       sidebar,
       sidebarExpanded,
