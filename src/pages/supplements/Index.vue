@@ -42,6 +42,16 @@
                       <label class="block text-sm font-medium mb-1" for="price">Name</label>
                       <input id="title" class="form-input w-full rounded-lg" type="text" v-model="supplementName" required />
                     </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1" for="price">Category</label>
+                        <select name="supplier" v-model="supplementCategory" class="w-full rounded-lg form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                          <option value="">Select Category</option>
+                          <option value="adult">Adult</option>
+                          <option value="child">Child</option>
+                          <option value="fitness">Fitness</option>
+                          <option value="pregnancy">Pregnancy</option>
+                        </select>
+                      </div>
                     <div class="grid grid-cols-2 gap-2">
                       <div>
                         <label class="block text-sm font-medium mb-1" for="price">Price Per Quantity</label>
@@ -60,6 +70,10 @@
                     <div>
                       <label class="block text-sm font-medium mb-1" for="price">Description</label>
                       <textarea id="description" class="form-input w-full rounded-lg" type="text" v-model="supplementDescription" placeholder=""></textarea>
+                    </div>
+                    <div>
+                      <label class="block text-sm font-medium mb-1" for="price">Prescription</label>
+                      <textarea id="description" class="form-input w-full rounded-lg" type="text" v-model="supplementPrescription" placeholder=""></textarea>
                     </div>
                     <div>
                       <label class="block text-sm font-medium mb-1" for="price">Supplement Images</label>
@@ -173,8 +187,8 @@
                       </td>
                       <td>
                         <!-- <a href="#" class="bg-[#6a6d2b] hover:bg-[#1c2e2a] text-white font-semibold p-1 px-2 rounded-md">View</a> -->
-                        <a v-if="supplement.is_available" href="#" @click="updateStatus(supplement.id)" class="bg-[#3d1919] hover:bg-[#1c2e2a] text-white font-semibold p-1 px-2 rounded-md mx-1">Deactivate</a>
-                        <a v-else href="#" @click="updateStatus(supplement.id)" class="bg-[#1b3715] hover:bg-[#1c2e2a] text-white font-semibold p-1 px-2 rounded-md mx-1">Activate</a>
+                        <a v-if="supplement.is_available" href="#" @click="updateStatus(supplement.id)" class="bg-[#3d1919] hover:bg-[#1c2e2a] text-white font-semibold p-1 px-2 rounded-md mx-1">Out of Stock</a>
+                        <a v-else href="#" @click="updateStatus(supplement.id)" class="bg-[#1b3715] hover:bg-[#1c2e2a] text-white font-semibold p-1 px-2 rounded-md mx-1">In Stock</a>
                       </td>
                     </tr>
                   </tbody>
@@ -231,6 +245,8 @@ export default {
 
     const supplementName = ref('')
     const supplementDescription = ref('')
+    const supplementPrescription = ref('')
+    const supplementCategory = ref('')
     const supplierId = ref('')
     const supplementPrice = ref(0)
     const supplementMeasuringUnit = ref('')
@@ -256,7 +272,9 @@ export default {
     const storeSupplement = () => {
       const formData = new FormData
       formData.append('name', supplementName.value)
+      formData.append('category', supplementCategory.value)
       formData.append('description', supplementDescription.value)
+      formData.append('prescription', supplementPrescription.value)
       formData.append('supplier_id', supplierId.value)
       formData.append('price', supplementPrice.value)
       formData.append('measuring_unit', supplementMeasuringUnit.value)
@@ -267,7 +285,9 @@ export default {
       .then(() => {
         getSupplements()
         supplementName.value = ''
+        supplementCategory.value = ''
         supplementDescription.value = ''
+        supplementPrescription.value = ''
         supplierId.value = ''
         addSupplementModal.value = false
         toast.success('Supplement added successfully')
@@ -364,7 +384,9 @@ export default {
       statusSearch,
       supplierId,
       supplementName,
+      supplementCategory,
       supplementDescription,
+      supplementPrescription,
       supplementPrice,
       supplementMeasuringUnit,
       supplementImages,
