@@ -61,6 +61,20 @@
                       <label class="block text-sm font-medium mb-1" for="price">Description</label>
                       <textarea id="description" class="form-input w-full rounded-lg" type="text" v-model="supplementDescription" placeholder=""></textarea>
                     </div>
+                    <div>
+                      <label class="block text-sm font-medium mb-1" for="price">Supplement Images</label>
+                      <label for="dropzone-file" class="flex w-full h-16 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                        <div class="flex">
+                          <p v-if="supplementImages.length == 0" class="mb-2 text-sm px-6 my-5 text-gray-500 dark:text-gray-400">
+                            <span class="font-semibold">Click to upload</span> or drag and drop(Max 3 Files)
+                          </p>
+                          <div v-else class="flex flex-col flex-wrap">
+                            <p v-for="image in supplementImages" :key="image" class="text-sm ml-2 whitespace-pre-wrap text-gray-500 dark:text-gray-400"><span class="font-semibold">{{ image.name }}</span></p>
+                          </div>
+                        </div>
+                        <input id="dropzone-file" type="file" class="hidden" multiple accept=".jpg,.png" v-on:change="selectImages" />
+                      </label>
+                    </div>
                   </div>
                   <div class="flex justify-end bottom-2 mt-2">
                     <button type="submit" class="btn bg-[#1c2e2a] rounded-xl hover:bg-[#6a6d2b] text-white">Submit</button>
@@ -71,17 +85,28 @@
           </div>
 
           <div class="flex justify-between gap-2 mb-2">
-            <form class="relative w-[40%]">
-              <label for="action-search" class="">Search</label>
-              <input id="action-search" class="form-input pl-9 bg-white dark:bg-slate-800 w-full" type="search" v-model="supplementSearch" placeholder="Search Menus" />
-              <button class="absolute inset-0 top-6 right-auto group" type="submit" aria-label="Search">
-                <svg class="w-4 h-4 shrink-0 fill-current text-slate-400 dark:text-slate-500 group-hover:text-slate-500 dark:group-hover:text-slate-400 ml-3 mr-2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7 14c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zM7 2C4.243 2 2 4.243 2 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5z" />
-                  <path d="M15.707 14.293L13.314 11.9a8.019 8.019 0 01-1.414 1.414l2.393 2.393a.997.997 0 001.414 0 .999.999 0 000-1.414z" />
-                </svg>
-              </button>
+            <form class="relative flex gap-2 w-full">
+              <div>
+                <label for="action-search" class="mb-1">Search</label>
+                <input id="action-search" class="form-input pl-9 bg-white dark:bg-slate-800 w-full mt-1" type="search" v-model="supplementSearch" placeholder="Search Supplements" />
+                <button class="absolute inset-0 top-6 right-auto group" type="submit" aria-label="Search">
+                  <svg class="w-4 h-4 shrink-0 fill-current text-slate-400 dark:text-slate-500 group-hover:text-slate-500 dark:group-hover:text-slate-400 ml-3 mr-2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 14c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zM7 2C4.243 2 2 4.243 2 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5z" />
+                    <path d="M15.707 14.293L13.314 11.9a8.019 8.019 0 01-1.414 1.414l2.393 2.393a.997.997 0 001.414 0 .999.999 0 000-1.414z" />
+                  </svg>
+                </button>
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-1" for="categories">
+                  Supplier
+                </label>
+                <select name="supplier" v-model="supplierSearch" class="rounded-lg form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <option value="">Select Supplier</option>
+                  <option v-for="supplier in suppliers" :key="supplier.id" :value="supplier.id">{{ supplier.name }}</option>
+                </select>
+              </div>
             </form>
-            <button class="bg-red-500 text-white rounded-full h-fit w-[30%] py-1 my-auto" @click="search = ''">Clear Fields</button>
+            <button class="bg-red-500 text-white rounded-full h-fit w-[10%] py-1 my-auto" @click="search = ''">Clear Fields</button>
           </div>
 
           <!-- Table -->
@@ -121,7 +146,14 @@
                     <!-- Row -->
                     <tr v-for="supplement in supplements.data" :key="supplement.id" class='bg-slate-100 transition duration-200 ease-in-out'>
                       <td class="p-2">
-                        <div class="text-sky-700 font-semibold">{{ supplement.name }}</div>
+                        <div class="flex items-center">
+                          <ul class="flex flex-wrap justify-center sm:justify-start mb-8 sm:mb-0 -space-x-3 -ml-px">
+                            <li v-for="image in supplement.images" :key="image.id">
+                              <img class="w-9 h-9 rounded-full object-cover border border-emerald-300" :src="image.image" alt="menu" />
+                            </li>
+                          </ul>
+                          <div class="text-sky-700 font-semibold ml-1">{{ supplement.name }}</div>
+                        </div>
                       </td>
                       <td class="p-2">
                         <div class='text-green-700 font-semobold'>{{ supplement.currency }} {{ supplement.price }}/{{ supplement.measuring_unit }}</div>
@@ -140,7 +172,7 @@
                         <div class="text-sky-700 font-semibold">{{ moment(supplement.created_at).format('Do MMM Y') }}</div>
                       </td>
                       <td>
-                        <a href="#" class="bg-[#6a6d2b] hover:bg-[#1c2e2a] text-white font-semibold p-1 px-2 rounded-md">View</a>
+                        <!-- <a href="#" class="bg-[#6a6d2b] hover:bg-[#1c2e2a] text-white font-semibold p-1 px-2 rounded-md">View</a> -->
                         <a v-if="supplement.is_available" href="#" @click="updateStatus(supplement.id)" class="bg-[#3d1919] hover:bg-[#1c2e2a] text-white font-semibold p-1 px-2 rounded-md mx-1">Deactivate</a>
                         <a v-else href="#" @click="updateStatus(supplement.id)" class="bg-[#1b3715] hover:bg-[#1c2e2a] text-white font-semibold p-1 px-2 rounded-md mx-1">Activate</a>
                       </td>
@@ -194,12 +226,15 @@ export default {
     const suppliers = ref([])
 
     const supplementSearch = ref('')
+    const supplierSearch = ref('')
+    const statusSearch = ref('')
 
     const supplementName = ref('')
     const supplementDescription = ref('')
     const supplierId = ref('')
     const supplementPrice = ref(0)
     const supplementMeasuringUnit = ref('')
+    const supplementImages = ref([])
 
     const addSupplementModal = ref(false)
 
@@ -219,13 +254,16 @@ export default {
     }
 
     const storeSupplement = () => {
-      $http.post('/admin/supplements/store', {
-        name: supplementName.value,
-        description: supplementDescription.value,
-        supplier_id: supplierId.value,
-        price: supplementPrice.value,
-        measuring_unit: supplementMeasuringUnit.value
-      })
+      const formData = new FormData
+      formData.append('name', supplementName.value)
+      formData.append('description', supplementDescription.value)
+      formData.append('supplier_id', supplierId.value)
+      formData.append('price', supplementPrice.value)
+      formData.append('measuring_unit', supplementMeasuringUnit.value)
+      supplementImages.value.forEach((image, key) => {
+        formData.append('images['+key+']', image)
+      });
+      $http.post('/admin/supplements/store', formData)
       .then(() => {
         getSupplements()
         supplementName.value = ''
@@ -250,6 +288,14 @@ export default {
         console.log(err);
         toast.error('An error occurred while updating the supplement')
       })
+    }
+
+    const selectImages = (e) => {
+      for (let index = 0; index < 3; index++) {
+        if (e.target.files[index]) {
+          supplementImages.value.push(e.target.files[index])
+        }
+      }
     }
 
     const exportSupplements = () => {
@@ -281,22 +327,25 @@ export default {
       getSupplements()
     })
 
-    watch(supplementSearch, async (newSearch, oldSearch) => {
-      $http.get('/supplements', {
+    watch([supplementSearch, supplierSearch, statusSearch], async ([newSearch, supplierSearch, statusSearch], [oldSearch, oldSupplierSearch, oldStatusSearch]) => {
+      $http.get('/admin/supplements', {
         params: {
           per_page: per_page.value,
-          search: newSearch
+          search: newSearch,
+          supplier: supplierSearch,
         }
       })
         .then(response => {
-          supplements.value = response.data.data
+          supplements.value = response.data.data.supplements
         })
     })
 
     function changePage(page) {
       $http.get(page, {
         params: {
-          per_page: per_page.value
+          per_page: per_page.value,
+          search: supplementSearch.value,
+          supplier: supplierSearch.value,
         }
       })
         .then(response => {
@@ -311,13 +360,17 @@ export default {
       supplements,
       suppliers,
       supplementSearch,
+      supplierSearch,
+      statusSearch,
       supplierId,
       supplementName,
       supplementDescription,
       supplementPrice,
       supplementMeasuringUnit,
+      supplementImages,
       addSupplementModal,
       storeSupplement,
+      selectImages,
       updateStatus,
       changePage,
       exportSupplements,
