@@ -269,7 +269,7 @@ export default {
     })
 
     watch(ordersSearch, async (newSearch, oldSearch) => {
-      $http.get('/supplements/orders', {
+      $http.get('/admin/supplements/orders', {
         params: {
           per_page: per_page.value,
           search: newSearch

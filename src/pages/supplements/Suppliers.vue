@@ -46,6 +46,10 @@
                       >
                       </GMapAutocomplete>
                     </div>
+                    <div>
+                      <label class="block text-sm font-medium mb-1" for="price">Supplier Logo</label>
+                      <input id="image" class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" accept=".jpg,.png" type="file" @change="selectImage" />
+                    </div>
                   </div>
                   <div class="flex justify-end bottom-2 mt-2">
                     <button type="submit" class="btn bg-[#1c2e2a] rounded-xl hover:bg-[#6a6d2b] text-white">Submit</button>
@@ -103,7 +107,15 @@
                       <!-- Row -->
                       <tr v-for="supplier in suppliers.data" :key="supplier.id" class='bg-slate-100 transition duration-200 ease-in-out'>
                         <td class="p-2">
-                          <div class="text-sky-700 font-semibold">{{ supplier.name }}</div>
+                          <div class="flex items-center">
+                            <ul class="flex flex-wrap justify-center sm:justify-start mb-8 sm:mb-0 -space-x-3 -ml-px">
+                              <li>
+                                <img class="w-9 h-9 rounded-full" :src="supplier.image" width="36" height="36" alt="menu" />
+                              </li>
+                            </ul>
+                            <div class="text-sky-700 font-semibold mx-2">{{ supplier.name }}</div>
+                          </div>
+                          <!-- <div class="text-sky-700 font-semibold">{{ supplier.name }}</div> -->
                         </td>
                         <td class="p-2">
                           <div class='text-green-700 font-semobold'>{{ supplier.location }}</div>
@@ -174,6 +186,7 @@ export default {
     const supplierName = ref('')
     const supplierDescription = ref('')
     const supplierLocation = ref('')
+    const supplierImage = ref(null)
 
     const addSupplierModal = ref(false)
 
@@ -192,16 +205,18 @@ export default {
     }
 
     const storeSupplier = () => {
-      $http.post('/admin/supplements/suppliers/store', {
-        name: supplierName.value,
-        description: supplierDescription.value,
-        location: supplierLocation.value
-      })
+      const formData = new FormData
+      formData.append('name', supplierName.value)
+      formData.append('description', supplierDescription.value)
+      formData.append('location', supplierLocation.value)
+      formData.append('image', supplierImage.value)
+      $http.post('/admin/supplements/suppliers/store', formData)
       .then(() => {
         getSuppliers()
         supplierName.value = ''
         supplierDescription.value = ''
         supplierLocation.value = ''
+        supplierImage.value = null
         addSupplierModal.value = false
         toast.success('Supplier added successfully')
       })
@@ -260,12 +275,20 @@ export default {
       // marker.value.push({ position: { lat: e.geometry.location.lat(), lng: e.geometry.location.lng() } })
     }
 
+    const selectImage = (e) => {
+      for (let index = 0; index < 1; index++) {
+        if (e.target.files[index]) {
+          supplierImage.value = e.target.files[index]
+        }
+      }
+    }
+
     onMounted(() => {
       getSuppliers()
     })
 
     watch(supplierSearch, async (newSearch, oldSearch) => {
-      $http.get('/supplements/supliers', {
+      $http.get('/admin/supplements/supliers', {
         params: {
           per_page: per_page.value,
           search: newSearch
@@ -296,10 +319,12 @@ export default {
       supplierName,
       supplierDescription,
       supplierLocation,
+      supplierImage,
       addSupplierModal,
       storeSupplier,
       setPlace,
       updateStatus,
+      selectImage,
       changePage,
       exportPromocodes,
     }
