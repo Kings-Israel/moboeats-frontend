@@ -79,7 +79,7 @@
           <div class="flex justify-between gap-2 mb-2">
             <form class="relative w-[40%]">
               <label for="action-search" class="">Search</label>
-              <input id="action-search" class="form-input pl-9 bg-white dark:bg-slate-800 w-full" type="search" v-model="packageSearch" placeholder="Search Menus" />
+              <input id="action-search" class="form-input pl-9 bg-white dark:bg-slate-800 w-full" type="search" v-model="packageSearch" placeholder="Search Packages" />
               <button class="absolute inset-0 top-6 right-auto group" type="submit" aria-label="Search">
                 <svg class="w-4 h-4 shrink-0 fill-current text-slate-400 dark:text-slate-500 group-hover:text-slate-500 dark:group-hover:text-slate-400 ml-3 mr-2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7 14c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zM7 2C4.243 2 2 4.243 2 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5z" />
