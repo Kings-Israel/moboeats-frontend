@@ -154,11 +154,18 @@
               </a>
               <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
                 <ul class="pl-9 mt-1" :class="!parentLink.expanded && 'hidden'">
-                  <!-- Supplements Admin -->
+                  <!-- Diet Subscribers -->
                   <router-link v-if="role == 'admin' || role == 'diet-planner'" custom v-slot="{ href, navigate, isExactActive }" to="/diet/subscribers">
                     <li class="mb-1 last:mb-0">
                       <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-yellow-300 hover:text-slate-200'" :href="href" @click="navigate">
                         <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Subscribers</span>
+                      </a>
+                    </li>
+                  </router-link>
+                  <router-link v-if="role == 'admin' || role == 'diet-planner'" custom v-slot="{ href, navigate, isExactActive }" to="/diet/packages">
+                    <li class="mb-1 last:mb-0">
+                      <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-yellow-300 hover:text-slate-200'" :href="href" @click="navigate">
+                        <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Packages</span>
                       </a>
                     </li>
                   </router-link>
