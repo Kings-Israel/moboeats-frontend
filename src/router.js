@@ -84,6 +84,7 @@ import Supplements from './pages/supplements/Index.vue'
 import SupplementOrders from './pages/supplements/Orders.vue'
 import DietSubscribers from './pages/diet/Subscribers.vue'
 import DietSubscriber from './pages/diet/Subscriber.vue'
+import DietSettings from './pages/diet/Settings.vue'
 
 const routerHistory = createWebHistory()
 
@@ -201,6 +202,14 @@ const router = createRouter({
       meta: {
         requiresAuth: true,
       },
+    },
+    {
+      path: '/diet/packages',
+      component: DietSettings,
+      name: 'diet-packages',
+      meta: {
+        requiresAuth: true,
+      }
     },
     {
       path: '/diet/subscribers',
