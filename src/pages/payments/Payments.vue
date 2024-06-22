@@ -314,8 +314,8 @@ export default {
             payments.value.push({
               id: payment.id,
               uuid: payment.uuid,
-              name: payment.order.user.name,
-              restaurant: payment.order.restaurant.name,
+              name: payment.orderable.user.name,
+              restaurant: payment.orderable.restaurant.name,
               total_amount: payment.amount,
               transaction_id: payment.transaction_id,
               created_at: payment.created_at,
@@ -338,8 +338,8 @@ export default {
             payments.value.push({
               id: payment.id,
               uuid: payment.uuid,
-              name: payment.order.user.name,
-              restaurant: payment.order.restaurant.name,
+              name: payment.orderable.user.name,
+              restaurant: payment.orderable.restaurant.name,
               total_amount: payment.amount,
               transaction_id: payment.transaction_id,
               created_at: payment.created_at,
@@ -362,8 +362,8 @@ export default {
             payments.value.push({
               id: payment.id,
               uuid: payment.uuid,
-              name: payment.order.user.name,
-              restaurant: payment.order.restaurant.name,
+              name: payment.orderable.user.name,
+              restaurant: payment.orderable.restaurant.name,
               total_amount: payment.amount,
               transaction_id: payment.transaction_id,
               created_at: payment.created_at,
