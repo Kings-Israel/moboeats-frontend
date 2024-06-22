@@ -11,7 +11,7 @@
       <Header :sidebarOpen="sidebarOpen" @toggle-sidebar="sidebarOpen = !sidebarOpen" />
 
       <main class="grow" v-if="restaurant != null">
-        <div v-if="restaurant.operating_hours.length == 0 || restaurant.documents == 0" class="relative bg-red-200 dark:bg-red-500 p-4 sm:p-6 rounded-sm overflow-hidden mb-8">
+        <div v-if="restaurant.operating_hours.length == 0" class="relative bg-red-200 dark:bg-red-500 p-4 sm:p-6 rounded-sm overflow-hidden mb-8">
           <!-- Background illustration -->
           <div class="absolute right-0 top-0 -mt-4 mr-16 pointer-events-none hidden xl:block" aria-hidden="true">
             <svg width="319" height="198" xmlns:xlink="http://www.w3.org/1999/xlink">

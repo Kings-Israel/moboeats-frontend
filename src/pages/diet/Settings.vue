@@ -47,7 +47,7 @@
                         <select name="supplier" v-model="packageCurrency" class="w-full rounded-lg form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                           <option value="">Select Price Currency</option>
                           <option value="gbp">British Pounds</option>
-                          <option value="ksh">Kenyan Shilling</option>
+                          <option value="kes">Kenyan Shilling</option>
                         </select>
                       </div>
                       <div>
