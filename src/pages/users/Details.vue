@@ -216,7 +216,7 @@
                         <td class="p-2">
                           <div class="">
                             <!-- TODO:Add Link to View Order -->
-                            <div class="text-slate-800 dark:text-slate-100">{{ getOrderId(delivery) }}</div>
+                            <div class="text-slate-800 dark:text-slate-100 m_upper">{{ getOrderId(delivery) }}</div>
                           </div>
                         </td>
                         <td class="p-2">
@@ -236,6 +236,73 @@
                     <PaginationClassic @change-page="changeDeliveriesPage" :next_page="nextDeliveriesPageUrl" :prev_page="prevDeliveriesPageUrl" :from="deliveriesFrom" :to="deliveriesTo" :total_items="deliveriesTotalItems" />
                     <!-- <PaginationNumeric @change-page="changePage" :next_page="nextOrdersPageUrl" :prev_page="prevOrdersPageUrl" :from="from" :to="to" :total_items="totalItems" :links="ordersPagesLinks" /> -->
                   </div> 
+                </div>
+              </div>
+            </div>
+            <div class="col-span-full">
+              <div class="grid grid-cols-3 gap-2">
+                <div>
+                  <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                    <div class="flex flex-col h-full">
+                      <div class="grow p-5">
+                        <header>
+                          <div class="flex justify-center mb-2">
+                            <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                              <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                                <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                              </svg>
+                            </div>
+                          </div>
+                          <div class="text-center">
+                            <h2 class="text-xl leading-snug justify-center font-semibold">Total Earnings</h2>
+                          </div>
+                          <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(earnings_data.total_earnings, user.country) }}</span></div>
+                        </header>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                    <div class="flex flex-col h-full">
+                      <div class="grow p-5">
+                        <header>
+                          <div class="flex justify-center mb-2">
+                            <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                              <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                                <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                              </svg>
+                            </div>
+                          </div>
+                          <div class="text-center">
+                            <h2 class="text-xl leading-snug justify-center font-semibold">Paid Out Amount</h2>
+                          </div>
+                          <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(earnings_data.paid_amount, user.country) }}</span></div>
+                        </header>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                    <div class="flex flex-col h-full">
+                      <div class="grow p-5">
+                        <header>
+                          <div class="flex justify-center mb-2">
+                            <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                              <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                                <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                              </svg>
+                            </div>
+                          </div>
+                          <div class="text-center">
+                            <h2 class="text-xl leading-snug justify-center font-semibold">Unpaid Amount</h2>
+                          </div>
+                          <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(earnings_data.unpaid_amount, user.country) }}</span></div>
+                        </header>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -260,6 +327,7 @@ import { useRoute } from 'vue-router'
 import moment from 'moment';
 import ModalAction from '../../components/ModalAction.vue'
 import { useToast } from 'vue-toastification'
+import { formatValue } from '../../utils/Utils'
 
 export default {
   name: 'User',
@@ -317,6 +385,8 @@ export default {
     const rejection_reason = ref('')
     const updateRiderStatusModal = ref(false)
 
+    const earnings_data = ref([])
+
     const getOrderId = (order) => {
       return order.uuid.split('-')[0]
     }
@@ -373,7 +443,7 @@ export default {
               user.value.roles.forEach(role => {
                 user_roles.value.push(role.name)
               })
-
+              
               if (user_roles.value.includes('rider')) {
                 rider_profile.value = response.data.data.rider_profile
                 deliveries.value = response.data.data.deliveries.data
@@ -513,6 +583,7 @@ export default {
             response.data.data.deliveries.links.forEach(link => {
               deliveriesPagesLinks.value.push(link)
             })
+            earnings_data.value = response.data.data.earnings_data
           }
         })
     })
@@ -523,7 +594,7 @@ export default {
       user,
       rider_profile,
       user_roles,
-
+      earnings_data,
       rejection_reason,
       updateRiderStatusModal,
 
@@ -559,6 +630,7 @@ export default {
       deliveriesPagesLinks,
       deliveries,
       changeDeliveriesPage,
+      formatValue,
       
       getOrderId,
       resolveOrderStatus,
@@ -568,3 +640,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.m_upper {
+  text-transform: uppercase;
+}
+</style>
