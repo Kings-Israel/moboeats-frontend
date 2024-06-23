@@ -18,11 +18,11 @@
 
             <!-- Left: Title -->
             <div class="mb-4 sm:mb-0">
-              <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold">Restaurants ✨</h1>
+              <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold">Partners ✨</h1>
             </div>
 
             <!-- Right: Actions  -->
-            <button class="bg-emerald-600 px-3 py-1 col-span-1 text-slate-50 font-semibold rounded-full justify-end" @click="exportRestaurants()">Export Restaurants</button>
+            <button class="bg-emerald-600 px-3 py-1 col-span-1 text-slate-50 font-semibold rounded-full justify-end" @click="exportRestaurants()">Export Partners</button>
           </div>
 
           <div class="grid grid-cols-3 mb-2 gap-4">
@@ -51,7 +51,7 @@
           <!-- Table -->
           <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 relative">
             <header class="px-5 py-4">
-              <h2 class="font-semibold text-slate-800 dark:text-slate-100">All Restaurants <span class="text-slate-400 dark:text-slate-500 font-medium">{{ totalItems }}</span></h2>
+              <h2 class="font-semibold text-slate-800 dark:text-slate-100">All Partners <span class="text-slate-400 dark:text-slate-500 font-medium">{{ totalItems }}</span></h2>
             </header>
             <div>
 

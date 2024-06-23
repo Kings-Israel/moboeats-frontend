@@ -221,6 +221,138 @@
             <Sales v-if="ordersData.labels.length > 0" :data="ordersData" />
             <!-- Payments -->
             <Payments v-if="paymentsData.labels.length > 0" :data="paymentsData" />
+            <span class="col-span-12 my-2 bg-slate-200 text-slate-700 px-2 text-2xl font-bold rounded-md">Regional Payment Data</span>
+            <div class="col-span-12 grid grid-cols-4 gap-4 border-2 border-slate-200 rounded-md p-2 bg-slate-200" v-for="(data, index) in region_data" :key="index">
+              <div class="col-span-4">
+                <h2 class="text-xl font-extrabold text-slate-600">{{ index }}</h2>
+              </div>
+              <div>
+                <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                  <div class="flex flex-col h-full">
+                    <div class="grow p-5">
+                      <header>
+                        <div class="flex justify-center mb-2">
+                          <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                            <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                              <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <h2 class="text-xl leading-snug justify-center font-semibold">Total Amount</h2>
+                        </div>
+                        <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(data.total_amount, index) }}</span></div>
+                      </header>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                  <div class="flex flex-col h-full">
+                    <div class="grow p-5">
+                      <header>
+                        <div class="flex justify-center mb-2">
+                          <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                            <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                              <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <h2 class="text-xl leading-snug justify-center font-semibold">Paid Out Amount</h2>
+                        </div>
+                        <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(data.paid_amount, index) }}</span></div>
+                      </header>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                  <div class="flex flex-col h-full">
+                    <div class="grow p-5">
+                      <header>
+                        <div class="flex justify-center mb-2">
+                          <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                            <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                              <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <h2 class="text-xl leading-snug justify-center font-semibold">Unpaid Amount</h2>
+                        </div>
+                        <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(data.unpaid_amount, index) }}</span></div>
+                      </header>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                  <div class="flex flex-col h-full">
+                    <div class="grow p-5">
+                      <header>
+                        <div class="flex justify-center mb-2">
+                          <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                            <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                              <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <h2 class="text-xl leading-snug justify-center font-semibold">Restaurants Earnings</h2>
+                        </div>
+                        <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(data.restaurant_earnings, index) }} ({{ formatValue(data.restaurant_amount_paid_out, index) + ' Paid Out' }})</span></div>
+                      </header>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                  <div class="flex flex-col h-full">
+                    <div class="grow p-5">
+                      <header>
+                        <div class="flex justify-center mb-2">
+                          <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                            <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                              <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <h2 class="text-xl leading-snug justify-center font-semibold">Rider Earnings</h2>
+                        </div>
+                        <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(data.rider_earnings, index) }} ({{ formatValue(data.rider_amount_paid_out, index) + ' Paid Out' }})</span></div>
+                      </header>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                  <div class="flex flex-col h-full">
+                    <div class="grow p-5">
+                      <header>
+                        <div class="flex justify-center mb-2">
+                          <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                            <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                              <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <h2 class="text-xl leading-snug justify-center font-semibold">Total Service Charges</h2>
+                        </div>
+                        <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(data.total_service_charges, index) }}</span></div>
+                      </header>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <!-- <DashboardCard01 /> -->
             <!-- Users Registration Rate -->
             <!-- <DashboardCard02 /> -->
@@ -319,6 +451,7 @@ import TopRestaurants from '../partials/dashboard/TopRestaurants.vue'
 import Categories from '../partials/dashboard/Categories.vue'
 import TopMenuItems from '../partials/dashboard/TopMenuItems.vue'
 import { useToast } from 'vue-toastification'
+import { formatValue } from '../utils/Utils'
 
 export default {
   name: 'Dashboard',
@@ -360,6 +493,7 @@ export default {
     const supplement_orders = ref(0)
     const supplements = ref(0)
     const supplement_suppliers = ref(0)
+    const region_data = ref([])
 
     const qr_string = ref('')
 
@@ -388,10 +522,12 @@ export default {
           users.value = response.data.data.users
           restaurants.value = response.data.data.restaurants
           riders.value = response.data.data.riders
+          orders.value = response.data.data.orders
           settings.value = response.data.data.settings
           supplements.value = response.data.data.supplements.supplements_count
           supplement_suppliers.value = response.data.data.supplements.suppliers_count
           supplement_orders.value = response.data.data.supplements.supplement_orders_count
+          region_data.value = response.data.data.region_data
         })
     }
 
@@ -457,8 +593,25 @@ export default {
         .catch(console.error)
     }
 
+    const getPaymentType = (type) => {
+      switch (type) {
+        case 'App\\Models\\Order':
+          return 'Order'
+          break;
+        case 'App\\Models\\SupplementOrder':
+          return 'Supplement Order'
+          break;
+        case 'App\\Models\\DietSubscription':
+          return 'Diet Subscription'
+          break;
+        default:
+          break;
+      }
+    }
+
     return {
       sidebarOpen,
+      formatValue,
       ordersData,
       paymentsData,
       users,
@@ -475,6 +628,7 @@ export default {
       supplements,
       supplement_suppliers,
       supplement_orders,
+      region_data,
       updateSetting,
       getQrCode,
     }  

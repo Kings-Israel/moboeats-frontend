@@ -70,7 +70,7 @@
             <!-- Left: Title -->
             <div class="mb-4 sm:mb-0 flex gap-2">
               <img :src="restaurant.logo ? restaurant.logo : '../../src/images/icon-01.svg'" width="60" height="60" :alt="restaurant.name" class="rounded-full h-fit" />
-              <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold">{{ restaurant.name }} ✨</h1>
+              <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold my-auto">{{ restaurant.name }} ✨</h1>
             </div>
             <div class="flex gap-2 flex-wrap">
               <button
@@ -227,6 +227,93 @@
             </div>
           </div>
           <br>
+          <div class="grid grid-cols-4 gap-2">
+            <div>
+              <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                <div class="flex flex-col h-full">
+                  <div class="grow p-5">
+                    <header>
+                      <div class="flex justify-center mb-2">
+                        <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                          <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                            <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="text-center">
+                        <h2 class="text-xl leading-snug justify-center font-semibold">Total Earnings</h2>
+                      </div>
+                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(payment_data.total_earnings, restaurant.country) }}</span></div>
+                    </header>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                <div class="flex flex-col h-full">
+                  <div class="grow p-5">
+                    <header>
+                      <div class="flex justify-center mb-2">
+                        <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                          <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                            <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="text-center">
+                        <h2 class="text-xl leading-snug justify-center font-semibold">Paid Out Amount</h2>
+                      </div>
+                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(payment_data.paid_amount, restaurant.country) }}</span></div>
+                    </header>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                <div class="flex flex-col h-full">
+                  <div class="grow p-5">
+                    <header>
+                      <div class="flex justify-center mb-2">
+                        <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                          <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                            <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="text-center">
+                        <h2 class="text-xl leading-snug justify-center font-semibold">Unpaid Amount</h2>
+                      </div>
+                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(payment_data.unpaid_amount, restaurant.country) }}</span></div>
+                    </header>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                <div class="flex flex-col h-full">
+                  <div class="grow p-5">
+                    <header>
+                      <div class="flex justify-center mb-2">
+                        <div class="absolute top-0 right-0 -mr-2 bg-white dark:bg-slate-700 rounded-full shadow" aria-hidden="true" to="/users">
+                          <svg class="w-8 h-8 fill-current text-amber-500" viewBox="0 0 32 32">
+                            <path d="M21 14.077a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 010 1.5 1.5 1.5 0 00-1.5 1.5.75.75 0 01-.75.75zM14 24.077a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="text-center">
+                        <h2 class="text-xl leading-snug justify-center font-semibold">Total Service Charges</h2>
+                      </div>
+                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(payment_data.service_charges, restaurant.country) }}</span></div>
+                    </header>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
           <div class="grid grid-cols-2 gap-6">
             <div class="col-span-full xl:col-span-1">
               <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
@@ -270,7 +357,7 @@
                             <div class="text-left">{{order.user.name}}</div>
                           </td>
                           <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                            <div class="text-left font-medium text-emerald-500">{{formatValue(order.total_amount)}}</div>
+                            <div class="text-left font-medium text-emerald-500">{{formatValue(order.total_amount, order.country)}}</div>
                           </td>
                           <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                             <div :class="'text-center rounded-xl '+resolveOrderStatus(order.status)">{{order.status}}</div>
@@ -328,10 +415,10 @@
                             <div class="text-left">{{payment.transaction_id}}</div>
                           </td>
                           <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                            <div class="text-left">{{payment.order.user.name}}</div>
+                            <div class="text-left">{{payment.orderable.user.name}}</div>
                           </td>
                           <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                            <div class="text-left font-medium text-emerald-500">{{formatValue(payment.amount)}}</div>
+                            <div class="text-left font-medium text-emerald-500">{{formatValue(payment.amount, payment.orderable.user.country)}}</div>
                           </td>
                           <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                             <div class="text-left">{{moment(payment.created_at).fromNow()}}</div>
@@ -475,7 +562,7 @@
           </div>
           <br>
           <div class="grid grid-cols-2 gap-6">
-            <!-- Operating Hours -->
+            <!-- Reviews -->
             <div class="col-span-full xl:col-span-1">
               <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
                 <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700 flex justify-between">
@@ -495,9 +582,7 @@
                 </div>
               </div>
             </div>
-          </div>
-          <br />
-          <div class="grid grid-cols-2 gap-6">
+
             <!-- Operating Hours -->
             <div class="col-span-full xl:col-span-1">
               <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
@@ -515,6 +600,9 @@
                 </div>
               </div>
             </div>
+          </div>
+          <br />
+          <div class="grid grid-cols-2 gap-6">
             <!-- Documents -->
             <!-- <div class="col-span-full xl:col-span-1">
               <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
@@ -646,7 +734,9 @@ export default {
     const serviceChargeAgreementModal = ref(false)
     const serviceChargeGroceriesAgreementModal = ref(false)
 
-    const baseURL = process.env.NODE_ENV === 'development' ? 'http://moboeats.test/' : 'https://moboeats.com/'
+    const payment_data = ref([])
+
+    const baseURL = process.env.NODE_ENV === 'development' ? 'http://moboeats.test/' : 'https://api.moboeats.co.uk/'
 
     const getMenu = () => {
       $http.get(`/admin/restaurant/${router.params.id}/menu`)
@@ -675,6 +765,7 @@ export default {
         .then(response => {
           restaurant.value = response.data.data.restaurant
           averageRating.value = response.data.data.average_rating
+          payment_data.value = response.data.data.restaurant_payment_data
           serviceChargeAgreement.value = restaurant.value.service_charge_agreement
           serviceChargeGroceriesAgreement.value = restaurant.value.groceries_service_charge_agreement
           center.value = {lat: Number(restaurant.value.latitude), lng: Number(restaurant.value.longitude)}
@@ -993,6 +1084,8 @@ export default {
       mapRef,
       zoom,
       marker,
+
+      payment_data,
       
       getOrderId,
       resolveOrderStatus,

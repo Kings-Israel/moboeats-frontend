@@ -156,9 +156,9 @@ const router = createRouter({
       },
     },
     {
-      path: '/restaurants',
+      path: '/partners',
       component: Restaurants,
-      name: 'restaurants',
+      name: 'partners',
       meta: {
         requiresAuth: true,
       },

@@ -9,9 +9,9 @@
         <div class="flex items-center py-2">
           <div class="mr-5">
             <div class="flex items-center">
-              <div class="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{{ data.total_orders }}</div>
-              <div v-if="data.orders_direction === 'less'" class="text-sm font-medium text-red-500">-{{ data.orders_difference }}%</div>
-              <div v-if="data.orders_direction === 'more'" class="text-sm font-medium text-emerald-500">+{{ data.orders_difference }}%</div>
+              <div class="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{{ data.total_payments }}</div>
+              <div v-if="data.payments_direction === 'less'" class="text-sm font-medium text-red-500">-{{ data.payments_difference }}%</div>
+              <div v-if="data.payments_direction === 'more'" class="text-sm font-medium text-emerald-500">+{{ data.payments_difference }}%</div>
             </div>
           </div>
           <!-- <div class="hidden md:block w-px h-8 bg-slate-200 dark:bg-slate-700 mr-5" aria-hidden="true"></div> -->

@@ -12,7 +12,10 @@
 
       <main class="grow">
         <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
-          <div class="grid grid-cols-4 gap-4">
+          <div class="grid grid-cols-4 gap-4 border-2 border-slate-200 rounded-md p-2 bg-slate-300" v-for="(data, index) in region_data" :key="index">
+            <div class="col-span-4">
+              <h2 class="text-xl font-extrabold">{{ index }}</h2>
+            </div>
             <div>
               <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
                 <div class="flex flex-col h-full">
@@ -28,7 +31,7 @@
                       <div class="text-center">
                         <h2 class="text-xl leading-snug justify-center font-semibold">Total Amount</h2>
                       </div>
-                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(total_amount) }}</span></div>
+                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(data.total_amount, index) }}</span></div>
                     </header>
                   </div>
                 </div>
@@ -49,7 +52,7 @@
                       <div class="text-center">
                         <h2 class="text-xl leading-snug justify-center font-semibold">Paid Out Amount</h2>
                       </div>
-                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(total_paid_out) }}</span></div>
+                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(data.paid_amount, index) }}</span></div>
                     </header>
                   </div>
                 </div>
@@ -70,7 +73,7 @@
                       <div class="text-center">
                         <h2 class="text-xl leading-snug justify-center font-semibold">Unpaid Amount</h2>
                       </div>
-                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(total_unpaid_out) }}</span></div>
+                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(data.unpaid_amount, index) }}</span></div>
                     </header>
                   </div>
                 </div>
@@ -91,7 +94,7 @@
                       <div class="text-center">
                         <h2 class="text-xl leading-snug justify-center font-semibold">Restaurants Earnings</h2>
                       </div>
-                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(restaurant_earnings) }} ({{ formatValue(restaurant_earnings_paid_out) + 'Paid Out' }})</span></div>
+                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(data.restaurant_earnings, index) }} ({{ formatValue(data.restaurant_amount_paid_out, index) + ' Paid Out' }})</span></div>
                     </header>
                   </div>
                 </div>
@@ -112,7 +115,7 @@
                       <div class="text-center">
                         <h2 class="text-xl leading-snug justify-center font-semibold">Rider Earnings</h2>
                       </div>
-                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(rider_earnings) }} ({{ formatValue(rider_earnings_paid_out) + 'Paid Out' }})</span></div>
+                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(data.rider_earnings, index) }} ({{ formatValue(data.rider_amount_paid_out, index) + ' Paid Out' }})</span></div>
                     </header>
                   </div>
                 </div>
@@ -133,7 +136,7 @@
                       <div class="text-center">
                         <h2 class="text-xl leading-snug justify-center font-semibold">Total Service Charges</h2>
                       </div>
-                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(total_service_charges) }}</span></div>
+                      <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(data.total_service_charges, index) }}</span></div>
                     </header>
                   </div>
                 </div>
@@ -184,7 +187,10 @@
                         <div class="font-semibold text-left">User</div>
                       </th>
                       <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="font-semibold text-left">Restaurant</div>
+                        <div class="font-semibold text-left">Payment For</div>
+                      </th>
+                      <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="font-semibold text-left">Partner</div>
                       </th>
                       <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                         <div class="font-semibold text-left">Amount</div>
@@ -202,15 +208,18 @@
                   </thead>
                   <!-- Table body -->
                   <tbody class="text-sm divide-y divide-slate-200 dark:divide-slate-700">
-                    <tr v-for="payment in payments" :key="payment.id">
+                    <tr v-for="payment in payments.data" :key="payment.id">
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-left">{{payment.name}}</div>
+                        <div class="text-left">{{payment.orderable.user.name}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-left">{{payment.restaurant}}</div>
+                        <div class="text-left">{{getPaymentType(payment.orderable_type)}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-left font-medium text-sky-500">{{payment.total_amount}}</div>
+                        <div class="text-left" v-if="payment.orderable.restaurant">{{payment.orderable.restaurant.name}}</div>
+                      </td>
+                      <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="text-left font-medium text-sky-500">{{ formatValue(payment.amount, payment.orderable.user.country) }}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                         <div class="text-left font-medium text-emerald-500">{{payment.transaction_id}}</div>
@@ -280,6 +289,7 @@ export default {
     const rider_earnings = ref(0)
     const rider_earnings_paid_out = ref(0)
     const total_service_charges = ref(0)
+    const region_data = ref([])
 
     let search = ref('')
 
@@ -310,17 +320,8 @@ export default {
           totalItems.value = response.data.data.payments.total
           from.value = response.data.data.payments.from
           to.value = response.data.data.payments.to
-          response.data.data.payments.data.forEach(payment => {
-            payments.value.push({
-              id: payment.id,
-              uuid: payment.uuid,
-              name: payment.orderable.user.name,
-              restaurant: payment.orderable.restaurant.name,
-              total_amount: payment.amount,
-              transaction_id: payment.transaction_id,
-              created_at: payment.created_at,
-            })
-          })
+          payments.value = response.data.data.payments
+          region_data.value = response.data.data.region_data
         })
     })
 
@@ -333,18 +334,7 @@ export default {
           totalItems.value = response.data.data.payments.total
           from.value = response.data.data.payments.from
           to.value = response.data.data.payments.to
-          payments.value = []
-          response.data.data.payments.data.forEach(payment => {
-            payments.value.push({
-              id: payment.id,
-              uuid: payment.uuid,
-              name: payment.orderable.user.name,
-              restaurant: payment.orderable.restaurant.name,
-              total_amount: payment.amount,
-              transaction_id: payment.transaction_id,
-              created_at: payment.created_at,
-            })
-          })
+          payments.value = response.data.data.payments
         })
     }
 
@@ -357,26 +347,32 @@ export default {
           totalItems.value = response.data.data.payments.total
           from.value = response.data.data.payments.from
           to.value = response.data.data.payments.to
-          payments.value = []
-          response.data.data.payments.data.forEach(payment => {
-            payments.value.push({
-              id: payment.id,
-              uuid: payment.uuid,
-              name: payment.orderable.user.name,
-              restaurant: payment.orderable.restaurant.name,
-              total_amount: payment.amount,
-              transaction_id: payment.transaction_id,
-              created_at: payment.created_at,
-            })
-          })
+          payments.value = response.data.data.payments
         })
     })
+
+    const getPaymentType = (type) => {
+      switch (type) {
+        case 'App\\Models\\Order':
+          return 'Order'
+          break;
+        case 'App\\Models\\SupplementOrder':
+          return 'Supplement Order'
+          break;
+        case 'App\\Models\\DietSubscription':
+          return 'Diet Subscription'
+          break;
+        default:
+          break;
+      }
+    }
 
     return {
       moment,
       sidebarOpen,
       selectedItems,
       updateSelectedItems,
+      getPaymentType,
       payments,
       nextPageUrl,
       prevPageUrl,
@@ -384,6 +380,7 @@ export default {
       totalItems,
       from,
       to,
+      region_data,
       changePage,
       search,
       total_amount,

@@ -21,9 +21,16 @@ export const hexToRGB = (h) => {
   return `${+r},${+g},${+b}`;
 };
 
-export const formatValue = (value) => Intl.NumberFormat('en-US', {
+let countries = []
+countries['Kenya'] = 'KES'
+countries['Great Britain'] = 'GBP'
+countries['United Kingdom'] = 'GBP'
+countries['UK'] = 'GBP'
+countries['Britain'] = 'GBP'
+
+export const formatValue = (value, country = '') => Intl.NumberFormat('en-US', {
   style: 'currency',
-  currency: 'USD',
+  currency: country != '' ? countries[country] : 'KES',
   maximumSignificantDigits: 3,
   notation: 'compact',
 }).format(value);
