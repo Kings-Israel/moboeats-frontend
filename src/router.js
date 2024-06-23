@@ -85,6 +85,8 @@ import SupplementOrders from './pages/supplements/Orders.vue'
 import DietSubscribers from './pages/diet/Subscribers.vue'
 import DietSubscriber from './pages/diet/Subscriber.vue'
 import DietSettings from './pages/diet/Settings.vue'
+import RidersPayout from './pages/payouts/Riders.vue'
+import RestaurantsPayout from './pages/payouts/Restaurants.vue'
 
 const routerHistory = createWebHistory()
 
@@ -199,6 +201,22 @@ const router = createRouter({
       path: '/payments/:id',
       component: PaymentDetails,
       name: 'payment-details',
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/payouts/riders',
+      component: RidersPayout,
+      name: 'riders-payouts',
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/payouts/partners',
+      component: RestaurantsPayout,
+      name: 'restaurants-payouts',
       meta: {
         requiresAuth: true,
       },
