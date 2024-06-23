@@ -93,10 +93,10 @@
                         <div class="text-left">{{customer.total_rider_deliveries}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-left">{{customer.rider_last_delivery}}</div>
+                        <div class="text-left m_upper">{{customer.rider_last_delivery ? getOrderId(customer.rider_last_delivery) : '-'}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-left font-medium text-sky-500" v-if="customer.rider">{{ customer.total_rider_tips }}</div>
+                        <div class="text-left font-medium text-sky-500" v-if="customer.rider">{{ formatValue(customer.total_rider_tips, customer.country) }}</div>
                         <div class="text-left font-medium text-sky-500" v-else>0</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
@@ -154,6 +154,7 @@ import PaginationClassic from '../../components/PaginationClassic.vue'
 import PaginationNumeric from '../../components/PaginationNumeric.vue'
 import ModalAction from '../../components/ModalAction.vue'
 import { useToast } from 'vue-toastification'
+import { formatValue } from '../../utils/Utils'
 
 export default {
   name: 'Users',
@@ -195,16 +196,8 @@ export default {
     onMounted(() => {
       $http.get('/admin/users/rider')
         .then(response => {
-          // nextPageUrl.value = response.data.data.next_page_url
-          // lastPageUrl.value = response.data.data.last_page_url
-          // prevPageUrl.value = response.data.data.prev_page_url
-          // totalItems.value = response.data.data.total
-          // from.value = response.data.data.from
-          // to.value = response.data.data.to
-          // response.data.data.links.forEach(link => {
-          //   pagesLinks.value.push(link)
-          // })
           customers.value = response.data.data
+          console.log(customers.value.data)
         })
     })
 
@@ -252,16 +245,6 @@ export default {
         toast.success('Rider Updated successfully');
         $http.get('/admin/users/rider')
         .then(response => {
-          customers.value = []
-          // nextPageUrl.value = response.data.data.next_page_url
-          // lastPageUrl.value = response.data.data.last_page_url
-          // prevPageUrl.value = response.data.data.prev_page_url
-          // totalItems.value = response.data.data.total
-          // from.value = response.data.data.from
-          // to.value = response.data.data.to
-          // response.data.data.links.forEach(link => {
-          //   pagesLinks.value.push(link)
-          // })
           customers.value = response.data.data
         })
       })
@@ -278,30 +261,12 @@ export default {
     }
 
     const getOrderId = (order) => {
-      return order.uuid.split('-')[0].toUpperCase()
-    }
-
-    const getRiderLastDeliveries = (rider) => {
-      if (rider.deliveries.length > 0) {
-        return getOrderId(rider.deliveries.reverse()[0])
-      }
-      return '-'
+      return order.uuid.split('-')[0]
     }
 
     function changePage(page) {
       $http.get(page)
         .then(response => {
-          // nextPageUrl.value = response.data.data.next_page_url
-          // lastPageUrl.value = response.data.data.last_page_url
-          // prevPageUrl.value = response.data.data.prev_page_url
-          // totalItems.value = response.data.data.total
-          // from.value = response.data.data.from
-          // to.value = response.data.data.to
-          // pagesLinks.value = []
-          // response.data.data.links.forEach(link => {
-          //   pagesLinks.value.push(link)
-          // })
-          customers.value = []
           customers.value = response.data.data
         })
     }
@@ -309,17 +274,6 @@ export default {
     watch(search, async (newSearch, oldQuestion) => {
       $http.get('/admin/users/rider?search='+newSearch)
         .then(response => {
-          // nextPageUrl.value = response.data.data.next_page_url
-          // lastPageUrl.value = response.data.data.last_page_url
-          // prevPageUrl.value = response.data.data.prev_page_url
-          // totalItems.value = response.data.data.total
-          // from.value = response.data.data.from
-          // to.value = response.data.data.to
-          // pagesLinks.value = []
-          // response.data.data.links.forEach(link => {
-          //   pagesLinks.value.push(link)
-          // })
-          customers.value = []
           customers.value = response.data.data
         })
     })
@@ -340,12 +294,18 @@ export default {
       search,
       rejection_reason,
       updateRiderStatusModal,
-      getRiderLastDeliveries,
       getRiderTotalTips,
       resolveRiderStatus,
       updateRiderStatus,
       riderStatus,
+      formatValue,
+      getOrderId,
     }  
   }
 }
 </script>
+<style>
+.m_upper {
+  text-transform: uppercase;
+}
+</style>

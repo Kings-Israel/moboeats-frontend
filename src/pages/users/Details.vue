@@ -256,7 +256,11 @@
                           <div class="text-center">
                             <h2 class="text-xl leading-snug justify-center font-semibold">Total Earnings</h2>
                           </div>
-                          <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(earnings_data.total_earnings, user.country) }}</span></div>
+                          <div class="flex justify-center items-center">
+                            <span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span>
+                            <span>{{ formatValue(earnings_data.total_earnings, user.country) }}</span><br>
+                            <span class="mx-1">(Deliveries: {{ earnings_data.order_earnings }}, Tips: {{ earnings_data.tip_earnings }})</span>
+                          </div>
                         </header>
                       </div>
                     </div>
@@ -296,7 +300,7 @@
                             </div>
                           </div>
                           <div class="text-center">
-                            <h2 class="text-xl leading-snug justify-center font-semibold">Unpaid Amount</h2>
+                            <h2 class="text-xl leading-snug justify-center font-semibold">Pending Payout Amount</h2>
                           </div>
                           <div class="flex justify-center items-center"><span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"></span> <span>{{ formatValue(earnings_data.unpaid_amount, user.country) }}</span></div>
                         </header>
