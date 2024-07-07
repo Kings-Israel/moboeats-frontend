@@ -129,21 +129,21 @@
                 </table>
               </div>
               <modal-action :id="'addAdmin'" :modal-open="editUserModal" @close-modal="editUserModal = false" :add-class="'max-w-4xl'">
-                <p class="text-xl font-bold text-white">Update Details</p>
+                <p class="text-xl font-bold text-white">Update Role</p>
                 <!-- Add/Edit Menu -->
                 <form class="flex flex-col justify-around" @submit.prevent="updateUser">
                   <div class="space-y-4">
                     <div>
                       <label class="block text-sm font-medium mb-1" for="price">Name</label>
-                      <input id="title" class="form-input w-full rounded-lg" type="text" v-model="name" />
+                      <input id="title" class="form-input w-full rounded-lg" type="text" v-model="name" readonly />
                     </div>
                     <div>
                       <label class="block text-sm font-medium mb-1" for="price">Email</label>
-                      <input id="title" class="form-input w-full rounded-lg" type="email" v-model="email" />
+                      <input id="title" class="form-input w-full rounded-lg" type="email" v-model="email" readonly />
                     </div>
                     <div>
                       <label class="block text-sm font-medium mb-1" for="price">Phone Number</label>
-                      <input id="title" class="form-input w-full rounded-lg" type="number" v-model="phone_number" />
+                      <input id="title" class="form-input w-full rounded-lg" type="number" v-model="phone_number" readonly />
                     </div>
                     <div>
                       <label class="block text-sm font-medium mb-1" for="price">Role</label>
@@ -262,10 +262,7 @@ export default {
     const updateUser = () => {
       $http.post('/admin/admins/update', {
         user_id: userId.value,
-        name: name.value,
-        email: email.value,
-        phone_number: phone_number.value,
-        role: userRole.value,
+        role_id: userRole.value,
       })
       .then(() => {
         $http.get('/admin/admins')
@@ -277,7 +274,7 @@ export default {
         email.value = ''
         phone_number.value = ''
         userRole.value = ''
-        addUserModal.value = false
+        editUserModal.value = false
         toast.success('User added successfully')
       })
       .catch(err => {
