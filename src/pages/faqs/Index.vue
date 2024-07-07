@@ -23,8 +23,8 @@
 
             <!-- Right: Actions  -->
             <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
-                <button class="bg-[#F3C411] hover:bg-indigo-600 p-2 text-white font-semibold rounded-full px-3" @click="addFaqModal = true">Add FAQ</button>
-                <modal-action :id="'addMenu'" :modal-open="addFaqModal" @close-modal="addFaqModal = false" :add-class="'max-w-4xl'">
+                <button v-if="userPermissions('add/edit frequently asked questions')" class="bg-[#F3C411] hover:bg-indigo-600 p-2 text-white font-semibold rounded-full px-3" @click="addFaqModal = true">Add FAQ</button>
+                <modal-action v-if="userPermissions('add/edit frequently asked questions')" :id="'addMenu'" :modal-open="addFaqModal" @close-modal="addFaqModal = false" :add-class="'max-w-4xl'">
                   <p class="text-xl font-bold text-white">Add Frequently Asked Question</p>
                   <!-- Add/Edit Menu -->
                   <form class="flex flex-col justify-around" @submit.prevent="addFaq">
@@ -115,10 +115,10 @@
                         </td>
                         <td class="p-2 flex gap-1">
                           <div class="">
-                            <button class="bg-[#F3C411] text-white p-1 px-2 rounded-md" @click="showEditFaqModal(faq)">Edit</button>
+                            <button v-if="userPermissions('add/edit frequently asked questions')" class="bg-[#F3C411] text-white p-1 px-2 rounded-md" @click="showEditFaqModal(faq)">Edit</button>
                           </div>
                           <div class="">
-                            <button class="bg-red-400 text-white rounded-md p-1" @click="deleteFaq(faq.id)">Delete</button>
+                            <button v-if="userPermissions('add/edit frequently asked questions')" class="bg-red-400 text-white rounded-md p-1" @click="deleteFaq(faq.id)">Delete</button>
                           </div>
                         </td>
                         <modal-action :id="'addMenu'" :modal-open="editFaqModal" @close-modal="editFaqModal = false" :add-class="'max-w-4xl'">
@@ -174,7 +174,7 @@ import PaginationClassic from '../../components/PaginationClassic.vue'
 import PaginationNumeric from '../../components/PaginationNumeric.vue'
 import { useRoute } from 'vue-router'
 import moment from 'moment';
-import { formatValue } from '../../utils/Utils'
+import { formatValue, userPermissions } from '../../utils/Utils'
 import { useToast } from 'vue-toastification'
 import ModalAction from '../../components/ModalAction.vue'
 
@@ -192,6 +192,7 @@ export default {
     const toast = useToast()
     const router = useRoute()
     const sidebarOpen = ref(false)
+    const user_permissions = ref([])
 
     const faqs = ref([])
 
@@ -317,6 +318,7 @@ export default {
     }
 
     return {
+      userPermissions,
       sidebarOpen,
       faqs,
 

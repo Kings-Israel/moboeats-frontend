@@ -39,3 +39,7 @@ export const formatThousands = (value) => Intl.NumberFormat('en-US', {
   maximumSignificantDigits: 3,
   notation: 'compact',
 }).format(value);
+
+export const userPermissions = (permission) => {
+  return JSON.parse(localStorage.getItem('permissions')).includes(permission) ? true : false;
+}

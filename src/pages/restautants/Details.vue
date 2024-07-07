@@ -74,41 +74,43 @@
             </div>
             <div class="flex gap-2 flex-wrap">
               <button
+                v-if="userPermissions('edit partners')"
                 class="btn bg-emerald-300 text-slate-900" 
                 @click="serviceChargeGroceriesAgreementModal = true"
               >
                 Groceries Service Charge Agreement ({{ restaurant.groceries_service_charge_agreement ? restaurant.groceries_service_charge_agreement : 0 }}%)
               </button>
               <button
+                v-if="userPermissions('edit partners')"
                 class="btn bg-emerald-300 text-slate-900" 
                 @click="serviceChargeAgreementModal = true"
               >
                 Service Charge Agreement ({{ restaurant.service_charge_agreement ? restaurant.service_charge_agreement : 0 }}%)
               </button>
-              <span v-if="restaurant.status == 'Pending'" class="text-sm rounded-xl p-2 bg-slate-500 text-slate-200 mr-4">Pending Approval</span>
-              <button class="btn bg-yellow-400 text-white hover:bg-yellow-600 transition duration-200 ease-in-out" v-if="restaurant.status != 'Approved'" @click="updateStatus(2)">Approve</button>
+              <span v-if="userPermissions('edit partners') && restaurant.status == 'Pending'" class="text-sm rounded-xl p-2 bg-slate-500 text-slate-200 mr-4">Pending Approval</span>
+              <button class="btn bg-yellow-400 text-white hover:bg-yellow-600 transition duration-200 ease-in-out" v-if="userPermissions('edit partners') && restaurant.status != 'Approved'" @click="updateStatus(2)">Approve</button>
               <button
                 class="btn bg-red-400 text-white hover:bg-red-600 transition duration-200 ease-in-out" 
-                v-if="restaurant.status != 'Denied'" 
+                v-if="userPermissions('edit partners') && restaurant.status != 'Denied'" 
                 @click="modalOpen = true"
               >
                 Reject
               </button>
-              <modal-action :id="'addStatusReason'" :modal-open="modalOpen" @close-modal="modalOpen = false">
+              <modal-action v-if="userPermissions('edit partners')" :add-class="'max-w-lg'" :id="'addStatusReason'" :modal-open="modalOpen" @close-modal="modalOpen = false">
                 <h1 class="text-lg text-slate-800 dark:text-slate-200">Enter Rejection Reason</h1>
                 <textarea name="statusReason" id="" cols="30" rows="10" v-model="statusReason" class="form-input bg-white dark:bg-slate-800 w-full"></textarea>
                 <div class="flex justify-end">
                   <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" @click="updateStatus(3)">Submit</button>
                 </div>
               </modal-action>
-              <modal-action :id="'addServiceChargeAgreement'" :modal-open="serviceChargeAgreementModal" @close-modal="serviceChargeAgreementModal = false">
+              <modal-action v-if="userPermissions('edit partners')" :add-class="'max-w-lg'" :id="'addServiceChargeAgreement'" :modal-open="serviceChargeAgreementModal" @close-modal="serviceChargeAgreementModal = false">
                 <h1 class="text-lg text-slate-800 dark:text-slate-200">Enter Service Charge Agreement</h1>
                 <input name="statusReason" type="number" id="" v-model="serviceChargeAgreement" class="form-input bg-white dark:bg-slate-800 w-full mb-2" />
                 <div class="flex justify-end">
                   <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" @click="updateServiceChargeAgreement">Submit</button>
                 </div>
               </modal-action>
-              <modal-action :id="'addServiceChargeGroceriesAgreement'" :modal-open="serviceChargeGroceriesAgreementModal" @close-modal="serviceChargeGroceriesAgreementModal = false">
+              <modal-action v-if="userPermissions('edit partners')" :add-class="'max-w-lg'" :id="'addServiceChargeGroceriesAgreement'" :modal-open="serviceChargeGroceriesAgreementModal" @close-modal="serviceChargeGroceriesAgreementModal = false">
                 <h1 class="text-lg text-slate-800 dark:text-slate-200">Enter Service Charge Agreement</h1>
                 <input name="statusReason" type="number" id="" v-model="serviceChargeGroceriesAgreement" class="form-input bg-white dark:bg-slate-800 w-full mb-2" />
                 <div class="flex justify-end">
@@ -651,7 +653,7 @@ import PaginationClassic from '../../components/PaginationClassic.vue'
 import PaginationNumeric from '../../components/PaginationNumeric.vue'
 import { useRoute } from 'vue-router'
 import moment from 'moment';
-import { formatValue } from '../../utils/Utils'
+import { formatValue, userPermissions } from '../../utils/Utils'
 import { useToast } from 'vue-toastification'
 import ModalAction from '../../components/ModalAction.vue'
 
@@ -1072,6 +1074,7 @@ export default {
     }
 
     return {
+      userPermissions,
       moment,
       sidebarOpen,
       restaurant,

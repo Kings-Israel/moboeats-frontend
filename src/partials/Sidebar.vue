@@ -11,7 +11,7 @@
       :class="sidebarOpen ? 'translate-x-0' : '-translate-x-64'"
     >
       <!-- Sidebar header -->
-      <div class="flex justify-between lg:justify-center mb-10 pr-3 sm:px-2">
+      <div class="flex justify-between lg:justify-center pr-3 sm:px-2">
         <!-- Close button -->
         <button
           ref="trigger"
@@ -35,7 +35,7 @@
       <div class="space-y-8">
         <!-- Pages group -->
         <div>
-          <ul class="mt-3">
+          <ul class="mt-1">
             <!-- Dashboard -->
             <router-link :to="{ name: 'dashboard' }" custom v-slot="{ href, navigate, isExactActive }" :class="(currentRoute.fullPath === '/' || currentRoute.fullPath.includes('dashboard')) ? 'hover:text-slate-200' : 'hover:text-white'">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
@@ -50,7 +50,7 @@
               </div>
             </router-link>
             <!-- Users -->
-            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" :to="{ name: 'users' }">
+            <router-link v-if="permissions.includes('view customers')" custom v-slot="{ href, navigate, isExactActive }" :to="{ name: 'users' }">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                   <path class="fill-current" :class="currentRoute.fullPath.includes('users') ? 'text-yellow-500' : 'text-yellow-600'" d="M18.974 8H22a2 2 0 012 2v6h-2v5a1 1 0 01-1 1h-2a1 1 0 01-1-1v-5h-2v-6a2 2 0 012-2h.974zM20 7a2 2 0 11-.001-3.999A2 2 0 0120 7zM2.974 8H6a2 2 0 012 2v6H6v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5H0v-6a2 2 0 012-2h.974zM4 7a2 2 0 11-.001-3.999A2 2 0 014 7z" />
@@ -62,7 +62,7 @@
               </div>
             </router-link>
             <!-- Restaurant Admins -->
-            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" :to="{ name: 'restaurant-admins' }">
+            <router-link v-if="permissions.includes('view partners')" custom v-slot="{ href, navigate, isExactActive }" :to="{ name: 'restaurant-admins' }">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24">
                   <g fill="#212121" class="nc-icon-wrapper">
@@ -75,7 +75,7 @@
               </div>
             </router-link>
             <!-- Riders -->
-            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/riders">
+            <router-link v-if="permissions.includes('view riders')" custom v-slot="{ href, navigate, isExactActive }" to="/riders">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24">
                   <g fill="#212121" class="nc-icon-wrapper">
@@ -91,7 +91,7 @@
               </div>
             </router-link>
             <!-- Partners -->
-            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/partners">
+            <router-link v-if="permissions.includes('view partners')" custom v-slot="{ href, navigate, isExactActive }" to="/partners">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24">
                   <g fill="#212121" class="nc-icon-wrapper">
@@ -107,7 +107,7 @@
               </div>
             </router-link>
             <!-- Orders -->
-            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/orders">
+            <router-link v-if="permissions.includes('view orders')" custom v-slot="{ href, navigate, isExactActive }" to="/orders">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                   <path class="fill-current" :class="currentRoute.fullPath.includes('orders') ? 'text-yellow-300' : 'text-yellow-400'" d="M13 15l11-7L11.504.136a1 1 0 00-1.019.007L0 7l13 8z" />
@@ -120,7 +120,7 @@
               </div>
             </router-link>
             <!-- Payments -->
-            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/payments">
+            <router-link v-if="permissions.includes('view payments')" custom v-slot="{ href, navigate, isExactActive }" to="/payments">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                   <path class="fill-current" :class="currentRoute.fullPath.includes('payments') ? 'text-yellow-600' : 'text-yellow-700'" d="M4.418 19.612A9.092 9.092 0 0 1 2.59 17.03L.475 19.14c-.848.85-.536 2.395.743 3.673a4.413 4.413 0 0 0 1.677 1.082c.253.086.519.131.787.135.45.011.886-.16 1.208-.474L7 21.44a8.962 8.962 0 0 1-2.582-1.828Z" />
@@ -133,7 +133,7 @@
               </div>
             </router-link>
             <!-- Payouts  -->
-            <SidebarLinkGroup v-if="role == 'admin'" v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('payouts')">
+            <SidebarLinkGroup v-if="permissions.includes('view riders payouts') || permissions.includes('view partners payouts')" v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('payouts')">
               <a class="block text-slate-200 truncate transition duration-150" :class="currentRoute.fullPath.includes('payouts') ? 'hover:text-slate-200' : 'hover:text-white'" href="#0" @click.prevent="parentLink.handleClick(); sidebarExpanded = true">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center">
@@ -155,14 +155,14 @@
               <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
                 <ul class="pl-9 mt-1" :class="!parentLink.expanded && 'hidden'">
                   <!-- Diet Subscribers -->
-                  <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/payouts/riders">
+                  <router-link v-if="permissions.includes('view riders payouts')" custom v-slot="{ href, navigate, isExactActive }" to="/payouts/riders">
                     <li class="mb-1 last:mb-0">
                       <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-yellow-300 hover:text-slate-200'" :href="href" @click="navigate">
                         <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Riders</span>
                       </a>
                     </li>
                   </router-link>
-                  <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/payouts/partners">
+                  <router-link v-if="permissions.includes('view partners payouts')" custom v-slot="{ href, navigate, isExactActive }" to="/payouts/partners">
                     <li class="mb-1 last:mb-0">
                       <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-yellow-300 hover:text-slate-200'" :href="href" @click="navigate">
                         <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Partners</span>
@@ -173,7 +173,7 @@
               </div>
             </SidebarLinkGroup>
             <!-- Diets  -->
-            <SidebarLinkGroup v-if="role == 'admin' || role == 'diet-planner'" v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('diet')">
+            <SidebarLinkGroup v-if="permissions.includes('view diet plan subscriptions') || permissions.includes('view diet plan packages') || permissions.includes('add/edit diet plan packages')" v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('diet')">
               <a class="block text-slate-200 truncate transition duration-150" :class="currentRoute.fullPath.includes('diet') ? 'hover:text-slate-200' : 'hover:text-white'" href="#0" @click.prevent="parentLink.handleClick(); sidebarExpanded = true">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center">
@@ -195,14 +195,14 @@
               <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
                 <ul class="pl-9 mt-1" :class="!parentLink.expanded && 'hidden'">
                   <!-- Diet Subscribers -->
-                  <router-link v-if="role == 'admin' || role == 'diet-planner'" custom v-slot="{ href, navigate, isExactActive }" to="/diet/subscribers">
+                  <router-link v-if="permissions.includes('view diet plan subscriptions')" custom v-slot="{ href, navigate, isExactActive }" to="/diet/subscribers">
                     <li class="mb-1 last:mb-0">
                       <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-yellow-300 hover:text-slate-200'" :href="href" @click="navigate">
                         <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Subscribers</span>
                       </a>
                     </li>
                   </router-link>
-                  <router-link v-if="role == 'admin' || role == 'diet-planner'" custom v-slot="{ href, navigate, isExactActive }" to="/diet/packages">
+                  <router-link v-if="permissions.includes('view diet plan packages') || permissions.includes('add/edit diet plan packages')" custom v-slot="{ href, navigate, isExactActive }" to="/diet/packages">
                     <li class="mb-1 last:mb-0">
                       <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-yellow-300 hover:text-slate-200'" :href="href" @click="navigate">
                         <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Packages</span>
@@ -213,7 +213,7 @@
               </div>
             </SidebarLinkGroup>
             <!-- Supplements and Suppliers  -->
-            <SidebarLinkGroup v-if="role == 'admin' || role == 'supplements-admin'" v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('supplements')">
+            <SidebarLinkGroup v-if="permissions.includes('view supplements') || permissions.includes('add/edit supplements') || permissions.includes('view suppliers') || permissions.includes('view supplements orders') || permissions.includes('edit supplements orders')" v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('supplements')">
               <a class="block text-slate-200 truncate transition duration-150" :class="currentRoute.fullPath.includes('supplements') ? 'hover:text-slate-200' : 'hover:text-white'" href="#0" @click.prevent="parentLink.handleClick(); sidebarExpanded = true">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center">
@@ -234,29 +234,21 @@
               </a>
               <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
                 <ul class="pl-9 mt-1" :class="!parentLink.expanded && 'hidden'">
-                  <!-- Supplements Admin -->
-                  <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/supplements-admin">
-                    <li class="mb-1 last:mb-0">
-                      <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-yellow-300 hover:text-slate-200'" :href="href" @click="navigate">
-                        <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Admins</span>
-                      </a>
-                    </li>
-                  </router-link>
-                  <router-link to="/supplements" custom v-slot="{ href, navigate, isExactActive }">
+                  <router-link v-if="permissions.includes('view supplements') || permissions.includes('add/edit supplements')" to="/supplements" custom v-slot="{ href, navigate, isExactActive }">
                     <li class="mb-1 last:mb-0">
                       <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-yellow-300 hover:text-slate-200'" :href="href" @click="navigate">
                         <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Supplements</span>
                       </a>
                     </li>
                   </router-link>
-                  <router-link to="/supplements/suppliers" custom v-slot="{ href, navigate, isExactActive }">
+                  <router-link v-if="permissions.includes('view suppliers') || permissions.includes('add/edit suppliers')" to="/supplements/suppliers" custom v-slot="{ href, navigate, isExactActive }">
                     <li class="mb-1 last:mb-0">
                       <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-yellow-300 hover:text-slate-200'" :href="href" @click="navigate">
                         <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Suppliers</span>
                       </a>
                     </li>
                   </router-link>
-                  <router-link to="/supplements/orders" custom v-slot="{ href, navigate, isExactActive }">
+                  <router-link v-if="permissions.includes('view supplements orders') || permissions.includes('edit supplements orders')" to="/supplements/orders" custom v-slot="{ href, navigate, isExactActive }">
                     <li class="mb-1 last:mb-0">
                       <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-yellow-300 hover:text-slate-200'" :href="href" @click="navigate">
                         <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Orders</span>
@@ -267,7 +259,7 @@
               </div>
             </SidebarLinkGroup>
             <!-- Discounts -->
-            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/discounts">
+            <router-link v-if="permissions.includes('view discounts')" custom v-slot="{ href, navigate, isExactActive }" to="/discounts">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                   <path class="fill-current" :class="currentRoute.fullPath.includes('discounts') ? 'text-yellow-600' : 'text-yellow-700'" d="M4.418 19.612A9.092 9.092 0 0 1 2.59 17.03L.475 19.14c-.848.85-.536 2.395.743 3.673a4.413 4.413 0 0 0 1.677 1.082c.253.086.519.131.787.135.45.011.886-.16 1.208-.474L7 21.44a8.962 8.962 0 0 1-2.582-1.828Z" />
@@ -278,23 +270,9 @@
                   <span class="text-sm font-medium">Discounts</span>
                 </a>
               </div>
-            </router-link>
-            <!-- Logs -->
-            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/logs">
-              <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
-                <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                  <path class="fill-current" :class="currentRoute.fullPath.includes('logs') ? 'text-yellow-500' : 'text-yellow-600'" d="M19.714 14.7l-7.007 7.007-1.414-1.414 7.007-7.007c-.195-.4-.298-.84-.3-1.286a3 3 0 113 3 2.969 2.969 0 01-1.286-.3z" />
-                  <path class="fill-current" :class="currentRoute.fullPath.includes('logs') ? 'text-yellow-300' : 'text-yellow-400'" d="M10.714 18.3c.4-.195.84-.298 1.286-.3a3 3 0 11-3 3c.002-.446.105-.885.3-1.286l-6.007-6.007 1.414-1.414 6.007 6.007z" />
-                  <path class="fill-current" :class="currentRoute.fullPath.includes('logs') ? 'text-yellow-500' : 'text-yellow-600'" d="M5.7 10.714c.195.4.298.84.3 1.286a3 3 0 11-3-3c.446.002.885.105 1.286.3l7.007-7.007 1.414 1.414L5.7 10.714z" />
-                  <path class="fill-current" :class="currentRoute.fullPath.includes('logs') ? 'text-yellow-300' : 'text-yellow-400'" d="M19.707 9.292a3.012 3.012 0 00-1.415 1.415L13.286 5.7c-.4.195-.84.298-1.286.3a3 3 0 113-3 2.969 2.969 0 01-.3 1.286l5.007 5.006z" />                      
-                </svg>
-                <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-white hover:text-slate-200'" :href="href" @click="navigate">
-                  <span class="text-sm font-medium">Logs</span>
-                </a>
-              </div>
-            </router-link>         
+            </router-link>       
             <!-- Marketing  -->
-            <SidebarLinkGroup v-if="role == 'admin'" v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('marketing')">
+            <SidebarLinkGroup v-if="permissions.includes('view marketing posters') || permissions.includes('add/edit marketing posters')" v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('marketing')">
               <a class="block text-slate-200 truncate transition duration-150" :class="currentRoute.fullPath.includes('marketing') ? 'hover:text-slate-200' : 'hover:text-white'" href="#0" @click.prevent="parentLink.handleClick(); sidebarExpanded = true">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center">
@@ -315,7 +293,7 @@
               </a>
               <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
                 <ul class="pl-9 mt-1" :class="!parentLink.expanded && 'hidden'">
-                  <router-link to="/marketing/posters" custom v-slot="{ href, navigate, isExactActive }">
+                  <router-link v-if="permissions.includes('view marketing posters') || permissions.includes('add/edit marketing posters')" to="/marketing/posters" custom v-slot="{ href, navigate, isExactActive }">
                     <li class="mb-1 last:mb-0">
                       <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-yellow-400 hover:text-slate-200'" :href="href" @click="navigate">
                         <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Posters</span>
@@ -325,9 +303,36 @@
                 </ul>
               </div>
             </SidebarLinkGroup>
+            <!-- Marketing -->
+            <!-- Roles and Permissions -->
+            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/roles">
+              <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
+                <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
+                  <path class="fill-current" :class="currentRoute.fullPath.includes('roles') ? 'text-yellow-500' : 'text-yellow-600'" d="M19.714 14.7l-7.007 7.007-1.414-1.414 7.007-7.007c-.195-.4-.298-.84-.3-1.286a3 3 0 113 3 2.969 2.969 0 01-1.286-.3z" />
+                  <path class="fill-current" :class="currentRoute.fullPath.includes('roles') ? 'text-yellow-300' : 'text-yellow-400'" d="M10.714 18.3c.4-.195.84-.298 1.286-.3a3 3 0 11-3 3c.002-.446.105-.885.3-1.286l-6.007-6.007 1.414-1.414 6.007 6.007z" />
+                  <path class="fill-current" :class="currentRoute.fullPath.includes('roles') ? 'text-yellow-500' : 'text-yellow-600'" d="M5.7 10.714c.195.4.298.84.3 1.286a3 3 0 11-3-3c.446.002.885.105 1.286.3l7.007-7.007 1.414 1.414L5.7 10.714z" />
+                  <path class="fill-current" :class="currentRoute.fullPath.includes('roles') ? 'text-yellow-300' : 'text-yellow-400'" d="M19.707 9.292a3.012 3.012 0 00-1.415 1.415L13.286 5.7c-.4.195-.84.298-1.286.3a3 3 0 113-3 2.969 2.969 0 01-.3 1.286l5.007 5.006z" />                      
+                </svg>
+                <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-white hover:text-slate-200'" :href="href" @click="navigate">
+                  <span class="text-sm font-medium">Roles & Permissions</span>
+                </a>
+              </div>
+            </router-link>
+            <!-- Admins -->
+            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/admins">
+              <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24">
+                  <g fill="#212121" class="nc-icon-wrapper">
+                    <path class="fill-current" :class="currentRoute.fullPath.includes('admins') ? 'text-yellow-500' : 'text-yellow-400'" d="M12,0A12,12,0,1,0,24,12,12,12,0,0,0,12,0Zm3.772,17.333a4,4,0,0,1-7.544,0,1,1,0,1,1,1.886-.666,2,2,0,0,0,3.772,0,1,1,0,0,1,1.886.666Zm2.582-4.187h0a3.294,3.294,0,0,1-4.5-1.206h0L12.707,9.954a.745.745,0,0,0-1.412,0l-1.147,1.987A3.294,3.294,0,1,1,7.376,7L12,7.021,16.626,7a3.294,3.294,0,0,1,1.728,6.146Z"></path>
+                  </g>
+                </svg>
+                <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-white hover:text-slate-200'" :href="href" @click="navigate">
+                  <span class="text-sm font-medium">Admins</span>
+                </a>
+              </div>
+            </router-link>
             <!-- FAQs -->
-            <!-- Logs -->
-            <router-link v-if="role == 'admin'" custom v-slot="{ href, navigate, isExactActive }" to="/faqs">
+            <router-link v-if="permissions.includes('view frequently asked questions') || permissions.includes('add/edit frequently asked questions')" custom v-slot="{ href, navigate, isExactActive }" to="/faqs">
               <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
                 <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                   <path class="fill-current" :class="currentRoute.fullPath.includes('faqs') ? 'text-yellow-500' : 'text-yellow-600'" d="M19.714 14.7l-7.007 7.007-1.414-1.414 7.007-7.007c-.195-.4-.298-.84-.3-1.286a3 3 0 113 3 2.969 2.969 0 01-1.286-.3z" />
@@ -341,7 +346,7 @@
               </div>
             </router-link> 
             <!-- Messages -->
-            <router-link v-if="role == 'admin'" to="/messages" custom v-slot="{ href, navigate, isExactActive }">
+            <router-link v-if="permissions.includes('view messages')" to="/messages" custom v-slot="{ href, navigate, isExactActive }">
               <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0" :class="isExactActive && 'bg-slate-900 rounded-xl'">
                 <a class="block text-slate-200 truncate transition duration-150" :class="isExactActive ? 'hover:text-slate-200' : 'hover:text-white'" :href="href" @click="navigate">
                   <div class="flex items-center justify-between">
@@ -360,6 +365,20 @@
                 </a>
               </li>
             </router-link>
+            <!-- Logs -->
+            <router-link v-if="permissions.includes('view logs')" custom v-slot="{ href, navigate, isExactActive }" to="/logs">
+              <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
+                <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
+                  <path class="fill-current" :class="currentRoute.fullPath.includes('logs') ? 'text-yellow-500' : 'text-yellow-600'" d="M19.714 14.7l-7.007 7.007-1.414-1.414 7.007-7.007c-.195-.4-.298-.84-.3-1.286a3 3 0 113 3 2.969 2.969 0 01-1.286-.3z" />
+                  <path class="fill-current" :class="currentRoute.fullPath.includes('logs') ? 'text-yellow-300' : 'text-yellow-400'" d="M10.714 18.3c.4-.195.84-.298 1.286-.3a3 3 0 11-3 3c.002-.446.105-.885.3-1.286l-6.007-6.007 1.414-1.414 6.007 6.007z" />
+                  <path class="fill-current" :class="currentRoute.fullPath.includes('logs') ? 'text-yellow-500' : 'text-yellow-600'" d="M5.7 10.714c.195.4.298.84.3 1.286a3 3 0 11-3-3c.446.002.885.105 1.286.3l7.007-7.007 1.414 1.414L5.7 10.714z" />
+                  <path class="fill-current" :class="currentRoute.fullPath.includes('logs') ? 'text-yellow-300' : 'text-yellow-400'" d="M19.707 9.292a3.012 3.012 0 00-1.415 1.415L13.286 5.7c-.4.195-.84.298-1.286.3a3 3 0 113-3 2.969 2.969 0 01-.3 1.286l5.007 5.006z" />                      
+                </svg>
+                <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-white hover:text-slate-200'" :href="href" @click="navigate">
+                  <span class="text-sm font-medium">Logs</span>
+                </a>
+              </div>
+            </router-link>  
             <!-- Community -->
             <SidebarLinkGroup v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('community')" class="hidden">
               <a class="block text-slate-200 truncate transition duration-150" :class="currentRoute.fullPath.includes('community') ? 'hover:text-slate-200' : 'hover:text-white'" href="#0" @click.prevent="parentLink.handleClick(); sidebarExpanded = true">
@@ -1008,6 +1027,7 @@ export default {
     const trigger = ref(null)
     const sidebar = ref(null)
     const role = ref('')
+    const permissions = ref([])
 
     const storedSidebarExpanded = localStorage.getItem('sidebar-expanded')
     const sidebarExpanded = ref(storedSidebarExpanded === null ? false : storedSidebarExpanded === 'true')
@@ -1048,6 +1068,7 @@ export default {
       document.addEventListener('keydown', keyHandler)
       getUnreadMessagesCount()
       role.value = localStorage.getItem('role')
+      permissions.value = JSON.parse(localStorage.getItem('permissions'))
     })
 
     onUnmounted(() => {
@@ -1066,6 +1087,7 @@ export default {
 
     return {
       role,
+      permissions,
       trigger,
       sidebar,
       sidebarExpanded,

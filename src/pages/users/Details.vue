@@ -239,7 +239,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-span-full">
+            <div v-if="user_roles.includes('rider')" class="col-span-full">
               <div class="grid grid-cols-3 gap-2">
                 <div>
                   <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
