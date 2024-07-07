@@ -235,7 +235,7 @@ export default {
       .then(() => {
         $http.get('/admin/admins')
           .then(response => {
-            admins.value = response.data.data.admins
+            admins.value = response.data.data.users
           })
         name.value = ''
         email.value = ''
@@ -270,7 +270,7 @@ export default {
       .then(() => {
         $http.get('/admin/admins')
           .then(response => {
-            admins.value = response.data.data.admins
+            admins.value = response.data.data.users
           })
         userId.value = ''
         name.value = ''
