@@ -34,7 +34,7 @@ app.provide('$http', axiosIns)
 app.provide('echo', EchoInstance)
 app.use(VueGoogleMaps, {
   load: {
-    key: 'AIzaSyBuIpISBj9plN7acT3IKOOxJA9rjyo-H98',
+    key: import.meta.env.VITE_MAPS_KEY,
     libraries: "places"
   },
 })
