@@ -23,7 +23,7 @@
 
             <!-- Right: Actions  -->
             <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
-              <button class="bg-[#1c2e2a] hover:bg-[#6a6d2b] p-2 text-white font-semibold rounded-full px-3" @click="uploadPayoutModal = true">Upload Payout</button>
+              <button v-if="userPermissions('upload payouts')" class="bg-[#1c2e2a] hover:bg-[#6a6d2b] p-2 text-white font-semibold rounded-full px-3" @click="uploadPayoutModal = true">Upload Payout</button>
               <modal-action :id="'addSupplier'" :modal-open="uploadPayoutModal" @close-modal="uploadPayoutModal = false" :add-class="'max-w-4xl'">
                 <p class="text-xl font-bold text-white">Upload Payout</p>
                 <!-- Add/Edit Menu -->
@@ -125,7 +125,7 @@ import PaginationClassic from '../../components/PaginationClassic.vue'
 import PaginationNumeric from '../../components/PaginationNumeric.vue'
 import ModalAction from '../../components/ModalAction.vue'
 import { useToast } from 'vue-toastification'
-import { formatValue } from '../../utils/Utils'
+import { formatValue, userPermissions } from '../../utils/Utils'
 
 export default {
   name: 'RidersPayout',
@@ -144,6 +144,7 @@ export default {
     const toast = useToast()
     const $http = inject("$http")
     const sidebarOpen = ref(false)
+    const user_permissions = ref([])
 
     const file = ref('')
     const uploadPayoutModal = ref(false)
@@ -197,6 +198,7 @@ export default {
     })
 
     return {
+      userPermissions,
       sidebarOpen,
       payouts,
       changePage,

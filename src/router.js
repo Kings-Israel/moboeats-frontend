@@ -87,6 +87,8 @@ import DietSubscriber from './pages/diet/Subscriber.vue'
 import DietSettings from './pages/diet/Settings.vue'
 import RidersPayout from './pages/payouts/Riders.vue'
 import RestaurantsPayout from './pages/payouts/Restaurants.vue'
+import Roles from './pages/roles/Index.vue'
+import Admins from './pages/admins/Index.vue'
 
 const routerHistory = createWebHistory()
 
@@ -297,6 +299,22 @@ const router = createRouter({
       path: '/logs',
       component: Logs,
       name: 'logs',
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/roles',
+      component: Roles,
+      name: 'roles',
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/admins',
+      component: Admins,
+      name: 'admins',
       meta: {
         requiresAuth: true,
       },

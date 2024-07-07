@@ -153,7 +153,6 @@ export default {
           from.value = response.data.data.from
           to.value = response.data.data.to
           logs.value = response.data.data.data
-          console.log(logs.value)
         })
     })
 

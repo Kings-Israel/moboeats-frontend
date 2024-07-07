@@ -109,7 +109,7 @@ import PaginationClassic from '../../components/PaginationClassic.vue'
 import PaginationNumeric from '../../components/PaginationNumeric.vue'
 import { useRoute } from 'vue-router'
 import moment from 'moment';
-import { formatValue } from '../../utils/Utils'
+import { formatValue, userPermissions } from '../../utils/Utils'
 import { useToast } from 'vue-toastification'
 
 export default {
@@ -223,6 +223,7 @@ export default {
     }
 
     return {
+      userPermissions,
       moment,
       sidebarOpen,
       order,
