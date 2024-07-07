@@ -91,7 +91,7 @@
                         <div class="text-left font-medium text-sky-500">{{order.restaurant.name}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-left font-medium text-emerald-500">{{order.total_amount}}</div>
+                        <div class="text-left font-medium text-emerald-500">{{formatValue(order.total_amount, order.country)}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                         <div class="text-left">{{order.delivery_status}}</div>
@@ -132,6 +132,7 @@ import DateSelect from '../../components/DateSelect.vue'
 import FilterButton from '../../components/DropdownFilter.vue'
 import CustomersTable from '../../partials/customers/CustomersTable.vue'
 import PaginationClassic from '../../components/PaginationClassic.vue'
+import { formatValue } from '../../utils/Utils';
 
 export default {
   name: 'Orders',
@@ -165,7 +166,7 @@ export default {
     const orders = ref([])
 
     const getLatestOrder = (order) => {
-      return order.uuid.split('-')[0]
+      return order.uuid.split('-')[0].toUpperCase()
     }
 
     onMounted(() => {
@@ -189,6 +190,7 @@ export default {
               orderId: getLatestOrder(order),
               created_at: order.created_at,
               location: order.delivery_address,
+              country: order.country
             })
           })
         })
@@ -216,6 +218,7 @@ export default {
               orderId: getLatestOrder(order),
               created_at: order.created_at,
               location: order.delivery_address,
+              country: order.country
             })
           })
         })
@@ -261,6 +264,7 @@ export default {
       from,
       to,
       changePage,
+      formatValue,
       search,
     }  
   }

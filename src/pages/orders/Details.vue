@@ -76,7 +76,7 @@
                 </header>
                 <div class="flex flex-col space-y-2 p-3">
                   <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>ID:</span><strong>{{ getOrderId(order) }}</strong></h1>
-                  <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Amount:</span><strong>{{ formatValue(order.total_amount) }}</strong></h1>
+                  <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Amount:</span><strong>{{ formatValue(order.total_amount, order.user.country) }}</strong></h1>
                   <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Ordered On:</span><strong>{{ moment(order.created_at).format('Do MMM Y') }}</strong></h1>
                   <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Order Items:</span><strong v-for="(item, index) in order.order_items" :key="item.id">{{ item.menu.title }}<span v-if="index != Object.keys(order.order_items).length - 1">, </span></strong></h1>
                 </div>
@@ -157,7 +157,6 @@ export default {
             {lat: Number(restaurant_lat.value), lng: Number(restaurant_lng.value)},
             {lat: Number(orderer_lat.value), lng: Number(orderer_lng.value)},
           ]
-          // console.log(path.value)
           nextTick().then(() => {
             mapRef.value.$gmapApiPromiseLazy().then(() => {
               directionsService.value = new google.maps.DirectionsService()

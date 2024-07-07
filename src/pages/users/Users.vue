@@ -136,6 +136,7 @@ import Header from '../../partials/Header.vue'
 import PaginationClassic from '../../components/PaginationClassic.vue'
 import PaginationNumeric from '../../components/PaginationNumeric.vue'
 import Image01 from '../../images/user-40-01.jpg'
+import { formatValue } from '../../utils/Utils'
 
 export default {
   name: 'Users',
@@ -183,10 +184,10 @@ export default {
               image: user.image,
               name: user.name,
               email: user.email,
-              location: '🇬🇧 London, UK',
+              location: user.country,
               orders: user.orders.length,
-              lastOrder: '#123567',
-              spent: '$2,890.66',
+              lastOrder: user.latest_order ? getOrderId(user.latest_order) : '-',
+              spent: formatValue(user.amount_spent, user.country),
               refunds: '-',
               fav: true
             })
@@ -207,13 +208,13 @@ export default {
           response.data.data.data.forEach(user => {
             customers.value.push({
               id: user.id,
-              image: Image01,
+              image: user.image,
               name: user.name,
               email: user.email,
-              location: '🇬🇧 London, UK',
+              location: user.country,
               orders: user.orders.length,
-              lastOrder: '#123567',
-              spent: '$2,890.66',
+              lastOrder: user.latest_order ? getOrderId(user.latest_order) : '-',
+              spent: formatValue(user.amount_spent, user.country),
               refunds: '-',
               fav: true
             })
@@ -231,19 +232,26 @@ export default {
           from.value = response.data.data.from
           to.value = response.data.data.to
           customers.value = []
-          response.data.data.data.forEach(restaurant => {
+          response.data.data.data.forEach(user => {
             customers.value.push({
-              id: restaurant.id,
-              image: Image01,
-              name: restaurant.name,
-              user: restaurant.user,
-              location: '🇬🇧 London, UK',
-              orders: restaurant.orders.length,
-              lastOrder: '#123567',
+              id: user.id,
+              image: user.image,
+              name: user.name,
+              email: user.email,
+              location: user.country,
+              orders: user.orders.length,
+              lastOrder: user.latest_order ? getOrderId(user.latest_order) : '-',
+              spent: formatValue(user.amount_spent, user.country),
+              refunds: '-',
+              fav: true
             })
           })
         })
     })
+
+    const getOrderId = (order) => {
+      return order.uuid.split('-')[0].toUpperCase()
+    }
 
     return {
       sidebarOpen,
