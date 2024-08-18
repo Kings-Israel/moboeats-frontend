@@ -1,7 +1,59 @@
 <template>
-  <div class="flex flex-col col-span-full bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
-    <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700 flex items-center">
-      <h2 class="font-semibold text-slate-800 dark:text-slate-100">{{ data.name }}</h2>
+  <div
+    class="flex flex-col col-span-full bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
+  >
+    <header
+      class="px-5 py-4 border-b border-slate-100 dark:border-slate-700 flex justify-between"
+    >
+      <h2 class="font-semibold text-slate-800 dark:text-slate-100">
+        {{ data.name }}
+      </h2>
+      <div>
+        <select
+          name="categories"
+          @change="updateTimeline"
+          class="w-full rounded-lg form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        >
+          <option
+            value="past_ten_years"
+            :selected="selected_timeline == 'past_ten_years'"
+          >
+            Past 10 Years
+          </option>
+          <option
+            value="past_five_years"
+            :selected="selected_timeline == 'past_five_years'"
+          >
+            Past 5 Years
+          </option>
+          <option
+            value="past_three_years"
+            :selected="selected_timeline == 'past_three_years'"
+          >
+            Past 3 Years
+          </option>
+          <option
+            value="past_year"
+            :selected="
+              selected_timeline == '' || selected_timeline == 'past_year'
+            "
+          >
+            Past Year
+          </option>
+          <option
+            value="past_six_months"
+            :selected="selected_timeline == 'past_six_months'"
+          >
+            Past 6 Months
+          </option>
+          <option
+            value="past_three_months"
+            :selected="selected_timeline == 'past_three_months'"
+          >
+            Past 3 Months
+          </option>
+        </select>
+      </div>
     </header>
     <div class="px-5 py-1">
       <div class="flex flex-wrap">
@@ -9,9 +61,23 @@
         <div class="flex items-center py-2">
           <div class="mr-5">
             <div class="flex items-center">
-              <div class="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{{ data.total_payments }}</div>
-              <div v-if="data.payments_direction === 'less'" class="text-sm font-medium text-red-500">-{{ data.payments_difference }}%</div>
-              <div v-if="data.payments_direction === 'more'" class="text-sm font-medium text-emerald-500">+{{ data.payments_difference }}%</div>
+              <div
+                class="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2"
+              >
+                {{ data.total_payments }}
+              </div>
+              <div
+                v-if="data.payments_direction === 'less'"
+                class="text-sm font-medium text-red-500"
+              >
+                -{{ data.payments_difference }}%
+              </div>
+              <div
+                v-if="data.payments_direction === 'more'"
+                class="text-sm font-medium text-emerald-500"
+              >
+                +{{ data.payments_difference }}%
+              </div>
             </div>
           </div>
           <!-- <div class="hidden md:block w-px h-8 bg-slate-200 dark:bg-slate-700 mr-5" aria-hidden="true"></div> -->
@@ -27,33 +93,42 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import LineChart from '../../charts/LineChart03.vue'
+import { ref } from "vue";
+import LineChart from "../../charts/LineChart03.vue";
 
 // Import utilities
-import { tailwindConfig, hexToRGB } from '../../utils/Utils'
+import { tailwindConfig, hexToRGB } from "../../utils/Utils";
 
 export default {
-  name: 'Payments',
+  name: "Payments",
   components: {
     LineChart,
   },
   props: {
     data: {
       type: Object,
-      default: (() => {})
-    }
+      default: () => {},
+    },
+    method: {
+      type: Function,
+    },
+    timeline: {
+      type: String,
+    },
   },
   setup(props) {
+    const selected_timeline = ref("");
     const chartData = ref({
       labels: props.data.labels,
       datasets: [
         // Indigo line
         {
-          label: 'Current',
+          label: "Current",
           data: props.data.data,
           fill: true,
-          backgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.blue[500])}, 0.08)`,
+          backgroundColor: `rgba(${hexToRGB(
+            tailwindConfig().theme.colors.blue[500]
+          )}, 0.08)`,
           borderColor: tailwindConfig().theme.colors.indigo[500],
           borderWidth: 2,
           tension: 0,
@@ -62,15 +137,23 @@ export default {
           pointBackgroundColor: tailwindConfig().theme.colors.indigo[500],
           pointHoverBackgroundColor: tailwindConfig().theme.colors.indigo[500],
           pointBorderWidth: 0,
-          pointHoverBorderWidth: 0,          
+          pointHoverBorderWidth: 0,
           clip: 20,
         },
       ],
-    })
+    });
+
+    const updateTimeline = (e) => {
+      props.method(e.target.value);
+    };
+
+    selected_timeline.value = props.timeline;
 
     return {
       chartData,
-    } 
-  }
-}
+      updateTimeline,
+      selected_timeline,
+    };
+  },
+};
 </script>
