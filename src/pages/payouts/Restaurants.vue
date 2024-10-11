@@ -82,14 +82,14 @@
                           <div class="w-10 h-10 shrink-0 mr-2 sm:mr-3" v-if="payout.payable && payout.payable.logo">
                             <img class="rounded-full" :src="payout.payable.logo" width="40" height="40" :alt="payout.payable.name" />
                           </div>
-                          <div class="font-medium text-slate-800 dark:text-slate-100" v-if="payout.payable">{{payout.payable.name}}</div>
+                          <div class="font-medium text-slate-800 dark:text-slate-100" v-if="payout.payable && payout.payable.name">{{payout.payable.name}}</div>
                         </div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-left" v-if="payout.payable">{{payout.payable.email}}</div>
+                        <div class="text-left" v-if="payout.payable && payout.payable.email">{{payout.payable.email}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-left font-medium flex w-fit px-2 py-1 rounded-md text-green-500" v-if="payout.payable">{{formatValue(payout.amount, payout.payable.country)}}</div>
+                        <div class="text-left font-medium flex w-fit px-2 py-1 rounded-md text-green-500" v-if="payout.payable && payout.payable.country">{{formatValue(payout.amount, payout.payable.country)}}</div>
                       </td>
                       <td class="px-2 py-3 whitespace-nowrap w-px flex gap-1" v-if="payout.payable">
                         <router-link class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm" :to="{ name: 'restaurant-details', 'params': { id: payout.payable.id }}">View</router-link>
