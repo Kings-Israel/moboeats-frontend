@@ -79,7 +79,7 @@
                     <tr v-for="payout in payouts.data" :key="payout.id">
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                         <div class="flex items-center">
-                          <div class="w-10 h-10 shrink-0 mr-2 sm:mr-3" v-if="payout.payable && payout.payable.logo">
+                          <div class="w-10 h-10 shrink-0 mr-2 sm:mr-3" v-if="payout.payable && (payout.payable.logo || payout.payable.name)">
                             <img class="rounded-full" :src="payout.payable.logo" width="40" height="40" :alt="payout.payable.name" />
                           </div>
                           <div class="font-medium text-slate-800 dark:text-slate-100" v-if="payout.payable && payout.payable.name">{{payout.payable.name}}</div>
