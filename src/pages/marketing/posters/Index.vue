@@ -206,6 +206,8 @@ export default {
 
     const posters = ref([])
 
+    const user_permissions = ref([])
+
     const getPosters = () => {
       $http.get(`/admin/marketing`)
         .then(response => {
