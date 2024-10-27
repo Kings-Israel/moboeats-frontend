@@ -109,8 +109,8 @@
                           <div class="text-sky-700 font-semibold">{{ moment(poster.created_at).format('Do MMM Y') }}</div>
                         </td>
                         <td class="p-2 flex gap-2 justify-end">
-                          <button v-if="permissions.includes('add/edit marketing posters')" class="btn btn-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" @click="editPoster(poster)">Edit</button>
-                          <button v-if="permissions.includes('add/edit marketing posters')" class="btn btn-sm font-medium text-red-500 hover:text-red-600 dark:hover:text-red-400" @click="deletePoster(poster)">Delete</button>
+                          <button v-if="user_permissions.includes('add/edit marketing posters')" class="btn btn-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" @click="editPoster(poster)">Edit</button>
+                          <button v-if="user_permissions.includes('add/edit marketing posters')" class="btn btn-sm font-medium text-red-500 hover:text-red-600 dark:hover:text-red-400" @click="deletePoster(poster)">Delete</button>
                         </td>
                         <modal-action :id="'edit_'+poster.id" :add-class="'max-w-xl'" :modal-open="editPosterModal" @close-modal="editPosterModal = false">
                           <!-- Add/Edit Menu -->
@@ -365,6 +365,8 @@ export default {
 
       editPosterModal,
       addPosterModal,
+
+      user_permissions,
 
       postersChangePage,
       // editMenu,
