@@ -43,15 +43,22 @@
                       <input id="title" class="form-input w-full rounded-lg" type="text" v-model="supplementName" required />
                     </div>
                     <div>
-                        <label class="block text-sm font-medium mb-1" for="price">Category</label>
-                        <select name="supplier" v-model="supplementCategory" class="w-full rounded-lg form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                          <option value="">Select Category</option>
-                          <option value="adult">Adult</option>
-                          <option value="child">Child</option>
-                          <option value="fitness">Fitness</option>
-                          <option value="pregnancy">Pregnancy</option>
-                        </select>
-                      </div>
+                      <label class="block text-sm font-medium mb-1" for="price">Category</label>
+                      <select name="supplier" v-model="supplementCategoryId" class="w-full rounded-lg form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="">Select Category</option>
+                        <option v-for="supplement_category in supplementCategories" :key="supplement_category.id" :value="supplement_category.id">{{ supplement_category.name }}</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label class="block text-sm font-medium mb-1" for="price">Age Group</label>
+                      <select name="supplier" v-model="supplementCategory" class="w-full rounded-lg form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="">Select Category</option>
+                        <option value="adult">Adult</option>
+                        <option value="child">Child</option>
+                        <option value="fitness">Fitness</option>
+                        <option value="pregnancy">Pregnancy</option>
+                      </select>
+                    </div>
                     <div class="grid grid-cols-2 gap-2">
                       <div>
                         <label class="block text-sm font-medium mb-1" for="price">Price Per Quantity</label>
@@ -136,6 +143,9 @@
                         <div class="font-semibold text-left">Name</div>
                       </th>
                       <th class="p-2">
+                        <div class="font-semibold text-left">Category</div>
+                      </th>
+                      <th class="p-2">
                         <div class="font-semibold text-left">Price</div>
                       </th>
                       <th class="p-2">
@@ -170,6 +180,9 @@
                         </div>
                       </td>
                       <td class="p-2">
+                        <div class='text-green-700 font-semobold'>{{ supplement.supplement_category ? supplement.supplement_category.name : '' }}</div>
+                      </td>
+                      <td class="p-2">
                         <div class='text-green-700 font-semobold'>{{ supplement.currency }} {{ supplement.price }}/{{ supplement.measuring_unit }}</div>
                       </td>
                       <td class="p-2">
@@ -187,8 +200,8 @@
                       </td>
                       <td>
                         <!-- <a href="#" class="bg-[#6a6d2b] hover:bg-[#1c2e2a] text-white font-semibold p-1 px-2 rounded-md">View</a> -->
-                        <a v-if="supplement.is_available" href="#" @click="updateStatus(supplement.id)" class="bg-[#3d1919] hover:bg-[#1c2e2a] text-white font-semibold p-1 px-2 rounded-md mx-1">Out of Stock</a>
-                        <a v-else href="#" @click="updateStatus(supplement.id)" class="bg-[#1b3715] hover:bg-[#1c2e2a] text-white font-semibold p-1 px-2 rounded-md mx-1">In Stock</a>
+                        <a v-if="supplement.is_available" href="#" @click="updateStatus(supplement.id)" class="bg-[#3d1919] hover:bg-[#1c2e2a] text-white font-semibold p-1 px-2 rounded-md mx-1">Set as Out of Stock</a>
+                        <a v-else href="#" @click="updateStatus(supplement.id)" class="bg-[#1b3715] hover:bg-[#1c2e2a] text-white font-semibold p-1 px-2 rounded-md mx-1">Set as In Stock</a>
                       </td>
                     </tr>
                   </tbody>
@@ -247,10 +260,12 @@ export default {
     const supplementDescription = ref('')
     const supplementPrescription = ref('')
     const supplementCategory = ref('')
+    const supplementCategoryId = ref('')
     const supplierId = ref('')
     const supplementPrice = ref(0)
     const supplementMeasuringUnit = ref('')
     const supplementImages = ref([])
+    const supplementCategories = ref([])
 
     const addSupplementModal = ref(false)
 
@@ -263,6 +278,7 @@ export default {
         .then(response => {
           supplements.value = response.data.data.supplements
           suppliers.value = response.data.data.suppliers
+          supplementCategories.value = response.data.data.categories
         })
         .catch(error => {
           console.log(error)
@@ -272,6 +288,7 @@ export default {
     const storeSupplement = () => {
       const formData = new FormData
       formData.append('name', supplementName.value)
+      formData.append('category_id', supplementCategoryId.value)
       formData.append('category', supplementCategory.value)
       formData.append('description', supplementDescription.value)
       formData.append('prescription', supplementPrescription.value)
@@ -285,6 +302,7 @@ export default {
       .then(() => {
         getSupplements()
         supplementName.value = ''
+        supplementCategoryId.value = ''
         supplementCategory.value = ''
         supplementDescription.value = ''
         supplementPrescription.value = ''
@@ -379,12 +397,14 @@ export default {
       per_page,
       supplements,
       suppliers,
+      supplementCategories,
       supplementSearch,
       supplierSearch,
       statusSearch,
       supplierId,
       supplementName,
       supplementCategory,
+      supplementCategoryId,
       supplementDescription,
       supplementPrescription,
       supplementPrice,
