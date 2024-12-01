@@ -89,6 +89,8 @@ import RidersPayout from './pages/payouts/Riders.vue'
 import RestaurantsPayout from './pages/payouts/Restaurants.vue'
 import Roles from './pages/roles/Index.vue'
 import Admins from './pages/admins/Index.vue'
+import OrphanageIndex from './pages/orphanages/Index.vue'
+import OrphanageDetails from './pages/orphanages/Details.vue'
 
 const routerHistory = createWebHistory()
 
@@ -317,6 +319,22 @@ const router = createRouter({
       name: 'admins',
       meta: {
         requiresAuth: true,
+      },
+    },
+    {
+      path: '/orphanages',
+      component: OrphanageIndex,
+      name: 'orphanages',
+      meta: {
+        requiresAuth: true
+      },
+    },
+    {
+      path: '/orphanages/:id',
+      component: OrphanageDetails,
+      name: 'orphanages-details',
+      meta: {
+        requiresAuth: true
       },
     },
     {
