@@ -42,7 +42,7 @@
           <!-- Table -->
           <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 relative">
             <header class="px-5 py-4">
-              <h2 class="font-semibold text-slate-800 dark:text-slate-100">All Customers <span class="text-slate-400 dark:text-slate-500 font-medium">{{ customers.length }}</span></h2>
+              <h2 class="font-semibold text-slate-800 dark:text-slate-100">All Restaurant Admins <span class="text-slate-400 dark:text-slate-500 font-medium">{{ customers.length }}</span></h2>
             </header>
             <div>
 
@@ -59,22 +59,10 @@
                         <div class="font-semibold text-left">Email</div>
                       </th>
                       <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="font-semibold text-left">Location</div>
+                        <div class="font-semibold text-left">Phone Number</div>
                       </th>
                       <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="font-semibold">Orders</div>
-                      </th>
-                      <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="font-semibold text-left">Last order</div>
-                      </th>
-                      <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="font-semibold text-left">Total spent</div>
-                      </th>
-                      <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="font-semibold">Refunds</div>
-                      </th>
-                      <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <span class="sr-only">Menu</span>
+                        <div class="font-semibold text-left">Actions</div>
                       </th>
                     </tr>
                   </thead>
@@ -93,19 +81,7 @@
                         <div class="text-left">{{customer.email}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-left">{{customer.location}}</div>
-                      </td>
-                      <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-center">{{customer.orders}}</div>
-                      </td>
-                      <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-left font-medium text-sky-500">{{customer.lastOrder}}</div>
-                      </td>
-                      <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-left font-medium text-emerald-500">{{customer.spent}}</div>
-                      </td>
-                      <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                        <div class="text-center">{{customer.refunds}}</div>
+                        <div class="text-left">{{customer.phone_number}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                         <!-- Menu button -->
@@ -198,12 +174,7 @@ export default {
               image: user.image,
               name: user.name,
               email: user.email,
-              location: '🇬🇧 London, UK',
-              orders: user.orders.length,
-              lastOrder: '#123567',
-              spent: '$2,890.66',
-              refunds: '-',
-              fav: true
+              phone_number: user.phone_number,
             })
           })
         })
@@ -222,15 +193,10 @@ export default {
           response.data.data.data.forEach(user => {
             customers.value.push({
               id: user.id,
-              image: Image01,
+              image: user.image,
               name: user.name,
               email: user.email,
-              location: '🇬🇧 London, UK',
-              orders: user.orders.length,
-              lastOrder: '#123567',
-              spent: '$2,890.66',
-              refunds: '-',
-              fav: true
+              phone_number: user.phone_number,
             })
           })
         })
@@ -248,13 +214,11 @@ export default {
           customers.value = []
           response.data.data.data.forEach(restaurant => {
             customers.value.push({
-              id: restaurant.id,
-              image: Image01,
-              name: restaurant.name,
-              user: restaurant.user,
-              location: '🇬🇧 London, UK',
-              orders: restaurant.orders.length,
-              lastOrder: '#123567',
+              id: user.id,
+              image: user.image,
+              name: user.name,
+              email: user.email,
+              phone_number: user.phone_number,
             })
           })
         })
