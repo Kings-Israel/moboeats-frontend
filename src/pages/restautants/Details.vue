@@ -73,20 +73,6 @@
               <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold my-auto">{{ restaurant.name }} ✨</h1>
             </div>
             <div class="flex gap-2 flex-wrap">
-              <button
-                v-if="userPermissions('edit partners')"
-                class="btn bg-emerald-300 text-slate-900" 
-                @click="serviceChargeGroceriesAgreementModal = true"
-              >
-                Groceries Service Charge Agreement ({{ restaurant.groceries_service_charge_agreement ? restaurant.groceries_service_charge_agreement : 0 }}%)
-              </button>
-              <button
-                v-if="userPermissions('edit partners')"
-                class="btn bg-emerald-300 text-slate-900" 
-                @click="serviceChargeAgreementModal = true"
-              >
-                Service Charge Agreement ({{ restaurant.service_charge_agreement ? restaurant.service_charge_agreement : 0 }}%)
-              </button>
               <span v-if="userPermissions('edit partners') && restaurant.status == 'Pending'" class="text-sm rounded-xl p-2 bg-slate-500 text-slate-200 mr-4">Pending Approval</span>
               <button class="btn bg-yellow-400 text-white hover:bg-yellow-600 transition duration-200 ease-in-out" v-if="userPermissions('edit partners') && restaurant.status != 'Approved'" @click="updateStatus(2)">Approve</button>
               <button
@@ -119,6 +105,22 @@
               </modal-action>
             </div>
           </div>  
+          <div class="flex gap-2 mb-2">
+            <button
+              v-if="userPermissions('edit partners')"
+              class="btn bg-emerald-300 text-slate-900" 
+              @click="serviceChargeGroceriesAgreementModal = true"
+            >
+              Groceries Service Charge Agreement ({{ restaurant.groceries_service_charge_agreement ? restaurant.groceries_service_charge_agreement : 0 }}%)
+            </button>
+            <button
+              v-if="userPermissions('edit partners')"
+              class="btn bg-emerald-300 text-slate-900" 
+              @click="serviceChargeAgreementModal = true"
+            >
+              Service Charge Agreement ({{ restaurant.service_charge_agreement ? restaurant.service_charge_agreement : 0 }}%)
+            </button>
+          </div>
           <div class="grid grid-cols-12 gap-6">
             <div class="col-span-full xl:col-span-4">
               <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
@@ -127,9 +129,9 @@
                 </header>
                 <div class="flex gap-2 p-3">
                   <div class="flex flex-col space-y-2 w-[98%]">
-                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Email:</span><strong class="text-ellipsis overflow-hidden">{{ restaurant.email }}</strong></h1>
-                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong class="text-ellipsis overflow-hidden">{{ restaurant.phone_no }}</strong></h1>
-                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Created On:</span><strong class="text-ellipsis overflow-hidden">{{ moment(restaurant.created_at).format('Do MMM Y') }}</strong></h1>
+                    <h1 class="flex flex-wrap gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Email:</span><strong class="text-ellipsis overflow-hidden">{{ restaurant.email }}</strong></h1>
+                    <h1 class="flex flex-wrap gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong class="text-ellipsis overflow-hidden">{{ restaurant.phone_no }}</strong></h1>
+                    <h1 class="flex flex-wrap gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Created On:</span><strong class="text-ellipsis overflow-hidden">{{ moment(restaurant.created_at).format('Do MMM Y') }}</strong></h1>
                   </div>
                 </div>
               </div>
@@ -140,11 +142,11 @@
                   <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Restaurant Admin Info</h2>
                 </header>
                 <div class="flex gap-3 p-3">
-                  <img :src="restaurant.user.image ? restaurant.user.image : '../../src/images/icon-01.svg'" :alt="restaurant.user.name" class="w-16 h-16 rounded-full object-cover" />
+                  <img :src="restaurant.user.image ? restaurant.user.image : '../../src/images/icon-01.svg'" :alt="restaurant.user.name" class="w-12 h-12 rounded-full object-cover" />
                   <div class="flex flex-col space-y-2 w-[98%]">
-                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Name:</span><strong class="text-ellipsis overflow-hidden">{{ restaurant.user.name }}</strong></h1>
-                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Email:</span><strong class="text-ellipsis overflow-hidden">{{ restaurant.user.email }}</strong></h1>
-                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong class="text-ellipsis overflow-hidden">{{ restaurant.user.phone_number }}</strong></h1>
+                    <h1 class="flex flex-wrap gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Name:</span><strong class="text-ellipsis overflow-hidden">{{ restaurant.user.name }}</strong></h1>
+                    <h1 class="flex flex-wrap gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Email:</span><strong class="text-ellipsis overflow-hidden">{{ restaurant.user.email }}</strong></h1>
+                    <h1 class="flex flex-wrap gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong class="text-ellipsis overflow-hidden">{{ restaurant.user.phone_number }}</strong></h1>
                   </div>
                 </div>
               </div>

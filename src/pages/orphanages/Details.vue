@@ -15,9 +15,30 @@
           <!-- Page header -->
           <div class="sm:flex sm:justify-between sm:items-center mb-8">
             <!-- Left: Title -->
-            <div class="mb-4 sm:mb-0 flex gap-2">
-              <img :src="orphanage.logo ? orphanage.logo : '../../src/images/icon-01.svg'" width="60" height="60" :alt="orphanage.name" class="rounded-full h-fit" />
-              <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold my-auto">{{ orphanage.name }} ✨</h1>
+            <div class="mb-4 sm:mb-0 flex justify-between gap-2 w-full">
+              <div class="flex gap-2">
+                <img :src="orphanage.logo ? orphanage.logo : '../../src/images/icon-01.svg'" width="60" height="60" :alt="orphanage.name" class="rounded-full h-fit" />
+                <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold my-auto">{{ orphanage.name }} ✨</h1>
+              </div>
+              <div class="flex h-fit my-auto">
+                <button type="button" class="bg-emerald-400 text-white font-bold rounded-md p-2 mx-2" @click="updateStatus('approved')" v-if="orphanage.status == 'Pending' && userPermissions('edit orphanages')">Approve</button>
+                <button class="bg-red-400 text-white font-bold rounded-md p-2" type="button" @click="rejectOrphanage = true" v-if="orphanage.status == 'Pending' && userPermissions('edit orphanages')">Reject</button>
+                <modal-action :id="'addMenu'" :modal-open="rejectOrphanage" @close-modal="rejectOrphanage = false" :add-class="'max-w-lg'">
+                  <span class="text-xl font-bold px-4">Reject Orphanage</span>
+                  <!-- Add/Edit Menu -->
+                  <form class="flex flex-col justify-around p-4" @submit.prevent="updateStatus('rejected')">
+                    <div>
+                      <label class="block text-sm font-medium mb-1" for="price">Enter Reason For Rejection</label>
+                      <textarea class="form-input w-full rounded-lg" cols="8" v-model="rejection_reason"></textarea>
+                    </div>
+                    <div class="flex justify-end bottom-2 mt-2">
+                      <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">Submit</button>
+                    </div>
+                  </form>
+                </modal-action>
+                <button class="bg-emerald-500 text-white font-bold rounded-md p-2" v-if="orphanage.status == 'Approved'">Approved</button>
+                <button class="bg-red-500 text-white font-bold rounded-md p-2" v-if="orphanage.status == 'Rejected'">Rejected</button>
+              </div>
             </div>
           </div>  
           <div class="grid grid-cols-12 gap-6">
@@ -111,12 +132,15 @@ export default {
 
     const orphanage = ref(null)
 
+    const rejection_reason = ref('')
+    const rejectOrphanage = ref(false)
+
     const getRestaurant = () => {
       $http.get('/orphanages/'+router.params.id+'/show')
         .then(response => {
           orphanage.value = response.data.data
-          center.value = {lat: Number(orphanage.value.location_lat), lng: Number(orphanage.value.location_long)}
-          marker.value.push({ position: { lat: Number(orphanage.value.location_lat), lng: Number(orphanage.value.location_long) } })
+          center.value = {lat: Number(orphanage.value.latitude), lng: Number(orphanage.value.longitude)}
+          marker.value.push({ position: { lat: Number(orphanage.value.latitude), lng: Number(orphanage.value.longitude) } })
         })
     }
 
@@ -151,16 +175,16 @@ export default {
     }
 
     const updateStatus = (status) => {
-      $http.post(`/admin/restaurants/${router.params.id}/status/update`, {
+      $http.post(`/admin/orphanages/${router.params.id}/status/update`, {
         status: status,
-        reason: statusReason.value
+        reason: rejection_reason.value
       })
       .then((res) => {
         getRestaurant()
-        toast.success('Restaurant updated successfully')
-        if (modalOpen.value) {
-          modalOpen.value = false
-          statusReason.value = ''
+        toast.success('Orphanage updated successfully')
+        if (rejectOrphanage.value) {
+          rejectOrphanage.value = false
+          rejection_reason.value = ''
         }
       })
       .catch(err => {
@@ -175,12 +199,15 @@ export default {
       moment,
       sidebarOpen,
       orphanage,
+      rejection_reason,
 
       center,
 
       mapRef,
       zoom,
       marker,
+
+      rejectOrphanage,
 
       updateStatus,
       resolveStatus,
