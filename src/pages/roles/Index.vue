@@ -43,7 +43,7 @@
                       </label>
                       <div class="flex flex-col gap-2">
                         <div v-for="group in permissions" :key="group.id">
-                          <p class="font-bold text-xl py-1 m_title">{{ group.name }}</p>
+                          <p v-if="group.permissions.length > 0" class="font-bold text-xl py-1 m_title">{{ group.name }}</p>
                           <div class="grid grid-cols-3 gap-2">
                             <div v-for="permission in group.permissions" :key="permission.id" class="flex gap-1">
                               <input type="checkbox" name="" id="" v-model="rolePermissions[permission.id]" class="border-primary rounded-md p-2 my-auto">
