@@ -70,6 +70,18 @@
                 </div>
               </div>
             </div>
+            <div class="col-span-full xl:col-span-4">
+              <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
+                <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700">
+                  <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Orders Made For Orphanage</h2>
+                </header>
+                <div class="flex gap-3 p-3">
+                  <div class="flex flex-col space-y-2 w-[98%]">
+                    <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100"><span>Name:</span><strong class="text-ellipsis overflow-hidden">{{ orphanage.orders.length }}</strong></h1>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <br />
           <div class="w-full" v-if="orphanage.latitude && orphanage.longitude">
@@ -92,6 +104,79 @@
                 :position="m.position"
               />
             </GMapMap>
+          </div>
+          <br />
+          <!-- Table -->
+          <div v-if="orphanage.orders.length > 0" class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 relative">
+            <header class="px-5 py-4">
+              <h2 class="font-semibold text-slate-800 dark:text-slate-100">All Orders</h2>
+            </header>
+            <div>
+
+              <!-- Table -->
+              <div class="overflow-x-auto">
+                <table class="table-auto w-full dark:text-slate-300">
+                  <!-- Table header -->
+                  <thead class="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-900/20 border-t border-b border-slate-200 dark:border-slate-700">
+                    <tr>
+                      <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="font-semibold text-left">Order ID</div>
+                      </th>
+                      <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="font-semibold text-left">User</div>
+                      </th>
+                      <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="font-semibold text-left">Restaurant</div>
+                      </th>
+                      <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="font-semibold text-left">Amount</div>
+                      </th>
+                      <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="font-semibold text-left">Delivery Status</div>
+                      </th>
+                      <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="font-semibold text-left">Location</div>
+                      </th>
+                      <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="font-semibold text-left">Ordered On</div>
+                      </th>
+                      <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="font-semibold text-left"></div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <!-- Table body -->
+                  <tbody class="text-sm divide-y divide-slate-200 dark:divide-slate-700">
+                    <tr v-for="order in orphanage.orders" :key="order.id">
+                      <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="text-left">{{getLatestOrder(order)}}</div>
+                      </td>
+                      <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="text-left">{{order.relationships.user.name}}</div>
+                      </td>
+                      <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="text-left font-medium text-sky-500">{{order.attributes.restaurant_name}}</div>
+                      </td>
+                      <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="text-left font-medium text-emerald-500">{{formatValue(order.attributes.totalAmount, order.country)}}</div>
+                      </td>
+                      <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="text-left m_title">{{order.attributes.deliveryStatus}}</div>
+                      </td>
+                      <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="text-left">{{order.attributes.deliveryAddress}}</div>
+                      </td>
+                      <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                        <div class="text-left">{{moment(order.created_at).format('Do MMMM Y')}}</div>
+                      </td>
+                      <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
+                        <router-link :to="{ name: 'order-details', params: { id: order.uuid } }" class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm">View</router-link>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </main>
@@ -194,8 +279,14 @@ export default {
       })
     }
 
+    const getLatestOrder = (order) => {
+      return order.uuid.split('-')[0].toUpperCase()
+    }
+
     return {
       userPermissions,
+      formatValue,
+      getLatestOrder,
       moment,
       sidebarOpen,
       orphanage,
@@ -215,3 +306,8 @@ export default {
   }
 }
 </script>
+<style>
+.m_title::first-letter {
+  text-transform: uppercase;
+}
+</style>
