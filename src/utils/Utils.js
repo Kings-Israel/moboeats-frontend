@@ -27,6 +27,7 @@ countries['Great Britain'] = 'GBP'
 countries['United Kingdom'] = 'GBP'
 countries['UK'] = 'GBP'
 countries['Britain'] = 'GBP'
+countries['United States'] = 'USD'
 
 export const formatValue = (value, country = '') => Intl.NumberFormat('en-US', {
   style: 'currency',
