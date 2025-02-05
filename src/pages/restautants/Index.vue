@@ -25,7 +25,7 @@
             <button class="bg-emerald-600 px-3 py-1 col-span-1 text-slate-50 font-semibold rounded-full justify-end" @click="exportRestaurants()">Export Partners</button>
           </div>
 
-          <div class="grid grid-cols-3 mb-2 gap-4">
+          <div class="grid grid-cols-1 lg:grid-cols-3 mb-2 gap-4">
             <form class="relative">
               <label for="action-search" class="sr-only">Search</label>
               <input id="action-search" class="form-input w-full pl-9 bg-white border border-slate-500 dark:bg-slate-800" type="search" v-model="search" placeholder="Search Restaurants" />
@@ -89,7 +89,7 @@
                     <tr v-for="restaurant in restaurants" :key="restaurant.id">
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                         <div class="flex items-center">
-                          <div class="shrink-0 mr-2 sm:mr-3">
+                          <div class="hidden md:block shrink-0 mr-2 sm:mr-3">
                             <img class="w-10 h-10 object-cover rounded-full" :src="restaurant.logo" :alt="restaurant.name" />
                           </div>
                           <div class="font-medium text-slate-800 dark:text-slate-100">{{restaurant.name}}</div>
