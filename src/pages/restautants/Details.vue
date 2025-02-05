@@ -231,7 +231,7 @@
             </div>
           </div>
           <br>
-          <div class="grid grid-cols-4 gap-2">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
             <div>
               <div class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
                 <div class="flex flex-col h-full">
@@ -444,7 +444,7 @@
           </div>
           <br>
           <div class="grid grid-cols-12 gap-6">
-            <div class="col-span-full xl:col-span-12 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+            <div class="col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
               <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
                 <h2 class="font-semibold text-slate-800 dark:text-slate-100">Menu</h2>
               </header>
@@ -510,13 +510,137 @@
                   </table>
                   <!-- Pagination -->
                   <div class="mt-8">
-                      <PaginationClassic @change-page="menuChangePage" :next_page="nextMenuPageUrl" :prev_page="prevMenuPageUrl" :from="menuFrom" :to="menuTo" :total_items="menuTotalItems" />
-                      <!-- <PaginationNumeric @change-page="menuChangePage" :next_page="nextMenuPageUrl" :prev_page="prevMenuPageUrl" :from="menuFrom" :to="menuTo" :total_items="menuTotalItems" :links="menuPagesLinks" /> -->
-                    </div>  
+                    <PaginationClassic @change-page="menuChangePage" :next_page="nextMenuPageUrl" :prev_page="prevMenuPageUrl" :from="menuFrom" :to="menuTo" :total_items="menuTotalItems" />
+                    <!-- <PaginationNumeric @change-page="menuChangePage" :next_page="nextMenuPageUrl" :prev_page="prevMenuPageUrl" :from="menuFrom" :to="menuTo" :total_items="menuTotalItems" :links="menuPagesLinks" /> -->
+                  </div>  
                 </div>
               </div>
             </div>
-            <div class="col-span-full xl:col-span-12 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+            <div class="col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-md border border-slate-200 dark:border-slate-700 relative h-full">
+              <div class="p-3">
+                <div class="flex justify-between mb-6">
+                  <h1 class="text-xl text-slate-800 dark:text-slate-100 font-bold"> {{ action == 'create menu' ? 'Add' : 'Update' }} Menu</h1>
+                  <button v-if="action != 'create menu'" class="btn btn-sm bg-slate-400 text-black" @click.prevent="addPrice">Add Price</button>
+                </div>
+                <!-- Add/Edit Menu -->
+                <form v-if="action == 'create menu' || action == 'edit menu'" class="flex flex-col justify-around" @submit.prevent="createMenu">
+                  <div class="space-y-4">
+                    <div>
+                      <label class="block text-sm font-medium mb-1" for="title">Title</label>
+                      <input id="title" class="form-input w-full rounded-lg" type="text" v-model="addMenuTitle" />
+                    </div>
+                    <div>
+                      <label class="block text-sm font-medium mb-1" for="title">Description</label>
+                      <textarea name="addCategoryDescription" id="" class="form-input w-full min-h-full rounded-lg" rows="2" v-model="addMenuDescription"></textarea>
+                    </div>
+                    <div>
+                      <label class="block text-sm font-medium mb-1" for="preparation_time">Preparation Time (in minutes)</label>
+                      <input id="preparation_time" class="form-input w-full rounded-lg" type="number" min="0" v-model="addMenuPreparationTime" />
+                    </div>
+                    <div>
+                      <label class="block text-sm font-medium mb-1" for="categories">Categories</label>
+                      <select name="categories" multiple size="4" v-model="addMenuCategories" class="w-full rounded-lg form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option v-for="category in categories" :key="category.id" :value="category.id" @click="getSelectedCategory(category)">{{ category.title }}</option>
+                      </select>
+                    </div>
+                    <div v-show="showSubCategoriesInput">
+                      <label class="block text-sm font-medium mb-1" for="categories">Sub categories</label>
+                      <select name="categories" multiple size="4" v-model="addMenuSubcategories" class="w-full rounded-lg form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option v-for="category in subcategories" :key="category.id" :value="category.id">{{ category.title }}</option>
+                      </select>
+                    </div>
+                    <div class="flex-none flex my-auto">
+                      <div class="m-3">
+                        <!-- Start -->
+                        <label class="flex items-center">
+                          <input type="radio" name="menu-active" v-model="addMenuStatus" value="2" class="form-radio" />
+                          <span class="text-sm ml-2">Active</span>
+                        </label>
+                        <!-- End -->
+                      </div>
+
+                      <div class="m-3">
+                        <!-- Start -->
+                        <label class="flex items-center">
+                          <input type="radio" name="menu-active" v-model="addMenuStatus" value="1" class="form-radio" />
+                          <span class="text-sm ml-2">Inactive</span>
+                        </label>
+                        <!-- End -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex justify-end mt-6 absolute bottom-4 right-4">
+                    <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">Submit</button>
+                  </div>
+                </form>
+                <!-- Add/Edit Images -->
+                <form v-if="action == 'edit images'" class="relative flex flex-col justify-between h-full" @submit.prevent="createImages">
+                  <div class="flex gap-2 w-fit max-h-[22rem] overflow-auto flex-wrap">
+                    <img class="w-40 h-40 rounded-lg object-cover mb-2" v-for="image in currentMenuImages" :key="image.id" :src="image.image_url" alt="menu" />
+                  </div>
+                  <div class="w-full">
+                    <label for="dropzone-file" class="flex w-full h-16 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                      <div class="flex">
+                        <p v-if="addMenuImages.length == 0" class="mb-2 text-sm px-6 my-5 text-gray-500 dark:text-gray-400">
+                          <span class="font-semibold">Click to upload</span> or drag and drop(Max 2 Files)
+                        </p>
+                        <div v-else class="flex flex-col flex-wrap">
+                          <p v-for="image in addMenuImages" :key="image" class="text-sm ml-2 whitespace-pre-wrap text-gray-500 dark:text-gray-400"><span class="font-semibold">{{ image.name }}</span></p>
+                        </div>
+                      </div>
+                      <input id="dropzone-file" type="file" class="hidden" multiple accept=".jpg,.png" v-on:change="selectImages" />
+                    </label>
+                    <div class="flex justify-end mt-2">
+                      <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">Submit</button>
+                    </div>
+                  </div>
+                </form>
+                <!-- Add/Edit Price -->
+                <form v-if="action == 'edit prices' || action == 'add price'" class="relative flex flex-col justify-evenly" @submit.prevent="createMenu">
+                  <div class="flex gap-2 w-full max-h-[26rem] overflow-auto flex-wrap">
+                    <div v-for="index in addPricesCount" :key="index">
+                      <div class="flex justify-between">
+                        <div>
+                          <label class="block text-sm font-medium mb-1" for="price">Price</label>
+                          <input id="title" class="form-input w-full rounded-lg" type="text" v-model="addPrices[index - 1]" />
+                        </div>
+                        <div class="flex-none flex my-auto">
+                          <div class="m-3">
+                            <!-- Start -->
+                            <label class="flex items-center">
+                              <input type="radio" :name="index" v-model="addPriceStatus[index - 1]" value="2" class="form-radio" />
+                              <span class="text-sm ml-2">Active</span>
+                            </label>
+                            <!-- End -->
+                          </div>
+  
+                          <div class="m-3">
+                            <!-- Start -->
+                            <label class="flex items-center">
+                              <input type="radio" :name="index" v-model="addPriceStatus[index - 1]" value="1" class="form-radio" />
+                              <span class="text-sm ml-2">Inactive</span>
+                            </label>
+                            <!-- End -->
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <label class="block text-sm font-medium mb-1" for="title">Description</label>
+                        <textarea name="addCategoryDescription" id="" class="form-input w-full min-h-full rounded-lg" rows="2" v-model="addPriceDescriptions[index - 1]"></textarea>
+                      </div>
+                      <div class="flex justify-between px-1" v-if="action == 'edit prices'">
+                        <button class="btn btn-sm w-fit bg-red-500 text-white" @click.prevent="removePrice(index - 1)">Remove</button>
+                        <button class="btn btn-sm w-fit bg-green-500 text-white" @click.prevent="updatePrice(index - 1)">Update</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex justify-end mt-2" v-if="action == 'add price'">
+                    <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
               <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
                 <h2 class="font-semibold text-slate-800 dark:text-slate-100">Categories</h2>
               </header>
@@ -561,6 +685,32 @@
                       <PaginationNumeric @change-page="categoriesChangePage" :next_page="nextCategoriesPageUrl" :prev_page="prevCategoriesPageUrl" :from="categoriesFrom" :to="categoriesTo" :total_items="categoriesTotalItems" :links="categoriesPagesLinks" />
                     </div>  
                 </div>
+              </div>
+            </div>
+            <!-- Add Category Form -->
+            <div class="col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-md border border-slate-200 dark:border-slate-700">
+              <div class="p-3">
+                <h1 class="text-xl text-slate-800 dark:text-slate-100 font-bold mb-6">{{ category_action == 'create' ? 'Add' : 'Edit' }} Category</h1>
+                <!-- Form -->
+                <form @submit.prevent="addCategory()" class="flex flex-col justify-evenly">
+                  <div class="space-y-4">
+                    <div>
+                      <label class="block text-sm font-medium mb-1" for="title">Title</label>
+                      <input id="title" class="form-input w-full rounded-lg" type="text" v-model="addCategoryTitle" />
+                    </div>
+                    <div>
+                      <label class="block text-sm font-medium mb-1" for="title">Description</label>
+                      <textarea name="addCategoryDescription" id="" class="form-input w-full min-h-full rounded-lg" rows="8" v-model="addCategoryDescription"></textarea>
+                    </div>
+                    <div>
+                      <label for="Image">Image</label>
+                      <input type="file" name="addCategoryImage" class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" v-on:change="selectCategoryImage" id="">
+                    </div>
+                  </div>
+                  <div class="flex justify-end mt-6">
+                    <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3">Submit</button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -739,6 +889,43 @@ export default {
     const serviceChargeGroceriesAgreementModal = ref(false)
 
     const payment_data = ref([])
+
+    const addCategoryTitle = ref('')
+    const addCategoryDescription = ref('')
+    const addCategoryImage = ref(null)
+
+    const addEmployeeFirstName = ref('')
+    const addEmployeeLastName = ref('')
+    const addEmployeeAvatar = ref(null)
+    const addEmployeeEmail = ref('')
+    const addEmployeePhoneNumber = ref('')
+    const addEmployeeStatus = ref('2')
+
+    const editRestaurantCategoryId = ref('')
+    const editUserId = ref('')
+
+    const editMenuId = ref('')
+
+    const addMenuTitle = ref('')
+    const addMenuDescription = ref('')
+    const addMenuStatus = ref('2')
+    const addMenuPreparationTime = ref(0)
+    const addMenuCategories = ref([])
+    const addMenuSubcategories = ref([])
+
+    const showSubCategoriesInput = ref(false)
+    const subcategories = ref([])
+
+    const addMenuImages = ref([])
+
+    const addPricesCount = ref(0)
+    const addPrices = ref([])
+    const addPriceStatus = ref([])
+    const addPriceDescriptions = ref([])
+    const currentPrices = ref([])
+
+    const action = ref('create menu')
+    const category_action = ref('create')
 
     const baseURL = process.env.NODE_ENV === 'development' ? 'http://moboeats.test/' : 'https://api.moboeats.co.uk/'
 
@@ -1075,6 +1262,245 @@ export default {
       })
     }
 
+    const selectCategoryImage = (e) => {
+      addCategoryImage.value = e.target.files[0]
+    }
+
+    const updatePrice = (index) => {
+      let id = currentPrices.value[index].id
+
+      const formData = new FormData()
+      formData.append('price', addPrices.value[index])
+      formData.append('description', addPriceDescriptions.value[index])
+      formData.append('status', addPriceStatus.value[index])
+      $http.post(`/restaurant/menu-prices/${id}/update`, formData)
+        .then(() => {
+          getMenu()
+          toast.success('Prices updated successfully')
+          clearFields('menu')
+          action.value = 'create menu'
+        })
+        .catch(err => {
+          console.error(err)
+          toast.error(err.response.data.message)
+        })
+    }
+
+    const selectImages = (e) => {
+      for (let index = 0; index < 2; index++) {
+        if (e.target.files[index]) {
+          addMenuImages.value.push(e.target.files[index])
+        }
+      }
+    }
+
+    const addPrice = () => {
+      addPrices.value = []
+      addPriceDescriptions.value = []
+      addPriceStatus.value = []
+      addPricesCount.value = 0
+      addPricesCount.value += 1
+      action.value = 'add price'
+    }
+
+    const createImages = () => {
+      const formData = new FormData()
+      addMenuImages.value.forEach((image, index) => {
+        formData.append('images['+index+']', image)
+      })
+      $http.post(`/restaurant/menu/${editMenuId.value}/images/update`, formData)
+        .then(() => {
+          getMenu()
+          toast.success('Menu images updated successfully')
+          clearFields('menu')
+          action.value = 'create menu'
+        })
+        .catch(error => {
+          toast.error(error.response.message)
+          console.error(error)
+        })
+    }
+
+    const editMenu = (menu, edit_action) => {
+      editMenuId.value = menu.id
+      if (edit_action == 'edit menu') {
+        addMenuTitle.value = menu.title
+        addMenuDescription.value = menu.description
+        addMenuStatus.value = menu.status
+        addMenuPreparationTime.value = menu.preparation_time
+        addMenuSubcategories.value = []
+        subcategories.value = []
+        addMenuCategories.value = []
+        if (menu.categories.length > 0) {
+          menu.categories.forEach(category => {
+            // Add Subcategories to list
+            categories.value.forEach(main_category => {
+              if (category.id == main_category.id) {
+                main_category.subCategories.forEach(sub_category => {
+                  subcategories.value.push(sub_category)
+                })
+              }
+            })
+            addMenuCategories.value.push(category.id)
+            let possible_groceries_names = ['groceries', 'grocery'];
+            // Add Menu Subcategories to list
+            if (possible_groceries_names.includes(category.title.toLowerCase())) {
+              if (menu.sub_categories.length > 0) {
+                menu.sub_categories.forEach(subcategory => {
+                  addMenuSubcategories.value.push(subcategory.id)
+                })
+              } else {
+                addMenuSubcategories.value = []
+                showSubCategoriesInput.value = false
+              }
+              showSubCategoriesInput.value = true
+            }
+          })
+        } else {
+          addMenuCategories.value = []
+        }
+        action.value = 'edit menu'
+      }
+      if (edit_action == 'edit images') {
+        currentMenuImages.value = menu.images
+        action.value = 'edit images'
+      }
+      if (edit_action == 'edit prices') {
+        currentPrices.value = []
+        addPricesCount.value = 0
+        addPrices.value = []
+        addPriceStatus.value = []
+        addPriceDescriptions.value = []
+        menu.menu_prices.forEach(price => {
+          currentPrices.value.push(price)
+          addPrices.value.push(price.price)
+          addPriceStatus.value.push(price.status)
+          addPriceDescriptions.value.push(price.description)
+          addPricesCount.value += 1
+        })
+        action.value = 'edit prices'
+      }
+    }
+
+    const editCategory = (category) => {
+      editRestaurantCategoryId.value = category.id
+      addCategoryTitle.value = category.title
+      addCategoryDescription.value = category.description
+      category_action.value = 'update'
+    }
+
+    const removePrice = (index) => {
+      if (addPricesCount.value > 1) {
+        let id = currentPrices.value[index].id
+        $http.delete(`/restaurant/menu-prices/${id}/delete`)
+          .then(() => {
+            addPricesCount.value -= 1
+            addPrices.value.splice(index, 1)
+            addPriceStatus.value.splice(index, 1)
+            addPriceDescriptions.value.splice(index, 1)
+            currentPrices.value.splice(index, 1)
+          })
+      } else {
+        toast.error('At least one price is required')
+      }
+    }
+
+    const createMenu = () => {
+      switch (action.value) {
+        case 'create menu':
+          $http.post(`/restaurant/${router.params.id}/menu/add`, {
+            'title': addMenuTitle.value,
+            'description': addMenuDescription.value,
+            'categoryIds': addMenuCategories.value,
+            'subcategoryIds': addMenuSubcategories.value,
+            'status': addMenuStatus.value,
+            'preparation_time': addMenuPreparationTime.value,
+          })
+          .then(() => {
+            toast.success('Menu added successfully')
+            getMenu()
+            clearFields('menu')
+          })
+          .catch(error => {
+            toast.error(error.response.data.message)
+          })
+          break
+        case 'edit menu':
+          $http.post(`/restaurant/menu/${editMenuId.value}/update`, {
+            'title': addMenuTitle.value,
+            'description': addMenuDescription.value,
+            'categoryIds': addMenuCategories.value,
+            'subcategoryIds': addMenuSubcategories.value,
+            'status': addMenuStatus.value,
+            'preparation_time': addMenuPreparationTime.value,
+          })
+          .then(() => {
+            getMenu()
+            toast.success('Menu updated successfully')
+            clearFields('menu')
+          })
+          .catch(error => {
+            console.error(error)
+          })
+          break
+        case 'add price':
+          const formData = new FormData()
+          formData.append('menu_id', editMenuId.value)
+          formData.append('price', addPrices.value[0])
+          formData.append('description', addPriceDescriptions.value[0])
+          formData.append('status', addPriceStatus.value[0])
+          $http.post('/restaurant/menu-prices', formData)
+            .then(() => {
+              getMenu()
+              toast.success('Menu Price added successfully')
+              clearFields('menu')
+            })
+            .catch(error => {
+              toast.error(error.response.message.data)
+            })
+          break
+        default:
+          toast.error('Select action')
+      }
+    }
+
+    const addCategory = () => {
+      const formData = new FormData()
+      formData.append('title', addCategoryTitle.value)
+      formData.append('description', addCategoryDescription.value)
+      formData.append('image', addCategoryImage.value)
+      if (category_action.value == 'create') {
+        $http.post('restaurant/'+router.params.id+'/categories/add', formData)
+          .then(() => {
+            getMenu()
+            getRestaurantCategories()
+            addCategoryTitle.value = ''
+            addCategoryDescription.value = ''
+            addCategoryImage.value = null
+            toast.success('Category added')
+            clearFields('category')
+          })
+          .catch(() => {
+            toast.error('An error occured while adding category')
+          })
+      } else if (category_action.value == 'update') {
+        $http.post('restaurant/'+router.params.id+'/categories/'+editRestaurantCategoryId.value+'/update', formData)
+          .then(() => {
+            getMenu()
+            getRestaurantCategories()
+            editRestaurantCategoryId.value = ''
+            addCategoryTitle.value = ''
+            addCategoryDescription.value = ''
+            addCategoryImage.value = null
+            category_action.value = 'create'
+            toast.success('Category updated')
+          })
+          .catch(() => {
+            toast.error('An error occured while updating category')
+          })
+      }
+    }
+
     return {
       userPermissions,
       moment,
@@ -1129,7 +1555,14 @@ export default {
 
       categories,
 
+      action,
+
+      addMenuImages,
+
       currentMenuImages,
+
+      addPricesCount,
+      category_action,
 
       restaurantCategories,
       categoriesPagesLinks,
@@ -1157,6 +1590,15 @@ export default {
       onCloseModal,
       statusReason,
 
+      addPrices,
+      addPriceStatus,
+      addPriceDescriptions,
+
+      addCategoryTitle,
+      addCategory,
+      addCategoryDescription,
+      addCategoryImage,
+
       serviceChargeAgreement,
       serviceChargeGroceriesAgreement,
 
@@ -1165,6 +1607,20 @@ export default {
 
       updateServiceChargeAgreement,
       updateGroceriesServiceChargeAgreement,
+
+      editMenu,
+      createMenu,
+
+      createImages,
+      selectImages,
+
+      addPrice,
+      removePrice,
+      updatePrice,
+
+      editCategory,
+      addCategory,
+      selectCategoryImage,
     }  
   }
 }
