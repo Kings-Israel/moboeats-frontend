@@ -25,7 +25,7 @@
             <button class="bg-emerald-600 px-3 py-1 col-span-1 text-slate-50 font-semibold rounded-full justify-end" @click="exportRestaurants()">Export Partners</button>
           </div>
 
-          <div class="grid grid-cols-1 lg:grid-cols-3 mb-2 gap-4">
+          <div class="grid grid-cols-1 lg:grid-cols-4 mb-2 gap-4">
             <form class="relative">
               <label for="action-search" class="sr-only">Search</label>
               <input id="action-search" class="form-input w-full pl-9 bg-white border border-slate-500 dark:bg-slate-800" type="search" v-model="search" placeholder="Search Restaurants" />
@@ -43,6 +43,14 @@
                 <option value="2">Approved</option>
                 <option value="1">Pending</option>
                 <option value="3">Denied</option>
+              </select>
+            </form>
+            <form class="relative w-full">
+              <label for="action-search" class="sr-only">Search Type</label>
+              <select class="form-select p-2 w-full border border-slate-500" v-model="type">
+                <option value="both">Restaurants and Grocery Shops</option>
+                <option value="restaurant">Restaurants</option>
+                <option value="grocery shop">Grocery Shops</option>
               </select>
             </form>
             <button class="bg-red-500 text-white rounded-full col-span-1 h-fit py-1 my-auto justify-self-end w-52" @click="search = '', status = ''">Clear Search Fields</button>
@@ -169,6 +177,7 @@ export default {
     let search = ref('')
 
     let status = ref('')
+    let type = ref('both')
 
     const updateSelectedItems = (selected) => {
       selectedItems.value = selected
@@ -274,7 +283,7 @@ export default {
     }
 
     watch(search, async (newSearch, oldQuestion) => {
-      $http.get('/admin/restaurants?search='+newSearch)
+      $http.get('/admin/restaurants?search='+newSearch+'&status='+status.value+'&type='+type.value)
         .then(response => {
           nextPageUrl.value = response.data.data.next_page_url
           lastPageUrl.value = response.data.data.last_page_url
@@ -300,7 +309,33 @@ export default {
     })
 
     watch(status, async (newStatus, oldQuestion) => {
-      $http.get('/admin/restaurants?status='+newStatus)
+      $http.get('/admin/restaurants?search='+search.value+'&status='+newStatus+'&type='+type.value)
+        .then(response => {
+          nextPageUrl.value = response.data.data.next_page_url
+          lastPageUrl.value = response.data.data.last_page_url
+          prevPageUrl.value = response.data.data.prev_page_url
+          totalItems.value = response.data.data.total
+          from.value = response.data.data.from
+          to.value = response.data.data.to
+          restaurants.value = []
+          response.data.data.data.forEach(restaurant => {
+            restaurants.value.push({
+              id: restaurant.id,
+              status: restaurant.status,
+              uuid: restaurant.uuid,
+              logo: restaurant.logo,
+              name: restaurant.name,
+              user: restaurant.user,
+              location: restaurant.address,
+              orders: restaurant.orders.length,
+              lastOrder: restaurant.orders.length > 0 ? getOrderId(restaurant.orders[restaurant.orders.length - 1].uuid) : '-',
+            })
+          })
+        })
+    })
+
+    watch(type, async (newType, oldQuestion) => {
+      $http.get('/admin/restaurants?search='+search.value+'&status='+status.value+'&type='+newType)
         .then(response => {
           nextPageUrl.value = response.data.data.next_page_url
           lastPageUrl.value = response.data.data.last_page_url
@@ -339,6 +374,7 @@ export default {
       changePage,
       search,
       status,
+      type,
       resolveRestaurantStatus,
       exportRestaurants
     }  
