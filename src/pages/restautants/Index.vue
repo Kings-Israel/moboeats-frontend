@@ -53,7 +53,7 @@
                 <option value="grocery shop">Grocery Shops</option>
               </select>
             </form>
-            <button class="bg-red-500 text-white rounded-full col-span-1 h-fit py-1 my-auto justify-self-end w-52" @click="search = '', status = ''">Clear Search Fields</button>
+            <button class="bg-red-500 text-white rounded-full col-span-1 h-fit py-1 my-auto justify-self-end w-52" @click="search = '', status = '', type = 'both'">Clear Search Fields</button>
           </div>
 
           <!-- Table -->
