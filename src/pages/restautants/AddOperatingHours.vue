@@ -12,7 +12,7 @@
               <!-- Logo -->
               <router-link class="flex gap-4" to="/">
                 <img
-                  src="../images/1024.png"
+                  src="../../images/1024.png"
                   class="object-contain w-24 pt-8"
                   alt=""
                 />
