@@ -91,6 +91,8 @@ import Roles from './pages/roles/Index.vue'
 import Admins from './pages/admins/Index.vue'
 import OrphanageIndex from './pages/orphanages/Index.vue'
 import OrphanageDetails from './pages/orphanages/Details.vue'
+import CreateRestaurant from './pages/restautants/CreateRestaurant.vue'
+import AddOperatingHours from './pages/restautants/AddOperatingHours.vue'
 
 const routerHistory = createWebHistory()
 
@@ -173,6 +175,22 @@ const router = createRouter({
       path: '/restaurant/:id',
       component: RestaurantDetails,
       name: 'restaurant-details',
+      meta: {
+        requiresAuth: true,
+      }
+    },
+    {
+      path: '/partner/:id/edit',
+      component: CreateRestaurant,
+      name: 'partner-edit',
+      meta: {
+        requiresAuth: true,
+      }
+    },
+    {
+      path: '/partners/:id/operating-hours',
+      component: AddOperatingHours,
+      name: 'partner-operating-hours',
       meta: {
         requiresAuth: true,
       }

@@ -120,6 +120,9 @@
             >
               Service Charge Agreement ({{ restaurant.service_charge_agreement ? restaurant.service_charge_agreement : 0 }}%)
             </button>
+            <router-link :to="{ name: 'partner-edit', params: { id: restaurant.uuid } }">
+              <button class="btn bg-yellow-200 text-slate-800 font-bold">Edit</button>
+            </router-link>
           </div>
           <div class="grid grid-cols-12 gap-6">
             <div class="col-span-full xl:col-span-4">
