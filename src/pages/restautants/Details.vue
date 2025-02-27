@@ -1555,6 +1555,7 @@ export default {
       payments,
       orders,
       menu,
+      subcategories,
 
       categories,
 
