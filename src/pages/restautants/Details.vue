@@ -1334,12 +1334,13 @@ export default {
         addMenuSubcategories.value = []
         subcategories.value = []
         addMenuCategories.value = []
+        console.log(addMenuTitle.value)
         if (menu.categories.length > 0) {
           menu.categories.forEach(category => {
             // Add Subcategories to list
             categories.value.forEach(main_category => {
               if (category.id == main_category.id) {
-                main_category.food_sub_categories.forEach(sub_category => {
+                category.food_sub_categories.forEach(sub_category => {
                   subcategories.value.push(sub_category)
                 })
               }
@@ -1593,6 +1594,12 @@ export default {
       modalOpen,
       onCloseModal,
       statusReason,
+
+      addMenuTitle,
+      addMenuDescription,
+      addMenuPreparationTime,
+      addMenuStatus,
+      addMenuCategories,
 
       addPrices,
       addPriceStatus,
