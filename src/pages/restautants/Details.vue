@@ -1339,7 +1339,7 @@ export default {
             // Add Subcategories to list
             categories.value.forEach(main_category => {
               if (category.id == main_category.id) {
-                main_category.subCategories.forEach(sub_category => {
+                main_category.food_sub_categories.forEach(sub_category => {
                   subcategories.value.push(sub_category)
                 })
               }
