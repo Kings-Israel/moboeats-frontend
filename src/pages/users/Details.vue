@@ -28,8 +28,9 @@
           <div class="grid grid-cols-12 gap-6">
             <div class="col-span-full xl:col-span-4">
               <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
-                <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700">
+                <header class="px-5 py-2 border-b border-slate-100 dark:border-slate-700 flex justify-between">
                   <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Info</h2>
+                  <button v-if="user_roles.includes('restaurant') || user_roles.includes('restaurant employee')" class="bg-[#F7C410] hover:bg-[#4f441e] p-1 text-white font-semibold rounded-md px-3 transition duration-150 ease-in-out" @click="editPartnerAdmin = true">Edit User</button>
                 </header>
                 <div class="flex flex-col space-y-2 p-3">
                   <h1 class="flex gap-2 font-semibold text-slate-800 dark:text-slate-100"><span>Email:</span><strong>{{ user.email }}</strong></h1>
@@ -37,6 +38,38 @@
                   <h1 class="flex gap-2 font-semibold text-slate-800 dark:text-slate-100"><span>Registered On:</span><strong>{{ moment(user.created_at).format('Do MMMM Y') }}</strong></h1>
                   <h1 v-if="user_roles.includes('orderer')" class="flex gap-2 font-semibold text-slate-800 dark:text-slate-100"><span>Total Orders:</span><strong>{{ user.orders_count }}</strong></h1>
                   <h1 v-if="user_roles.includes('restaurant')" class="flex gap-2 font-semibold text-slate-800 dark:text-slate-100"><span>Total Restaurants:</span><strong>{{ user.restaurants_count }}</strong></h1>
+                </div>
+                <div v-if="user_roles.includes('restaurant') || user_roles.includes('restaurant employee')">
+                  <modal-action :id="'addMenu'" :modal-open="editPartnerAdmin" @close-modal="editPartnerAdmin = false" :add-class="'max-w-4xl'">
+                    <h3 class="font-bold text-lg text-slate-800">Edit Restaurant Admin</h3>
+                    <form @submit.prevent="updatePartnerAdmin()" class="flex flex-col justify-evenly">
+                      <div class="space-y-4">
+                        <div>
+                          <label class="block text-sm font-medium mb-1" for="first name">First Name</label>
+                          <input id="first_name" class="form-input w-full rounded-lg" type="text" v-model="editEmployeeFirstName" />
+                        </div>
+                        <div>
+                          <label class="block text-sm font-medium mb-1" for="last name">Last Name</label>
+                          <input id="last_name" class="form-input w-full rounded-lg" type="text" v-model="editEmployeeLastName" />
+                        </div>
+                        <div>
+                          <label class="block text-sm font-medium mb-1" for="email">Email</label>
+                          <input id="email" class="form-input w-full rounded-lg" type="email" v-model="editEmployeeEmail" />
+                        </div>
+                        <div>
+                          <label class="block text-sm font-medium mb-1" for="phone number">Phone Number</label>
+                          <input id="phone_number" class="form-input w-full rounded-lg" type="tel" v-model="editEmployeePhoneNumber" />
+                        </div>
+                        <div>
+                          <label for="Image">Avatar</label>
+                          <input type="file" name="addAvatar" v-on:change="selectEmployeeAvatar" id="" class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
+                        </div>
+                      </div>
+                      <div class="flex justify-end mt-6">
+                        <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3">Submit</button>
+                      </div>
+                    </form>
+                  </modal-action>
                 </div>
               </div>
               <div v-if="user_roles.includes('rider') && rider_profile" class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
@@ -386,6 +419,14 @@ export default {
     const deliveries = ref([])
     const user_roles = ref([])
 
+    const editPartnerAdmin = ref(false)
+
+    const editEmployeeFirstName = ref('')
+    const editEmployeeLastName = ref('')
+    const editEmployeeEmail = ref('')
+    const editEmployeePhoneNumber = ref('')
+    const editEmployeeAvatar = ref(null)
+
     const rejection_reason = ref('')
     const updateRiderStatusModal = ref(false)
 
@@ -544,6 +585,10 @@ export default {
         .then(response => {
           user.value = response.data.data.user
           if (user.value) {
+            editEmployeeFirstName.value = user.value.name.split(' ')[0]
+            editEmployeeLastName.value = user.value.name.split(' ')[1]
+            editEmployeeEmail.value = user.value.email
+            editEmployeePhoneNumber.value = user.value.phone_number
             user.value.roles.forEach(role => {
               user_roles.value.push(role.name)
             })
@@ -592,6 +637,38 @@ export default {
         })
     })
 
+    const selectEmployeeAvatar = (e) => {
+      editEmployeeAvatar.value = e.target.files[0]
+    }
+
+    const updatePartnerAdmin = () => {
+      $http.post('admin/users/update', {
+        id: user.value.id,
+        first_name: editEmployeeFirstName.value,
+        last_name: editEmployeeLastName.value,
+        email: editEmployeeEmail.value,
+        phone_number: editEmployeePhoneNumber.value,
+        avatar: editEmployeeAvatar.value,
+      })
+        .then(res => {
+          toast.success('User updated successfully')
+          editPartnerAdmin.value = false
+          $http.get('/admin/users/restaurant-admin/'+router.params.id+'/details')
+            .then(response => {
+              user.value = response.data.data.user
+              if (user.value) {
+                editEmployeeFirstName.value = user.value.name.split(' ')[0]
+                editEmployeeLastName.value = user.value.name.split(' ')[1]
+                editEmployeeEmail.value = user.value.email
+                editEmployeePhoneNumber.value = user.value.phone_number
+              }
+            })
+        })
+        .catch(err => {
+          toast.error('Failed to update the user')
+        })
+    }
+
     return {
       moment,
       sidebarOpen,
@@ -623,6 +700,18 @@ export default {
       restaurantsPagesLinks,
       restaurants,
       changeRestaurantsPage,
+
+      editPartnerAdmin,
+
+      editEmployeeFirstName,
+      editEmployeeLastName,
+      editEmployeeEmail,
+      editEmployeePhoneNumber,
+      editEmployeeAvatar,
+
+      selectEmployeeAvatar,
+
+      updatePartnerAdmin,
 
       // Deliveries
       nextDeliveriesPageUrl,
