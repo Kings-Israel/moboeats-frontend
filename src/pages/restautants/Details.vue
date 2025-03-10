@@ -1280,7 +1280,7 @@ export default {
         .then(() => {
           getMenu()
           toast.success('Prices updated successfully')
-          clearFields('menu')
+          // clearFields('menu')
           action.value = 'create menu'
         })
         .catch(err => {
@@ -1315,7 +1315,7 @@ export default {
         .then(() => {
           getMenu()
           toast.success('Menu images updated successfully')
-          clearFields('menu')
+          // clearFields('menu')
           action.value = 'create menu'
         })
         .catch(error => {
@@ -1423,7 +1423,7 @@ export default {
           .then(() => {
             toast.success('Menu added successfully')
             getMenu()
-            clearFields('menu')
+            // clearFields('menu')
           })
           .catch(error => {
             toast.error(error.response.data.message)
@@ -1441,7 +1441,7 @@ export default {
           .then(() => {
             getMenu()
             toast.success('Menu updated successfully')
-            clearFields('menu')
+            // clearFields('menu')
           })
           .catch(error => {
             console.error(error)
@@ -1457,7 +1457,7 @@ export default {
             .then(() => {
               getMenu()
               toast.success('Menu Price added successfully')
-              clearFields('menu')
+              // clearFields('menu')
             })
             .catch(error => {
               toast.error(error.response.message.data)
@@ -1482,7 +1482,7 @@ export default {
             addCategoryDescription.value = ''
             addCategoryImage.value = null
             toast.success('Category added')
-            clearFields('category')
+            // clearFields('category')
           })
           .catch(() => {
             toast.error('An error occured while adding category')
