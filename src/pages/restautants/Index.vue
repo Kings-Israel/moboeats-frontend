@@ -95,7 +95,7 @@
                   <!-- Table body -->
                   <tbody class="text-sm divide-y divide-slate-200 dark:divide-slate-700">
                     <tr v-for="restaurant in restaurants" :key="restaurant.id">
-                      <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                      <td class="px-2 first:pl-5 last:pr-5 py-3">
                         <div class="flex items-center">
                           <div class="hidden md:block shrink-0 mr-2 sm:mr-3">
                             <img class="w-10 h-10 object-cover rounded-full" :src="restaurant.logo" :alt="restaurant.name" />
