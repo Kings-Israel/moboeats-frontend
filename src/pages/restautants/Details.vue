@@ -1412,7 +1412,7 @@ export default {
     const createMenu = () => {
       switch (action.value) {
         case 'create menu':
-          $http.post(`/restaurant/${router.params.id}/menu/add`, {
+          $http.post(`/admin/restaurant/${router.params.id}/menu/add`, {
             'title': addMenuTitle.value,
             'description': addMenuDescription.value,
             'categoryIds': addMenuCategories.value,
@@ -1430,7 +1430,7 @@ export default {
           })
           break
         case 'edit menu':
-          $http.post(`/restaurant/menu/${editMenuId.value}/update`, {
+          $http.post(`/admin/restaurant/menu/${editMenuId.value}/update`, {
             'title': addMenuTitle.value,
             'description': addMenuDescription.value,
             'categoryIds': addMenuCategories.value,
