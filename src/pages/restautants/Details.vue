@@ -1505,6 +1505,27 @@ export default {
       }
     }
 
+    const getSelectedCategory = (category) => {
+      let category_id = ''
+      let possible_names = ['groceries', 'grocery'];
+      categories.value.forEach(main_category => {
+        if (possible_names.includes(main_category.title.toLowerCase())) {
+          category_id = main_category.id
+        }
+      })
+      if (addMenuCategories.value.includes(category_id)) {
+        if (subcategories.value.length <= 0) {
+          subcategories.value = category.subCategories
+          showSubCategoriesInput.value = true
+        }
+      } else {
+        subcategories.value = []
+        showSubCategoriesInput.value = false
+      }
+
+      console.log(category)
+    }
+
     return {
       userPermissions,
       moment,
@@ -1593,6 +1614,9 @@ export default {
 
       modalOpen,
       onCloseModal,
+      getSelectedCategory,
+      showSubCategoriesInput,
+      addMenuSubcategories,
       statusReason,
 
       addMenuTitle,
