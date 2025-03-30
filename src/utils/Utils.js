@@ -31,7 +31,7 @@ countries['United States'] = 'USD'
 
 export const formatValue = (value, country = '') => Intl.NumberFormat('en-US', {
   style: 'currency',
-  currency: country != '' ? countries[country] : 'KES',
+  currency: country != '' && Object.keys(countries).includes(country) ? countries[country] : 'KES',
   maximumSignificantDigits: 3,
   notation: 'compact',
 }).format(value);
