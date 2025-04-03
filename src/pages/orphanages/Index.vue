@@ -267,7 +267,7 @@ export default {
     const place_id = ref('')
 
     onMounted(() => {
-      $http.get('/orphanages?per_page=15')
+      $http.get('/admin/orphanages?per_page=15')
         .then(response => {
           nextPageUrl.value = response.data.data.links.next
           lastPageUrl.value = response.data.data.links.last
@@ -307,7 +307,7 @@ export default {
       formData.append('location_long', addOrphanageLocationLong.value)
       formData.append('logo', addOrphanageLogo.value)
 
-      $http.post('/orphanages/store', formData)
+      $http.post('/admin/orphanages/store', formData)
         .then(() => {
           toast.success('Orphanage added successfully')
           addOrphanage.value = false
@@ -400,7 +400,7 @@ export default {
     }
 
     watch(search, async (newSearch, oldQuestion) => {
-      $http.get('/orphanages?per_page=15&search='+newSearch)
+      $http.get('/admin/orphanages?per_page=15&search='+newSearch)
         .then(response => {
           nextPageUrl.value = response.data.data.links.next
           lastPageUrl.value = response.data.data.links.last
@@ -414,7 +414,7 @@ export default {
     })
 
     watch(status, async (newStatus, oldQuestion) => {
-      $http.get('/orphanages?per_page=15&status='+newStatus)
+      $http.get('/admin/orphanages?per_page=15&status='+newStatus)
         .then(response => {
           nextPageUrl.value = response.data.data.links.next
           lastPageUrl.value = response.data.data.links.last
