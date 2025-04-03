@@ -269,12 +269,12 @@ export default {
     onMounted(() => {
       $http.get('/orphanages?per_page=15')
         .then(response => {
-          nextPageUrl.value = response.data.data.next_page_url
-          lastPageUrl.value = response.data.data.last_page_url
-          prevPageUrl.value = response.data.data.prev_page_url
-          totalItems.value = response.data.data.total
-          from.value = response.data.data.from
-          to.value = response.data.data.to
+          nextPageUrl.value = response.data.data.links.next
+          lastPageUrl.value = response.data.data.links.last
+          prevPageUrl.value = response.data.data.links.prev
+          totalItems.value = response.data.data.meta.total
+          from.value = response.data.data.meta.from
+          to.value = response.data.data.meta.to
           orphanages.value = response.data.data.data
         })
     })
@@ -282,12 +282,12 @@ export default {
     function changePage(page) {
       $http.get(page)
         .then(response => {
-          nextPageUrl.value = response.data.data.next_page_url
-          lastPageUrl.value = response.data.data.last_page_url
-          prevPageUrl.value = response.data.data.prev_page_url
-          totalItems.value = response.data.data.total
-          from.value = response.data.data.from
-          to.value = response.data.data.to
+          nextPageUrl.value = response.data.data.links.next
+          lastPageUrl.value = response.data.data.links.last
+          prevPageUrl.value = response.data.data.links.prev
+          totalItems.value = response.data.data.meta.total
+          from.value = response.data.data.meta.from
+          to.value = response.data.data.meta.to
           restaurants.value = []
           orphanages.value = response.data.data.data
         })
@@ -323,12 +323,12 @@ export default {
           addOrphanageLogo.value = null
           $http.get('/orphanages')
             .then(response => {
-              nextPageUrl.value = response.data.data.next_page_url
-              lastPageUrl.value = response.data.data.last_page_url
-              prevPageUrl.value = response.data.data.prev_page_url
-              totalItems.value = response.data.data.total
-              from.value = response.data.data.from
-              to.value = response.data.data.to
+              nextPageUrl.value = response.data.data.links.next
+              lastPageUrl.value = response.data.data.links.last
+              prevPageUrl.value = response.data.data.links.prev
+              totalItems.value = response.data.data.meta.total
+              from.value = response.data.data.meta.from
+              to.value = response.data.data.meta.to
               orphanages.value = response.data.data.data
             })
         })
@@ -402,12 +402,12 @@ export default {
     watch(search, async (newSearch, oldQuestion) => {
       $http.get('/orphanages?per_page=15&search='+newSearch)
         .then(response => {
-          nextPageUrl.value = response.data.data.next_page_url
-          lastPageUrl.value = response.data.data.last_page_url
-          prevPageUrl.value = response.data.data.prev_page_url
-          totalItems.value = response.data.data.total
-          from.value = response.data.data.from
-          to.value = response.data.data.to
+          nextPageUrl.value = response.data.data.links.next
+          lastPageUrl.value = response.data.data.links.last
+          prevPageUrl.value = response.data.data.links.prev
+          totalItems.value = response.data.data.meta.total
+          from.value = response.data.data.meta.from
+          to.value = response.data.data.meta.to
           restaurants.value = []
           orphanages.value = response.data.data
         })
@@ -416,12 +416,12 @@ export default {
     watch(status, async (newStatus, oldQuestion) => {
       $http.get('/orphanages?per_page=15&status='+newStatus)
         .then(response => {
-          nextPageUrl.value = response.data.data.next_page_url
-          lastPageUrl.value = response.data.data.last_page_url
-          prevPageUrl.value = response.data.data.prev_page_url
-          totalItems.value = response.data.data.total
-          from.value = response.data.data.from
-          to.value = response.data.data.to
+          nextPageUrl.value = response.data.data.links.next
+          lastPageUrl.value = response.data.data.links.last
+          prevPageUrl.value = response.data.data.links.prev
+          totalItems.value = response.data.data.meta.total
+          from.value = response.data.data.meta.from
+          to.value = response.data.data.meta.to
           restaurants.value = []
           orphanages.value = response.data.data
         })
