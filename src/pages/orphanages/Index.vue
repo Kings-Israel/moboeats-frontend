@@ -267,7 +267,7 @@ export default {
     const place_id = ref('')
 
     onMounted(() => {
-      $http.get('/orphanages')
+      $http.get('/orphanages?per_page=15')
         .then(response => {
           nextPageUrl.value = response.data.data.next_page_url
           lastPageUrl.value = response.data.data.last_page_url
@@ -400,7 +400,7 @@ export default {
     }
 
     watch(search, async (newSearch, oldQuestion) => {
-      $http.get('/orphanages?search='+newSearch)
+      $http.get('/orphanages?per_page=15&search='+newSearch)
         .then(response => {
           nextPageUrl.value = response.data.data.next_page_url
           lastPageUrl.value = response.data.data.last_page_url
@@ -414,7 +414,7 @@ export default {
     })
 
     watch(status, async (newStatus, oldQuestion) => {
-      $http.get('/orphanages?status='+newStatus)
+      $http.get('/orphanages?per_page=15&status='+newStatus)
         .then(response => {
           nextPageUrl.value = response.data.data.next_page_url
           lastPageUrl.value = response.data.data.last_page_url
