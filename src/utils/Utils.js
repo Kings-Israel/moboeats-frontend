@@ -44,3 +44,7 @@ export const formatThousands = (value) => Intl.NumberFormat('en-US', {
 export const userPermissions = (permission) => {
   return JSON.parse(localStorage.getItem('permissions')).includes(permission) ? true : false;
 }
+
+export const hasPermission = (permission) => {
+  return JSON.parse(localStorage.getItem('permissions')).includes(permission) ? true : false;
+}

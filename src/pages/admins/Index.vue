@@ -48,6 +48,14 @@
                         <option v-for="role in roles" :key="role.id" :value="role.id">{{ role.name }}</option>
                       </select>
                     </div>
+                    <div class="flex flex-col gap-2">
+                      <div class="grid grid-cols-3 gap-2">
+                        <div v-for="country in activeCountries" :key="country.id" class="flex gap-1">
+                          <input type="checkbox" name="" id="" @change="updateSelected(country.id)" class="border-primary rounded-md p-2 my-auto" :checked="userCountries.includes(country.id)">
+                          <label for="" class="text-primary font-semibold">{{ country.name }}</label>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="flex justify-end bottom-2 mt-2">
                     <button type="submit" class="btn bg-[#1c2e2a] rounded-xl hover:bg-[#6a6d2b] text-white">Submit</button>
@@ -152,6 +160,14 @@
                         <option v-for="role in roles" :key="role.id" :value="role.id">{{ role.name }}</option>
                       </select>
                     </div>
+                    <div class="flex flex-col gap-2">
+                      <div class="grid grid-cols-3 gap-2">
+                        <div v-for="country in activeCountries" :key="country.id" class="flex gap-1">
+                          <input type="checkbox" name="" id="" @change="updateSelected(country.id)" class="border-primary rounded-md p-2 my-auto" :checked="userCountries.includes(country.id)">
+                          <label for="" class="text-primary font-semibold">{{ country.name }}</label>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="flex justify-end bottom-2 mt-2">
                     <button type="submit" class="btn bg-[#1c2e2a] rounded-xl hover:bg-[#6a6d2b] text-white">Submit</button>
@@ -205,8 +221,11 @@ export default {
     const email = ref('')
     const phone_number = ref('')
     const userRole = ref('')
+    const userCountries = ref([])
     const addUserModal = ref(false)
     const editUserModal = ref(false)
+
+    const activeCountries = ref([])
 
     let search = ref('')
 
@@ -218,6 +237,7 @@ export default {
     const roles = ref([])
 
     onMounted(() => {
+      getCountries()
       $http.get('/admin/admins')
         .then(response => {
           admins.value = response.data.data.users
@@ -225,12 +245,27 @@ export default {
         })
     })
 
+    const getCountries = () => {
+      $http.get(`/admin/countries`, {
+        params: {
+          status: 'active'
+        }
+      })
+        .then(response => {
+          activeCountries.value = response.data.data
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
+
     const storeUser = () => {
       $http.post('/admin/users/store', {
         name: name.value,
         email: email.value,
         phone_number: phone_number.value,
         role: userRole.value,
+        user_countries: userCountries.value
       })
       .then(() => {
         $http.get('/admin/admins')
@@ -241,6 +276,7 @@ export default {
         email.value = ''
         phone_number.value = ''
         userRole.value = ''
+        userCountries.value = []
         addUserModal.value = false
         toast.success('User added successfully')
       })
@@ -255,6 +291,9 @@ export default {
       name.value = user.name
       email.value = user.email
       phone_number.value = user.phone_number
+      user.countries.forEach(country => {
+        userCountries.value.push(country.id)
+      });
       userRole.value = user.roles.length > 0  ? user.roles[0].id : ''
       editUserModal.value = true
     }
@@ -263,6 +302,7 @@ export default {
       $http.post('/admin/admins/update', {
         user_id: userId.value,
         role_id: userRole.value,
+        user_countries: userCountries.value
       })
       .then(() => {
         $http.get('/admin/admins')
@@ -274,6 +314,7 @@ export default {
         email.value = ''
         phone_number.value = ''
         userRole.value = ''
+        userCountries.value = []
         editUserModal.value = false
         toast.success('User added successfully')
       })
@@ -281,6 +322,15 @@ export default {
         console.log(err)
         toast.error('Error while adding user')
       })
+    }
+
+    const updateSelected = (id) => {
+      if (userCountries.value.includes(id)) {
+        const index = userCountries.value.indexOf(id)
+        userCountries.value.splice(index, 1)
+      } else {
+        userCountries.value.push(id)
+      }
     }
 
     function changePage(page) {
@@ -310,6 +360,9 @@ export default {
       email,
       phone_number,
       userRole,
+      userCountries,
+      activeCountries,
+      updateSelected,
       storeUser,
       updateUser,
       editUser,
