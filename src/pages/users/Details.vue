@@ -37,7 +37,8 @@
                   <h1 class="flex gap-2 font-semibold text-slate-800 dark:text-slate-100"><span>Phone Number:</span><strong>{{ user.phone_number }}</strong></h1>
                   <h1 class="flex gap-2 font-semibold text-slate-800 dark:text-slate-100"><span>Registered On:</span><strong>{{ moment(user.created_at).format('Do MMMM Y') }}</strong></h1>
                   <h1 v-if="user_roles.includes('orderer')" class="flex gap-2 font-semibold text-slate-800 dark:text-slate-100"><span>Total Orders:</span><strong>{{ user.orders_count }}</strong></h1>
-                  <h1 v-if="user_roles.includes('restaurant')" class="flex gap-2 font-semibold text-slate-800 dark:text-slate-100"><span>Total Restaurants:</span><strong>{{ user.restaurants_count }}</strong></h1>
+                  <h1 v-if="user_roles.includes('restaurant')" class="flex gap-2 font-semibold text-slate-800 dark:text-slate-100"><span>Total Branches:</span><strong>{{ user.restaurants_count }}</strong></h1>
+                  <h1 v-if="user_roles.includes('restaurant')" class="flex gap-2 font-semibold text-slate-800 dark:text-slate-100"><span>Partner Type:</span><strong>{{ user.type == 'both' ? 'Grocery Shop and Restaurant' : user.type == 'restaurant' ? 'Store' : 'Grocery Shop' }}</strong></h1>
                 </div>
                 <div v-if="user_roles.includes('restaurant') || user_roles.includes('restaurant employee')">
                   <modal-action :id="'addMenu'" :modal-open="editPartnerAdmin" @close-modal="editPartnerAdmin = false" :add-class="'max-w-4xl'">
@@ -63,6 +64,37 @@
                         <div>
                           <label for="Image">Avatar</label>
                           <input type="file" name="addAvatar" v-on:change="selectEmployeeAvatar" id="" class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
+                        </div>
+                        <div class="block md:flex mt-4">
+                          <label class="my-auto block text-sm font-medium mb-1" for="profile_picture">Change Partner Type to:</label>
+                          <div class="flex-none md:flex my-auto">
+                            <div class="px-3">
+                              <!-- Start -->
+                              <label class="flex items-center">
+                                <input type="radio" name="menu-active" v-model="editEmployeeType" value="both" class="form-radio" />
+                                <span class="text-sm font-bold ml-2">Restaurant and Grocery Shop</span>
+                              </label>
+                              <!-- End -->
+                            </div>
+            
+                            <div class="px-3">
+                              <!-- Start -->
+                              <label class="flex items-center">
+                                <input type="radio" name="menu-active" v-model="editEmployeeType" value="restaurant" class="form-radio" />
+                                <span class="text-sm font-bold ml-2">Restaurant</span>
+                              </label>
+                              <!-- End -->
+                            </div>
+            
+                            <div class="px-3">
+                              <!-- Start -->
+                              <label class="flex items-center">
+                                <input type="radio" name="menu-active" v-model="editEmployeeType" value="grocery shop" class="form-radio" />
+                                <span class="text-sm font-bold ml-2">Grocery Shop</span>
+                              </label>
+                              <!-- End -->
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div class="flex justify-end mt-6">
@@ -426,6 +458,7 @@ export default {
     const editEmployeeEmail = ref('')
     const editEmployeePhoneNumber = ref('')
     const editEmployeeAvatar = ref(null)
+    const editEmployeeType = ref('')
 
     const rejection_reason = ref('')
     const updateRiderStatusModal = ref(false)
@@ -589,6 +622,7 @@ export default {
             editEmployeeLastName.value = user.value.name.split(' ')[1]
             editEmployeeEmail.value = user.value.email
             editEmployeePhoneNumber.value = user.value.phone_number
+            editEmployeeType.value = user.value.type
             user.value.roles.forEach(role => {
               user_roles.value.push(role.name)
             })
@@ -649,6 +683,7 @@ export default {
         email: editEmployeeEmail.value,
         phone_number: editEmployeePhoneNumber.value,
         avatar: editEmployeeAvatar.value,
+        type: editEmployeeType.value
       })
         .then(res => {
           toast.success('User updated successfully')
@@ -708,6 +743,7 @@ export default {
       editEmployeeEmail,
       editEmployeePhoneNumber,
       editEmployeeAvatar,
+      editEmployeeType,
 
       selectEmployeeAvatar,
 
