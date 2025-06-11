@@ -93,6 +93,7 @@ import OrphanageIndex from './pages/orphanages/Index.vue'
 import OrphanageDetails from './pages/orphanages/Details.vue'
 import CreateRestaurant from './pages/restautants/CreateRestaurant.vue'
 import AddOperatingHours from './pages/restautants/AddOperatingHours.vue'
+import Countries from './pages/countries/Index.vue'
 
 const routerHistory = createWebHistory()
 
@@ -353,6 +354,15 @@ const router = createRouter({
       name: 'orphanages-details',
       meta: {
         requiresAuth: true
+      },
+    },
+    ,
+    {
+      path: '/countries',
+      component: Countries,
+      name: 'countries',
+      meta: {
+        requiresAuth: true,
       },
     },
     {

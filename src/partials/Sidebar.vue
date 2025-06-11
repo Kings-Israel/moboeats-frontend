@@ -393,6 +393,20 @@
                   <span class="text-sm font-medium">Logs</span>
                 </a>
               </div>
+            </router-link> 
+            <!-- Countries -->
+            <router-link v-if="permissions.includes('view countries')" custom v-slot="{ href, navigate, isExactActive }" to="/countries">
+              <div class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2" :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'">
+                <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
+                  <path class="fill-current" :class="currentRoute.fullPath.includes('countries') ? 'text-yellow-500' : 'text-yellow-600'" d="M19.714 14.7l-7.007 7.007-1.414-1.414 7.007-7.007c-.195-.4-.298-.84-.3-1.286a3 3 0 113 3 2.969 2.969 0 01-1.286-.3z" />
+                  <path class="fill-current" :class="currentRoute.fullPath.includes('countries') ? 'text-yellow-300' : 'text-yellow-400'" d="M10.714 18.3c.4-.195.84-.298 1.286-.3a3 3 0 11-3 3c.002-.446.105-.885.3-1.286l-6.007-6.007 1.414-1.414 6.007 6.007z" />
+                  <path class="fill-current" :class="currentRoute.fullPath.includes('countries') ? 'text-yellow-500' : 'text-yellow-600'" d="M5.7 10.714c.195.4.298.84.3 1.286a3 3 0 11-3-3c.446.002.885.105 1.286.3l7.007-7.007 1.414 1.414L5.7 10.714z" />
+                  <path class="fill-current" :class="currentRoute.fullPath.includes('countries') ? 'text-yellow-300' : 'text-yellow-400'" d="M19.707 9.292a3.012 3.012 0 00-1.415 1.415L13.286 5.7c-.4.195-.84.298-1.286.3a3 3 0 113-3 2.969 2.969 0 01-.3 1.286l5.007 5.006z" />                      
+                </svg>
+                <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-yellow-500' : 'text-white hover:text-slate-200'" :href="href" @click="navigate">
+                  <span class="text-sm font-medium">Countries</span>
+                </a>
+              </div>
             </router-link>  
             <!-- Community -->
             <SidebarLinkGroup v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('community')" class="hidden">
