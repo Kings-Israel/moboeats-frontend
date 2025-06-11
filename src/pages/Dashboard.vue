@@ -766,7 +766,7 @@
                     class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"
                   ></span>
                   <span
-                    >{{ setting.type == "amount" ? "GBP" : "" }}
+                    >{{ setting.type == "amount" ? "" : "" }}
                     {{ setting.variable }}
                     {{ setting.type == "percentage" ? "%" : "" }}</span
                   >
@@ -823,6 +823,26 @@
                   <input
                     type="number"
                     v-model="groceries_service_charge"
+                    min="1"
+                    class="form-input rounded-lg border-2 mx-4"
+                    id=""
+                    placeholder="Enter Value to update"
+                  />
+                  <button
+                    type="submit"
+                    class="bg-[#223f19] hover:bg-[#1c2e2a] transition duration-200 ease-in-out text-white px-2 rounded-md"
+                  >
+                    Update
+                  </button>
+                </form>
+                <form
+                  @submit.prevent="updateSetting(setting.name)"
+                  method="post"
+                  v-if="setting.name == 'Registration Fee'"
+                >
+                  <input
+                    type="number"
+                    v-model="registration_fee"
                     min="1"
                     class="form-input rounded-lg border-2 mx-4"
                     id=""
@@ -926,6 +946,7 @@ export default {
     const delivery_rate = ref("");
     const service_charge = ref("");
     const groceries_service_charge = ref("");
+    const registration_fee = ref("");
     const supplement_orders = ref(0);
     const supplements = ref(0);
     const supplement_suppliers = ref(0);
@@ -1070,6 +1091,17 @@ export default {
               toast.success("Base Rate updated successfully");
             });
           break;
+        case "Registration Fee":
+          await $http
+            .post("/admin/registration-fee/update", {
+              rate: registration_fee.value,
+            })
+            .then(() => {
+              getData();
+              registration_fee.value = "";
+              toast.success("Registration Fee updated successfully");
+            });
+          break;
         default:
           break;
       }
@@ -1129,6 +1161,7 @@ export default {
       delivery_rate,
       service_charge,
       groceries_service_charge,
+      registration_fee,
       qr_string,
       supplements,
       supplement_suppliers,
