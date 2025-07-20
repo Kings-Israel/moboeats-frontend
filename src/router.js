@@ -94,6 +94,7 @@ import OrphanageDetails from './pages/orphanages/Details.vue'
 import CreateRestaurant from './pages/restautants/CreateRestaurant.vue'
 import AddOperatingHours from './pages/restautants/AddOperatingHours.vue'
 import Countries from './pages/countries/Index.vue'
+import Create from './pages/users/Create.vue'
 
 const routerHistory = createWebHistory()
 
@@ -144,6 +145,14 @@ const router = createRouter({
       path: '/riders',
       component: Riders,
       name: 'riders',
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/riders/add',
+      component: Create,
+      name: 'riders-create',
       meta: {
         requiresAuth: true,
       },
