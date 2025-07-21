@@ -18,17 +18,17 @@
 
             <!-- Left: Title -->
             <div class="mb-4 sm:mb-0">
-              <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold">Partners ✨</h1>
+              <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold">Branches ✨</h1>
             </div>
 
             <!-- Right: Actions  -->
-            <button class="bg-emerald-600 px-3 py-1 col-span-1 text-slate-50 font-semibold rounded-full justify-end" @click="exportRestaurants()">Export Partners</button>
+            <button class="bg-emerald-600 px-3 py-1 col-span-1 text-slate-50 font-semibold rounded-full justify-end" @click="exportRestaurants()">Export Branches</button>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-4 mb-2 gap-4">
             <form class="relative">
               <label for="action-search" class="sr-only">Search</label>
-              <input id="action-search" class="form-input w-full pl-9 bg-white border border-slate-500 dark:bg-slate-800" type="search" v-model="search" placeholder="Search Restaurants" />
+              <input id="action-search" class="form-input w-full pl-9 bg-white border border-slate-500 dark:bg-slate-800" type="search" v-model="search" placeholder="Search Branches" />
               <button class="absolute inset-0 right-auto group" type="submit" aria-label="Search">
                 <svg class="w-4 h-4 shrink-0 fill-current text-slate-400 dark:text-slate-500 group-hover:text-slate-500 dark:group-hover:text-slate-400 ml-3 mr-2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7 14c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zM7 2C4.243 2 2 4.243 2 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5z" />
@@ -45,21 +45,21 @@
                 <option value="3">Denied</option>
               </select>
             </form>
-            <form class="relative w-full">
+            <!-- <form class="relative w-full">
               <label for="action-search" class="sr-only">Search Type</label>
               <select class="form-select p-2 w-full border border-slate-500" v-model="type">
                 <option value="both">Restaurants and Grocery Shops</option>
                 <option value="restaurant">Restaurants</option>
                 <option value="grocery shop">Grocery Shops</option>
               </select>
-            </form>
+            </form> -->
             <button class="bg-red-500 text-white rounded-full col-span-1 h-fit py-1 my-auto justify-self-end w-52" @click="search = '', status = '', type = 'both'">Clear Search Fields</button>
           </div>
 
           <!-- Table -->
           <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 relative">
             <header class="px-5 py-4">
-              <h2 class="font-semibold text-slate-800 dark:text-slate-100">All Partners <span class="text-slate-400 dark:text-slate-500 font-medium">{{ totalItems }}</span></h2>
+              <h2 class="font-semibold text-slate-800 dark:text-slate-100">All Branches <span class="text-slate-400 dark:text-slate-500 font-medium">{{ totalItems }}</span></h2>
             </header>
             <div>
 
