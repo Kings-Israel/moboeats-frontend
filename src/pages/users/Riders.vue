@@ -23,23 +23,23 @@
 
             <!-- Right: Actions  -->
             <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
-
-              <form class="relative">
-                <label for="action-search" class="sr-only">Search</label>
-                <input id="action-search" class="form-input pl-9 bg-white dark:bg-slate-800" type="search" v-model="search" placeholder="Search Riders" />
-                <button class="absolute inset-0 right-auto group" type="submit" aria-label="Search">
-                  <svg class="w-4 h-4 shrink-0 fill-current text-slate-400 dark:text-slate-500 group-hover:text-slate-500 dark:group-hover:text-slate-400 ml-3 mr-2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7 14c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zM7 2C4.243 2 2 4.243 2 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5z" />
-                    <path d="M15.707 14.293L13.314 11.9a8.019 8.019 0 01-1.414 1.414l2.393 2.393a.997.997 0 001.414 0 .999.999 0 000-1.414z" />
-                  </svg>
-                </button>
-              </form>
-
+              <router-link :to="{ name: 'riders-create' }" class="text-left font-medium flex w-fit px-2 py-1 rounded-md">
+                Add Rider
+              </router-link>
             </div>
-
+            
+            <!-- Table -->
           </div>
-
-          <!-- Table -->
+          <form class="relative">
+            <label for="action-search" class="sr-only">Search</label>
+            <input id="action-search" class="form-input pl-9 bg-white dark:bg-slate-800" type="search" v-model="search" placeholder="Search Riders" />
+            <button class="absolute inset-0 right-auto group" type="submit" aria-label="Search">
+              <svg class="w-4 h-4 shrink-0 fill-current text-slate-400 dark:text-slate-500 group-hover:text-slate-500 dark:group-hover:text-slate-400 ml-3 mr-2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 14c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zM7 2C4.243 2 2 4.243 2 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5z" />
+                <path d="M15.707 14.293L13.314 11.9a8.019 8.019 0 01-1.414 1.414l2.393 2.393a.997.997 0 001.414 0 .999.999 0 000-1.414z" />
+              </svg>
+            </button>
+          </form>
           <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 relative">
             <header class="px-5 py-4">
               <h2 class="font-semibold text-slate-800 dark:text-slate-100">All Riders <span class="text-slate-400 dark:text-slate-500 font-medium">{{ customers.length }}</span></h2>
@@ -157,7 +157,7 @@ import { useToast } from 'vue-toastification'
 import { formatValue } from '../../utils/Utils'
 
 export default {
-  name: 'Users',
+  name: 'Riders',
   components: {
     Sidebar,
     Header,
