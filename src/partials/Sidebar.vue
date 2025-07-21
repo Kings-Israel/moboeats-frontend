@@ -38,8 +38,8 @@
         <!-- Logo -->
         <router-link class="flex gap-4" to="/">
           <img
-            src="../images/1024.png"
-            class="w-16 md:w-24 md:h-28 mx-auto object-contain"
+            src="https://www.guardnowsecurity.co.ke/assets/img/logo/logo.png"
+            class="w-16 md:w-18 md:h-28 mx-auto object-contain rounded-lg"
             alt=""
           />
         </router-link>

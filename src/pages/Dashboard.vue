@@ -93,7 +93,7 @@
                       <h2
                         class="text-xl leading-snug justify-center font-semibold"
                       >
-                        Partners
+                        Branches
                       </h2>
                     </div>
                     <div class="flex justify-center items-center">
@@ -110,7 +110,7 @@
                     to="/restaurants"
                   >
                     <div class="flex items-center justify-center">
-                      <span>View Restaurants</span>
+                      <span>View Branches</span>
                     </div>
                   </router-link>
                 </div>
@@ -576,7 +576,7 @@
                             <h2
                               class="text-xl leading-snug justify-center font-semibold"
                             >
-                              Restaurants Earnings
+                              Branches Earnings
                             </h2>
                           </div>
                           <div class="flex justify-center items-center">
