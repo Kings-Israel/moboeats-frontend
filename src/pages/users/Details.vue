@@ -826,6 +826,18 @@
               </div>
             </div>
           </div>
+          <div class="mt-4" v-if="rider_documents.length > 0">
+            <h4 class="text-xl underline font-bold">Riders Documents</h4>
+            <div v-for="document in rider_documents" :key="document.id">
+              <a
+                :href="document.file"
+                class="text-lg text-slate-900 font-bold"
+                target="_blank"
+              >
+                View {{ document.name }}
+              </a>
+            </div>
+          </div>
         </div>
       </main>
     </div>
@@ -915,6 +927,8 @@ export default {
 
     const earnings_data = ref([]);
 
+    const rider_documents = ref([]);
+
     const getOrderId = (order) => {
       return order.uuid.split("-")[0];
     };
@@ -986,6 +1000,7 @@ export default {
             response.data.data.deliveries.links.forEach((link) => {
               deliveriesPagesLinks.value.push(link);
             });
+            rider_documents.value = response.data.data.documents;
           }
         }
       });
@@ -1129,6 +1144,7 @@ export default {
             deliveriesPagesLinks.value.push(link);
           });
           earnings_data.value = response.data.data.earnings_data;
+          rider_documents.value = response.data.data.documents;
         }
       });
     });
@@ -1179,6 +1195,7 @@ export default {
       earnings_data,
       rejection_reason,
       updateRiderStatusModal,
+      rider_documents,
 
       // Orders
       orders,
