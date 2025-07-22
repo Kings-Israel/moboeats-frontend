@@ -216,7 +216,7 @@ export default {
       },
       {
         key: "ID (Back)",
-        key: "id_back",
+        model: "id_back",
         accept: ".jpg",
         label: "ID Back",
       },
