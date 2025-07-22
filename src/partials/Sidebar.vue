@@ -37,9 +37,14 @@
         </button>
         <!-- Logo -->
         <router-link class="flex gap-4" to="/">
-          <img
+          <!-- <img
             src="https://www.guardnowsecurity.co.ke/assets/img/logo/logo.png"
             class="w-16 md:w-18 md:h-28 mx-auto object-contain rounded-lg"
+            alt=""
+          /> -->
+          <img
+            src="https://javahouseafrica.com/wp-content/uploads/2024/07/logo-java-house.svg"
+            class="w-16 md:w-44 md:h-28 mx-auto object-contain rounded-lg"
             alt=""
           />
         </router-link>
@@ -592,7 +597,7 @@
                       >
                         <span
                           class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200"
-                          >Partners</span
+                          >Branches</span
                         >
                       </a>
                     </li>

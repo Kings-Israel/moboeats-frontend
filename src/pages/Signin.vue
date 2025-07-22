@@ -63,9 +63,14 @@
         class="hidden md:block absolute top-0 bottom-0 right-0 md:w-1/2 bg-[#2E5945]"
         aria-hidden="true"
       >
-        <img
+        <!-- <img
           src="https://www.guardnowsecurity.co.ke/assets/img/logo/logo.png"
           class="my-auto mx-auto object-contain w-44 mt-44 rounded-lg"
+          alt=""
+        /> -->
+        <img
+          src="https://javahouseafrica.com/wp-content/uploads/2024/07/logo-java-house.svg"
+          class="my-auto mx-auto w-[40rem] object-contain mt-72 rounded-lg"
           alt=""
         />
       </div>
