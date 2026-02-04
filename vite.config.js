@@ -8,7 +8,9 @@ export default defineConfig({
     "process.env": process.env,
   },
   base:
-    process.env.NODE_ENV == "production" ? "https://admin.moboeats.com" : "",
+    process.env.NODE_ENV == "production"
+      ? "https://guardnow.delivery.amaniaccess.com"
+      : "",
   plugins: [vue()],
   resolve: {
     alias: [
