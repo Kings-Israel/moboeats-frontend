@@ -11,7 +11,7 @@
     <div
       id="sidebar"
       ref="sidebar"
-      class="flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-[100dvh] overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 shrink-0 bg-[#2E5945] p-4 transition-all duration-200 ease-in-out"
+      class="flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-[100dvh] overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 shrink-0 bg-white p-4 transition-all duration-200 ease-in-out"
       :class="sidebarOpen ? 'translate-x-0' : '-translate-x-64'"
     >
       <!-- Sidebar header -->
@@ -42,8 +42,13 @@
             class="w-16 md:w-18 md:h-28 mx-auto object-contain rounded-lg"
             alt=""
           /> -->
-          <img
+          <!-- <img
             src="https://javahouseafrica.com/wp-content/uploads/2024/07/logo-java-house.svg"
+            class="w-16 md:w-44 md:h-28 mx-auto object-contain rounded-lg"
+            alt=""
+          /> -->
+          <img
+            src="../images/ecodeli.jpeg"
             class="w-16 md:w-44 md:h-28 mx-auto object-contain rounded-lg"
             alt=""
           />
@@ -68,7 +73,7 @@
               "
             >
               <div
-                class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2"
+                class="px-3 py-2 rounded-sm mb-0.5 text-slate-800 truncate transition duration-150 flex items-center gap-2"
                 :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'"
               >
                 <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
@@ -108,7 +113,7 @@
                   :class="
                     isExactActive
                       ? 'text-yellow-500'
-                      : 'text-white hover:text-slate-200'
+                      : 'text-black hover:text-slate-800'
                   "
                   :href="href"
                   @click="navigate"
@@ -127,7 +132,7 @@
               :to="{ name: 'users' }"
             >
               <div
-                class="px-3 py-2 rounded-sm mb-0.5 text-slate-200 truncate transition duration-150 flex items-center gap-2"
+                class="px-3 py-2 rounded-sm mb-0.5 text-slate-800 truncate transition duration-150 flex items-center gap-2"
                 :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'"
               >
                 <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
@@ -155,7 +160,7 @@
                   :class="
                     isExactActive
                       ? 'text-yellow-500'
-                      : 'text-white hover:text-slate-200'
+                      : 'text-black hover:text-slate-800'
                   "
                   :href="href"
                   @click="navigate"
@@ -198,7 +203,7 @@
                   :class="
                     isExactActive
                       ? 'text-yellow-500'
-                      : 'text-white hover:text-slate-200'
+                      : 'text-black hover:text-slate-800'
                   "
                   :href="href"
                   @click="navigate"
@@ -252,7 +257,7 @@
                   :class="
                     isExactActive
                       ? 'text-yellow-500'
-                      : 'text-white hover:text-slate-200'
+                      : 'text-black hover:text-slate-800'
                   "
                   :href="href"
                   @click="navigate"
@@ -308,7 +313,7 @@
                   :class="
                     isExactActive
                       ? 'text-yellow-500'
-                      : 'text-white hover:text-slate-200'
+                      : 'text-black hover:text-slate-800'
                   "
                   :href="href"
                   @click="navigate"
@@ -362,7 +367,7 @@
                   :class="
                     isExactActive
                       ? 'text-yellow-500'
-                      : 'text-white hover:text-slate-200'
+                      : 'text-black hover:text-slate-800'
                   "
                   :href="href"
                   @click="navigate"
@@ -416,7 +421,7 @@
                   :class="
                     isExactActive
                       ? 'text-yellow-500'
-                      : 'text-white hover:text-slate-200'
+                      : 'text-black hover:text-slate-800'
                   "
                   :href="href"
                   @click="navigate"
@@ -436,11 +441,11 @@
               :activeCondition="currentRoute.fullPath.includes('payouts')"
             >
               <a
-                class="block text-slate-200 truncate transition duration-150"
+                class="block text-black truncate transition duration-150"
                 :class="
                   currentRoute.fullPath.includes('payouts')
-                    ? 'hover:text-slate-200'
-                    : 'hover:text-white'
+                    ? 'hover:text-slate-800'
+                    : 'hover:text-slate-800'
                 "
                 href="#0"
                 @click.prevent="
@@ -511,7 +516,7 @@
                         :class="
                           isExactActive
                             ? 'text-yellow-500'
-                            : 'text-yellow-300 hover:text-slate-200'
+                            : 'text-yellow-600 hover:text-slate-800'
                         "
                         :href="href"
                         @click="navigate"
@@ -535,7 +540,7 @@
                         :class="
                           isExactActive
                             ? 'text-yellow-500'
-                            : 'text-yellow-300 hover:text-slate-200'
+                            : 'text-yellow-600 hover:text-slate-800'
                         "
                         :href="href"
                         @click="navigate"
@@ -708,7 +713,7 @@
                   :class="
                     isExactActive
                       ? 'text-yellow-500'
-                      : 'text-white hover:text-slate-200'
+                      : 'text-black hover:text-slate-800'
                   "
                   :href="href"
                   @click="navigate"
@@ -751,7 +756,7 @@
                   :class="
                     isExactActive
                       ? 'text-yellow-500'
-                      : 'text-white hover:text-slate-200'
+                      : 'text-black hover:text-slate-800'
                   "
                   :href="href"
                   @click="navigate"
@@ -817,7 +822,7 @@
                   :class="
                     isExactActive
                       ? 'text-yellow-500'
-                      : 'text-white hover:text-slate-200'
+                      : 'text-black hover:text-slate-800'
                   "
                   :href="href"
                   @click="navigate"
@@ -825,63 +830,6 @@
                   <span class="text-sm font-medium">FAQs</span>
                 </a>
               </div>
-            </router-link>
-            <!-- Messages -->
-            <router-link
-              v-if="permissions.includes('view messages')"
-              to="/messages"
-              custom
-              v-slot="{ href, navigate, isExactActive }"
-            >
-              <li
-                class="px-3 py-2 rounded-sm mb-0.5 last:mb-0"
-                :class="isExactActive && 'bg-slate-900 rounded-xl'"
-              >
-                <a
-                  class="block text-slate-200 truncate transition duration-150"
-                  :class="
-                    isExactActive ? 'hover:text-slate-200' : 'hover:text-white'
-                  "
-                  :href="href"
-                  @click="navigate"
-                >
-                  <div class="flex items-center justify-between">
-                    <div class="grow flex items-center">
-                      <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                        <path
-                          class="fill-current"
-                          :class="
-                            isExactActive
-                              ? 'text-yellow-500'
-                              : 'text-yellow-600'
-                          "
-                          d="M14.5 7c4.695 0 8.5 3.184 8.5 7.111 0 1.597-.638 3.067-1.7 4.253V23l-4.108-2.148a10 10 0 01-2.692.37c-4.695 0-8.5-3.184-8.5-7.11C6 10.183 9.805 7 14.5 7z"
-                        />
-                        <path
-                          class="fill-current"
-                          :class="
-                            isExactActive
-                              ? 'text-yellow-300'
-                              : 'text-yellow-400'
-                          "
-                          d="M11 1C5.477 1 1 4.582 1 9c0 1.797.75 3.45 2 4.785V19l4.833-2.416C8.829 16.85 9.892 17 11 17c5.523 0 10-3.582 10-8s-4.477-8-10-8z"
-                        />
-                      </svg>
-                      <span
-                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200"
-                        >Messages</span
-                      >
-                    </div>
-                    <!-- Badge -->
-                    <div class="flex flex-shrink-0 ml-2">
-                      <span
-                        class="inline-flex items-center justify-center h-5 text-xs font-medium text-white bg-yellow-500 px-2 rounded"
-                        >{{ unread_messages_count }}</span
-                      >
-                    </div>
-                  </div>
-                </a>
-              </li>
             </router-link>
             <!-- Logs -->
             <router-link
@@ -937,7 +885,7 @@
                   :class="
                     isExactActive
                       ? 'text-yellow-500'
-                      : 'text-white hover:text-slate-200'
+                      : 'text-black hover:text-slate-800'
                   "
                   :href="href"
                   @click="navigate"
@@ -1000,7 +948,7 @@
                   :class="
                     isExactActive
                       ? 'text-yellow-500'
-                      : 'text-white hover:text-slate-200'
+                      : 'text-black hover:text-slate-800'
                   "
                   :href="href"
                   @click="navigate"

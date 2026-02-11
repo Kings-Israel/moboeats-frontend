@@ -3,20 +3,20 @@
     <div class="relative flex">
       <!-- Content -->
       <div class="w-full md:w-1/2">
-        <div
-          class="min-h-[100dvh] h-full flex flex-col after:flex-1 bg-[#2E5945]"
-        >
+        <div class="min-h-[100dvh] h-full flex flex-col after:flex-1 bg-white">
           <div
-            class="max-w-sm mx-auto w-full px-4 py-8 rounded-md bg-gray-200 lg:mt-44"
+            class="max-w-sm mx-auto w-full px-4 py-8 rounded-md bg-[#2E5909] lg:mt-44"
           >
-            <h1 class="text-3xl text-slate-800 font-bold mb-6">
+            <h1 class="text-3xl text-slate-200 font-bold mb-6">
               Welcome back! ✨
             </h1>
             <!-- Form -->
             <form @submit.prevent="login()">
               <div class="space-y-4">
                 <div>
-                  <label class="block text-sm font-medium mb-1" for="email"
+                  <label
+                    class="block text-sm font-medium mb-1 text-white"
+                    for="email"
                     >Email Address</label
                   >
                   <input
@@ -27,7 +27,9 @@
                   />
                 </div>
                 <div>
-                  <label class="block text-sm font-medium mb-1" for="password"
+                  <label
+                    class="block text-sm font-medium mb-1 text-white"
+                    for="password"
                     >Password</label
                   >
                   <input
@@ -60,7 +62,7 @@
 
       <!-- Image -->
       <div
-        class="hidden md:block absolute top-0 bottom-0 right-0 md:w-1/2 bg-[#2E5945]"
+        class="hidden md:block absolute top-0 bottom-0 right-0 md:w-1/2 bg-white"
         aria-hidden="true"
       >
         <!-- <img
@@ -69,8 +71,8 @@
           alt=""
         /> -->
         <img
-          src="https://javahouseafrica.com/wp-content/uploads/2024/07/logo-java-house.svg"
-          class="my-auto mx-auto w-[40rem] object-contain mt-72 rounded-lg"
+          src="../images/ecodeli.jpeg"
+          class="my-auto mx-auto w-[40rem] object-contain mt-12 rounded-lg"
           alt=""
         />
       </div>

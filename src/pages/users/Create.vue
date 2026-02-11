@@ -58,7 +58,7 @@
                   <input
                     :id="user.key"
                     class="w-full rounded-md border-2 border-slate-400 text-slate-900"
-                    type="text"
+                    :type="user.type ?? 'text'"
                     :placeholder="user.label"
                     v-model="user.model"
                   />
@@ -193,6 +193,12 @@ export default {
         type: "text",
         label: "KRA PIN",
       },
+      {
+        key: "license_expiry_date",
+        model: "license_expiry_date",
+        type: "date",
+        label: "License Expiry Date",
+      },
     ]);
 
     const documents = ref([
@@ -223,8 +229,20 @@ export default {
       {
         key: "Passport Photo",
         model: "passport",
-        accept: ".jog,.png",
+        accept: ".jpg,.png",
         label: "Passport Photo",
+      },
+      {
+        key: "Certificate of Good Conduct",
+        model: "good_conduct",
+        accept: ".pdf",
+        label: "Certificate of Good Conduct",
+      },
+      {
+        key: "Letter from local chief",
+        model: "letter_from_local_chief",
+        accept: ".pdf",
+        label: "Letter from local chief",
       },
     ]);
 
