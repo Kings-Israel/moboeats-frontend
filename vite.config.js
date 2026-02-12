@@ -9,7 +9,7 @@ export default defineConfig({
   },
   base:
     process.env.NODE_ENV == "production"
-      ? "https://guardnow.delivery.amaniaccess.com"
+      ? "https://admin.ecodeli.amaniaccess.com"
       : "",
   plugins: [vue()],
   resolve: {
