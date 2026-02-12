@@ -266,6 +266,51 @@
                 </a>
               </div>
             </router-link>
+            <!-- Motorbikes -->
+            <router-link
+              v-if="permissions.includes('view motorbikes')"
+              custom
+              v-slot="{ href, navigate, isExactActive }"
+              :to="{ name: 'motorbikes' }"
+            >
+              <div
+                class="px-3 py-2 rounded-sm mb-0.5 text-slate-800 truncate transition duration-150 flex items-center gap-2"
+                :class="isExactActive && 'bg-[#1c2e2a] rounded-xl'"
+              >
+                <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
+                  <path
+                    class="fill-current"
+                    :class="
+                      currentRoute.fullPath.includes('motorbikes')
+                        ? 'text-yellow-500'
+                        : 'text-yellow-600'
+                    "
+                    d="M18.974 8H22a2 2 0 012 2v6h-2v5a1 1 0 01-1 1h-2a1 1 0 01-1-1v-5h-2v-6a2 2 0 012-2h.974zM20 7a2 2 0 11-.001-3.999A2 2 0 0120 7zM2.974 8H6a2 2 0 012 2v6H6v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5H0v-6a2 2 0 012-2h.974zM4 7a2 2 0 11-.001-3.999A2 2 0 014 7z"
+                  />
+                  <path
+                    class="fill-current"
+                    :class="
+                      currentRoute.fullPath.includes('motorbikes')
+                        ? 'text-yellow-300'
+                        : 'text-yellow-400'
+                    "
+                    d="M12 6a3 3 0 110-6 3 3 0 010 6zm2 18h-4a1 1 0 01-1-1v-6H6v-6a3 3 0 013-3h6a3 3 0 013 3v6h-3v6a1 1 0 01-1 1z"
+                  />
+                </svg>
+                <a
+                  class="block transition duration-150 truncate"
+                  :class="
+                    isExactActive
+                      ? 'text-yellow-500'
+                      : 'text-black hover:text-slate-800'
+                  "
+                  :href="href"
+                  @click="navigate"
+                >
+                  <span class="text-sm font-medium">Motorbikes</span>
+                </a>
+              </div>
+            </router-link>
             <!-- Partners -->
             <router-link
               v-if="permissions.includes('view partners')"

@@ -211,7 +211,6 @@ export default {
       $http.get(`/frequently-asked-questions`)
         .then(response => {
           faqs.value = response.data.data.questions
-          console.log(faqs.value)
         })
         .catch(error => {
           console.log(error)

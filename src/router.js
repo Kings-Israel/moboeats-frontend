@@ -96,6 +96,8 @@ import AddOperatingHours from './pages/restautants/AddOperatingHours.vue'
 import Countries from './pages/countries/Index.vue'
 import Create from './pages/users/Create.vue'
 
+import Motorbikes from './pages/motorbikes/Index.vue'
+
 const routerHistory = createWebHistory()
 
 const router = createRouter({
@@ -145,6 +147,14 @@ const router = createRouter({
       path: '/riders',
       component: Riders,
       name: 'riders',
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/motorbikes',
+      component: Motorbikes,
+      name: 'motorbikes',
       meta: {
         requiresAuth: true,
       },
