@@ -209,7 +209,7 @@ export default {
     const addSubCategoryStatus = ref('2')
     const addSubCategoryImage = ref(null)
 
-    const sub_category_search = ref('Groceries')
+    const sub_category_search = ref('Coffee')
 
     const addCategory = () => {
       const formData = new FormData()
