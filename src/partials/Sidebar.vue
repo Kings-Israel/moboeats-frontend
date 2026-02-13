@@ -602,7 +602,6 @@
             </SidebarLinkGroup>
             <!-- Marketing  -->
             <SidebarLinkGroup
-              class="hidden"
               v-if="
                 permissions.includes('view marketing posters') ||
                 permissions.includes('add/edit marketing posters')
