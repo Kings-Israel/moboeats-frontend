@@ -610,7 +610,7 @@
               :activeCondition="currentRoute.fullPath.includes('marketing')"
             >
               <a
-                class="block text-slate-200 truncate transition duration-150"
+                class="block text-slate-800 truncate transition duration-150"
                 :class="
                   currentRoute.fullPath.includes('marketing')
                     ? 'hover:text-slate-200'
@@ -687,7 +687,7 @@
                         :class="
                           isExactActive
                             ? 'text-yellow-500'
-                            : 'text-yellow-400 hover:text-slate-200'
+                            : 'text-yellow-400 hover:text-slate-800'
                         "
                         :href="href"
                         @click="navigate"
