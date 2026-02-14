@@ -663,7 +663,7 @@
                 <form
                   @submit.prevent="updateSetting(setting.name)"
                   method="post"
-                  v-if="setting.name == 'Base Groceries Service Charge Rate'"
+                  v-if="setting.name == 'Base Coffee Service Charge Rate'"
                 >
                   <input
                     type="number"
@@ -705,7 +705,7 @@
           </div>
         </div>
       </div>
-      <div
+      <!-- <div
         class="mx-8 mb-4 w-1/4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
       >
         <form class="w-full p-8 flex flex-col" @submit.prevent="getQrCode">
@@ -724,7 +724,7 @@
             Get
           </button>
         </form>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
