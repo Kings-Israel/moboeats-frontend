@@ -925,7 +925,7 @@ export default {
               toast.success("Base Rate updated successfully");
             });
           break;
-        case "Base Groceries Service Charge Rate":
+        case "Base Coffee Service Charge Rate":
           await $http
             .post("/admin/base-rate/grocery/update", {
               rate: groceries_service_charge.value,
