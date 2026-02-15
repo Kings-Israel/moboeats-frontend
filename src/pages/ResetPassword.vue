@@ -42,7 +42,7 @@
                 </div>
               </div>
               <div class="flex justify-end mt-6">
-                <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white whitespace-nowrap">Send Reset Link</button>
+                <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white whitespace-nowrap">Send Reset Link</button>
               </div>
             </form>
           </div>

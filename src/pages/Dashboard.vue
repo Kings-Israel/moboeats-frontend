@@ -55,7 +55,7 @@
                 </div>
                 <div class="border-t border-slate-200 dark:border-slate-700">
                   <router-link
-                    class="block text-center text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium px-3 py-4"
+                    class="block text-center text-sm text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400 font-medium px-3 py-4"
                     to="/users"
                   >
                     <div class="flex items-center justify-center">
@@ -106,7 +106,7 @@
                 </div>
                 <div class="border-t border-slate-200 dark:border-slate-700">
                   <router-link
-                    class="block text-center text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium px-3 py-4"
+                    class="block text-center text-sm text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400 font-medium px-3 py-4"
                     to="/restaurants"
                   >
                     <div class="flex items-center justify-center">
@@ -157,7 +157,7 @@
                 </div>
                 <div class="border-t border-slate-200 dark:border-slate-700">
                   <router-link
-                    class="block text-center text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium px-3 py-4"
+                    class="block text-center text-sm text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400 font-medium px-3 py-4"
                     to="/riders"
                   >
                     <div class="flex items-center justify-center">
@@ -208,7 +208,7 @@
                 </div>
                 <div class="border-t border-slate-200 dark:border-slate-700">
                   <router-link
-                    class="block text-center text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium px-3 py-4"
+                    class="block text-center text-sm text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400 font-medium px-3 py-4"
                     :to="{ name: 'orders' }"
                   >
                     <div class="flex items-center justify-center">

@@ -81,7 +81,7 @@
         </div>
         <!-- Card footer -->
         <div class="text-center pt-4 pb-1 border-t border-slate-100 dark:border-slate-700">
-          <router-link class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" to="#0">Countries Report -&gt;</router-link>
+          <router-link class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" to="#0">Countries Report -&gt;</router-link>
         </div>
       </div>
     </div>

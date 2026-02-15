@@ -714,10 +714,10 @@
   <div class="col-span-full md:order-1 xl:order-none">
     <div class="h-full p-6 bg-slate-800 rounded-sm text-center xl:text-left xl:flex xl:justify-between xl:items-center">
       <div class="mb-4 xl:mb-0 xl:mr-4">
-        <div class="text-xl text-slate-50 font-semibold mb-1">Excepteur sint occaecat <span class="text-indigo-500">cupidatat</span> 🎁</div>
+        <div class="text-xl text-slate-50 font-semibold mb-1">Excepteur sint occaecat <span class="text-jh-red-600">cupidatat</span> 🎁</div>
         <div class="m-auto text-sm text-slate-400">Excepteur sint occaecat cupidatat non proidentsunt in culpa qui officia deserunt mollit!</div>
       </div>
-      <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white shrink-0">Reedem Now!</button>
+      <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white shrink-0">Reedem Now!</button>
     </div>
   </div>
 

@@ -64,13 +64,13 @@
                     <span class="text-sm ml-2">Email me about product news.</span>
                   </label>
                 </div>
-                <router-link class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3 whitespace-nowrap" to="/">Sign Up</router-link>
+                <router-link class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white ml-3 whitespace-nowrap" to="/">Sign Up</router-link>
               </div>
             </form>
             <!-- Footer -->
             <div class="pt-5 mt-6 border-t border-slate-200 dark:border-slate-700">
               <div class="text-sm">
-                Have an account? <router-link class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" to="/signin">Sign In</router-link>
+                Have an account? <router-link class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" to="/signin">Sign In</router-link>
               </div>
             </div>
           </div>

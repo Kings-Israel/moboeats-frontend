@@ -254,7 +254,7 @@
                       </div>
                       <div class="flex justify-end mt-6">
                         <button
-                          class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3"
+                          class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white ml-3"
                         >
                           Submit
                         </button>
@@ -375,7 +375,7 @@
                         <div class="flex justify-end bottom-2">
                           <button
                             type="submit"
-                            class="btn bg-indigo-500 hover:bg-indigo-600 text-white"
+                            class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white"
                           >
                             Submit
                           </button>
@@ -481,7 +481,7 @@
                         </td>
                         <td class="p-2 flex justify-center">
                           <button
-                            class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm"
+                            class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white btn-sm"
                           >
                             View
                           </button>
@@ -563,7 +563,7 @@
                         </td>
                         <td class="p-2 flex justify-center">
                           <button
-                            class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm"
+                            class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white btn-sm"
                           >
                             View
                           </button>
@@ -655,7 +655,7 @@
                         </td>
                         <td class="p-2 flex justify-center">
                           <button
-                            class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm"
+                            class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white btn-sm"
                           >
                             View
                           </button>

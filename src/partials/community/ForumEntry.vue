@@ -4,13 +4,13 @@
     <div class="mb-2">
       <ul class="inline-flex flex-wrap text-sm font-medium">
         <li class="flex items-center">
-          <router-link class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-500" to="/community/forum">Home</router-link>
+          <router-link class="text-slate-500 dark:text-slate-400 hover:text-jh-red-600 dark:hover:text-jh-red-600" to="/community/forum">Home</router-link>
           <svg class="h-4 w-4 fill-current text-slate-400 dark:text-slate-500 mx-2" viewBox="0 0 16 16">
             <path d="M6.6 13.4L5.2 12l4-4-4-4 1.4-1.4L12 8z" />
           </svg>
         </li>
         <li class="flex items-center">
-          <a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-500" href="#0">Discussion</a>
+          <a class="text-slate-500 dark:text-slate-400 hover:text-jh-red-600 dark:hover:text-jh-red-600" href="#0">Discussion</a>
         </li>
       </ul>
     </div>
@@ -32,7 +32,7 @@
       <!-- Meta -->
       <div class="flex flex-wrap text-sm">
         <div class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
-          <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">katemerlu</a>
+          <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">katemerlu</a>
         </div>
         <div class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
           <span class="text-slate-500">2h</span>
@@ -57,7 +57,7 @@
         </div>
       </div>
       <div class="text-right">
-        <button type="submit" class="btn-sm bg-indigo-500 hover:bg-indigo-600 text-white whitespace-nowrap">Reply -&gt;</button>
+        <button type="submit" class="btn-sm bg-jh-red-600 hover:bg-jh-red-700 text-white whitespace-nowrap">Reply -&gt;</button>
       </div>
     </div>
     <!-- Comments -->
@@ -70,7 +70,7 @@
           <div class="flex items-start">
             <!-- Comment upvote -->
             <div class="absolute top-0 left-0">
-              <button class="text-xs font-semibold text-left w-6 rounded-sm flex flex-col justify-center items-center text-slate-600 dark:text-slate-300 hover:text-indigo-500 dark:hover:text-indigo-500">
+              <button class="text-xs font-semibold text-left w-6 rounded-sm flex flex-col justify-center items-center text-slate-600 dark:text-slate-300 hover:text-jh-red-600 dark:hover:text-jh-red-600">
                 <svg class="inline-flex fill-slate-400 dark:fill-slate-500 mt-1.5 mb-1.5" width="12" height="6" xmlns="http://www.w3.org/2000/svg">
                   <path d="m0 6 6-6 6 6z" />
                 </svg>
@@ -90,7 +90,7 @@
                   <a class="block mr-2" href="#0">
                     <img class="rounded-full" src="../../images/user-28-02.jpg" width="24" height="24" alt="User 02" />
                   </a>
-                  <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">ekuplu89</a>
+                  <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">ekuplu89</a>
                 </div>
                 <div class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
                   <a class="font-medium text-slate-500 hover:text-slate-600 dark:hover:text-slate-400" href="#0">Reply</a>
@@ -109,7 +109,7 @@
               <div class="flex items-start">
                 <!-- Comment upvote -->
                 <div class="absolute top-0 left-0">
-                  <button class="text-xs font-semibold text-left w-6 rounded-sm flex flex-col justify-center items-center text-slate-600 dark:text-slate-300 hover:text-indigo-500 dark:hover:text-indigo-500">
+                  <button class="text-xs font-semibold text-left w-6 rounded-sm flex flex-col justify-center items-center text-slate-600 dark:text-slate-300 hover:text-jh-red-600 dark:hover:text-jh-red-600">
                     <svg class="inline-flex fill-slate-400 dark:fill-slate-500 mt-1.5 mb-1.5" width="12" height="6" xmlns="http://www.w3.org/2000/svg">
                       <path d="m0 6 6-6 6 6z" />
                     </svg>
@@ -120,7 +120,7 @@
                 <div>
                   <!-- Comment text -->
                   <div class="grow text-sm text-slate-800 dark:text-slate-100 space-y-2 mb-2">
-                    <p>That's great advice, <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">@ekuplu89</a> 👏</p>
+                    <p>That's great advice, <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">@ekuplu89</a> 👏</p>
                   </div>
                   <!-- Comment footer -->
                   <div class="flex flex-wrap text-xs">
@@ -128,7 +128,7 @@
                       <a class="block mr-2" href="#0">
                         <img class="rounded-full" src="../../images/user-28-05.jpg" width="24" height="24" alt="User 05" />
                       </a>
-                      <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">ellielong</a>
+                      <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">ellielong</a>
                     </div>
                     <div class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
                       <a class="font-medium text-slate-500 hover:text-slate-600 dark:hover:text-slate-400" href="#0">Reply</a>
@@ -167,7 +167,7 @@
                   <a class="block mr-2" href="#0">
                     <img class="rounded-full" src="../../images/user-28-01.jpg" width="24" height="24" alt="User 01" />
                   </a>
-                  <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">markcuttik</a>
+                  <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">markcuttik</a>
                 </div>
                 <div class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
                   <a class="font-medium text-slate-500 hover:text-slate-600 dark:hover:text-slate-400" href="#0">Reply</a>
@@ -185,7 +185,7 @@
           <div class="flex items-start">
             <!-- Comment upvote -->
             <div class="absolute top-0 left-0">
-              <button class="text-xs font-semibold text-left w-6 rounded-sm flex flex-col justify-center items-center text-slate-600 dark:text-slate-300 hover:text-indigo-500 dark:hover:text-indigo-500">
+              <button class="text-xs font-semibold text-left w-6 rounded-sm flex flex-col justify-center items-center text-slate-600 dark:text-slate-300 hover:text-jh-red-600 dark:hover:text-jh-red-600">
                 <svg class="inline-flex fill-slate-400 dark:fill-slate-500 mt-1.5 mb-1.5" width="12" height="6" xmlns="http://www.w3.org/2000/svg">
                   <path d="m0 6 6-6 6 6z" />
                 </svg>
@@ -204,7 +204,7 @@
                   <a class="block mr-2" href="#0">
                     <img class="rounded-full" src="../../images/user-28-09.jpg" width="24" height="24" alt="User 09" />
                   </a>
-                  <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">davidp1</a>
+                  <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">davidp1</a>
                 </div>
                 <div class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
                   <a class="font-medium text-slate-500 hover:text-slate-600 dark:hover:text-slate-400" href="#0">Reply</a>
@@ -223,7 +223,7 @@
               <div class="flex items-start">
                 <!-- Comment upvote -->
                 <div class="absolute top-0 left-0">
-                  <button class="text-xs font-semibold text-left w-6 rounded-sm flex flex-col justify-center items-center text-slate-600 dark:text-slate-300 hover:text-indigo-500 dark:hover:text-indigo-500">
+                  <button class="text-xs font-semibold text-left w-6 rounded-sm flex flex-col justify-center items-center text-slate-600 dark:text-slate-300 hover:text-jh-red-600 dark:hover:text-jh-red-600">
                     <svg class="inline-flex fill-slate-400 dark:fill-slate-500 mt-1.5 mb-1.5" width="12" height="6" xmlns="http://www.w3.org/2000/svg">
                       <path d="m0 6 6-6 6 6z" />
                     </svg>
@@ -242,7 +242,7 @@
                       <a class="block mr-2" href="#0">
                         <img class="rounded-full" src="../../images/user-28-05.jpg" width="24" height="24" alt="User 05" />
                       </a>
-                      <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">ellielong</a>
+                      <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">ellielong</a>
                     </div>
                     <div class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
                       <a class="font-medium text-slate-500 hover:text-slate-600 dark:hover:text-slate-400" href="#0">Reply</a>
@@ -261,7 +261,7 @@
                   <div class="flex items-start">
                     <!-- Comment upvote -->
                     <div class="absolute top-0 left-0">
-                      <button class="text-xs font-semibold text-left w-6 rounded-sm flex flex-col justify-center items-center text-slate-600 dark:text-slate-300 hover:text-indigo-500 dark:hover:text-indigo-500">
+                      <button class="text-xs font-semibold text-left w-6 rounded-sm flex flex-col justify-center items-center text-slate-600 dark:text-slate-300 hover:text-jh-red-600 dark:hover:text-jh-red-600">
                         <svg class="inline-flex fill-slate-400 dark:fill-slate-500 mt-1.5 mb-1.5" width="12" height="6" xmlns="http://www.w3.org/2000/svg">
                           <path d="m0 6 6-6 6 6z" />
                         </svg>
@@ -280,7 +280,7 @@
                           <a class="block mr-2" href="#0">
                             <img class="rounded-full" src="../../images/user-28-09.jpg" width="24" height="24" alt="User 09" />
                           </a>
-                          <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">davidp1</a>
+                          <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">davidp1</a>
                         </div>
                         <div class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
                           <a class="font-medium text-slate-500 hover:text-slate-600 dark:hover:text-slate-400" href="#0">Reply</a>
@@ -302,7 +302,7 @@
           <div class="flex items-start">
             <!-- Comment upvote -->
             <div class="absolute top-0 left-0">
-              <button class="text-xs font-semibold text-left w-6 rounded-sm flex flex-col justify-center items-center text-slate-600 dark:text-slate-300 hover:text-indigo-500 dark:hover:text-indigo-500">
+              <button class="text-xs font-semibold text-left w-6 rounded-sm flex flex-col justify-center items-center text-slate-600 dark:text-slate-300 hover:text-jh-red-600 dark:hover:text-jh-red-600">
                 <svg class="inline-flex fill-slate-400 dark:fill-slate-500 mt-1.5 mb-1.5" width="12" height="6" xmlns="http://www.w3.org/2000/svg">
                   <path d="m0 6 6-6 6 6z" />
                 </svg>
@@ -321,7 +321,7 @@
                   <a class="block mr-2" href="#0">
                     <img class="rounded-full" src="../../images/user-28-10.jpg" width="24" height="24" alt="User 10" />
                   </a>
-                  <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">patrick2</a>
+                  <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">patrick2</a>
                 </div>
                 <div class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
                   <a class="font-medium text-slate-500 hover:text-slate-600 dark:hover:text-slate-400" href="#0">Reply</a>
@@ -336,7 +336,7 @@
       </ul>
       <!-- View more link -->
       <div class="text-center mt-5">
-        <button class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400">View More Comments</button>
+        <button class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400">View More Comments</button>
       </div>
     </div>
   </article>

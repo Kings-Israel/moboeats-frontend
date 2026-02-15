@@ -11,7 +11,7 @@
         <div class="mb-4 border-b border-slate-200 dark:border-slate-700">
           <ul class="text-sm font-medium flex flex-nowrap -mx-4 sm:-mx-6 lg:-mx-8 overflow-x-scroll no-scrollbar">
             <li class="pb-3 mr-6 last:mr-0 first:pl-4 sm:first:pl-6 lg:first:pl-8 last:pr-4 sm:last:pr-6 lg:last:pr-8">
-              <a class="text-indigo-500 whitespace-nowrap" href="#0">View All</a>
+              <a class="text-jh-red-600 whitespace-nowrap" href="#0">View All</a>
             </li>
             <li class="pb-3 mr-6 last:mr-0 first:pl-4 sm:first:pl-6 lg:first:pl-8 last:pr-4 sm:last:pr-6 lg:last:pr-8">
               <a class="text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 whitespace-nowrap" href="#0">Utility</a>
@@ -315,7 +315,7 @@
                   <!-- Left side -->
                   <div class="text-sm text-slate-500 dark:text-slate-400 italic">400+ Apps</div>
                   <!-- Right side -->
-                  <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Explore -&gt;</a>
+                  <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Explore -&gt;</a>
                 </div>
               </footer>
             </div>
@@ -335,7 +335,7 @@
                   <!-- Left side -->
                   <div class="text-sm text-slate-500 dark:text-slate-400 italic">320+ Apps</div>
                   <!-- Right side -->
-                  <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Explore -&gt;</a>
+                  <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Explore -&gt;</a>
                 </div>
               </footer>
             </div>
@@ -355,7 +355,7 @@
                   <!-- Left side -->
                   <div class="text-sm text-slate-500 dark:text-slate-400 italic">270+ Apps</div>
                   <!-- Right side -->
-                  <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Explore -&gt;</a>
+                  <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Explore -&gt;</a>
                 </div>
               </footer>
             </div>

@@ -127,7 +127,7 @@
               </div>
               <div class="flex items-center justify-end mt-6 mx-2 lg:mx-0">
                 <router-link v-if="status == 'update'" class="btn bg-red-600 text-white" :to="{ name: 'restaurant-details', params: { id: restaurant.uuid }}">Cancel</router-link>
-                <button class="btn bg-[#2E5945] hover:bg-indigo-600 text-white ml-3 whitespace-nowrap" ref="submit_button" type="submit">{{ status == 'create' ? 'Create' : 'Update' }}</button>
+                <button class="btn bg-[#2E5945] hover:bg-jh-red-700 text-white ml-3 whitespace-nowrap" ref="submit_button" type="submit">{{ status == 'create' ? 'Create' : 'Update' }}</button>
               </div>
             </form>
           </div>

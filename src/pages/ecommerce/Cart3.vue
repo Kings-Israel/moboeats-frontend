@@ -25,7 +25,7 @@
                     <span>-&gt;</span>
                     <span class="text-slate-500 dark:text-slate-400">Payment</span>
                     <span>-&gt;</span>
-                    <span class="text-indigo-500">Confirm</span>
+                    <span class="text-jh-red-600">Confirm</span>
                   </div>
                 </div>
                 <header class="mb-6">
@@ -87,7 +87,7 @@
                         </div>
                       </div>
                       <div class="text-right">
-                        <button type="submit" class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-indigo-500">Download Invoice</button>
+                        <button type="submit" class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-jh-red-600">Download Invoice</button>
                       </div>
                     </div>
                   </form>
@@ -208,7 +208,7 @@
 
                     <div class="mt-6">
                       <div class="mb-4">
-                        <router-link to="/ecommerce/pay" class="btn w-full bg-indigo-500 hover:bg-indigo-600 text-white">View Your Order</router-link>
+                        <router-link to="/ecommerce/pay" class="btn w-full bg-jh-red-600 hover:bg-jh-red-700 text-white">View Your Order</router-link>
                       </div>
                       <div class="text-xs text-slate-500 italic text-center">Should you ever change your mind, we offer a 14-day, no-questions-asked refund policy.</div>
                     </div>

@@ -18,7 +18,7 @@
             <!-- Right -->
             <div class="text-sm text-slate-600 dark:text-slate-400 ml-4">
               <span class="mr-3">Mastercard ending 9282</span>
-              <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Edit</a>
+              <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Edit</a>
             </div>
           </li>
           <li class="md:flex md:justify-between md:items-center py-3 border-b border-slate-200 dark:border-slate-700">
@@ -27,7 +27,7 @@
             <!-- Right -->
             <div class="text-sm text-slate-600 dark:text-slate-400 ml-4">
               <span class="mr-3">Annually</span>
-              <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Edit</a>
+              <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Edit</a>
             </div>
           </li>
           <li class="md:flex md:justify-between md:items-center py-3 border-b border-slate-200 dark:border-slate-700">
@@ -36,7 +36,7 @@
             <!-- Right -->
             <div class="text-sm text-slate-600 dark:text-slate-400 ml-4">
               <span class="mr-3">UK849700927</span>
-              <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Edit</a>
+              <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Edit</a>
             </div>
           </li>
           <li class="md:flex md:justify-between md:items-center py-3 border-b border-slate-200 dark:border-slate-700">
@@ -45,7 +45,7 @@
             <!-- Right -->
             <div class="text-sm text-slate-600 dark:text-slate-400 ml-4">
               <span class="mr-3">34 Savoy Street, London, UK, 24E8X</span>
-              <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Edit</a>
+              <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Edit</a>
             </div>
           </li>
           <li class="md:flex md:justify-between md:items-center py-3 border-b border-slate-200 dark:border-slate-700">
@@ -54,7 +54,7 @@
             <!-- Right -->
             <div class="text-sm text-slate-600 dark:text-slate-400 ml-4">
               <span class="mr-3">hello@cruip.com</span>
-              <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Edit</a>
+              <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Edit</a>
             </div>
           </li>
         </ul>
@@ -97,9 +97,9 @@
               </td>
               <td class="w-full block md:w-auto md:table-cell py-0.5 md:py-2">
                 <div class="text-right flex items-center md:justify-end">
-                  <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">HTML</a>
+                  <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">HTML</a>
                   <span class="block w-px h-4 bg-slate-200 dark:bg-slate-700 mx-2" aria-hidden="true"></span>
-                  <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">PDF</a>
+                  <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">PDF</a>
                 </div>
               </td>
             </tr>
@@ -116,9 +116,9 @@
               </td>
               <td class="w-full block md:w-auto md:table-cell py-0.5 md:py-2">
                 <div class="text-right flex items-center md:justify-end">
-                  <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">HTML</a>
+                  <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">HTML</a>
                   <span class="block w-px h-4 bg-slate-200 dark:bg-slate-700 mx-2" aria-hidden="true"></span>
-                  <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">PDF</a>
+                  <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">PDF</a>
                 </div>
               </td>
             </tr>
@@ -132,7 +132,7 @@
       <div class="flex flex-col px-6 py-5 border-t border-slate-200 dark:border-slate-700">
         <div class="flex self-end">
           <button class="btn dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-600 dark:text-slate-300">Cancel</button>
-          <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3">Save Changes</button>
+          <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white ml-3">Save Changes</button>
         </div>
       </div>
     </footer>

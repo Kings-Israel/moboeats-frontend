@@ -14,7 +14,7 @@
           <label for="message-input" class="sr-only">Type a message</label>
           <input v-model="messageText" id="message-input" class="form-input w-full bg-slate-100 dark:bg-slate-800 border-transparent dark:border-transparent focus:bg-white dark:focus:bg-slate-800 placeholder-slate-500" type="text" placeholder="Aa" />
         </div>
-        <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white whitespace-nowrap">Send -&gt;</button>
+        <button type="submit" class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white whitespace-nowrap">Send -&gt;</button>
       </form>
     </div>
   </div>

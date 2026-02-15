@@ -33,7 +33,7 @@
                 <div v-if="category.created_at" class="text-center text-sky-500">{{ moment(category.created_at).format('Do MMM Y') }}</div>
               </td>
               <td class="p-2">
-                <button class="btn btn-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" @click="editCategory(category)">Edit</button>
+                <button class="btn btn-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" @click="editCategory(category)">Edit</button>
               </td>
             </tr>
           </tbody>
@@ -66,7 +66,7 @@
           </div>
         </div>
         <div class="flex justify-end mt-6">
-          <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3">Submit</button>
+          <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white ml-3">Submit</button>
         </div>
       </form>
     </div>
@@ -105,7 +105,7 @@
                 <div v-if="category.created_at" class="text-center text-sky-500">{{ moment(category.created_at).format('Do MMM Y') }}</div>
               </td>
               <td class="p-2">
-                <button class="btn btn-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" @click="editSubCategory(category)">Edit</button>
+                <button class="btn btn-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" @click="editSubCategory(category)">Edit</button>
               </td>
             </tr>
           </tbody>
@@ -153,7 +153,7 @@
         </div>
         </div>
         <div class="flex justify-end mt-6">
-          <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3">Submit</button>
+          <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white ml-3">Submit</button>
         </div>
       </form>
     </div>

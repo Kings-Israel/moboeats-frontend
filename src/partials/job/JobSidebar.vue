@@ -1,7 +1,7 @@
 <template>
   <div class="space-y-8">
     <!-- Alert -->
-    <div class="relative bg-indigo-200 dark:bg-indigo-500 rounded-sm p-5 min-w-60">
+    <div class="relative bg-jh-red-100 dark:bg-jh-red-600 rounded-sm p-5 min-w-60">
       <div class="absolute bottom-0 -mb-3">
         <svg width="44" height="42" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -25,9 +25,9 @@
         </svg>
       </div>
       <div class="relative">
-        <div class="text-sm font-medium text-slate-800 dark:text-indigo-200 mb-2">Remember to keep track of your job research.</div>
+        <div class="text-sm font-medium text-slate-800 dark:text-jh-red-200 mb-2">Remember to keep track of your job research.</div>
         <div class="text-right">
-          <a class="text-sm font-medium text-indigo-500 dark:text-indigo-50 hover:text-indigo-600 dark:hover:text-white" href="#0">Create Alert -&gt;</a>
+          <a class="text-sm font-medium text-jh-red-600 dark:text-indigo-50 hover:text-jh-red-700 dark:hover:text-white" href="#0">Create Alert -&gt;</a>
         </div>
       </div>
     </div>

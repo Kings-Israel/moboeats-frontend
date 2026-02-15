@@ -38,10 +38,10 @@
             v-for="option in options"
             :key="option.id"
             class="flex items-center w-full hover:bg-slate-50 hover:dark:bg-slate-700/20 py-1 px-3 cursor-pointer"
-            :class="option.id === selected && 'text-indigo-500'"
+            :class="option.id === selected && 'text-jh-red-600'"
             @click="selected = option.id; dropdownOpen = false"
           >
-            <svg class="shrink-0 mr-2 fill-current text-indigo-500" :class="option.id !== selected && 'invisible'" width="12" height="9" viewBox="0 0 12 9">
+            <svg class="shrink-0 mr-2 fill-current text-jh-red-600" :class="option.id !== selected && 'invisible'" width="12" height="9" viewBox="0 0 12 9">
               <path d="M10.28.28L3.989 6.575 1.695 4.28A1 1 0 00.28 5.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28.28z" />
             </svg>
             <span>{{option.period}}</span>

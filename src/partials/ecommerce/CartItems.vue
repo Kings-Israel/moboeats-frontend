@@ -189,7 +189,7 @@
   </ul>
 
   <div class="mt-6 text-center lg:text-left">
-    <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">&lt;- Back To Shopping</a>
+    <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">&lt;- Back To Shopping</a>
   </div>
 </template>
 

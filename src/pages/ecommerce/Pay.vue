@@ -103,7 +103,7 @@
           <!-- Form footer -->
           <div class="mt-6">
             <div class="mb-4">
-              <button class="btn w-full bg-indigo-500 hover:bg-indigo-600 text-white">Pay $253.00</button>
+              <button class="btn w-full bg-jh-red-600 hover:bg-jh-red-700 text-white">Pay $253.00</button>
             </div>
             <div class="text-xs text-slate-500 italic text-center">You'll be charged $253, including $48 for VAT in Italy</div>
           </div>
@@ -113,7 +113,7 @@
         <div v-if="!card">
           <div>
             <div class="mb-4">
-              <button class="btn w-full bg-indigo-500 hover:bg-indigo-600 text-white">Pay with PayPal - $253.00</button>
+              <button class="btn w-full bg-jh-red-600 hover:bg-jh-red-700 text-white">Pay with PayPal - $253.00</button>
             </div>
             <div class="text-xs text-slate-500 italic text-center">You'll be charged $253, including $48 for VAT in Italy</div>
           </div>

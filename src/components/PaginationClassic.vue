@@ -3,11 +3,11 @@
     <nav class="mb-4 sm:mb-0 sm:order-1" role="navigation" aria-label="Navigation">
       <ul class="flex justify-center">
         <li class="ml-3 first:ml-0">
-          <a v-if="prev_page" @click="changePage(prev_page)" class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-indigo-500 hover:cursor-pointer">&lt;- Previous</a>
+          <a v-if="prev_page" @click="changePage(prev_page)" class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-jh-red-600 hover:cursor-pointer">&lt;- Previous</a>
           <span v-else class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-300 dark:text-slate-600">&lt;- Previous</span>
         </li>
         <li class="ml-3 first:ml-0">
-          <a v-if="next_page" @click="changePage(next_page)" class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-indigo-500 hover:cursor-pointer">Next -&gt;</a>
+          <a v-if="next_page" @click="changePage(next_page)" class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-jh-red-600 hover:cursor-pointer">Next -&gt;</a>
           <span v-else class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-300 dark:text-slate-600">Next -&gt;</span>
         </li>
       </ul>

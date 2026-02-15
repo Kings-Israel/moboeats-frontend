@@ -10,7 +10,7 @@
             </div>
           </div>
           <div class="flex items-center ml-2">
-            <div class="w-2 h-2 bg-indigo-400 rounded-full"></div>
+            <div class="w-2 h-2 bg-jh-red-400 rounded-full"></div>
           </div>
         </button>
       </li>

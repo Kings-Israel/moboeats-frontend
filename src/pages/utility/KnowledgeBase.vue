@@ -13,7 +13,7 @@
       <main class="grow">
 
         <!-- Search area -->
-        <div class="relative flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-8 lg:py-16 bg-indigo-500 dark:bg-transparent dark:bg-gradient-to-b dark:from-indigo-500/70 dark:to-indigo-500/30 overflow-hidden">
+        <div class="relative flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-8 lg:py-16 bg-jh-red-600 dark:bg-transparent dark:bg-gradient-to-b dark:from-indigo-500/70 dark:to-indigo-500/30 overflow-hidden">
           <!-- Glow -->
           <div class="absolute pointer-events-none" aria-hidden="true">
               <div class="w-64 h-64 rounded-full bg-white bg-opacity-30 dark:bg-opacity-10 blur-3xl"></div>
@@ -86,7 +86,7 @@
                   <div class="flex flex-col h-full">
                     <div class="grow mb-2">
                       <!-- Icon -->
-                      <div class="inline-flex w-12 h-12 rounded-full bg-indigo-400">
+                      <div class="inline-flex w-12 h-12 rounded-full bg-jh-red-400">
                         <svg class="w-12 h-12" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                           <defs>
                             <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="icon1-a">
@@ -106,7 +106,7 @@
                     </div>
                     <!-- Link -->
                     <div>
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Explore -&gt;</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Explore -&gt;</a>
                     </div>
                   </div>
                 </div>
@@ -116,7 +116,7 @@
                   <div class="flex flex-col h-full">
                     <div class="grow mb-2">
                       <!-- Icon -->
-                      <div class="inline-flex w-12 h-12 rounded-full bg-indigo-400">
+                      <div class="inline-flex w-12 h-12 rounded-full bg-jh-red-400">
                         <svg class="w-12 h-12" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                           <defs>
                             <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="icon2-a">
@@ -136,7 +136,7 @@
                     </div>
                     <!-- Link -->
                     <div>
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Explore -&gt;</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Explore -&gt;</a>
                     </div>
                   </div>
                 </div>
@@ -146,7 +146,7 @@
                   <div class="flex flex-col h-full">
                     <div class="grow mb-2">
                       <!-- Icon -->
-                      <div class="inline-flex w-12 h-12 rounded-full bg-indigo-400">
+                      <div class="inline-flex w-12 h-12 rounded-full bg-jh-red-400">
                         <svg class="w-12 h-12" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                           <defs>
                             <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="icon3-a">
@@ -168,7 +168,7 @@
                     </div>
                     <!-- Link -->
                     <div>
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Explore -&gt;</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Explore -&gt;</a>
                     </div>
                   </div>
                 </div>
@@ -178,7 +178,7 @@
                   <div class="flex flex-col h-full">
                     <div class="grow mb-2">
                       <!-- Icon -->
-                      <div class="inline-flex w-12 h-12 rounded-full bg-indigo-400">
+                      <div class="inline-flex w-12 h-12 rounded-full bg-jh-red-400">
                         <svg class="w-12 h-12" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                           <defs>
                             <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="icon4-a">
@@ -199,7 +199,7 @@
                     </div>
                     <!-- Link -->
                     <div>
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Explore -&gt;</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Explore -&gt;</a>
                     </div>
                   </div>
                 </div>
@@ -209,7 +209,7 @@
                   <div class="flex flex-col h-full">
                     <div class="grow mb-2">
                       <!-- Icon -->
-                      <div class="inline-flex w-12 h-12 rounded-full bg-indigo-400">
+                      <div class="inline-flex w-12 h-12 rounded-full bg-jh-red-400">
                         <svg class="w-12 h-12" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                           <defs>
                             <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="icon5-a">
@@ -229,7 +229,7 @@
                     </div>
                     <!-- Link -->
                     <div>
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Explore -&gt;</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Explore -&gt;</a>
                     </div>
                   </div>
                 </div>
@@ -239,7 +239,7 @@
                   <div class="flex flex-col h-full">
                     <div class="grow mb-2">
                       <!-- Icon -->
-                      <div class="inline-flex w-12 h-12 rounded-full bg-indigo-400">
+                      <div class="inline-flex w-12 h-12 rounded-full bg-jh-red-400">
                         <svg class="w-12 h-12" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                           <defs>
                             <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="icon6-a">
@@ -260,7 +260,7 @@
                     </div>
                     <!-- Link -->
                     <div>
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Explore -&gt;</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Explore -&gt;</a>
                     </div>
                   </div>
                 </div>
@@ -270,7 +270,7 @@
                   <div class="flex flex-col h-full">
                     <div class="grow mb-2">
                       <!-- Icon -->
-                      <div class="inline-flex w-12 h-12 rounded-full bg-indigo-400">
+                      <div class="inline-flex w-12 h-12 rounded-full bg-jh-red-400">
                         <svg class="w-12 h-12" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                           <defs>
                             <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="icon7-a">
@@ -291,7 +291,7 @@
                     </div>
                     <!-- Link -->
                     <div>
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Explore -&gt;</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Explore -&gt;</a>
                     </div>
                   </div>
                 </div>
@@ -301,7 +301,7 @@
                   <div class="flex flex-col h-full">
                     <div class="grow mb-2">
                       <!-- Icon -->
-                      <div class="inline-flex w-12 h-12 rounded-full bg-indigo-400">
+                      <div class="inline-flex w-12 h-12 rounded-full bg-jh-red-400">
                         <svg class="w-12 h-12" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                           <defs>
                             <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="icon8-a">
@@ -321,7 +321,7 @@
                     </div>
                     <!-- Link -->
                     <div>
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Explore -&gt;</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Explore -&gt;</a>
                     </div>
                   </div>
                 </div>
@@ -352,7 +352,7 @@
                       </div>
                       <!-- Link -->
                       <div>
-                        <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">View -&gt;</a>
+                        <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">View -&gt;</a>
                       </div>
                     </div>
                   </div>
@@ -373,7 +373,7 @@
                       </div>
                       <!-- Link -->
                       <div>
-                        <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">View -&gt;</a>
+                        <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">View -&gt;</a>
                       </div>
                     </div>
                   </div>
@@ -394,7 +394,7 @@
                       </div>
                       <!-- Link -->
                       <div>
-                        <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">View -&gt;</a>
+                        <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">View -&gt;</a>
                       </div>
                     </div>
                   </div>
@@ -415,7 +415,7 @@
                       </div>
                       <!-- Link -->
                       <div>
-                        <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">View -&gt;</a>
+                        <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">View -&gt;</a>
                       </div>
                     </div>
                   </div>

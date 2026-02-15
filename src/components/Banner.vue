@@ -45,7 +45,7 @@ export default {
         case 'success':
           return 'bg-emerald-500';
         default:
-          return 'bg-indigo-500';
+          return 'bg-jh-red-600';
       }
     }
     

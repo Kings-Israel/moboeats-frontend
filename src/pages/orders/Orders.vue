@@ -103,7 +103,7 @@
                         <div class="text-left">{{moment(order.created_at).format('Do MMMM Y')}}</div>
                       </td>
                       <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
-                        <router-link :to="{ name: 'order-details', params: { id: order.uuid } }" class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm">View</router-link>
+                        <router-link :to="{ name: 'order-details', params: { id: order.uuid } }" class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white btn-sm">View</router-link>
                       </td>
                     </tr>
                   </tbody>

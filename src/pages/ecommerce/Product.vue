@@ -19,7 +19,7 @@
             <!-- Content -->
             <div>
               <div class="mb-3">
-                <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">&lt;- Back To Listing</a>
+                <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">&lt;- Back To Listing</a>
               </div>
               <header class="mb-4">
                 <!-- Title -->
@@ -310,7 +310,7 @@
                 </ul>
                 <!-- Load More -->
                 <div class="text-center">
-                  <button class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-indigo-500">Load More Reviews</button>
+                  <button class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-jh-red-600">Load More Reviews</button>
                 </div>
               </div>
 
@@ -497,7 +497,7 @@
                 </ul>
                 <!-- Load More -->
                 <div class="text-center">
-                  <button class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-indigo-500">Load More Stuff</button>
+                  <button class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-jh-red-600">Load More Stuff</button>
                 </div>
               </div>
 
@@ -520,9 +520,9 @@
                     </button>
                   </li>
                   <li>
-                    <button class="w-full h-full text-left py-3 px-4 rounded bg-white dark:bg-slate-800 border-2 border-indigo-400 dark:border-indigo-500 shadow-sm duration-150 ease-in-out">
+                    <button class="w-full h-full text-left py-3 px-4 rounded bg-white dark:bg-slate-800 border-2 border-jh-red-400 dark:border-jh-red-600 shadow-sm duration-150 ease-in-out">
                       <div class="flex flex-wrap items-center justify-between mb-0.5">
-                        <span class="font-semibold text-slate-800 dark:text-slate-100">Premium <span class="text-xs italic text-indigo-500 align-top">Best Value ✨</span></span>
+                        <span class="font-semibold text-slate-800 dark:text-slate-100">Premium <span class="text-xs italic text-jh-red-600 align-top">Best Value ✨</span></span>
                         <span class="font-medium text-emerald-600">$69.00</span>
                       </div>
                       <div class="text-sm">Lorem ipsum dolor sit amet elit sed do eiusmod.</div>
@@ -539,7 +539,7 @@
                   </li>
                 </ul>
                 <div class="mb-4">
-                  <a class="btn w-full bg-indigo-500 hover:bg-indigo-600 text-white" href="#0">Buy Now - $69.00</a>
+                  <a class="btn w-full bg-jh-red-600 hover:bg-jh-red-700 text-white" href="#0">Buy Now - $69.00</a>
                 </div>
                 <div class="text-xs text-slate-500 italic text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <a class="underline hover:no-underline" href="#0">Terms</a>.</div>
               </div>

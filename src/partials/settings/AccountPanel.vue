@@ -9,7 +9,7 @@
           <div class="mr-4">
             <img class="w-20 h-20 rounded-full" src="../../images/user-avatar-80.png" width="80" height="80" alt="User upload" />
           </div>
-          <button class="btn-sm bg-indigo-500 hover:bg-indigo-600 text-white">Change</button>
+          <button class="btn-sm bg-jh-red-600 hover:bg-jh-red-700 text-white">Change</button>
         </div>
       </section>
       <!-- Business Profile -->
@@ -40,7 +40,7 @@
             <label class="sr-only" for="email">Business email</label>
             <input id="email" class="form-input" type="email" />
           </div>
-          <button class="btn border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-sm text-indigo-500">Change</button>
+          <button class="btn border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-sm text-jh-red-600">Change</button>
         </div>
       </section>
       <!-- Password -->
@@ -48,7 +48,7 @@
         <h3 class="text-xl leading-snug text-slate-800 dark:text-slate-100 font-bold mb-1">Password</h3>
         <div class="text-sm">You can set a permanent password if you don't want to use temporary login codes.</div>
         <div class="mt-5">
-          <button class="btn border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-sm text-indigo-500">Set New Password</button>
+          <button class="btn border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-sm text-jh-red-600">Set New Password</button>
         </div>
       </section>
       <!-- Smart Sync -->
@@ -72,7 +72,7 @@
       <div class="flex flex-col px-6 py-5 border-t border-slate-200 dark:border-slate-700">
         <div class="flex self-end">
           <button class="btn dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-600 dark:text-slate-300">Cancel</button>
-          <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3">Save Changes</button>
+          <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white ml-3">Save Changes</button>
         </div>
       </div>
     </footer>

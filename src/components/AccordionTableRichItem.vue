@@ -44,7 +44,7 @@
             <div class="font-medium text-slate-800 dark:text-slate-100 mb-1">{{item.descriptionTitle}}</div>
             <div>{{item.descriptionBody}}</div>
           </div>
-          <button class="btn-xs bg-indigo-500 hover:bg-indigo-600 text-white">Approve</button>
+          <button class="btn-xs bg-jh-red-600 hover:bg-jh-red-700 text-white">Approve</button>
         </div>
       </td>
     </tr>

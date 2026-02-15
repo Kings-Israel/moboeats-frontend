@@ -41,7 +41,7 @@
             <div class="absolute bottom-0 w-full h-px bg-slate-200 dark:bg-slate-700" aria-hidden="true"></div>
             <ul class="relative text-sm font-medium flex flex-nowrap -mx-4 sm:-mx-6 lg:-mx-8 overflow-x-scroll no-scrollbar">
               <li class="mr-6 last:mr-0 first:pl-4 sm:first:pl-6 lg:first:pl-8 last:pr-4 sm:last:pr-6 lg:last:pr-8">
-                <a class="block pb-3 text-indigo-500 whitespace-nowrap border-b-2 border-indigo-500" href="#0">Primary</a>
+                <a class="block pb-3 text-jh-red-600 whitespace-nowrap border-b-2 border-jh-red-600" href="#0">Primary</a>
               </li>
               <li class="mr-6 last:mr-0 first:pl-4 sm:first:pl-6 lg:first:pl-8 last:pr-4 sm:last:pr-6 lg:last:pr-8">
                 <a class="block pb-3 text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 whitespace-nowrap" href="#0">Social</a>
@@ -56,7 +56,7 @@
             <div class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase mb-3">Inbox (44)</div>
             <ul class="mb-6">
               <li class="-mx-2">
-                <button class="flex w-full p-2 rounded bg-indigo-100 dark:bg-indigo-500/30 text-left" @click.stop="$emit('close-inboxsidebar')">
+                <button class="flex w-full p-2 rounded bg-jh-red-50 dark:bg-jh-red-600/30 text-left" @click.stop="$emit('close-inboxsidebar')">
                   <img class="w-8 h-8 rounded-full mr-2" src="../../images/user-32-01.jpg" width="32" height="32" alt="User 01" />
                   <div class="grow truncate">
                     <div class="flex items-center justify-between mb-1.5">

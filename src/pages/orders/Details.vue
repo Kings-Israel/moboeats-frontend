@@ -69,7 +69,7 @@
                     <option v-for="rider in riders" :key="rider.id" :value="rider.id">{{ rider.name }}</option>
                   </select>
                   <div class="flex justify-end mt-3">
-                    <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">Submit</button>
+                    <button type="submit" class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white">Submit</button>
                   </div>
                 </form>
                 <button v-if="order.status == 'Denied'" class="btn btn-lg w-full bg-red-600 text-white font-bold text-lg">Order Rejected</button>
@@ -106,7 +106,7 @@
                     <option v-for="table in restaurant_tables" :key="table.id" :value="table.id">{{ table.name }} - (Capacity - {{ table.seat_number }})</option>
                   </select>
                   <div class="flex justify-end mt-2">
-                    <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" @click="assignTables">Submit</button>
+                    <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white" @click="assignTables">Submit</button>
                   </div>
                 </modal-action>
                 <modal-action :id="'updateDeliveryStatusModal'" :add-class="'max-w-lg'" :modal-open="updateDeliveryStatusModal" @close-modal="updateDeliveryStatusModal = false">
@@ -117,7 +117,7 @@
                     <option value="cancelled">Cancelled</option>
                   </select>
                   <div class="flex justify-end mt-2">
-                    <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" @click="updateDineStatus(order)">Submit</button>
+                    <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white" @click="updateDineStatus(order)">Submit</button>
                   </div>
                 </modal-action>
                 <div class="grid grid-cols-2 gap-2">

@@ -29,12 +29,12 @@
               <div>
                 <div class="flex items-start space-x-3 mb-6">
                   <h2 class="text-2xl text-slate-800 dark:text-slate-100 font-bold">Nucleo</h2>
-                  <div class="text-xs inline-flex font-medium bg-indigo-100 dark:bg-indigo-500/30 text-indigo-600 dark:text-indigo-400 rounded-full text-center px-2.5 py-1">Recommended</div>
+                  <div class="text-xs inline-flex font-medium bg-jh-red-50 dark:bg-jh-red-600/30 text-jh-red-700 dark:text-jh-red-400 rounded-full text-center px-2.5 py-1">Recommended</div>
                 </div>
                 <div class="px-6 py-8 bg-slate-800 rounded-sm text-center xl:text-left xl:flex xl:flex-wrap xl:justify-between xl:items-center">
                   <div class="text-slate-300 mb-4 xl:mb-0 max-w-lg mx-auto xl:mx-0 2xl:max-w-none">99% of the icons used in Mosaic come from Nucleo; a huge library of 3K+ vector icons!</div>
                   <div class="inline-flex space-x-3">
-                    <a class="btn bg-indigo-500 hover:bg-indigo-600 text-white" href="https://nucleoapp.com/pricing" target="_blank" rel="noreferrer">Buy Nucleo</a>
+                    <a class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white" href="https://nucleoapp.com/pricing" target="_blank" rel="noreferrer">Buy Nucleo</a>
                     <a class="btn bg-slate-700 hover:bg-slate-600 text-white" href="https://nucleoapp.com/free-icons" target="_blank" rel="noreferrer">Download Free Pack</a>
                   </div>
                 </div>
@@ -49,7 +49,7 @@
                 <div class="px-6 py-8 bg-slate-800 rounded-sm text-center xl:text-left xl:flex xl:flex-wrap xl:justify-between xl:items-center">
                   <div class="text-slate-300 mb-4 xl:mb-0 max-w-lg mx-auto xl:mx-0 2xl:max-w-none">A set of 1250+ icons that are visually consistent with the style used in Mosaic!</div>
                   <div class="inline-flex space-x-3">
-                    <a class="btn bg-indigo-500 hover:bg-indigo-600 text-white" href="https://tablericons.com/" target="_blank" rel="noreferrer">Download Tabler Icons</a>
+                    <a class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white" href="https://tablericons.com/" target="_blank" rel="noreferrer">Download Tabler Icons</a>
                   </div>
                 </div>
               </div>

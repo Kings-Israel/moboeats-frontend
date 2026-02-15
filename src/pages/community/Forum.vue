@@ -28,7 +28,7 @@
                   <!-- Buttons group -->
                   <div class="mb-4">
                     <div class="w-full flex flex-wrap -space-x-px">
-                        <button class="btn grow bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-indigo-500 rounded-none first:rounded-l last:rounded-r">Popular</button>
+                        <button class="btn grow bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-jh-red-600 rounded-none first:rounded-l last:rounded-r">Popular</button>
                         <button class="btn grow bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/20 text-slate-600 dark:text-slate-300 rounded-none first:rounded-l last:rounded-r">Newest</button>
                         <button class="btn grow bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/20 text-slate-600 dark:text-slate-300 rounded-none first:rounded-l last:rounded-r">Following</button>
                     </div>
@@ -47,7 +47,7 @@
                           <span class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-300 dark:text-slate-600">&lt;- Previous</span>
                         </li>
                         <li class="ml-3 first:ml-0">
-                          <a class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-indigo-500" href="#0">Next -&gt;</a>
+                          <a class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-jh-red-600" href="#0">Next -&gt;</a>
                         </li>
                       </ul>
                     </nav>

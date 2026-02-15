@@ -5,7 +5,7 @@
       <div class="w-full md:w-1/2">
         <div class="min-h-[100dvh] h-full flex flex-col after:flex-1 bg-white">
           <div
-            class="max-w-sm mx-auto w-full px-4 py-8 rounded-md bg-[#2E5909] lg:mt-44"
+            class="max-w-sm mx-auto w-full px-4 py-8 rounded-md bg-jh-red-700 lg:mt-44"
           >
             <h1 class="text-3xl text-slate-200 font-bold mb-6">
               Welcome back! ✨
@@ -50,7 +50,7 @@
                   >
                 </div>
                 <button
-                  class="btn bg-[#F3C411] hover:bg-indigo-600 text-white ml-3"
+                  class="btn bg-black hover:bg-jh-red-700 text-white ml-3"
                 >
                   Sign In
                 </button>
@@ -62,17 +62,12 @@
 
       <!-- Image -->
       <div
-        class="hidden md:block absolute top-0 bottom-0 right-0 md:w-1/2 bg-white"
+        class="hidden md:flex flex-col my-auto right-0 md:w-1/2 bg-white"
         aria-hidden="true"
       >
-        <!-- <img
-          src="https://www.guardnowsecurity.co.ke/assets/img/logo/logo.png"
-          class="my-auto mx-auto object-contain w-44 mt-44 rounded-lg"
-          alt=""
-        /> -->
         <img
-          src="../images/ecodeli.jpeg"
-          class="my-auto mx-auto w-[40rem] object-contain mt-12 rounded-lg"
+          src="../images/javahouse.png"
+          class="my-auto mx-auto w-[30rem] object-contain mt-12 rounded-lg"
           alt=""
         />
       </div>

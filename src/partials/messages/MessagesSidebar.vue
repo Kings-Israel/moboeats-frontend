@@ -26,8 +26,8 @@
             <ul class="mb-6">
               <li class="-mx-2" v-for="conversation in conversations" :key="conversation.id">
                 <template v-for="participant in conversation.participants" :key="participant.id">
-                  <button v-if="participant.messageable_id != auth_id" class="flex items-center justify-between w-full p-2 rounded hover:bg-indigo-500/20 transition duration-200 ease-in-out"
-                    :class="active_conversation == conversation.id ? 'bg-indigo-500/30' : ''" 
+                  <button v-if="participant.messageable_id != auth_id" class="flex items-center justify-between w-full p-2 rounded hover:bg-jh-red-600/20 transition duration-200 ease-in-out"
+                    :class="active_conversation == conversation.id ? 'bg-jh-red-600/30' : ''" 
                     @click.stop="$emit('close-msgsidebar')"
                     @click="$emit('activate-conversation', conversation.id, participant); active_conversation = conversation.id;"
                   >
@@ -39,7 +39,7 @@
                       <div v-if="participant.is_admin">(Admin)</div>
                     </div>
                     <div v-if="conversation.unread_count > 0" class="flex items-center ml-2">
-                      <div class="text-xs inline-flex font-medium bg-indigo-400 text-white rounded-full text-center leading-5 px-2">{{ conversation.unread_count }}</div>
+                      <div class="text-xs inline-flex font-medium bg-jh-red-400 text-white rounded-full text-center leading-5 px-2">{{ conversation.unread_count }}</div>
                     </div>
                   </button>
                 </template>

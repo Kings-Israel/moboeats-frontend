@@ -8,6 +8,32 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      colors: {
+        'jh-red': {
+          50: '#FBE9E7',
+          100: '#FFCDD2',
+          200: '#EF9A9A',
+          300: '#E57373',
+          400: '#EF5350',
+          500: '#C62828',
+          600: '#B71C1C',
+          700: '#9B1B1B',
+          800: '#7F1616',
+          900: '#601111',
+        },
+        'jh-brown': {
+          50: '#EFEBE9',
+          100: '#D7CCC8',
+          200: '#BCAAA4',
+          300: '#A1887F',
+          400: '#8D6E63',
+          500: '#6D4C41',
+          600: '#5D4037',
+          700: '#4E342E',
+          800: '#3E2723',
+          900: '#2C1A14',
+        },
+      },
       boxShadow: {
         DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.02)',
         md: '0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.02)',
@@ -15,7 +41,7 @@ module.exports = {
         xl: '0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.01)',
       },
       outline: {
-        blue: '2px solid rgba(0, 112, 244, 0.5)',
+        blue: '2px solid rgba(183, 28, 28, 0.5)',
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],

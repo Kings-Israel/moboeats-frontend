@@ -23,7 +23,7 @@
                   <div class="flex text-sm font-medium text-slate-400 dark:text-slate-500 space-x-2">
                     <span class="text-slate-500 dark:text-slate-400">Review</span>
                     <span>-&gt;</span>
-                    <span class="text-indigo-500">Payment</span>
+                    <span class="text-jh-red-600">Payment</span>
                     <span>-&gt;</span>
                     <span class="text-slate-500 dark:text-slate-400">Confirm</span>
                   </div>
@@ -112,7 +112,7 @@
 
                     <div class="mt-6">
                       <div class="mb-4">
-                        <button class="btn w-full bg-indigo-500 hover:bg-indigo-600 text-white">Pay $253.00</button>
+                        <button class="btn w-full bg-jh-red-600 hover:bg-jh-red-700 text-white">Pay $253.00</button>
                       </div>
                       <div class="text-xs text-slate-500 italic text-center">You'll be charged $253, including $48 for VAT in Italy</div>
                     </div>

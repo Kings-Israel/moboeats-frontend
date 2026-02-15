@@ -31,7 +31,7 @@
                   <!-- Basic Modal -->
                   <div class="m-1.5">
                     <!-- Start -->
-                    <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" aria-controls="basic-modal" @click.stop="basicModalOpen = true">Basic Modal</button>
+                    <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white" aria-controls="basic-modal" @click.stop="basicModalOpen = true">Basic Modal</button>
                     <ModalBasic id="basic-modal" :modalOpen="basicModalOpen" @close-modal="basicModalOpen = false" title="Basic Modal">
                       <!-- Modal content -->
                       <div class="px-5 pt-4 pb-1">
@@ -47,7 +47,7 @@
                       <div class="px-5 py-4">
                         <div class="flex flex-wrap justify-end space-x-2">
                           <button class="btn-sm border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-600 dark:text-slate-300" @click.stop="basicModalOpen = false">Close</button>
-                          <button class="btn-sm bg-indigo-500 hover:bg-indigo-600 text-white">I Understand</button>
+                          <button class="btn-sm bg-jh-red-600 hover:bg-jh-red-700 text-white">I Understand</button>
                         </div>
                       </div>
                     </ModalBasic>
@@ -57,7 +57,7 @@
                   <!-- Modal w/ Scroll Bar -->
                   <div class="m-1.5">
                     <!-- Start -->
-                    <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" aria-controls="scrollbar-modal" @click.stop="scrollbarModalOpen = true">Modal w/ Scroll Bar</button>
+                    <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white" aria-controls="scrollbar-modal" @click.stop="scrollbarModalOpen = true">Modal w/ Scroll Bar</button>
                     <ModalBasic id="scrollbar-modal" :modalOpen="scrollbarModalOpen" @close-modal="scrollbarModalOpen = false" title="Modal w/ Scroll Bar">
                       <!-- Modal content -->
                       <div class="px-5 py-4">
@@ -77,7 +77,7 @@
                       <div class="sticky bottom-0 px-5 py-4 bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700">
                         <div class="flex flex-wrap justify-end space-x-2">
                           <button class="btn-sm border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-600 dark:text-slate-300" @click.stop="scrollbarModalOpen = false">Close</button>
-                          <button class="btn-sm bg-indigo-500 hover:bg-indigo-600 text-white">I Understand</button>
+                          <button class="btn-sm bg-jh-red-600 hover:bg-jh-red-700 text-white">I Understand</button>
                         </div>
                       </div>
                     </ModalBasic>
@@ -87,7 +87,7 @@
                   <!-- Cookies -->
                   <div class="m-1.5">
                     <!-- Start -->
-                    <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" aria-controls="cookies-modal" @click.stop="cookiesModalOpen = true">Cookies</button>
+                    <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white" aria-controls="cookies-modal" @click.stop="cookiesModalOpen = true">Cookies</button>
                     <ModalCookies id="cookies-modal" :modalOpen="cookiesModalOpen" @close-modal="cookiesModalOpen = false" title="We use cookies 🍪">
                       <!-- Modal content -->
                       <div class="text-sm mb-5">
@@ -99,7 +99,7 @@
                       <!-- Modal footer -->
                       <div class="flex flex-wrap justify-end space-x-2">
                         <button class="btn-sm border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-600 dark:text-slate-300" @click.stop="cookiesModalOpen = false">Decline</button>
-                        <button class="btn-sm bg-indigo-500 hover:bg-indigo-600 text-white" @click.stop="cookiesModalOpen = false">I Accept</button>
+                        <button class="btn-sm bg-jh-red-600 hover:bg-jh-red-700 text-white" @click.stop="cookiesModalOpen = false">I Accept</button>
                       </div>
                     </ModalCookies>
                     <!-- End -->
@@ -116,7 +116,7 @@
                   <!-- Success Modal -->
                   <div class="m-1.5">
                     <!-- Start -->
-                    <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" aria-controls="success-modal" @click.stop="successModalOpen = true">Success Modal</button>
+                    <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white" aria-controls="success-modal" @click.stop="successModalOpen = true">Success Modal</button>
                     <ModalBlank id="success-modal" :modalOpen="successModalOpen" @close-modal="successModalOpen = false">
                       <div class="p-5 flex space-x-4">
                         <!-- Icon -->
@@ -140,7 +140,7 @@
                           <!-- Modal footer -->
                           <div class="flex flex-wrap justify-end space-x-2">
                             <button class="btn-sm border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-600 dark:text-slate-300" @click.stop="successModalOpen = false">Cancel</button>
-                            <button class="btn-sm bg-indigo-500 hover:bg-indigo-600 text-white">Yes, Upgrade it</button>
+                            <button class="btn-sm bg-jh-red-600 hover:bg-jh-red-700 text-white">Yes, Upgrade it</button>
                           </div>
                         </div>
                       </div>
@@ -151,7 +151,7 @@
                   <!-- Danger Modal -->
                   <div class="m-1.5">
                     <!-- Start -->
-                    <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" aria-controls="danger-modal" @click.stop="dangerModalOpen = true">Danger Modal</button>
+                    <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white" aria-controls="danger-modal" @click.stop="dangerModalOpen = true">Danger Modal</button>
                     <ModalBlank id="danger-modal" :modalOpen="dangerModalOpen" @close-modal="dangerModalOpen = false">
                       <div class="p-5 flex space-x-4">
                         <!-- Icon -->
@@ -186,12 +186,12 @@
                   <!-- Info Modal -->
                   <div class="m-1.5">
                     <!-- Start -->
-                    <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" aria-controls="info-modal" @click.stop="infoModalOpen = true">Info Modal</button>
+                    <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white" aria-controls="info-modal" @click.stop="infoModalOpen = true">Info Modal</button>
                     <ModalBlank id="info-modal" :modalOpen="infoModalOpen" @close-modal="infoModalOpen = false">
                       <div class="p-5 flex space-x-4">
                         <!-- Icon -->
-                        <div class="w-10 h-10 rounded-full flex items-center justify-center shrink-0 bg-indigo-100 dark:bg-indigo-500/30">
-                          <svg class="w-4 h-4 shrink-0 fill-current text-indigo-500" viewBox="0 0 16 16">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center shrink-0 bg-jh-red-50 dark:bg-jh-red-600/30">
+                          <svg class="w-4 h-4 shrink-0 fill-current text-jh-red-600" viewBox="0 0 16 16">
                             <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 12H7V7h2v5zM8 6c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1z" />
                           </svg>
                         </div>
@@ -210,7 +210,7 @@
                           <!-- Modal footer -->
                           <div class="flex flex-wrap justify-end space-x-2">
                             <button class="btn-sm border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-600 dark:text-slate-300" @click.stop="infoModalOpen = false">Cancel</button>
-                            <button class="btn-sm bg-indigo-500 hover:bg-indigo-600 text-white">Yes, Create it</button>
+                            <button class="btn-sm bg-jh-red-600 hover:bg-jh-red-700 text-white">Yes, Create it</button>
                           </div>
                         </div>
                       </div>
@@ -229,7 +229,7 @@
                   <!-- Send Feedback -->
                   <div class="m-1.5">
                     <!-- Start -->
-                    <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" aria-controls="feedback-modal" @click.stop="feedbackModalOpen = true">Send Feedback</button>
+                    <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white" aria-controls="feedback-modal" @click.stop="feedbackModalOpen = true">Send Feedback</button>
                     <ModalBasic id="feedback-modal" :modalOpen="feedbackModalOpen" @close-modal="feedbackModalOpen = false" title="Send Feedback">
                       <!-- Modal content -->
                       <div class="px-5 py-4">
@@ -255,7 +255,7 @@
                       <div class="px-5 py-4 border-t border-slate-200 dark:border-slate-700">
                         <div class="flex flex-wrap justify-end space-x-2">
                           <button class="btn-sm border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-600 dark:text-slate-300" @click.stop="feedbackModalOpen = false">Cancel</button>
-                          <button class="btn-sm bg-indigo-500 hover:bg-indigo-600 text-white">Send</button>
+                          <button class="btn-sm bg-jh-red-600 hover:bg-jh-red-700 text-white">Send</button>
                         </div>
                       </div>
                     </ModalBasic>
@@ -265,16 +265,16 @@
                   <!-- Newsletter -->
                   <div class="m-1.5">
                     <!-- Start -->
-                    <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" aria-controls="newsletter-modal" @click.stop="newsletterModalOpen = true">Newsletter</button>
+                    <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white" aria-controls="newsletter-modal" @click.stop="newsletterModalOpen = true">Newsletter</button>
                     <ModalAction id="newsletter-modal" :modalOpen="newsletterModalOpen" @close-modal="newsletterModalOpen = false">
                       <!-- Modal header -->
                       <div class="mb-2 text-center">
                         <!-- Icon -->
                         <div class="mb-3">
                           <svg class="inline-flex w-12 h-12 rounded-full shrink-0 fill-current" viewBox="0 0 48 48">
-                            <rect class="text-indigo-100 dark:text-indigo-500/30" width="48" height="48" rx="24" />
-                            <path class="text-indigo-300" d="M19 16h7a8 8 0 110 16h-7V16z" />
-                            <path class="text-indigo-500" d="M26 24l-7-6v5h-8v2h8v5z" />
+                            <rect class="text-jh-red-100 dark:text-jh-red-600/30" width="48" height="48" rx="24" />
+                            <path class="text-jh-red-300" d="M19 16h7a8 8 0 110 16h-7V16z" />
+                            <path class="text-jh-red-600" d="M26 24l-7-6v5h-8v2h8v5z" />
                           </svg>
                         </div>
                         <div class="text-lg font-semibold text-slate-800 dark:text-slate-100">Subscribe to the Newsletter!</div>
@@ -290,7 +290,7 @@
                             <label for="subscribe-form" class="sr-only">Leave your Email</label>
                             <input id="subscribe-form" class="form-input w-full px-2 py-1" type="email" />
                           </div>
-                          <button type="submit" class="btn-sm bg-indigo-500 hover:bg-indigo-600 text-white whitespace-nowrap">Subscribe</button>
+                          <button type="submit" class="btn-sm bg-jh-red-600 hover:bg-jh-red-700 text-white whitespace-nowrap">Subscribe</button>
                         </form>
                         <div class="text-xs text-slate-500 italic mt-3">
                           I respect your privacy. No spam. Unsubscribe at any time!
@@ -303,7 +303,7 @@
                   <!-- Announcement -->
                   <div class="m-1.5">
                     <!-- Start -->
-                    <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" aria-controls="announcement-modal" @click.stop="announcementModalOpen = true">Announcement</button>
+                    <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white" aria-controls="announcement-modal" @click.stop="announcementModalOpen = true">Announcement</button>
                     <ModalAction id="announcement-modal" :modalOpen="announcementModalOpen" @close-modal="announcementModalOpen = false">
                       <!-- Modal header -->
                       <div class="mb-2 text-center">
@@ -320,9 +320,9 @@
                         </div>
                         <!-- CTAs -->
                         <div class="space-y-3">
-                          <button class="btn-sm bg-indigo-500 hover:bg-indigo-600 text-white">Claim your Reward -&gt;</button>
+                          <button class="btn-sm bg-jh-red-600 hover:bg-jh-red-700 text-white">Claim your Reward -&gt;</button>
                           <div>
-                            <a class="font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0" @click.prevent="announcementModalOpen = false">Not Now!</a>
+                            <a class="font-medium text-sm text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0" @click.prevent="announcementModalOpen = false">Not Now!</a>
                           </div>
                         </div>
                       </div>
@@ -333,7 +333,7 @@
                   <!-- Integration -->
                   <div class="m-1.5">
                     <!-- Start -->
-                    <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" aria-controls="integration-modal" @click.stop="integrationModalOpen = true">Integration</button>
+                    <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white" aria-controls="integration-modal" @click.stop="integrationModalOpen = true">Integration</button>
                     <ModalAction id="integration-modal" :modalOpen="integrationModalOpen" @close-modal="integrationModalOpen = false">
                       <!-- Modal header -->
                       <div class="mb-5 text-center">
@@ -398,12 +398,12 @@
                             <div>Suspendisse faucibus interdum</div>
                           </li>
                         </ul>
-                        <div class="text-xs text-slate-500">By clicking on Allow access, you authorize Mosaic to use your information in accordance with its <a class="text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Privacy Policy</a>. You can stop it at any time on the integrations page of your Mosaic account.</div>
+                        <div class="text-xs text-slate-500">By clicking on Allow access, you authorize Mosaic to use your information in accordance with its <a class="text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Privacy Policy</a>. You can stop it at any time on the integrations page of your Mosaic account.</div>
                       </div>
                       <!-- Modal footer -->
                       <div class="flex flex-wrap justify-end space-x-2">
                         <button class="btn-sm border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-600 dark:text-slate-300" @click.stop="integrationModalOpen = false">Cancel</button>
-                        <button class="btn-sm bg-indigo-500 hover:bg-indigo-600 text-white">Allow Access</button>
+                        <button class="btn-sm bg-jh-red-600 hover:bg-jh-red-700 text-white">Allow Access</button>
                       </div>
                     </ModalAction>
                     <!-- End -->
@@ -412,7 +412,7 @@
                   <!-- What's New -->
                   <div class="m-1.5">
                     <!-- Start -->
-                    <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" aria-controls="news-modal" @click.stop="newsModalOpen = true">What's New</button>
+                    <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white" aria-controls="news-modal" @click.stop="newsModalOpen = true">What's New</button>
                     <ModalBlank id="news-modal" :modalOpen="newsModalOpen" @close-modal="newsModalOpen = false">
                       <div class="relative">
                         <img class="w-full" src="../../images/modal-image.jpg" width="460" height="200" alt="New on Mosaic" />
@@ -428,7 +428,7 @@
                         <!-- Modal header -->
                         <div class="mb-2">
                           <div class="mb-3">
-                            <div class="text-xs inline-flex font-medium bg-indigo-100 dark:bg-indigo-500/30 text-indigo-600 dark:text-indigo-400 rounded-full text-center px-2.5 py-1">New on Mosaic</div>
+                            <div class="text-xs inline-flex font-medium bg-jh-red-50 dark:bg-jh-red-600/30 text-jh-red-700 dark:text-jh-red-400 rounded-full text-center px-2.5 py-1">New on Mosaic</div>
                           </div>
                           <div class="text-lg font-semibold text-slate-800 dark:text-slate-100">Help your team work faster with X 🏃‍♂️</div>
                         </div>
@@ -441,7 +441,7 @@
                         </div>
                         <!-- Modal footer -->
                         <div class="flex flex-wrap justify-end space-x-2">
-                          <button class="btn-sm bg-indigo-500 hover:bg-indigo-600 text-white" @click.stop="newsModalOpen = false">Cool, I Got it</button>
+                          <button class="btn-sm bg-jh-red-600 hover:bg-jh-red-700 text-white" @click.stop="newsModalOpen = false">Cool, I Got it</button>
                         </div>
                       </div>                      
                     </ModalBlank>
@@ -451,7 +451,7 @@
                   <!-- Change your Plan -->
                   <div class="m-1.5">
                     <!-- Start -->
-                    <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" aria-controls="feedback-modal" @click.stop="planModalOpen = true">Change your Plan</button>
+                    <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white" aria-controls="feedback-modal" @click.stop="planModalOpen = true">Change your Plan</button>
                     <ModalBasic id="feedback-modal" :modalOpen="planModalOpen" @close-modal="planModalOpen = false" title="Change your Plan">
                       <!-- Modal content -->
                       <div class="px-5 pt-4 pb-1">
@@ -460,9 +460,9 @@
                           <!-- Options -->
                           <ul class="space-y-2 mb-4">
                             <li>
-                              <button class="w-full h-full text-left py-3 px-4 rounded bg-white dark:bg-slate-800 border-2 border-indigo-400 dark:border-indigo-500 shadow-sm duration-150 ease-in-out">
+                              <button class="w-full h-full text-left py-3 px-4 rounded bg-white dark:bg-slate-800 border-2 border-jh-red-400 dark:border-jh-red-600 shadow-sm duration-150 ease-in-out">
                                 <div class="flex items-center">
-                                  <div class="w-4 h-4 border-4 bg-white border-indigo-500 rounded-full mr-3"></div>
+                                  <div class="w-4 h-4 border-4 bg-white border-jh-red-600 rounded-full mr-3"></div>
                                   <div class="grow">
                                     <div class="flex flex-wrap items-center justify-between mb-0.5">
                                       <span class="font-medium text-slate-800 dark:text-slate-100">Mosaic Light <span class="text-xs italic text-slate-500 align-top">Current Plan</span></span>
@@ -479,7 +479,7 @@
                                   <div class="w-4 h-4 border-2 border-slate-300 dark:border-slate-600 rounded-full mr-3"></div>
                                   <div class="grow">
                                     <div class="flex flex-wrap items-center justify-between mb-0.5">
-                                      <span class="font-semibold text-slate-800 dark:text-slate-100">Mosaic Basic <span class="text-xs italic text-indigo-500 align-top">Best Value ✨</span></span>
+                                      <span class="font-semibold text-slate-800 dark:text-slate-100">Mosaic Basic <span class="text-xs italic text-jh-red-600 align-top">Best Value ✨</span></span>
                                       <span class="text-slate-600"><span class="font-medium text-emerald-600">$59.00</span>/mo</span>
                                     </div>
                                     <div class="text-sm">5 MB · 2 members · 1000 block limits</div>
@@ -509,7 +509,7 @@
                       <div class="px-5 py-4">
                         <div class="flex flex-wrap justify-end space-x-2">
                           <button class="btn-sm border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-600 dark:text-slate-300" @click.stop="planModalOpen = false">Cancel</button>
-                          <button class="btn-sm bg-indigo-500 hover:bg-indigo-600 text-white">Change Plan</button>
+                          <button class="btn-sm bg-jh-red-600 hover:bg-jh-red-700 text-white">Change Plan</button>
                         </div>
                       </div>
                     </ModalBasic>
@@ -519,7 +519,7 @@
                   <!-- Quick Find -->
                   <div class="m-1.5">
                     <!-- Start -->
-                    <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white" aria-controls="quick-find-modal" @click.stop="searchModalOpen = true">Quick Find</button>
+                    <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white" aria-controls="quick-find-modal" @click.stop="searchModalOpen = true">Quick Find</button>
                     <ModalSearch id="quick-find-modal" searchId="quick-find" :modalOpen="searchModalOpen" @open-modal="searchModalOpen = true" @close-modal="searchModalOpen = false" />
                     <!-- End -->
                   </div>                  

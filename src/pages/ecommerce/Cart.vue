@@ -20,7 +20,7 @@
             <div class="mb-6 lg:mb-0">
               <div class="mb-3">
                 <div class="flex text-sm font-medium text-slate-400 dark:text-slate-500 space-x-2">
-                  <span class="text-indigo-500">Review</span>
+                  <span class="text-jh-red-600">Review</span>
                   <span>-&gt;</span>
                   <span class="text-slate-500 dark:text-slate-400">Payment</span>
                   <span>-&gt;</span>
@@ -67,10 +67,10 @@
                     <div class="text-sm text-slate-400 dark:text-slate-500 italic">optional</div>
                   </div>
                   <input id="promo" class="form-input w-full mb-2" type="text" />
-                  <button class="btn w-full bg-indigo-500 hover:bg-indigo-600 text-white disabled:border-slate-200 dark:disabled:border-slate-700 disabled:bg-slate-100 dark:disabled:bg-slate-800 disabled:text-slate-400 dark:disabled:text-slate-600 disabled:cursor-not-allowed shadow-none" disabled>Apply Code</button>
+                  <button class="btn w-full bg-jh-red-600 hover:bg-jh-red-700 text-white disabled:border-slate-200 dark:disabled:border-slate-700 disabled:bg-slate-100 dark:disabled:bg-slate-800 disabled:text-slate-400 dark:disabled:text-slate-600 disabled:cursor-not-allowed shadow-none" disabled>Apply Code</button>
                 </div>
                 <div class="mb-4">
-                  <button class="btn w-full bg-indigo-500 hover:bg-indigo-600 text-white">Buy Now - $253.00</button>
+                  <button class="btn w-full bg-jh-red-600 hover:bg-jh-red-700 text-white">Buy Now - $253.00</button>
                 </div>
                 <div class="text-xs text-slate-500 italic text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <a class="underline hover:no-underline" href="#0">Terms</a>.</div>
               </div>

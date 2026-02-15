@@ -37,7 +37,7 @@
                 </div>
 
                 <!-- Export button -->
-                <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white">Export Transactions</button>
+                <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white">Export Transactions</button>
 
               </div>
 
@@ -52,7 +52,7 @@
             <div class="mb-5">
               <ul class="flex flex-wrap -m-1">
                 <li class="m-1">
-                  <button class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-transparent shadow-sm bg-indigo-500 text-white duration-150 ease-in-out">View All</button>
+                  <button class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-transparent shadow-sm bg-jh-red-600 text-white duration-150 ease-in-out">View All</button>
                 </li>
                 <li class="m-1">
                   <button class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-sm bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 duration-150 ease-in-out">Completed</button>

@@ -23,7 +23,7 @@
 
             <!-- Right: Actions  -->
             <div class="flex gap-2">
-              <button class="bg-indigo-700 hover:bg-indigo-500 p-2 text-white font-semibold rounded-full px-3" @click="addOrphanage = true">Add Orphanage</button>
+              <button class="bg-indigo-700 hover:bg-jh-red-600 p-2 text-white font-semibold rounded-full px-3" @click="addOrphanage = true">Add Orphanage</button>
               <modal-action :id="'addMenu'" :modal-open="addOrphanage" @close-modal="addOrphanage = false" :add-class="'max-w-4xl'">
                 <span class="text-xl font-bold px-4">Add Orphanage</span>
                 <!-- Add/Edit Menu -->
@@ -98,7 +98,7 @@
                     </div>
                   </div>
                   <div class="flex justify-end bottom-2 mt-2">
-                    <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">Submit</button>
+                    <button type="submit" class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white">Submit</button>
                   </div>
                 </form>
               </modal-action>

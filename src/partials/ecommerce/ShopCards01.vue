@@ -87,7 +87,7 @@
         </div>
         <!-- Card footer -->
         <div>
-          <a class="btn-sm w-full bg-indigo-500 hover:bg-indigo-600 text-white" href="#0">Buy Now</a>
+          <a class="btn-sm w-full bg-jh-red-600 hover:bg-jh-red-700 text-white" href="#0">Buy Now</a>
         </div>
       </div>
     </div>
@@ -181,7 +181,7 @@
         </div>
         <!-- Card footer -->
         <div>
-          <a class="btn-sm w-full bg-indigo-500 hover:bg-indigo-600 text-white" href="#0">Buy Now</a>
+          <a class="btn-sm w-full bg-jh-red-600 hover:bg-jh-red-700 text-white" href="#0">Buy Now</a>
         </div>
       </div>
     </div>
@@ -275,7 +275,7 @@
         </div>
         <!-- Card footer -->
         <div>
-          <a class="btn-sm w-full bg-indigo-500 hover:bg-indigo-600 text-white" href="#0">Buy Now</a>
+          <a class="btn-sm w-full bg-jh-red-600 hover:bg-jh-red-700 text-white" href="#0">Buy Now</a>
         </div>
       </div>
     </div>
@@ -369,7 +369,7 @@
         </div>
         <!-- Card footer -->
         <div>
-          <a class="btn-sm w-full bg-indigo-500 hover:bg-indigo-600 text-white" href="#0">Buy Now</a>
+          <a class="btn-sm w-full bg-jh-red-600 hover:bg-jh-red-700 text-white" href="#0">Buy Now</a>
         </div>
       </div>
     </div>

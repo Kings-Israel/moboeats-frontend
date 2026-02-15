@@ -31,13 +31,13 @@
                     <!-- Start -->
                     <ul class="inline-flex flex-wrap text-sm font-medium">
                       <li class="after:content-['/'] last:after:hidden after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                        <a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-500" href="#0">Home</a>
+                        <a class="text-slate-500 dark:text-slate-400 hover:text-jh-red-600 dark:hover:text-jh-red-600" href="#0">Home</a>
                       </li>
                       <li class="after:content-['/'] last:after:hidden after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                        <a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-500" href="#0">Settings</a>
+                        <a class="text-slate-500 dark:text-slate-400 hover:text-jh-red-600 dark:hover:text-jh-red-600" href="#0">Settings</a>
                       </li>
                       <li class="after:content-['/'] last:after:hidden after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                        <a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-500" href="#0">Notifications</a>
+                        <a class="text-slate-500 dark:text-slate-400 hover:text-jh-red-600 dark:hover:text-jh-red-600" href="#0">Notifications</a>
                       </li>
                     </ul>
                     <!-- End -->
@@ -53,13 +53,13 @@
                     <!-- Start -->
                     <ul class="inline-flex flex-wrap text-sm font-medium">
                       <li class="after:content-['·'] last:after:hidden after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                        <a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-500" href="#0">Home</a>
+                        <a class="text-slate-500 dark:text-slate-400 hover:text-jh-red-600 dark:hover:text-jh-red-600" href="#0">Home</a>
                       </li>
                       <li class="after:content-['·'] last:after:hidden after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                        <a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-500" href="#0">Settings</a>
+                        <a class="text-slate-500 dark:text-slate-400 hover:text-jh-red-600 dark:hover:text-jh-red-600" href="#0">Settings</a>
                       </li>
                       <li class="after:content-['·'] last:after:hidden after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                        <a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-500" href="#0">Notifications</a>
+                        <a class="text-slate-500 dark:text-slate-400 hover:text-jh-red-600 dark:hover:text-jh-red-600" href="#0">Notifications</a>
                       </li>
                     </ul>
                     <!-- End -->
@@ -75,19 +75,19 @@
                     <!-- Start -->
                     <ul class="inline-flex flex-wrap text-sm font-medium">
                       <li class="flex items-center">
-                        <a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-500" href="#0">Home</a>
+                        <a class="text-slate-500 dark:text-slate-400 hover:text-jh-red-600 dark:hover:text-jh-red-600" href="#0">Home</a>
                         <svg class="h-4 w-4 fill-current text-slate-400 dark:text-slate-600 mx-3" viewBox="0 0 16 16">
                           <path d="M6.6 13.4L5.2 12l4-4-4-4 1.4-1.4L12 8z" />
                         </svg>
                       </li>
                       <li class="flex items-center">
-                        <a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-500" href="#0">Settings</a>
+                        <a class="text-slate-500 dark:text-slate-400 hover:text-jh-red-600 dark:hover:text-jh-red-600" href="#0">Settings</a>
                         <svg class="h-4 w-4 fill-current text-slate-400 dark:text-slate-600 mx-3" viewBox="0 0 16 16">
                           <path d="M6.6 13.4L5.2 12l4-4-4-4 1.4-1.4L12 8z" />
                         </svg>
                       </li>
                       <li class="flex items-center">
-                        <a class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-500" href="#0">Notifications</a>
+                        <a class="text-slate-500 dark:text-slate-400 hover:text-jh-red-600 dark:hover:text-jh-red-600" href="#0">Notifications</a>
                       </li>
                     </ul>
                     <!-- End -->

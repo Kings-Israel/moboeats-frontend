@@ -38,7 +38,7 @@
             <div class="mb-8 border-b border-slate-200 dark:border-slate-700">
               <ul class="text-sm font-medium flex flex-nowrap -mx-4 sm:-mx-6 lg:-mx-8 overflow-x-scroll no-scrollbar">
                 <li class="pb-3 mr-6 last:mr-0 first:pl-4 sm:first:pl-6 lg:first:pl-8 last:pr-4 sm:last:pr-6 lg:last:pr-8">
-                  <a class="text-indigo-500 whitespace-nowrap" href="#0">Popular</a>
+                  <a class="text-jh-red-600 whitespace-nowrap" href="#0">Popular</a>
                 </li>
                 <li class="pb-3 mr-6 last:mr-0 first:pl-4 sm:first:pl-6 lg:first:pl-8 last:pr-4 sm:last:pr-6 lg:last:pr-8">
                   <a class="text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 whitespace-nowrap" href="#0">Accessibility</a>
@@ -63,8 +63,8 @@
                 <header class="flex items-start mb-2">
                   <div class="mt-2 mr-3">
                     <svg class="w-4 h-4 shrink-0 fill-current" viewBox="0 0 16 16">
-                      <path class="text-indigo-300" d="M4 8H0v4.9c0 1 .7 1.9 1.7 2.1 1.2.2 2.3-.8 2.3-2V8z" />
-                      <path class="text-indigo-500" d="M15 1H7c-.6 0-1 .4-1 1v11c0 .7-.2 1.4-.6 2H13c1.7 0 3-1.3 3-3V2c0-.6-.4-1-1-1z" />
+                      <path class="text-jh-red-300" d="M4 8H0v4.9c0 1 .7 1.9 1.7 2.1 1.2.2 2.3-.8 2.3-2V8z" />
+                      <path class="text-jh-red-600" d="M15 1H7c-.6 0-1 .4-1 1v11c0 .7-.2 1.4-.6 2H13c1.7 0 3-1.3 3-3V2c0-.6-.4-1-1-1z" />
                     </svg>
                   </div>
                   <h3 class="text-xl leading-snug text-slate-800 dark:text-slate-100 font-bold">How can the widget to my website?</h3>
@@ -73,10 +73,10 @@
                   <div class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco.</div>
                   <ul class="flex flex-wrap">
                     <li class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">General</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">General</a>
                     </li>
                     <li class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Marketing</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Marketing</a>
                     </li>
                   </ul>
                 </div>
@@ -86,8 +86,8 @@
                 <header class="flex items-start mb-2">
                   <div class="mt-2 mr-3">
                     <svg class="w-4 h-4 shrink-0 fill-current" viewBox="0 0 16 16">
-                      <path class="text-indigo-300" d="M4 8H0v4.9c0 1 .7 1.9 1.7 2.1 1.2.2 2.3-.8 2.3-2V8z" />
-                      <path class="text-indigo-500" d="M15 1H7c-.6 0-1 .4-1 1v11c0 .7-.2 1.4-.6 2H13c1.7 0 3-1.3 3-3V2c0-.6-.4-1-1-1z" />
+                      <path class="text-jh-red-300" d="M4 8H0v4.9c0 1 .7 1.9 1.7 2.1 1.2.2 2.3-.8 2.3-2V8z" />
+                      <path class="text-jh-red-600" d="M15 1H7c-.6 0-1 .4-1 1v11c0 .7-.2 1.4-.6 2H13c1.7 0 3-1.3 3-3V2c0-.6-.4-1-1-1z" />
                     </svg>
                   </div>
                   <h3 class="text-xl leading-snug text-slate-800 dark:text-slate-100 font-bold">What would happen if I choose not to pay after the usage?</h3>
@@ -96,10 +96,10 @@
                   <div class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco.</div>
                   <ul class="flex flex-wrap">
                     <li class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Development</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Development</a>
                     </li>
                     <li class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Acessibility</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Acessibility</a>
                     </li>
                   </ul>
                 </div>
@@ -109,8 +109,8 @@
                 <header class="flex items-start mb-2">
                   <div class="mt-2 mr-3">
                     <svg class="w-4 h-4 shrink-0 fill-current" viewBox="0 0 16 16">
-                      <path class="text-indigo-300" d="M4 8H0v4.9c0 1 .7 1.9 1.7 2.1 1.2.2 2.3-.8 2.3-2V8z" />
-                      <path class="text-indigo-500" d="M15 1H7c-.6 0-1 .4-1 1v11c0 .7-.2 1.4-.6 2H13c1.7 0 3-1.3 3-3V2c0-.6-.4-1-1-1z" />
+                      <path class="text-jh-red-300" d="M4 8H0v4.9c0 1 .7 1.9 1.7 2.1 1.2.2 2.3-.8 2.3-2V8z" />
+                      <path class="text-jh-red-600" d="M15 1H7c-.6 0-1 .4-1 1v11c0 .7-.2 1.4-.6 2H13c1.7 0 3-1.3 3-3V2c0-.6-.4-1-1-1z" />
                     </svg>
                   </div>
                   <h3 class="text-xl leading-snug text-slate-800 dark:text-slate-100 font-bold">What limitations do trial accounts have?</h3>
@@ -119,10 +119,10 @@
                   <div class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco.</div>
                   <ul class="flex flex-wrap">
                     <li class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Development</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Development</a>
                     </li>
                     <li class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Plans</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Plans</a>
                     </li>
                   </ul>
                 </div>
@@ -132,8 +132,8 @@
                 <header class="flex items-start mb-2">
                   <div class="mt-2 mr-3">
                     <svg class="w-4 h-4 shrink-0 fill-current" viewBox="0 0 16 16">
-                      <path class="text-indigo-300" d="M4 8H0v4.9c0 1 .7 1.9 1.7 2.1 1.2.2 2.3-.8 2.3-2V8z" />
-                      <path class="text-indigo-500" d="M15 1H7c-.6 0-1 .4-1 1v11c0 .7-.2 1.4-.6 2H13c1.7 0 3-1.3 3-3V2c0-.6-.4-1-1-1z" />
+                      <path class="text-jh-red-300" d="M4 8H0v4.9c0 1 .7 1.9 1.7 2.1 1.2.2 2.3-.8 2.3-2V8z" />
+                      <path class="text-jh-red-600" d="M15 1H7c-.6 0-1 .4-1 1v11c0 .7-.2 1.4-.6 2H13c1.7 0 3-1.3 3-3V2c0-.6-.4-1-1-1z" />
                     </svg>
                   </div>
                   <h3 class="text-xl leading-snug text-slate-800 dark:text-slate-100 font-bold">Is there any difference between Standard and Plus licenses?</h3>
@@ -142,10 +142,10 @@
                   <div class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco.</div>
                   <ul class="flex flex-wrap">
                     <li class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Development</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Development</a>
                     </li>
                     <li class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Account</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Account</a>
                     </li>
                   </ul>
                 </div>
@@ -155,8 +155,8 @@
                 <header class="flex items-start mb-2">
                   <div class="mt-2 mr-3">
                     <svg class="w-4 h-4 shrink-0 fill-current" viewBox="0 0 16 16">
-                      <path class="text-indigo-300" d="M4 8H0v4.9c0 1 .7 1.9 1.7 2.1 1.2.2 2.3-.8 2.3-2V8z" />
-                      <path class="text-indigo-500" d="M15 1H7c-.6 0-1 .4-1 1v11c0 .7-.2 1.4-.6 2H13c1.7 0 3-1.3 3-3V2c0-.6-.4-1-1-1z" />
+                      <path class="text-jh-red-300" d="M4 8H0v4.9c0 1 .7 1.9 1.7 2.1 1.2.2 2.3-.8 2.3-2V8z" />
+                      <path class="text-jh-red-600" d="M15 1H7c-.6 0-1 .4-1 1v11c0 .7-.2 1.4-.6 2H13c1.7 0 3-1.3 3-3V2c0-.6-.4-1-1-1z" />
                     </svg>
                   </div>
                   <h3 class="text-xl leading-snug text-slate-800 dark:text-slate-100 font-bold">Is my personal information protected?</h3>
@@ -165,10 +165,10 @@
                   <div class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco.</div>
                   <ul class="flex flex-wrap">
                     <li class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">General</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">General</a>
                     </li>
                     <li class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Accessibility</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Accessibility</a>
                     </li>
                   </ul>
                 </div>
@@ -178,8 +178,8 @@
                 <header class="flex items-start mb-2">
                   <div class="mt-2 mr-3">
                     <svg class="w-4 h-4 shrink-0 fill-current" viewBox="0 0 16 16">
-                      <path class="text-indigo-300" d="M4 8H0v4.9c0 1 .7 1.9 1.7 2.1 1.2.2 2.3-.8 2.3-2V8z" />
-                      <path class="text-indigo-500" d="M15 1H7c-.6 0-1 .4-1 1v11c0 .7-.2 1.4-.6 2H13c1.7 0 3-1.3 3-3V2c0-.6-.4-1-1-1z" />
+                      <path class="text-jh-red-300" d="M4 8H0v4.9c0 1 .7 1.9 1.7 2.1 1.2.2 2.3-.8 2.3-2V8z" />
+                      <path class="text-jh-red-600" d="M15 1H7c-.6 0-1 .4-1 1v11c0 .7-.2 1.4-.6 2H13c1.7 0 3-1.3 3-3V2c0-.6-.4-1-1-1z" />
                     </svg>
                   </div>
                   <h3 class="text-xl leading-snug text-slate-800 dark:text-slate-100 font-bold">What can I create with with this product?</h3>
@@ -188,10 +188,10 @@
                   <div class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco.</div>
                   <ul class="flex flex-wrap">
                     <li class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Marketing</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Marketing</a>
                     </li>
                     <li class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                      <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Plans</a>
+                      <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Plans</a>
                     </li>
                   </ul>
                 </div>
@@ -201,7 +201,7 @@
             <!-- Pagination -->
             <div class="mt-6">
               <div class="flex justify-end">
-                <a class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-indigo-500" href="#0">See All Questions -&gt;</a>
+                <a class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-jh-red-600" href="#0">See All Questions -&gt;</a>
               </div>
             </div>
 

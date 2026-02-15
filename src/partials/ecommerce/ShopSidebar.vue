@@ -7,7 +7,7 @@
           <div class="text-sm text-slate-800 dark:text-slate-100 font-semibold mb-3">Discover</div>
           <ul class="text-sm font-medium space-y-2">
             <li>
-              <a class="text-indigo-500" href="#0">View All</a>
+              <a class="text-jh-red-600" href="#0">View All</a>
             </li>
             <li>
               <a class="text-slate-600 dark:text-slate-300 hover:text-slate-700 dark:hover:text-slate-200" href="#0">Apps / Software</a>

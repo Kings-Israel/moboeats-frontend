@@ -46,7 +46,7 @@
               </div>
               <div class="flex justify-end gap-2 mt-6">
                 <router-link v-if="status == 'update'" class="btn bg-red-800 hover:bg-red-900 text-white" :to="{ name: 'dashboard' }">Cancel</router-link>
-                <button type="submit" class="btn bg-[#2E5945] hover:bg-indigo-600 text-white ml-3">Submit</button>
+                <button type="submit" class="btn bg-[#2E5945] hover:bg-jh-red-700 text-white ml-3">Submit</button>
               </div>
             </form>
           </div>

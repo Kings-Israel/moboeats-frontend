@@ -21,7 +21,7 @@
                 <img class="hidden dark:block" src="../../images//404-illustration-dark.svg" width="176" height="176" alt="404 illustration dark" />                
               </div>
               <div class="mb-6">Hmm...this page doesn't exist. Try searching for something else!</div>
-              <router-link to="/" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">Back To Dashboard</router-link>
+              <router-link to="/" class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white">Back To Dashboard</router-link>
             </div>
 
           </div>

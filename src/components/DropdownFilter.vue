@@ -67,7 +67,7 @@
                 <button class="btn-xs bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-500 dark:text-slate-300 hover:text-slate-600 dark:hover:text-slate-200">Clear</button>
               </li>
               <li>
-                <button class="btn-xs bg-indigo-500 hover:bg-indigo-600 text-white" @click="dropdownOpen = false" @focusout="dropdownOpen = false">Apply</button>
+                <button class="btn-xs bg-jh-red-600 hover:bg-jh-red-700 text-white" @click="dropdownOpen = false" @focusout="dropdownOpen = false">Apply</button>
               </li>
             </ul>
           </div>          

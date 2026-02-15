@@ -104,7 +104,7 @@
                         <div class="text-left font-medium text-red-500" v-else>Rider Profile not created</div>
                       </td>
                       <td class="px-2 py-3 whitespace-nowrap w-px flex gap-1">
-                        <router-link class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm" :to="{ name: 'rider-details', 'params': { id: customer.id, type: 'rider' }}">View</router-link>
+                        <router-link class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white btn-sm" :to="{ name: 'rider-details', 'params': { id: customer.id, type: 'rider' }}">View</router-link>
                         <form @submit.prevent="updateRiderStatus(customer.rider.uuid, 'approved')" v-if="customer.rider && (customer.rider.status == '1' || customer.rider.status == '3')">
                           <button class="bg-green-500 text-white rounded-md px-2 py-1" type="submit">Approve</button>
                         </form>
@@ -117,7 +117,7 @@
                               <textarea id="" class="form-input w-full min-h-full rounded-lg border-2 border-slate-400" rows="4" v-model="rejection_reason" placeholder="Enter Rejection Reason"></textarea>
                             </div>
                             <div class="flex justify-end bottom-2 ">
-                              <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">Submit</button>
+                              <button type="submit" class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white">Submit</button>
                             </div>
                           </form>
                         </modal-action>

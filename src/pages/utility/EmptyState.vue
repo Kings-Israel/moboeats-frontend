@@ -25,7 +25,7 @@
             <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
 
               <!-- Add board button -->
-              <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+              <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white">
                 <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                   <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                 </svg>
@@ -49,7 +49,7 @@
                 </div>
                 <h2 class="text-2xl text-slate-800 dark:text-slate-100 font-bold mb-2">Pay your bills in just a few clicks</h2>
                 <div class="mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+                <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white">
                   <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                     <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                   </svg>

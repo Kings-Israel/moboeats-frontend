@@ -2,7 +2,7 @@
   <div class="mt-4">
     <ul class="mb-6">
       <li class="-mx-2">
-        <button class="flex items-center justify-between w-full p-2 rounded bg-indigo-500/30" @click.stop="$emit('close-msgsidebar')">
+        <button class="flex items-center justify-between w-full p-2 rounded bg-jh-red-600/30" @click.stop="$emit('close-msgsidebar')">
           <div class="flex items-center truncate">
             <img class="w-8 h-8 rounded-full mr-2" src="../../images/user-32-01.jpg" width="32" height="32" alt="User 01" />
             <div class="truncate">
@@ -10,7 +10,7 @@
             </div>
           </div>
           <div class="flex items-center ml-2">
-            <div class="text-xs inline-flex font-medium bg-indigo-400 text-white rounded-full text-center leading-5 px-2">2</div>
+            <div class="text-xs inline-flex font-medium bg-jh-red-400 text-white rounded-full text-center leading-5 px-2">2</div>
           </div>
         </button>
       </li>
@@ -23,7 +23,7 @@
             </div>
           </div>
           <div class="flex items-center ml-2">
-            <div class="text-xs inline-flex font-medium bg-indigo-400 text-white rounded-full text-center leading-5 px-2">4</div>
+            <div class="text-xs inline-flex font-medium bg-jh-red-400 text-white rounded-full text-center leading-5 px-2">4</div>
           </div>
         </button>
       </li>

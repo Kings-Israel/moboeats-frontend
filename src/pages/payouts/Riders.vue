@@ -92,7 +92,7 @@
                         <div class="text-left font-medium flex w-fit px-2 py-1 rounded-md text-green-500" v-if="payout.payable && payout.payable.country">{{formatValue(payout.amount, payout.payable.country)}}</div>
                       </td>
                       <td class="px-2 py-3 whitespace-nowrap w-px flex gap-1" v-if="payout.payable">
-                        <router-link class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm" :to="{ name: 'rider-details', 'params': { id: payout.payable.id, type: 'rider' }}">View</router-link>
+                        <router-link class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white btn-sm" :to="{ name: 'rider-details', 'params': { id: payout.payable.id, type: 'rider' }}">View</router-link>
                       </td>
                     </tr>
                   </tbody>

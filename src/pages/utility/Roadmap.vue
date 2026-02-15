@@ -25,7 +25,7 @@
             <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
 
               <!-- Add board button -->
-              <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+              <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white">
                 <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                   <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                 </svg>
@@ -78,7 +78,7 @@
                         <li class="relative py-2">
                           <div class="flex items-center mb-1">
                             <div class="absolute left-0 h-full w-0.5 bg-slate-200 dark:bg-slate-700 self-start ml-2.5 -translate-x-1/2 translate-y-3" aria-hidden="true"></div>
-                            <div class="absolute left-0 rounded-full bg-indigo-500" aria-hidden="true">
+                            <div class="absolute left-0 rounded-full bg-jh-red-600" aria-hidden="true">
                               <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 20 20">
                                 <path d="M14.4 8.4L13 7l-4 4-2-2-1.4 1.4L9 13.8z" />
                               </svg>
@@ -91,7 +91,7 @@
                         <li class="relative py-2">
                           <div class="flex items-center mb-1">
                             <div class="absolute left-0 h-full w-0.5 bg-slate-200 dark:bg-slate-700 self-start ml-2.5 -translate-x-1/2 translate-y-3" aria-hidden="true"></div>
-                            <div class="absolute left-0 rounded-full bg-indigo-500" aria-hidden="true">
+                            <div class="absolute left-0 rounded-full bg-jh-red-600" aria-hidden="true">
                               <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 20 20">
                                 <path d="M14.4 8.4L13 7l-4 4-2-2-1.4 1.4L9 13.8z" />
                               </svg>
@@ -104,7 +104,7 @@
                         <li class="relative py-2">
                           <div class="flex items-center mb-1">
                             <div class="absolute left-0 h-full w-0.5 bg-slate-200 dark:bg-slate-700 self-start ml-2.5 -translate-x-1/2 translate-y-3" aria-hidden="true"></div>
-                            <div class="absolute left-0 rounded-full bg-indigo-500" aria-hidden="true">
+                            <div class="absolute left-0 rounded-full bg-jh-red-600" aria-hidden="true">
                               <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 20 20">
                                 <path d="M14.4 8.4L13 7l-4 4-2-2-1.4 1.4L9 13.8z" />
                               </svg>
@@ -116,7 +116,7 @@
                         <!-- List item -->
                         <li class="relative py-2">
                           <div class="flex items-center mb-1">
-                            <div class="absolute left-0 rounded-full bg-indigo-500" aria-hidden="true">
+                            <div class="absolute left-0 rounded-full bg-jh-red-600" aria-hidden="true">
                               <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 20 20">
                                 <path d="M14.4 8.4L13 7l-4 4-2-2-1.4 1.4L9 13.8z" />
                               </svg>
@@ -153,7 +153,7 @@
                           </div>
                           <div class="text-slate-400 dark:text-slate-600">·</div>
                           <div>
-                            <div class="text-xs inline-flex font-medium bg-indigo-100 dark:bg-indigo-500/30 text-indigo-600 dark:text-indigo-400 rounded-full text-center px-2.5 py-1">Working on</div>
+                            <div class="text-xs inline-flex font-medium bg-jh-red-50 dark:bg-jh-red-600/30 text-jh-red-700 dark:text-jh-red-400 rounded-full text-center px-2.5 py-1">Working on</div>
                           </div>
                         </div>
                       </header>
@@ -163,7 +163,7 @@
                         <li class="relative py-2">
                           <div class="flex items-center mb-1">
                             <div class="absolute left-0 h-full w-0.5 bg-slate-200 dark:bg-slate-700 self-start ml-2.5 -translate-x-1/2 translate-y-3" aria-hidden="true"></div>
-                            <div class="absolute left-0 rounded-full bg-indigo-500" aria-hidden="true">
+                            <div class="absolute left-0 rounded-full bg-jh-red-600" aria-hidden="true">
                               <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 20 20">
                                 <path d="M14.4 8.4L13 7l-4 4-2-2-1.4 1.4L9 13.8z" />
                               </svg>
@@ -176,7 +176,7 @@
                         <li class="relative py-2">
                           <div class="flex items-center mb-1">
                             <div class="absolute left-0 h-full w-0.5 bg-slate-200 dark:bg-slate-700 self-start ml-2.5 -translate-x-1/2 translate-y-3" aria-hidden="true"></div>
-                            <div class="absolute left-0 rounded-full bg-indigo-500" aria-hidden="true">
+                            <div class="absolute left-0 rounded-full bg-jh-red-600" aria-hidden="true">
                               <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 20 20">
                                 <path d="M14.4 8.4L13 7l-4 4-2-2-1.4 1.4L9 13.8z" />
                               </svg>
@@ -189,7 +189,7 @@
                         <li class="relative py-2">
                           <div class="flex items-center mb-1">
                             <div class="absolute left-0 h-full w-0.5 bg-slate-200 dark:bg-slate-700 self-start ml-2.5 -translate-x-1/2 translate-y-3" aria-hidden="true"></div>
-                            <div class="absolute left-0 rounded-full bg-indigo-500" aria-hidden="true">
+                            <div class="absolute left-0 rounded-full bg-jh-red-600" aria-hidden="true">
                               <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 20 20">
                                 <path d="M14.4 8.4L13 7l-4 4-2-2-1.4 1.4L9 13.8z" />
                               </svg>

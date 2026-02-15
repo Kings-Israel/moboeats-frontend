@@ -92,7 +92,7 @@
                 >Cancel</router-link
               >
               <button
-                class="btn bg-[#2E5945] hover:bg-indigo-600 text-white ml-3 whitespace-nowrap"
+                class="btn bg-[#2E5945] hover:bg-jh-red-700 text-white ml-3 whitespace-nowrap"
                 ref="submit_button"
                 type="submit"
               >

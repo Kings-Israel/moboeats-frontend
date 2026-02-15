@@ -23,7 +23,7 @@
 
             <!-- Right: Actions  -->
             <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
-                <button v-if="userPermissions('add/edit frequently asked questions')" class="bg-[#F3C411] hover:bg-indigo-600 p-2 text-white font-semibold rounded-full px-3" @click="addFaqModal = true">Add FAQ</button>
+                <button v-if="userPermissions('add/edit frequently asked questions')" class="bg-[#F3C411] hover:bg-jh-red-700 p-2 text-white font-semibold rounded-full px-3" @click="addFaqModal = true">Add FAQ</button>
                 <modal-action v-if="userPermissions('add/edit frequently asked questions')" :id="'addMenu'" :modal-open="addFaqModal" @close-modal="addFaqModal = false" :add-class="'max-w-4xl'">
                   <p class="text-xl font-bold text-white">Add Frequently Asked Question</p>
                   <!-- Add/Edit Menu -->
@@ -49,7 +49,7 @@
                       </div>
                     </div>
                     <div class="flex justify-end bottom-2 mt-2">
-                      <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">Submit</button>
+                      <button type="submit" class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white">Submit</button>
                     </div>
                   </form>
                 </modal-action>
@@ -146,7 +146,7 @@
                               </div>
                             </div>
                             <div class="flex justify-end bottom-2 mt-2">
-                              <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">Submit</button>
+                              <button type="submit" class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white">Submit</button>
                             </div>
                           </form>
                         </modal-action>

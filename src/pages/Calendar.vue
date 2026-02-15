@@ -51,7 +51,7 @@
               <hr class="w-px h-full bg-slate-200 dark:bg-slate-700 border-none mx-1" />
 
               <!-- Create event button -->
-              <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+              <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white">
                 <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                   <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                 </svg>
@@ -82,7 +82,7 @@
                 </li>
                 <li class="m-1">
                   <button class="btn-sm bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-500 dark:text-slate-400">
-                    <div class="w-1 h-3.5 bg-indigo-500 shrink-0"></div>
+                    <div class="w-1 h-3.5 bg-jh-red-600 shrink-0"></div>
                     <span class="ml-1.5">Reservations</span>
                   </button>
                 </li>
@@ -99,14 +99,14 @@
                   </button>
                 </li>
                 <li class="m-1">
-                  <button class="btn-sm bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-indigo-500">+Add New</button>
+                  <button class="btn-sm bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-jh-red-600">+Add New</button>
                 </li>
               </ul>
             </div>
 
             <!-- View buttons (requires custom integration) -->
             <div class="flex flex-nowrap -space-x-px">
-              <button class="btn bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:bg-slate-50 text-indigo-500 rounded-none first:rounded-l last:rounded-r">Month</button>
+              <button class="btn bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:bg-slate-50 text-jh-red-600 rounded-none first:rounded-l last:rounded-r">Month</button>
               <button class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-300 rounded-none first:rounded-l last:rounded-r">Week</button>
               <button class="btn bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-300 rounded-none first:rounded-l last:rounded-r">Day</button>
             </div>
@@ -175,7 +175,7 @@
                       <span class="md:hidden">+</span><span>{{getEvents(day).length - 2}}</span> <span class="hidden md:inline">more</span>
                     </button>
                     <!-- Day number -->
-                    <button class="inline-flex ml-auto w-6 h-6 items-center justify-center text-xs sm:text-sm dark:text-slate-300 font-medium text-center rounded-full hover:bg-indigo-100 dark:hover:bg-slate-600" :class="{'text-indigo-500': isToday(day) }">{{day}}</button>
+                    <button class="inline-flex ml-auto w-6 h-6 items-center justify-center text-xs sm:text-sm dark:text-slate-300 font-medium text-center rounded-full hover:bg-jh-red-50 dark:hover:bg-slate-600" :class="{'text-jh-red-600': isToday(day) }">{{day}}</button>
                   </div>
                 </div>
               </div>
@@ -415,7 +415,7 @@ export default {
         case 'sky':
           return 'text-white bg-sky-500';
         case 'indigo':
-          return 'text-white bg-indigo-500';
+          return 'text-white bg-jh-red-600';
         case 'yellow':
           return 'text-white bg-amber-500';
         case 'emerald':

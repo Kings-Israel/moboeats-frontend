@@ -32,7 +32,7 @@
                 </svg>
               </router-link>
               <div class="text-sm">
-                Have an account? <router-link class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" to="/signin">Sign In</router-link>
+                Have an account? <router-link class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" to="/signin">Sign In</router-link>
               </div>
             </div>
 
@@ -43,13 +43,13 @@
                   <div class="absolute left-0 top-1/2 -mt-px w-full h-0.5 bg-slate-200 dark:bg-slate-700" aria-hidden="true"></div>
                   <ul class="relative flex justify-between w-full">
                     <li>
-                      <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500 text-white" to="/onboarding-01">1</router-link>
+                      <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-jh-red-600 text-white" to="/onboarding-01">1</router-link>
                     </li>
                     <li>
-                      <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500 text-white" to="/onboarding-02">2</router-link>
+                      <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-jh-red-600 text-white" to="/onboarding-02">2</router-link>
                     </li>
                     <li>
-                      <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500 text-white" to="/onboarding-03">3</router-link>
+                      <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-jh-red-600 text-white" to="/onboarding-03">3</router-link>
                     </li>
                     <li>
                       <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400" to="/onboarding-04">4</router-link>
@@ -100,7 +100,7 @@
                 </div>
                 <div class="flex items-center justify-between">
                   <router-link class="text-sm underline hover:no-underline" to="/onboarding-02">&lt;- Back</router-link>
-                  <router-link class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-auto" to="/onboarding-04">Next Step -&gt;</router-link>
+                  <router-link class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white ml-auto" to="/onboarding-04">Next Step -&gt;</router-link>
                 </div>
               </form>
 

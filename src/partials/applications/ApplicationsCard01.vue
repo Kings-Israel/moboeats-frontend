@@ -80,7 +80,7 @@
         </div>
         <!-- Card footer -->
         <div>
-          <router-link class="btn-sm w-full bg-indigo-500 hover:bg-indigo-600 text-white" :to="item.link">Install</router-link>
+          <router-link class="btn-sm w-full bg-jh-red-600 hover:bg-jh-red-700 text-white" :to="item.link">Install</router-link>
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@
 
         <!-- Button -->
         <div class="mb-6">
-          <button class="btn w-full bg-indigo-500 hover:bg-indigo-600 text-white">Create Post</button>
+          <button class="btn w-full bg-jh-red-600 hover:bg-jh-red-700 text-white">Create Post</button>
         </div>
 
         <!-- Blocks -->
@@ -18,7 +18,7 @@
               <!-- Event 1 -->
               <li class="relative pb-4 last-of-type:pb-0">
                 <div class="pl-6">
-                  <div class="text-xs font-medium uppercase text-indigo-600 mb-0.5">Mon 27 Dec</div>
+                  <div class="text-xs font-medium uppercase text-jh-red-700 mb-0.5">Mon 27 Dec</div>
                   <div class="text-sm mb-2">
                     <a class="font-medium text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white" href="#0">Silicon Valley Bootstrapper Breakfast Online for 2021</a>
                   </div>
@@ -41,7 +41,7 @@
               <!-- Event 2 -->
               <li class="relative pb-4 last-of-type:pb-0">
                 <div class="pl-6">
-                  <div class="text-xs font-medium uppercase text-indigo-600 mb-0.5">Mon 27 Dec</div>
+                  <div class="text-xs font-medium uppercase text-jh-red-700 mb-0.5">Mon 27 Dec</div>
                   <div class="text-sm mb-2">
                     <a class="font-medium text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white" href="#0">New York & New Jersey Virtual Retreat</a>
                   </div>
@@ -64,7 +64,7 @@
               <!-- Event 3 -->
               <li class="relative pb-4 last-of-type:pb-0">
                 <div class="pl-6">
-                  <div class="text-xs font-medium uppercase text-indigo-600 mb-0.5">Mon 29 Dec</div>
+                  <div class="text-xs font-medium uppercase text-jh-red-700 mb-0.5">Mon 29 Dec</div>
                   <div class="text-sm mb-2">
                     <a class="font-medium text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white" href="#0">The World of AI and Machine Learning - Open Chat</a>
                   </div>
@@ -87,7 +87,7 @@
               <!-- Event 4 -->
               <li class="relative pb-4 last-of-type:pb-0">
                 <div class="pl-6">
-                  <div class="text-xs font-medium uppercase text-indigo-600 mb-0.5">Mon 29 Dec</div>
+                  <div class="text-xs font-medium uppercase text-jh-red-700 mb-0.5">Mon 29 Dec</div>
                   <div class="text-sm mb-2">
                     <a class="font-medium text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white" href="#0">NYC Code & Coffee 2.0 @ Freehold Brooklyn</a>
                   </div>
@@ -109,7 +109,7 @@
               </li>
             </ul>
             <div class="mt-4">
-              <button class="btn-sm w-full bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-indigo-500 shadow-none">View All</button>
+              <button class="btn-sm w-full bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-jh-red-600 shadow-none">View All</button>
             </div>
           </div>
 
@@ -121,35 +121,35 @@
                 <div class="text-sm mb-1">
                   <a class="font-medium text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white" href="#0">I built and sold 2 small SaaS products and quit my job in the last two years — AMA</a>
                 </div>
-                <div class="text-xs text-slate-500"><a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">markusj</a> · 2d · 312 comments</div>
+                <div class="text-xs text-slate-500"><a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">markusj</a> · 2d · 312 comments</div>
               </li>
               <li>
                 <div class="text-sm mb-1">
                   <a class="font-medium text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white" href="#0">Besides Product Hunt, where else should I promote my new project? 🤔</a>
                 </div>
-                <div class="text-xs text-slate-500"><a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">katemerlu</a> · 2h · 7 comments</div>
+                <div class="text-xs text-slate-500"><a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">katemerlu</a> · 2h · 7 comments</div>
               </li>
               <li>
                 <div class="text-sm mb-1">
                   <a class="font-medium text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white" href="#0">Which are the main channels you use to drive traffic to your website? 📈</a>
                 </div>
-                <div class="text-xs text-slate-500"><a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">sophiestar</a> · 3d · 66 comments</div>
+                <div class="text-xs text-slate-500"><a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">sophiestar</a> · 3d · 66 comments</div>
               </li>
               <li>
                 <div class="text-sm mb-1">
                   <a class="font-medium text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white" href="#0">Failed for the past 12 years as a tech entrepreneur. My key takeaways.</a>
                 </div>
-                <div class="text-xs text-slate-500"><a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">ekuplu89</a> · 4h · 14 comments</div>
+                <div class="text-xs text-slate-500"><a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">ekuplu89</a> · 4h · 14 comments</div>
               </li>
               <li>
                 <div class="text-sm mb-1">
                   <a class="font-medium text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white" href="#0">How to build a following on Twitter as a founder - A guide to growing your audience 🚀</a>
                 </div>
-                <div class="text-xs text-slate-500"><a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">molliehacks</a> · 3d · 32 comments</div>
+                <div class="text-xs text-slate-500"><a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">molliehacks</a> · 3d · 32 comments</div>
               </li>
             </ul>
             <div class="mt-4">
-              <button class="btn-sm w-full bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-indigo-500 shadow-none">View All</button>
+              <button class="btn-sm w-full bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-jh-red-600 shadow-none">View All</button>
             </div>
           </div>
 

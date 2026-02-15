@@ -29,7 +29,7 @@
                 <div class="flex flex-wrap items-center -m-1.5">
                   <div class="m-1.5">
                     <!-- Start -->
-                    <div class="text-xs inline-flex font-medium bg-indigo-100 dark:bg-indigo-500/30 text-indigo-600 dark:text-indigo-400 rounded-full text-center px-2.5 py-1">Working on</div>
+                    <div class="text-xs inline-flex font-medium bg-jh-red-50 dark:bg-jh-red-600/30 text-jh-red-700 dark:text-jh-red-400 rounded-full text-center px-2.5 py-1">Working on</div>
                     <!-- End -->
                   </div>
                   <div class="m-1.5">
@@ -76,7 +76,7 @@
                 <div class="flex flex-wrap items-center -m-1.5">
                   <div class="m-1.5">
                     <!-- Start -->
-                    <div class="text-sm inline-flex font-medium bg-indigo-100 dark:bg-indigo-500/30 text-indigo-600 dark:text-indigo-400 rounded-full text-center px-2.5 py-1">Working on</div>
+                    <div class="text-sm inline-flex font-medium bg-jh-red-50 dark:bg-jh-red-600/30 text-jh-red-700 dark:text-jh-red-400 rounded-full text-center px-2.5 py-1">Working on</div>
                     <!-- End -->
                   </div>
                   <div class="m-1.5">

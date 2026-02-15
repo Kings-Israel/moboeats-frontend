@@ -26,7 +26,7 @@
               </div>
 
               <!-- Add card button -->
-              <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+              <button class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white">
                 <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                   <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                 </svg>
@@ -39,7 +39,7 @@
             <div class="mb-5">
               <ul class="flex flex-wrap -m-1">
                 <li class="m-1">
-                  <button class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-transparent shadow-sm bg-indigo-500 text-white duration-150 ease-in-out">View All</button>
+                  <button class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-transparent shadow-sm bg-jh-red-600 text-white duration-150 ease-in-out">View All</button>
                 </li>
                 <li class="m-1">
                   <button class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-sm bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 duration-150 ease-in-out">Physical Cards</button>
@@ -94,7 +94,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="absolute inset-0 border-2 border-transparent peer-checked:border-indigo-400 dark:peer-checked:border-indigo-500 rounded pointer-events-none" aria-hidden="true"></div>
+                <div class="absolute inset-0 border-2 border-transparent peer-checked:border-jh-red-400 dark:peer-checked:border-jh-red-600 rounded pointer-events-none" aria-hidden="true"></div>
               </label>
 
               <!-- Card 2 -->
@@ -138,7 +138,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="absolute inset-0 border-2 border-transparent peer-checked:border-indigo-400 dark:peer-checked:border-indigo-500 rounded pointer-events-none" aria-hidden="true"></div>
+                <div class="absolute inset-0 border-2 border-transparent peer-checked:border-jh-red-400 dark:peer-checked:border-jh-red-600 rounded pointer-events-none" aria-hidden="true"></div>
               </label>
 
             </div>

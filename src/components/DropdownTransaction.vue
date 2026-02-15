@@ -8,8 +8,8 @@
       :aria-expanded="dropdownOpen"
     >
       <div class="flex items-center truncate">
-        <span class="truncate font-medium text-indigo-500 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">My Personal Account</span>
-        <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-indigo-400" viewBox="0 0 12 12">
+        <span class="truncate font-medium text-jh-red-600 group-hover:text-jh-red-700 dark:group-hover:text-jh-red-400">My Personal Account</span>
+        <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-jh-red-400" viewBox="0 0 12 12">
           <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
         </svg>
       </div>

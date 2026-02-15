@@ -131,7 +131,7 @@
 .flatpickr-day.selected.nextMonthDay,
 .flatpickr-day.startRange.nextMonthDay,
 .flatpickr-day.endRange.nextMonthDay {
-    @apply bg-indigo-500 text-indigo-50;
+    @apply bg-jh-red-600 text-indigo-50;
 }
 
 .flatpickr-day.inRange,
@@ -148,7 +148,7 @@
 .flatpickr-day.nextMonthDay:focus,
 .flatpickr-day.today:hover,
 .flatpickr-day.today:focus {
-    @apply bg-indigo-400 text-indigo-50;
+    @apply bg-jh-red-400 text-indigo-50;
 }
 
 .flatpickr-day.inRange,

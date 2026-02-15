@@ -26,7 +26,7 @@
                   <span>Back To Meetups</span>
                 </router-link>
               </div>
-              <div class="text-sm font-semibold text-indigo-500 uppercase mb-2">Mon 27 Dec, 2021 - 9:00 PM -&gt; 10:00 PM</div>
+              <div class="text-sm font-semibold text-jh-red-600 uppercase mb-2">Mon 27 Dec, 2021 - 9:00 PM -&gt; 10:00 PM</div>
               <header class="mb-4">
                 <!-- Title -->
                 <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold mb-2">The World of AI and Machine Learning — Open Chat</h1>
@@ -149,7 +149,7 @@
                     <!-- Content -->
                     <div class="grow p-5 flex flex-col">
                       <div class="grow">
-                        <div class="text-sm font-semibold text-indigo-500 uppercase mb-2">Mon 27 Dec, 2021</div>
+                        <div class="text-sm font-semibold text-jh-red-600 uppercase mb-2">Mon 27 Dec, 2021</div>
                         <a class="inline-flex mb-2" href="#0">
                           <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">New York & New Jersey Virtual Retreat 2021</h3>
                         </a>
@@ -187,7 +187,7 @@
               <!-- 1st block -->
               <div class="bg-white dark:bg-slate-800 p-5 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 lg:w-72 xl:w-80">
                 <div class="space-y-2">
-                  <button class="btn w-full bg-indigo-500 hover:bg-indigo-600 text-white">
+                  <button class="btn w-full bg-jh-red-600 hover:bg-jh-red-700 text-white">
                     <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 16 16">
                       <path d="m2.457 8.516.969-.99 2.516 2.481 5.324-5.304.985.989-6.309 6.284z" />
                     </svg>
@@ -206,7 +206,7 @@
               <div class="bg-white dark:bg-slate-800 p-5 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 lg:w-72 xl:w-80">
                 <div class="flex justify-between space-x-1 mb-5">
                   <div class="text-sm text-slate-800 dark:text-slate-100 font-semibold">Attendees (127)</div>
-                  <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">View All</a>
+                  <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">View All</a>
                 </div>
                 <ul class="space-y-3">
                   <li>
@@ -296,7 +296,7 @@
               <div class="bg-white dark:bg-slate-800 p-5 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 lg:w-72 xl:w-80">
                 <div class="flex justify-between space-x-1 mb-5">
                   <div class="text-sm text-slate-800 dark:text-slate-100 font-semibold">Invite Friends</div>
-                  <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">View All</a>
+                  <a class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">View All</a>
                 </div>
                 <ul class="space-y-3">
                   <li>
@@ -309,7 +309,7 @@
                           <span class="text-sm font-medium text-slate-800 dark:text-slate-100">Haruki Masuno</span>
                         </div>
                       </div>
-                      <button class="text-xs inline-flex font-medium bg-indigo-100 dark:bg-indigo-500/30 text-indigo-600 dark:text-indigo-400 rounded-full text-center px-2.5 py-1">Invite</button>
+                      <button class="text-xs inline-flex font-medium bg-jh-red-50 dark:bg-jh-red-600/30 text-jh-red-700 dark:text-jh-red-400 rounded-full text-center px-2.5 py-1">Invite</button>
                     </div>
                   </li>
                   <li>
@@ -322,7 +322,7 @@
                           <span class="text-sm font-medium text-slate-800 dark:text-slate-100">Joe Huang</span>
                         </div>
                       </div>
-                      <button class="text-xs inline-flex font-medium bg-indigo-100 dark:bg-indigo-500/30 text-indigo-600 dark:text-indigo-400 rounded-full text-center px-2.5 py-1">Invite</button>
+                      <button class="text-xs inline-flex font-medium bg-jh-red-50 dark:bg-jh-red-600/30 text-jh-red-700 dark:text-jh-red-400 rounded-full text-center px-2.5 py-1">Invite</button>
                     </div>
                   </li>
                   <li>
@@ -335,7 +335,7 @@
                           <span class="text-sm font-medium text-slate-800 dark:text-slate-100">Carolyn McNeail</span>
                         </div>
                       </div>
-                      <button class="text-xs inline-flex font-medium bg-indigo-100 dark:bg-indigo-500/30 text-indigo-600 dark:text-indigo-400 rounded-full text-center px-2.5 py-1">Invite</button>
+                      <button class="text-xs inline-flex font-medium bg-jh-red-50 dark:bg-jh-red-600/30 text-jh-red-700 dark:text-jh-red-400 rounded-full text-center px-2.5 py-1">Invite</button>
                     </div>
                   </li>
                   <li>
@@ -348,7 +348,7 @@
                           <span class="text-sm font-medium text-slate-800 dark:text-slate-100">Lisa Sitwala</span>
                         </div>
                       </div>
-                      <button class="text-xs inline-flex font-medium bg-indigo-100 dark:bg-indigo-500/30 text-indigo-600 dark:text-indigo-400 rounded-full text-center px-2.5 py-1">Invite</button>
+                      <button class="text-xs inline-flex font-medium bg-jh-red-50 dark:bg-jh-red-600/30 text-jh-red-700 dark:text-jh-red-400 rounded-full text-center px-2.5 py-1">Invite</button>
                     </div>
                   </li>
                 </ul>

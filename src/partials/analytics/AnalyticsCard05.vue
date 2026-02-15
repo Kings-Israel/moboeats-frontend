@@ -15,7 +15,7 @@
           <ul class="space-y-1 text-sm text-slate-800 dark:text-slate-100 mt-3 mb-4">
             <!-- Item -->
             <li class="relative px-2 py-1">
-              <div class="absolute inset-0 bg-indigo-100 dark:bg-indigo-500/30" aria-hidden="true" style="width: 82%;"></div>
+              <div class="absolute inset-0 bg-jh-red-50 dark:bg-jh-red-600/30" aria-hidden="true" style="width: 82%;"></div>
               <div class="relative flex justify-between space-x-2">
                 <div>Google</div>
                 <div class="font-medium">4.7K</div>
@@ -23,7 +23,7 @@
             </li>
             <!-- Item -->
             <li class="relative px-2 py-1">
-              <div class="absolute inset-0 bg-indigo-100 dark:bg-indigo-500/30" aria-hidden="true" style="width: 70%;"></div>
+              <div class="absolute inset-0 bg-jh-red-50 dark:bg-jh-red-600/30" aria-hidden="true" style="width: 70%;"></div>
               <div class="relative flex justify-between space-x-2">
                 <div>Indiehackers.com</div>
                 <div class="font-medium">4.2K</div>
@@ -31,7 +31,7 @@
             </li>
             <!-- Item -->
             <li class="relative px-2 py-1">
-              <div class="absolute inset-0 bg-indigo-100 dark:bg-indigo-500/30" aria-hidden="true" style="width: 60%;"></div>
+              <div class="absolute inset-0 bg-jh-red-50 dark:bg-jh-red-600/30" aria-hidden="true" style="width: 60%;"></div>
               <div class="relative flex justify-between space-x-2">
                 <div>DuckDuckGo</div>
                 <div class="font-medium">3.4K</div>
@@ -39,7 +39,7 @@
             </li>
             <!-- Item -->
             <li class="relative px-2 py-1">
-              <div class="absolute inset-0 bg-indigo-100 dark:bg-indigo-500/30" aria-hidden="true" style="width: 44%;"></div>
+              <div class="absolute inset-0 bg-jh-red-50 dark:bg-jh-red-600/30" aria-hidden="true" style="width: 44%;"></div>
               <div class="relative flex justify-between space-x-2">
                 <div>Hacker News</div>
                 <div class="font-medium">3.1K</div>
@@ -47,7 +47,7 @@
             </li>
             <!-- Item -->
             <li class="relative px-2 py-1">
-              <div class="absolute inset-0 bg-indigo-100 dark:bg-indigo-500/30" aria-hidden="true" style="width: 40%;"></div>
+              <div class="absolute inset-0 bg-jh-red-50 dark:bg-jh-red-600/30" aria-hidden="true" style="width: 40%;"></div>
               <div class="relative flex justify-between space-x-2">
                 <div>Github.com</div>
                 <div class="font-medium">2.2K</div>
@@ -55,7 +55,7 @@
             </li>
             <!-- Item -->
             <li class="relative px-2 py-1">
-              <div class="absolute inset-0 bg-indigo-100 dark:bg-indigo-500/30" aria-hidden="true" style="width: 30%;"></div>
+              <div class="absolute inset-0 bg-jh-red-50 dark:bg-jh-red-600/30" aria-hidden="true" style="width: 30%;"></div>
               <div class="relative flex justify-between space-x-2">
                 <div>Madewithvuejs.com</div>
                 <div class="font-medium">1.7K</div>
@@ -63,7 +63,7 @@
             </li>
             <!-- Item -->
             <li class="relative px-2 py-1">
-              <div class="absolute inset-0 bg-indigo-100 dark:bg-indigo-500/30" aria-hidden="true" style="width: 22%;"></div>
+              <div class="absolute inset-0 bg-jh-red-50 dark:bg-jh-red-600/30" aria-hidden="true" style="width: 22%;"></div>
               <div class="relative flex justify-between space-x-2">
                 <div>Producthunt.com</div>
                 <div class="font-medium">924</div>
@@ -71,7 +71,7 @@
             </li>
             <!-- Item -->
             <li class="relative px-2 py-1">
-              <div class="absolute inset-0 bg-indigo-100 dark:bg-indigo-500/30" aria-hidden="true" style="width: 12%;"></div>
+              <div class="absolute inset-0 bg-jh-red-50 dark:bg-jh-red-600/30" aria-hidden="true" style="width: 12%;"></div>
               <div class="relative flex justify-between space-x-2">
                 <div>Dev.to</div>
                 <div class="font-medium">696</div>
@@ -81,7 +81,7 @@
         </div>
         <!-- Card footer -->
         <div class="text-center pt-4 pb-1 border-t border-slate-100 dark:border-slate-700">
-          <router-link class="text-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" to="#0">Channels Report -&gt;</router-link>
+          <router-link class="text-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" to="#0">Channels Report -&gt;</router-link>
         </div>
       </div>
     </div>

@@ -34,7 +34,7 @@
                       <span class="text-sm font-medium text-slate-800 dark:text-slate-100">Introductions</span>
                     </div>
                   </div>
-                  <button class="text-xs inline-flex font-medium bg-indigo-100 dark:bg-indigo-500/30 text-indigo-600 dark:text-indigo-400 rounded-full text-center px-2.5 py-1">Join</button>
+                  <button class="text-xs inline-flex font-medium bg-jh-red-50 dark:bg-jh-red-600/30 text-jh-red-700 dark:text-jh-red-400 rounded-full text-center px-2.5 py-1">Join</button>
                 </div>
               </li>
               <li>
@@ -47,7 +47,7 @@
                       <span class="text-sm font-medium text-slate-800 dark:text-slate-100">HackerNews</span>
                     </div>
                   </div>
-                  <button class="text-xs inline-flex font-medium bg-indigo-100 dark:bg-indigo-500/30 text-indigo-600 dark:text-indigo-400 rounded-full text-center px-2.5 py-1">Join</button>
+                  <button class="text-xs inline-flex font-medium bg-jh-red-50 dark:bg-jh-red-600/30 text-jh-red-700 dark:text-jh-red-400 rounded-full text-center px-2.5 py-1">Join</button>
                 </div>
               </li>
               <li>
@@ -77,12 +77,12 @@
                       <span class="text-sm font-medium text-slate-800 dark:text-slate-100">JustChatting</span>
                     </div>
                   </div>
-                  <button class="text-xs inline-flex font-medium bg-indigo-100 dark:bg-indigo-500/30 text-indigo-600 dark:text-indigo-400 rounded-full text-center px-2.5 py-1">Join</button>
+                  <button class="text-xs inline-flex font-medium bg-jh-red-50 dark:bg-jh-red-600/30 text-jh-red-700 dark:text-jh-red-400 rounded-full text-center px-2.5 py-1">Join</button>
                 </div>
               </li>
             </ul>
             <div class="mt-4">
-              <button class="btn-sm w-full bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-indigo-500 shadow-none">View All</button>
+              <button class="btn-sm w-full bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-jh-red-600 shadow-none">View All</button>
             </div>
           </div>
 
@@ -100,7 +100,7 @@
                       <span class="text-sm font-medium text-slate-800 dark:text-slate-100">Elly Boutin</span>
                     </div>
                   </div>
-                  <button class="text-xs inline-flex font-medium bg-indigo-100 dark:bg-indigo-500/30 text-indigo-600 dark:text-indigo-400 rounded-full text-center px-2.5 py-1">Follow</button>
+                  <button class="text-xs inline-flex font-medium bg-jh-red-50 dark:bg-jh-red-600/30 text-jh-red-700 dark:text-jh-red-400 rounded-full text-center px-2.5 py-1">Follow</button>
                 </div>
               </li>
               <li>
@@ -113,7 +113,7 @@
                       <span class="text-sm font-medium text-slate-800 dark:text-slate-100">Rich Harris</span>
                     </div>
                   </div>
-                  <button class="text-xs inline-flex font-medium bg-indigo-100 dark:bg-indigo-500/30 text-indigo-600 dark:text-indigo-400 rounded-full text-center px-2.5 py-1">Follow</button>
+                  <button class="text-xs inline-flex font-medium bg-jh-red-50 dark:bg-jh-red-600/30 text-jh-red-700 dark:text-jh-red-400 rounded-full text-center px-2.5 py-1">Follow</button>
                 </div>
               </li>
               <li>
@@ -126,7 +126,7 @@
                       <span class="text-sm font-medium text-slate-800 dark:text-slate-100">Mary Porzio</span>
                     </div>
                   </div>
-                  <button class="text-xs inline-flex font-medium bg-indigo-100 dark:bg-indigo-500/30 text-indigo-600 dark:text-indigo-400 rounded-full text-center px-2.5 py-1">Follow</button>
+                  <button class="text-xs inline-flex font-medium bg-jh-red-50 dark:bg-jh-red-600/30 text-jh-red-700 dark:text-jh-red-400 rounded-full text-center px-2.5 py-1">Follow</button>
                 </div>
               </li>
               <li>
@@ -139,12 +139,12 @@
                       <span class="text-sm font-medium text-slate-800 dark:text-slate-100">Brian Lovin</span>
                     </div>
                   </div>
-                  <button class="text-xs inline-flex font-medium bg-indigo-100 dark:bg-indigo-500/30 text-indigo-600 dark:text-indigo-400 rounded-full text-center px-2.5 py-1">Follow</button>
+                  <button class="text-xs inline-flex font-medium bg-jh-red-50 dark:bg-jh-red-600/30 text-jh-red-700 dark:text-jh-red-400 rounded-full text-center px-2.5 py-1">Follow</button>
                 </div>
               </li>
             </ul>
             <div class="mt-4">
-              <button class="btn-sm w-full bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-indigo-500 shadow-none">View All</button>
+              <button class="btn-sm w-full bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-jh-red-600 shadow-none">View All</button>
             </div>
           </div>
 
@@ -184,7 +184,7 @@
               </li>
             </ul>
             <div class="mt-4">
-              <button class="btn-sm w-full bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-indigo-500 shadow-none">View All</button>
+              <button class="btn-sm w-full bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-jh-red-600 shadow-none">View All</button>
             </div>
           </div>
 

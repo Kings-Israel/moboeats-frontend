@@ -98,7 +98,7 @@
             >
               Branch Profile is Incomplete
             </h1>
-            <p class="dark:text-indigo-200 flex gap-1">
+            <p class="dark:text-jh-red-200 flex gap-1">
               <span v-if="restaurant.operating_hours.length == 0"
                 ><p>Operating Hours not entered</p></span
               >
@@ -178,7 +178,7 @@
                 ></textarea>
                 <div class="flex justify-end">
                   <button
-                    class="btn bg-indigo-500 hover:bg-indigo-600 text-white"
+                    class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white"
                     @click="updateStatus(3)"
                   >
                     Submit
@@ -204,7 +204,7 @@
                 />
                 <div class="flex justify-end">
                   <button
-                    class="btn bg-indigo-500 hover:bg-indigo-600 text-white"
+                    class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white"
                     @click="updateServiceChargeAgreement"
                   >
                     Submit
@@ -230,7 +230,7 @@
                 />
                 <div class="flex justify-end">
                   <button
-                    class="btn bg-indigo-500 hover:bg-indigo-600 text-white"
+                    class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white"
                     @click="updateGroceriesServiceChargeAgreement"
                   >
                     Submit
@@ -819,7 +819,7 @@
                             class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px"
                           >
                             <router-link
-                              class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm"
+                              class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white btn-sm"
                               :to="{
                                 name: 'order-details',
                                 params: { id: order.uuid },
@@ -938,7 +938,7 @@
                             class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px"
                           >
                             <router-link
-                              class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm"
+                              class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white btn-sm"
                               :to="{
                                 name: 'order-details',
                                 params: { id: payment.uuid },
@@ -1069,7 +1069,7 @@
                         </td>
                         <td class="p-2 flex justify-between">
                           <button
-                            class="btn btn-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400"
+                            class="btn btn-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400"
                             @click="editMenu(menu_item, 'edit menu')"
                           >
                             Edit
@@ -1261,7 +1261,7 @@
                   <div class="flex justify-end mt-6 absolute bottom-4 right-4">
                     <button
                       type="submit"
-                      class="btn bg-indigo-500 hover:bg-indigo-600 text-white"
+                      class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white"
                     >
                       Submit
                     </button>
@@ -1319,7 +1319,7 @@
                     <div class="flex justify-end mt-2">
                       <button
                         type="submit"
-                        class="btn bg-indigo-500 hover:bg-indigo-600 text-white"
+                        class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white"
                       >
                         Submit
                       </button>
@@ -1421,7 +1421,7 @@
                   >
                     <button
                       type="submit"
-                      class="btn bg-indigo-500 hover:bg-indigo-600 text-white"
+                      class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white"
                     >
                       Submit
                     </button>
@@ -1488,7 +1488,7 @@
                         </td>
                         <td class="p-2">
                           <button
-                            class="btn btn-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400"
+                            class="btn btn-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400"
                             @click="editCategory(category)"
                           >
                             Edit
@@ -1565,7 +1565,7 @@
                   </div>
                   <div class="flex justify-end mt-6">
                     <button
-                      class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3"
+                      class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white ml-3"
                     >
                       Submit
                     </button>

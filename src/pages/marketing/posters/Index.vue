@@ -23,7 +23,7 @@
 
             <!-- Right: Actions  -->
             <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
-              <button v-if="userPermissions('add/edit marketing posters')" class="bg-indigo-700 hover:bg-indigo-500 p-2 text-white font-semibold rounded-full px-3" @click="addPosterModal = true">Add Marketing Poster</button>
+              <button v-if="userPermissions('add/edit marketing posters')" class="bg-indigo-700 hover:bg-jh-red-600 p-2 text-white font-semibold rounded-full px-3" @click="addPosterModal = true">Add Marketing Poster</button>
               <modal-action :id="'addMenu'" :modal-open="addPosterModal" @close-modal="addPosterModal = false" :add-class="'max-w-4xl'">
                 <p class="text-xl font-bold text-white">Add Discount on Menus</p>
                 <!-- Add/Edit Menu -->
@@ -43,7 +43,7 @@
                     </div>
                   </div>
                   <div class="flex justify-end bottom-2 mt-2">
-                    <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">Submit</button>
+                    <button type="submit" class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white">Submit</button>
                   </div>
                 </form>
               </modal-action>
@@ -109,7 +109,7 @@
                           <div class="text-sky-700 font-semibold">{{ moment(poster.created_at).format('Do MMM Y') }}</div>
                         </td>
                         <td class="p-2 flex gap-2 justify-end">
-                          <button v-if="user_permissions.includes('add/edit marketing posters')" class="btn btn-sm font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" @click="editPoster(poster)">Edit</button>
+                          <button v-if="user_permissions.includes('add/edit marketing posters')" class="btn btn-sm font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" @click="editPoster(poster)">Edit</button>
                           <button v-if="user_permissions.includes('add/edit marketing posters')" class="btn btn-sm font-medium text-red-500 hover:text-red-600 dark:hover:text-red-400" @click="deletePoster(poster)">Delete</button>
                         </td>
                         <modal-action :id="'edit_'+poster.id" :add-class="'max-w-xl'" :modal-open="editPosterModal" @close-modal="editPosterModal = false">
@@ -136,7 +136,7 @@
                               </div>
                             </div>
                             <div class="flex justify-end bottom-2 mt-2">
-                              <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">Submit</button>
+                              <button type="submit" class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white">Submit</button>
                             </div>
                           </form>
                         </modal-action>

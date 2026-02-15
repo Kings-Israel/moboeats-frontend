@@ -144,7 +144,7 @@
                       >
                         <!-- Menu button -->
                         <router-link
-                          class="btn bg-indigo-500 hover:bg-indigo-600 text-white btn-sm"
+                          class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white btn-sm"
                           :to="{
                             name: 'restaurant-admin-details',
                             params: {

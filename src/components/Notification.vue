@@ -12,7 +12,7 @@
           <svg v-else-if="type === 'success'" class="w-4 h-4 shrink-0 fill-current text-emerald-500 mt-[3px] mr-3" viewBox="0 0 16 16">
             <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zM7 11.4L3.6 8 5 6.6l2 2 4-4L12.4 6 7 11.4z" />
           </svg>
-          <svg v-else class="w-4 h-4 shrink-0 fill-current text-indigo-500 mt-[3px] mr-3" viewBox="0 0 16 16">
+          <svg v-else class="w-4 h-4 shrink-0 fill-current text-jh-red-600 mt-[3px] mr-3" viewBox="0 0 16 16">
               <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 12H7V7h2v5zM8 6c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1z" />
           </svg>
           <div>
@@ -27,7 +27,7 @@
         </button>
       </div>
       <div class="text-right mt-1">
-        <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Action -&gt;</a>
+        <a class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" href="#0">Action -&gt;</a>
       </div>      
     </div>
   </div>  

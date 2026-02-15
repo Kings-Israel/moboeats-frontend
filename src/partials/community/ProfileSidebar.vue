@@ -23,7 +23,7 @@
               </div>
               <!-- Add button -->
               <button class="p-1.5 shrink-0 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-sm ml-2">
-                <svg class="w-4 h-4 fill-current text-indigo-500" viewBox="0 0 16 16">
+                <svg class="w-4 h-4 fill-current text-jh-red-600" viewBox="0 0 16 16">
                   <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1Z" />
                 </svg>
               </button>
@@ -48,7 +48,7 @@
             <div class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase mb-3">Team members</div>
             <ul class="mb-6">
               <li class="-mx-2">
-                <button class="w-full p-2 rounded bg-indigo-500/30" @click.stop="$emit('close-profilesidebar')">
+                <button class="w-full p-2 rounded bg-jh-red-600/30" @click.stop="$emit('close-profilesidebar')">
                   <div class="flex items-center">
                     <div class="relative mr-2">
                       <img class="w-8 h-8 rounded-full" src="../../images/user-32-08.jpg" width="32" height="32" alt="User 08" />

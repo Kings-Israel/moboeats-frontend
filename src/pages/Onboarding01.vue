@@ -32,7 +32,7 @@
                 </svg>
               </router-link>
               <div class="text-sm">
-                Have an account? <router-link class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" to="/signin">Sign In</router-link>
+                Have an account? <router-link class="font-medium text-jh-red-600 hover:text-jh-red-700 dark:hover:text-jh-red-400" to="/signin">Sign In</router-link>
               </div>
             </div>
 
@@ -43,7 +43,7 @@
                   <div class="absolute left-0 top-1/2 -mt-px w-full h-0.5 bg-slate-200 dark:bg-slate-700" aria-hidden="true"></div>
                   <ul class="relative flex justify-between w-full">
                     <li>
-                      <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500 text-white" to="/onboarding-01">1</router-link>
+                      <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-jh-red-600 text-white" to="/onboarding-01">1</router-link>
                     </li>
                     <li>
                       <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400" to="/onboarding-02">2</router-link>
@@ -71,38 +71,38 @@
                     <input type="radio" name="radio-buttons" class="peer sr-only" checked />
                     <div class="flex items-center bg-white text-sm font-medium text-slate-800 dark:text-slate-100 p-4 rounded dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-sm duration-150 ease-in-out">
                       <svg class="w-6 h-6 shrink-0 fill-current mr-4" viewBox="0 0 24 24">
-                        <path class="text-indigo-500" d="m12 10.856 9-5-8.514-4.73a1 1 0 0 0-.972 0L3 5.856l9 5Z" />
-                        <path class="text-indigo-300" d="m11 12.588-9-5V18a1 1 0 0 0 .514.874L11 23.588v-11Z" />
-                        <path class="text-indigo-200" d="M13 12.588v11l8.486-4.714A1 1 0 0 0 22 18V7.589l-9 4.999Z" />
+                        <path class="text-jh-red-600" d="m12 10.856 9-5-8.514-4.73a1 1 0 0 0-.972 0L3 5.856l9 5Z" />
+                        <path class="text-jh-red-300" d="m11 12.588-9-5V18a1 1 0 0 0 .514.874L11 23.588v-11Z" />
+                        <path class="text-jh-red-200" d="M13 12.588v11l8.486-4.714A1 1 0 0 0 22 18V7.589l-9 4.999Z" />
                       </svg>
                       <span>I have a company</span>
                     </div>
-                    <div class="absolute inset-0 border-2 border-transparent peer-checked:border-indigo-400 dark:peer-checked:border-indigo-500 rounded pointer-events-none" aria-hidden="true"></div>
+                    <div class="absolute inset-0 border-2 border-transparent peer-checked:border-jh-red-400 dark:peer-checked:border-jh-red-600 rounded pointer-events-none" aria-hidden="true"></div>
                   </label>
                   <label class="relative block cursor-pointer">
                     <input type="radio" name="radio-buttons" class="peer sr-only" />
                     <div class="flex items-center bg-white text-sm font-medium text-slate-800 dark:text-slate-100 p-4 rounded dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-sm duration-150 ease-in-out">
                       <svg class="w-6 h-6 shrink-0 fill-current mr-4" viewBox="0 0 24 24">
-                        <path class="text-indigo-500" d="m12 10.856 9-5-8.514-4.73a1 1 0 0 0-.972 0L3 5.856l9 5Z" />
-                        <path class="text-indigo-300" d="m11 12.588-9-5V18a1 1 0 0 0 .514.874L11 23.588v-11Z" />
+                        <path class="text-jh-red-600" d="m12 10.856 9-5-8.514-4.73a1 1 0 0 0-.972 0L3 5.856l9 5Z" />
+                        <path class="text-jh-red-300" d="m11 12.588-9-5V18a1 1 0 0 0 .514.874L11 23.588v-11Z" />
                       </svg>
                       <span>I’m a freelance / contractor</span>
                     </div>
-                    <div class="absolute inset-0 border-2 border-transparent peer-checked:border-indigo-400 dark:peer-checked:border-indigo-500 rounded pointer-events-none" aria-hidden="true"></div>
+                    <div class="absolute inset-0 border-2 border-transparent peer-checked:border-jh-red-400 dark:peer-checked:border-jh-red-600 rounded pointer-events-none" aria-hidden="true"></div>
                   </label>
                   <label class="relative block cursor-pointer">
                     <input type="radio" name="radio-buttons" class="peer sr-only" />
                     <div class="flex items-center bg-white text-sm font-medium text-slate-800 dark:text-slate-100 p-4 rounded dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-sm duration-150 ease-in-out">
                       <svg class="w-6 h-6 shrink-0 fill-current mr-4" viewBox="0 0 24 24">
-                        <path class="text-indigo-500" d="m12 10.856 9-5-8.514-4.73a1 1 0 0 0-.972 0L3 5.856l9 5Z" />
+                        <path class="text-jh-red-600" d="m12 10.856 9-5-8.514-4.73a1 1 0 0 0-.972 0L3 5.856l9 5Z" />
                       </svg>
                       <span>I’m just getting started</span>
                     </div>
-                    <div class="absolute inset-0 border-2 border-transparent peer-checked:border-indigo-400 dark:peer-checked:border-indigo-500 rounded pointer-events-none" aria-hidden="true"></div>
+                    <div class="absolute inset-0 border-2 border-transparent peer-checked:border-jh-red-400 dark:peer-checked:border-jh-red-600 rounded pointer-events-none" aria-hidden="true"></div>
                   </label>
                 </div>
                 <div class="flex items-center justify-between">
-                  <router-link class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-auto" to="/onboarding-02">Next Step -&gt;</router-link>
+                  <router-link class="btn bg-jh-red-600 hover:bg-jh-red-700 text-white ml-auto" to="/onboarding-02">Next Step -&gt;</router-link>
                 </div>
               </form>
 
