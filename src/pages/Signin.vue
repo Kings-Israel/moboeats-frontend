@@ -1,6 +1,6 @@
 <template>
   <main class="bg-white dark:bg-slate-900">
-    <div class="relative flex">
+    <div class="flex">
       <!-- Content -->
       <div class="w-full md:w-1/2">
         <div class="min-h-[100dvh] h-full flex flex-col after:flex-1 bg-white">
@@ -62,12 +62,12 @@
 
       <!-- Image -->
       <div
-        class="hidden md:flex flex-col my-auto right-0 md:w-1/2 bg-white"
+        class="hidden md:block md:mt-36 lg:mt-72 bg-white"
         aria-hidden="true"
       >
         <img
           src="../images/javahouse.png"
-          class="my-auto mx-auto w-[30rem] object-contain mt-12 rounded-lg"
+          class="w-[40rem] object-contain rounded-lg"
           alt=""
         />
       </div>
