@@ -9,7 +9,7 @@ export default defineConfig({
   },
   base:
     process.env.NODE_ENV == "production"
-      ? "https://admin.ecodeli.amaniaccess.com"
+      ? "https://admin.javahouse.amaniaccess.com"
       : "",
   plugins: [vue()],
   resolve: {
