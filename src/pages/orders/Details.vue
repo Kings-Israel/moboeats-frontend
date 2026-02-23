@@ -77,6 +77,205 @@
             </div>
           </div>
           <br>
+          <div class="grid grid-cols-2 gap-6" v-if="order.reviews.length > 0">
+            <template v-for="review in order.reviews" :key="review.id">
+              <div v-if="review.reviewable_type === 'App\\Models\\Restaurant'" class="col-span-full xl:col-span-1 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
+                <header class="px-5 py-2 border-t border-slate-100 dark:border-slate-700">
+                  <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Restaurant Review</h2>
+                </header>
+                <div class="flex flex-col space-y-2 p-3">
+                  <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100">
+                    <span class="font-semibold">Rating:</span>
+                    <!-- <strong>{{ review.rating }} / 5</strong> -->
+                     <div class="flex items-center space-x-2">
+                        <!-- Stars -->
+                        <div class="flex space-x-1">
+                          <button>
+                            <span class="sr-only">1 star</span>
+                            <svg
+                              class="w-5 h-5 fill-current"
+                              :class="
+                                Math.round(review.rating) >= 1
+                                  ? 'text-amber-500'
+                                  : 'text-slate-300 dark:text-slate-600'
+                              "
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z"
+                              />
+                            </svg>
+                          </button>
+                          <button>
+                            <span class="sr-only">2 stars</span>
+                            <svg
+                              class="w-5 h-5 fill-current"
+                              :class="
+                                Math.round(review.rating) >= 2
+                                  ? 'text-amber-500'
+                                  : 'text-slate-300 dark:text-slate-600'
+                              "
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z"
+                              />
+                            </svg>
+                          </button>
+                          <button>
+                            <span class="sr-only">3 stars</span>
+                            <svg
+                              class="w-5 h-5 fill-current"
+                              :class="
+                                Math.round(review.rating) >= 3
+                                  ? 'text-amber-500'
+                                  : 'text-slate-300 dark:text-slate-600'
+                              "
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z"
+                              />
+                            </svg>
+                          </button>
+                          <button>
+                            <span class="sr-only">4 stars</span>
+                            <svg
+                              class="w-5 h-5 fill-current"
+                              :class="
+                                Math.round(review.rating) >= 4
+                                  ? 'text-amber-500'
+                                  : 'text-slate-300 dark:text-slate-600'
+                              "
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z"
+                              />
+                            </svg>
+                          </button>
+                          <button>
+                            <span class="sr-only">5 stars</span>
+                            <svg
+                              class="w-5 h-5 fill-current"
+                              :class="
+                                Math.round(review.rating) == 5
+                                  ? 'text-amber-500'
+                                  : 'text-slate-300 dark:text-slate-600'
+                              "
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                  </h1>
+                  <p class="text-slate-800 dark:text-slate-100"><span class="font-semibold">Comment:</span><strong>{{ review.review }}</strong></p>
+                </div>
+              </div>
+              <div v-if="review.reviewable_type === 'App\\Models\\Rider'" class="col-span-full xl:col-span-1 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
+                <header class="px-5 py-2 border-t border-slate-100 dark:border-slate-700">
+                  <h2 class="font-semibold text-slate-800 dark:text-slate-100 underline">Rider Review</h2>
+                </header>
+                <div class="flex flex-col space-y-2 p-3">
+                  <h1 class="flex gap-2 font-bold text-slate-800 dark:text-slate-100">
+                    <span class="font-semibold">Rating:</span>
+                    <!-- <strong>{{ review.rating }} / 5</strong> -->
+                     <div class="flex items-center space-x-2">
+                        <!-- Stars -->
+                        <div class="flex space-x-1">
+                          <button>
+                            <span class="sr-only">1 star</span>
+                            <svg
+                              class="w-5 h-5 fill-current"
+                              :class="
+                                Math.round(review.rating) >= 1
+                                  ? 'text-amber-500'
+                                  : 'text-slate-300 dark:text-slate-600'
+                              "
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z"
+                              />
+                            </svg>
+                          </button>
+                          <button>
+                            <span class="sr-only">2 stars</span>
+                            <svg
+                              class="w-5 h-5 fill-current"
+                              :class="
+                                Math.round(review.rating) >= 2
+                                  ? 'text-amber-500'
+                                  : 'text-slate-300 dark:text-slate-600'
+                              "
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z"
+                              />
+                            </svg>
+                          </button>
+                          <button>
+                            <span class="sr-only">3 stars</span>
+                            <svg
+                              class="w-5 h-5 fill-current"
+                              :class="
+                                Math.round(review.rating) >= 3
+                                  ? 'text-amber-500'
+                                  : 'text-slate-300 dark:text-slate-600'
+                              "
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z"
+                              />
+                            </svg>
+                          </button>
+                          <button>
+                            <span class="sr-only">4 stars</span>
+                            <svg
+                              class="w-5 h-5 fill-current"
+                              :class="
+                                Math.round(review.rating) >= 4
+                                  ? 'text-amber-500'
+                                  : 'text-slate-300 dark:text-slate-600'
+                              "
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z"
+                              />
+                            </svg>
+                          </button>
+                          <button>
+                            <span class="sr-only">5 stars</span>
+                            <svg
+                              class="w-5 h-5 fill-current"
+                              :class="
+                                Math.round(review.rating) == 5
+                                  ? 'text-amber-500'
+                                  : 'text-slate-300 dark:text-slate-600'
+                              "
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M10 5.934L8 0 6 5.934H0l4.89 3.954L2.968 16 8 12.223 13.032 16 11.11 9.888 16 5.934z"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                  </h1>
+                  <p class="text-slate-800 dark:text-slate-100"><span class="font-semibold">Comment:</span><strong>{{ review.review }}</strong></p>
+                </div>
+              </div>
+            </template>
+          </div>
+          <br>
           <div class="grid grid-cols-3 gap-6">
             <div class="col-span-full xl:col-span-2" :class="order.delivery ? 'xl:col-span-2' : 'xl:col-span-3'">
               <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 h-fit">
