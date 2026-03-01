@@ -197,7 +197,6 @@ export default {
       $http.get('/admin/users/rider')
         .then(response => {
           customers.value = response.data.data
-          console.log(customers.value.data)
         })
     })
 

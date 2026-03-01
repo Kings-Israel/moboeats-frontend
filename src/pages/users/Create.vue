@@ -37,11 +37,11 @@
                     >{{ user.label }}</label
                   >
                   <input
-                    :id="user.key"
                     class="w-full rounded-md border-2 border-slate-400 text-slate-900"
                     type="text"
                     :placeholder="user.label"
                     v-model="user.model"
+                    :required="user.required"
                   />
                 </div>
               </div>
@@ -61,6 +61,7 @@
                     :type="user.type ?? 'text'"
                     :placeholder="user.label"
                     v-model="user.model"
+                    :required="user.required"
                   />
                 </div>
               </div>
@@ -79,6 +80,7 @@
                     class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                     type="file"
                     autoComplete="off"
+                    :required="document.required"
                   />
                 </div>
               </div>
@@ -141,63 +143,82 @@ export default {
     const router = useRouter();
     const sidebarOpen = ref(false);
 
+    const name = ref("");
+    const email = ref("");
+    const phone_number = ref("");
+    const address = ref("");
+    const postal_code = ref("");
+    const city = ref("");
+    const id_number = ref("");
+    const kra_pin = ref("");
+    const license_expiry_date = ref("");
+
     const user_data = ref([
       {
         key: "name",
-        model: "name",
+        model: name.value,
         type: "text",
         label: "Name",
+        required: true,
       },
       {
         key: "email",
-        model: "email",
+        model: email.value,
         type: "email",
         label: "Email",
+        required: true,
       },
       {
         key: "phone_number",
-        model: "phone_number",
+        model: phone_number.value,
         type: "tel",
         label: "Phone Number",
+        required: true,
       },
       {
         key: "address",
-        model: "address",
+        model: address.value,
         type: "text",
         label: "Address",
+        required: true,
       },
       {
         key: "postal_code",
-        model: "postal_code",
+        model: postal_code.value,
         type: "text",
         label: "Postal Code",
+        required: true,
       },
       {
         key: "city",
-        model: "city",
+        model: city.value,
         type: "text",
         label: "City",
+        required: true,
       },
     ]);
 
     const user_meta_data = ref([
       {
         key: "id_number",
-        model: "id_number",
+        model: id_number.value,
         type: "number",
         label: "ID Number",
+        required: true,
       },
       {
         key: "kra_pin",
-        model: "kra_pin",
+        model: kra_pin.value,
         type: "text",
         label: "KRA PIN",
+        required: true,
       },
       {
         key: "license_expiry_date",
-        model: "license_expiry_date",
+        model: license_expiry_date.value,
         type: "date",
         label: "License Expiry Date",
+        required: true,
       },
     ]);
 
@@ -207,56 +228,51 @@ export default {
         model: "License",
         accept: ".pdf,.jpg",
         label: "License",
+        required: true,
       },
       {
         key: "Birth Certificate",
         model: "birth_certificate",
         accept: ".pdf,.jpg",
         label: "Birth Certificate",
+        required: false,
       },
       {
         key: "ID (Front)",
         model: "id_front",
         accept: ".jpg",
         label: "ID Front",
+        required: true,
       },
       {
         key: "ID (Back)",
         model: "id_back",
         accept: ".jpg",
         label: "ID Back",
+        required: true,
       },
       {
         key: "Passport Photo",
         model: "passport",
         accept: ".jpg,.png",
         label: "Passport Photo",
+        required: true,
       },
       {
         key: "Certificate of Good Conduct",
         model: "good_conduct",
         accept: ".pdf",
         label: "Certificate of Good Conduct",
+        required: true,
       },
       {
         key: "Letter from local chief",
         model: "letter_from_local_chief",
         accept: ".pdf",
         label: "Letter from local chief",
+        required: false,
       },
     ]);
-
-    const partners = ref([]);
-
-    const getPartners = async () => {
-      await $http.get("/restaurants").then((res) => {
-        partners.value = res.data;
-      });
-    };
-
-    onMounted(() => {
-      getPartners();
-    });
 
     const formData = new FormData();
 
@@ -305,7 +321,6 @@ export default {
       user_data,
       user_meta_data,
       documents,
-      partners,
 
       onSubmit,
       onFileChange,
