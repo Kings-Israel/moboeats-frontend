@@ -96,8 +96,8 @@ jobs:
             rm /tmp/dist.tar.gz
             
             # Set proper permissions
-            chown -R www-data:www-data dist/
-            chmod -R 755 dist/
+            # chown -R www-data:www-data dist/
+            # chmod -R 755 dist/
             
             # Restart web server if needed (uncomment based on your setup)
             # sudo systemctl reload nginx
