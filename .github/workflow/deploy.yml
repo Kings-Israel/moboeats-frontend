@@ -1,0 +1,129 @@
+name: Deploy Vue Application
+
+on:
+  push:
+    branches:
+      - guardnow
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Determine deployment environment
+        id: branch-check
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            echo "environment=production" >> $GITHUB_OUTPUT
+            echo "server_path=/var/www/production" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.ref }}" == "refs/heads/staging" ]]; then
+            echo "environment=staging" >> $GITHUB_OUTPUT
+            echo "server_path=/var/www/staging" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.ref }}" == "refs/heads/develop" ]]; then
+            echo "environment=development" >> $GITHUB_OUTPUT
+            echo "server_path=/var/www/development" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.ref }}" == "refs/heads/guardnow" ]]; then
+            echo "environment=guardnow" >> $GITHUB_OUTPUT
+            echo "server_path=/var/www/html/js/guardnow-delivery" >> $GITHUB_OUTPUT
+          fi
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Environment: $(cat $GITHUB_OUTPUT | grep environment | cut -d'=' -f2)"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run build
+        run: |
+          # Increase Node.js memory limit to prevent heap out-of-memory errors
+          export NODE_OPTIONS="--max-old-space-size=4096"
+          npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Create deployment archive
+        run: |
+          tar -czf dist.tar.gz dist/
+          echo "Archive created: $(ls -lh dist.tar.gz)"
+
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to server
+        env:
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+          SERVER_PATH: ${{ steps.branch-check.outputs.server_path }}
+          ENVIRONMENT: ${{ steps.branch-check.outputs.environment }}
+        run: |
+          echo "Deploying to $ENVIRONMENT environment..."
+          
+          # Upload the build archive
+          scp -i ~/.ssh/deploy_key dist.tar.gz $SERVER_USER@$SERVER_HOST:/tmp/
+          
+          # Execute deployment commands on server
+          ssh -i ~/.ssh/deploy_key $SERVER_USER@$SERVER_HOST << 'EOF'
+            set -e
+            
+            # Navigate to deployment directory
+            cd ${{ env.SERVER_PATH }}
+            
+            # Create backup of current deployment
+            if [ -d "dist" ]; then
+              timestamp=$(date +%Y%m%d_%H%M%S)
+              echo "Creating backup: dist_backup_$timestamp"
+              mv dist dist_backup_$timestamp
+              
+              # Keep only last 5 backups
+              ls -dt dist_backup_* | tail -n +6 | xargs rm -rf
+            fi
+            
+            # Extract new build
+            tar -xzf /tmp/dist.tar.gz
+            rm /tmp/dist.tar.gz
+            
+            # Set proper permissions
+            chown -R www-data:www-data dist/
+            chmod -R 755 dist/
+            
+            # Restart web server if needed (uncomment based on your setup)
+            # sudo systemctl reload nginx
+            # sudo systemctl restart pm2
+            
+            echo "Deployment completed successfully!"
+          EOF
+
+      - name: Verify deployment
+        run: |
+          ssh -i ~/.ssh/deploy_key ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
+            "ls -lh ${{ steps.branch-check.outputs.server_path }}/dist"
+
+      - name: Cleanup
+        if: always()
+        run: |
+          rm -f ~/.ssh/deploy_key
+
+      - name: Deployment notification
+        if: success()
+        run: |
+          echo "✅ Successfully deployed ${{ github.ref_name }} to ${{ steps.branch-check.outputs.environment }}"
+          echo "Commit: ${{ github.sha }}"
+          echo "Author: ${{ github.actor }}"
+
+      - name: Failure notification
+        if: failure()
+        run: |
+          echo "❌ Deployment failed for ${{ github.ref_name }}"
+          echo "Check the logs above for details"

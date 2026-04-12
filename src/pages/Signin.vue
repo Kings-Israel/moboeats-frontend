@@ -52,7 +52,7 @@
                 <button
                   class="btn bg-black hover:bg-jh-red-700 text-white ml-3"
                 >
-                  Sign In
+                  Login
                 </button>
               </div>
             </form>
